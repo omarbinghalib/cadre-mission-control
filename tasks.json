@@ -78,6 +78,12 @@
     "track": "w3"
   },
   {
+    "title": "W3 - VPN / Secure Networking (NetBird integration + secure-tunnel spin-up)",
+    "status": "pending",
+    "track": "w3",
+    "note": "New module + backend domain 'network'; integrates the NetBird (WireGuard mesh) management API + netbird CLI; 'spin up a secure VPN' = provision network + setup keys + connect devices; also the secure transport for iPhone <-> on-prem model <-> backend <-> VAMS. Self-hosting a NetBird control plane is a GATED sub-option. Lead lane of the next wave after Wave 2 clears."
+  },
+  {
     "title": "W4 - Integrations (VAMS + API/MCP plugin framework)",
     "status": "pending",
     "track": "w4"
