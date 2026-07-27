@@ -25,15 +25,15 @@
   },
   {
     "title": "W2 - Email engine (IMAP/SMTP, unified inbox, drafts, AI replies) - MVP",
-    "status": "in_progress",
+    "status": "done",
     "track": "w2",
-    "note": "Recovered/salvaged after lane cancellation: backend done + committed (5595395); inbox frontend now building in an isolated worktree."
+    "note": "Wave 2 complete: backend + frontend, full build green. HEAD b0ce760."
   },
   {
     "title": "W2 - Model Manager + Router (local model install/manage, API providers, per-agent brains)",
-    "status": "in_progress",
+    "status": "done",
     "track": "w2",
-    "note": "Recovered/salvaged after lane cancellation: backend done + 11/11 tests, committed (cd30323); frontend now building in an isolated worktree."
+    "note": "Wave 2 complete: backend + frontend, full build green. HEAD b0ce760."
   },
   {
     "title": "W2 - Understanding layer (thread intelligence, runs on local LLM)",
@@ -43,9 +43,15 @@
   },
   {
     "title": "W2 - Agent Builder (permissions selector + orders/tasks + draft-and-approve autonomy)",
-    "status": "in_progress",
+    "status": "done",
     "track": "w2",
-    "note": "Recovered/salvaged after lane cancellation: backend done, committed (098edf3); frontend + packages/agents runtime now building in an isolated worktree."
+    "note": "Wave 2 complete: backend + frontend, full build green. HEAD b0ce760."
+  },
+  {
+    "title": "Windows desktop shell + bundled backend (runnable Windows app)",
+    "status": "pending",
+    "track": "w4",
+    "note": "HIGH PRIORITY - NEXT UP after Wave 2 (reprioritized Windows-first): Tauri shell wrapping @cadre/core with the Python backend + services bundled as sidecars. This is the near-term 'running correctly' milestone; leads the existing W4 desktop-shell lane below in sequencing."
   },
   {
     "title": "W3 - Calendar",
@@ -96,10 +102,70 @@
     "note": "Integrate Mattermost (open-source team chat) as a first-class comms surface in Cadre (view/send channels + DMs); endpoint + token configured in Settings > External Connectors; can also feed the understanding layer and be agent-actionable (permission-gated). New module + backend domain (single-owner lane; edits shared registries)."
   },
   {
+    "title": "Gateway-mesh + internal-resources registry + adaptive routing (VAMS/drives/any service)",
+    "status": "pending",
+    "track": "w3",
+    "note": "Accumulated scope, recorded in docs. Generalizes the VPN/Secure-Networking adaptive routing beyond VAMS to any registered internal resource (drives, services) via a shared gateway-mesh + resource registry."
+  },
+  {
+    "title": "Network map + NetBird dashboard section (manage)",
+    "status": "pending",
+    "track": "w3",
+    "note": "Accumulated scope, recorded in docs. In-app 'manage' section: visual network map + NetBird status/peers/routes."
+  },
+  {
+    "title": "LLM map + live usage telemetry (manage)",
+    "status": "pending",
+    "track": "w3",
+    "note": "Accumulated scope, recorded in docs. In-app 'manage' section: map of configured LLM providers/models + live usage telemetry."
+  },
+  {
+    "title": "Resource-aware model catalog + custom LLM sources",
+    "status": "pending",
+    "track": "w3",
+    "note": "Accumulated scope, recorded in docs. Model catalog that accounts for local hardware resources; supports adding custom/self-hosted LLM sources."
+  },
+  {
+    "title": "NFS/SMB -> real Windows mapped drive (OS-level, adaptive-routed)",
+    "status": "pending",
+    "track": "w3",
+    "note": "Accumulated scope, recorded in docs. Expose a network share as a real OS-level mapped drive on Windows, routed adaptively (in-office vs remote via the gateway-mesh)."
+  },
+  {
+    "title": "App lifecycle: tray/background, startup+shutdown splash, teardown-on-quit",
+    "status": "pending",
+    "track": "w3",
+    "note": "Accumulated scope, recorded in docs. Desktop app lifecycle: system-tray/background mode, startup + shutdown splash screens, clean teardown on quit."
+  },
+  {
+    "title": "Email auto-organization (learn folders, spam, sort, feed understanding)",
+    "status": "pending",
+    "track": "w3",
+    "note": "Accumulated scope, recorded in docs. Learns the user's folder structure, spam patterns, and sorting habits; auto-organizes and feeds signal to the Understanding layer."
+  },
+  {
+    "title": "Audit log + Activity report (all auto-actions, reversible)",
+    "status": "pending",
+    "track": "w3",
+    "note": "Accumulated scope, recorded in docs. Full audit log + human-readable activity report of every autonomous/agent action; every logged action must be reversible."
+  },
+  {
+    "title": "Multi-device coordination (backend run-once, leader-election/failover)",
+    "status": "pending",
+    "track": "w3",
+    "note": "Accumulated scope, recorded in docs. Ensures the backend runs once across a user's devices via leader-election, with failover if the leader goes offline."
+  },
+  {
+    "title": "Per-section health (green/amber/red + needs-attention), cross-cutting",
+    "status": "pending",
+    "track": "cross-cutting",
+    "note": "Accumulated scope, recorded in docs. Every section/module surfaces a green/amber/red health state + a needs-attention signal, cross-cutting across the whole app."
+  },
+  {
     "title": "Security hardening & data-protection audit (cross-cutting)",
     "status": "pending",
     "track": "cross-cutting",
-    "note": "Encrypt all secrets at rest (email creds, LLM API keys, VAMS creds, Mattermost tokens, NetBird keys); TLS everywhere; NetBird mesh for internal transport; no-secret-logging; least-privilege agent permissions; secure encrypted device sync; no data-shipping telemetry. Every lane must comply; a final audit GATES done. Already recorded in CLAUDE.md section 14 + docs/lanes.md."
+    "note": "Encrypt all secrets at rest (email creds, LLM API keys, VAMS creds, Mattermost tokens, NetBird keys); TLS everywhere; NetBird mesh for internal transport; no-secret-logging; least-privilege agent permissions; secure encrypted device sync; no data-shipping telemetry. Every lane must comply; a final audit GATES done. Already recorded in CLAUDE.md section 14 + docs/lanes.md. ALSO cross-cutting policies in force project-wide: (1) hard approval-gate - no send / VAMS-write / Mattermost-post without human review; (2) the 'intelligence bar' quality standard for AI-driven actions. See docs/lanes.md."
   },
   {
     "title": "W4 - Integrations (VAMS + API/MCP plugin framework)",
@@ -109,14 +175,16 @@
   {
     "title": "W4 - Desktop shell (Tauri) + Windows on-device model plugin",
     "status": "pending",
-    "track": "w4"
+    "track": "w4",
+    "note": "Original desktop-shell lane; the on-device-model-plugin portion follows the new higher-priority 'Windows desktop shell + bundled backend' task above."
   },
   {
     "title": "W4 - Mobile shell (Capacitor) + Apple Intelligence + on-device model plugins",
     "status": "pending",
     "track": "w4",
     "gated": true,
-    "note": "GATED - blocked on Apple Developer signing + physical iPhone/Mac hardware; needs Omar. Excluded from autonomous ETA."
+    "parked": true,
+    "note": "PARKED/DEFERRED: Windows-first reprioritization - mobile is paused, not cancelled. Also GATED - blocked on Apple Developer signing + physical iPhone/Mac hardware; needs Omar. Excluded from autonomous ETA."
   },
   {
     "title": "W5 - Gamification (Command System) layer",
