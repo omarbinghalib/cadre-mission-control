@@ -55,39 +55,45 @@
   },
   {
     "title": "W3 - Calendar",
-    "status": "in_progress",
+    "status": "done",
     "track": "w3",
-    "note": "Wave A fanning out in parallel worktrees."
+    "note": "Wave A merged to main at HEAD 0983376, conflict-free; @cadre/core + @cadre/agents build green, backend loads all domains = 87 API paths."
   },
   {
     "title": "W3 - Projects / Gantt",
-    "status": "in_progress",
+    "status": "done",
     "track": "w3",
-    "note": "Wave A fanning out in parallel worktrees."
+    "note": "Wave A merged to main at HEAD 0983376, conflict-free; @cadre/core + @cadre/agents build green, backend loads all domains = 87 API paths."
   },
   {
     "title": "W3 - Reports",
-    "status": "in_progress",
+    "status": "done",
     "track": "w3",
-    "note": "Wave A fanning out in parallel worktrees."
+    "note": "Wave A merged to main at HEAD 0983376, conflict-free; @cadre/core + @cadre/agents build green, backend loads all domains = 87 API paths."
   },
   {
     "title": "W3 - Presentations",
-    "status": "in_progress",
+    "status": "done",
     "track": "w3",
-    "note": "Wave A fanning out in parallel worktrees."
+    "note": "Wave A merged to main at HEAD 0983376, conflict-free; @cadre/core + @cadre/agents build green, backend loads all domains = 87 API paths."
   },
   {
     "title": "W3 - Contacts",
-    "status": "in_progress",
+    "status": "done",
     "track": "w3",
-    "note": "Wave A fanning out in parallel worktrees."
+    "note": "Wave A merged to main at HEAD 0983376, conflict-free; @cadre/core + @cadre/agents build green, backend loads all domains = 87 API paths."
   },
   {
     "title": "W3 - Chat (contextual per-module + general command chat)",
+    "status": "done",
+    "track": "w3",
+    "note": "Wave A merged to main at HEAD 0983376, conflict-free; @cadre/core + @cadre/agents build green, backend loads all domains = 87 API paths."
+  },
+  {
+    "title": "Email -> Understanding pipeline wiring (populate derived feeds)",
     "status": "in_progress",
     "track": "w3",
-    "note": "Wave A fanning out in parallel worktrees."
+    "note": "HIGH PRIORITY: wiring email sync to feed threads through the understanding layer so derived module feeds (calendar/projects/reports/contacts) show real data instead of empty. Foundational to the 'email chains -> everything' through-line. A lane discovered nothing currently triggers /understand, so the store is empty on a fresh setup."
   },
   {
     "title": "W3 - VPN / Secure Networking (NetBird integration + secure-tunnel spin-up)",
