@@ -103,27 +103,57 @@
   },
   {
     "title": "Wave B scaffold: register connector surfaces (Settings, Mattermost, GitHub, VAMS)",
+    "status": "done",
+    "track": "w3",
+    "note": "Wave B merged to main at 7e1f100, clean; 33 backend + 18 model-manager tests green, 122 API paths, VAMS<->Settings seam verified."
+  },
+  {
+    "title": "W3 - Settings > External Connectors (LLM providers: Claude/Grok/others + VAMS old+new endpoints/creds)",
+    "status": "done",
+    "track": "w3",
+    "note": "Wave B merged to main at 7e1f100, clean; 33 backend + 18 model-manager tests green, 122 API paths, VAMS<->Settings seam verified. Encrypted-at-rest creds."
+  },
+  {
+    "title": "VAMS connector (old+new)",
+    "status": "done",
+    "track": "w3",
+    "note": "Wave B merged to main at 7e1f100, clean; 33 backend + 18 model-manager tests green, 122 API paths, VAMS<->Settings seam verified."
+  },
+  {
+    "title": "W3 - Mattermost integration (team chat as a first-class surface + connector)",
+    "status": "done",
+    "track": "w3",
+    "note": "Wave B merged to main at 7e1f100, clean; 33 backend + 18 model-manager tests green, 122 API paths, VAMS<->Settings seam verified."
+  },
+  {
+    "title": "GitHub connector",
+    "status": "done",
+    "track": "w3",
+    "note": "Wave B merged to main at 7e1f100, clean; 33 backend + 18 model-manager tests green, 122 API paths, VAMS<->Settings seam verified."
+  },
+  {
+    "title": "Multi-org email",
+    "status": "done",
+    "track": "w3",
+    "note": "Wave B merged to main at 7e1f100, clean; 33 backend + 18 model-manager tests green, 122 API paths, VAMS<->Settings seam verified."
+  },
+  {
+    "title": "Resource-aware model catalog + custom LLM sources",
+    "status": "done",
+    "track": "w3",
+    "note": "Wave B merged to main at 7e1f100, clean; 33 backend + 18 model-manager tests green, 122 API paths, VAMS<->Settings seam verified."
+  },
+  {
+    "title": "Fix VAMS Settings spec: add org_slug + verify_tls (enable NEW VAMS config)",
     "status": "in_progress",
     "track": "w3",
-    "note": "Sets up the Wave B connector fill lanes to parallelize cleanly."
+    "note": "Caught during Wave B merge review: the Settings VAMS form was missing org_slug, which the new multi-tenant VAMS requires. Fix dispatched."
   },
   {
     "title": "W3 - VPN / Secure Networking (NetBird integration + secure-tunnel spin-up)",
     "status": "pending",
     "track": "w3",
     "note": "New module + backend domain 'network'; integrates the NetBird (WireGuard mesh) management API + netbird CLI; 'spin up a secure VPN' = provision network + setup keys + connect devices; also the secure transport for iPhone <-> on-prem model <-> backend <-> VAMS. Self-hosting a NetBird control plane is a GATED sub-option. Lead lane of the next wave after Wave 2 clears. ADAPTIVE / NETWORK-AWARE ROUTING: Cadre auto-detects in-office vs remote and, when remote, automatically routes VAMS traffic through the work-PC gateway peer (a NetBird routing peer advertising the VAMS DB subnet) - Cadre configures the network route + access policy/ACL itself via the NetBird management API, with failover awareness if the work PC is offline."
-  },
-  {
-    "title": "W3 - Settings > External Connectors (LLM providers: Claude/Grok/others + VAMS old+new endpoints/creds)",
-    "status": "pending",
-    "track": "w3",
-    "note": "SINGLE place for ALL connector credentials: LLM API providers (Claude, Grok/xAI, others) each with endpoint+key; VAMS connections (endpoint+creds) backward-compatible with BOTH old and new VAMS; and Mattermost (endpoint + token). Spans the Model Manager provider registry + the Integrations (VAMS) connector + the Mattermost connector + a Settings UI surface."
-  },
-  {
-    "title": "W3 - Mattermost integration (team chat as a first-class surface + connector)",
-    "status": "pending",
-    "track": "w3",
-    "note": "Integrate Mattermost (open-source team chat) as a first-class comms surface in Cadre (view/send channels + DMs); endpoint + token configured in Settings > External Connectors; can also feed the understanding layer and be agent-actionable (permission-gated). New module + backend domain (single-owner lane; edits shared registries)."
   },
   {
     "title": "Gateway-mesh + internal-resources registry + adaptive routing (VAMS/drives/any service)",
@@ -142,12 +172,6 @@
     "status": "pending",
     "track": "w3",
     "note": "Accumulated scope, recorded in docs. In-app 'manage' section: map of configured LLM providers/models + live usage telemetry."
-  },
-  {
-    "title": "Resource-aware model catalog + custom LLM sources",
-    "status": "pending",
-    "track": "w3",
-    "note": "Accumulated scope, recorded in docs. Model catalog that accounts for local hardware resources; supports adding custom/self-hosted LLM sources."
   },
   {
     "title": "NFS/SMB -> real Windows mapped drive (OS-level, adaptive-routed)",
