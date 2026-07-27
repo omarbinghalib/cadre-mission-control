@@ -1,90 +1,90 @@
 [
   {
-    "title": "W0 \u00b7 Repo bootstrap + CLAUDE.md + architecture/lane docs",
+    "title": "W0 - Repo bootstrap + CLAUDE.md + architecture/lane docs",
     "status": "in_progress",
     "track": "w0",
     "note": "monorepo skeleton, CLAUDE.md, arch + lane docs"
   },
   {
-    "title": "W0 \u00b7 Mission-control dashboard",
+    "title": "W0 - Mission-control dashboard",
     "status": "in_progress",
     "track": "w0",
     "note": "this dashboard: config, task board, heartbeat scheduled task"
   },
   {
-    "title": "W1 \u00b7 Backend spine (FastAPI, accounts/auth, DB schema, device sync)",
+    "title": "W1 - Backend spine (FastAPI, accounts/auth, DB schema, device sync)",
     "status": "pending",
     "track": "w1"
   },
   {
-    "title": "W2 \u00b7 Email engine (IMAP/SMTP, unified inbox, drafts, AI replies) \u2014 MVP",
+    "title": "W2 - Email engine (IMAP/SMTP, unified inbox, drafts, AI replies) - MVP",
     "status": "pending",
     "track": "w2"
   },
   {
-    "title": "W2 \u00b7 Model Manager + Router (local model install/manage, API providers, per-agent brains)",
+    "title": "W2 - Model Manager + Router (local model install/manage, API providers, per-agent brains)",
     "status": "pending",
     "track": "w2"
   },
   {
-    "title": "W2 \u00b7 Understanding layer (thread intelligence, runs on local LLM)",
+    "title": "W2 - Understanding layer (thread intelligence, runs on local LLM)",
     "status": "pending",
     "track": "w2"
   },
   {
-    "title": "W2 \u00b7 Agent Builder (permissions selector + orders/tasks + draft-and-approve autonomy)",
+    "title": "W2 - Agent Builder (permissions selector + orders/tasks + draft-and-approve autonomy)",
     "status": "pending",
     "track": "w2"
   },
   {
-    "title": "W3 \u00b7 Calendar",
+    "title": "W3 - Calendar",
     "status": "pending",
     "track": "w3"
   },
   {
-    "title": "W3 \u00b7 Projects / Gantt",
+    "title": "W3 - Projects / Gantt",
     "status": "pending",
     "track": "w3"
   },
   {
-    "title": "W3 \u00b7 Reports",
+    "title": "W3 - Reports",
     "status": "pending",
     "track": "w3"
   },
   {
-    "title": "W3 \u00b7 Presentations",
+    "title": "W3 - Presentations",
     "status": "pending",
     "track": "w3"
   },
   {
-    "title": "W3 \u00b7 Contacts",
+    "title": "W3 - Contacts",
     "status": "pending",
     "track": "w3"
   },
   {
-    "title": "W3 \u00b7 Chat (contextual per-module + general command chat)",
+    "title": "W3 - Chat (contextual per-module + general command chat)",
     "status": "pending",
     "track": "w3"
   },
   {
-    "title": "W4 \u00b7 Integrations (VAMS + API/MCP plugin framework)",
+    "title": "W4 - Integrations (VAMS + API/MCP plugin framework)",
     "status": "pending",
     "track": "w4"
   },
   {
-    "title": "W4 \u00b7 Desktop shell (Tauri) + Windows on-device model plugin",
+    "title": "W4 - Desktop shell (Tauri) + Windows on-device model plugin",
     "status": "pending",
     "track": "w4"
   },
   {
-    "title": "W4 \u00b7 Mobile shell (Capacitor) + Apple Intelligence + on-device model plugins",
+    "title": "W4 - Mobile shell (Capacitor) + Apple Intelligence + on-device model plugins",
     "status": "pending",
     "track": "w4",
     "gated": true,
-    "note": "GATED \u2014 blocked on Apple Developer signing + physical iPhone/Mac hardware; needs Omar. Excluded from autonomous ETA."
+    "note": "GATED - blocked on Apple Developer signing + physical iPhone/Mac hardware; needs Omar. Excluded from autonomous ETA."
   },
   {
-    "title": "W5 \u00b7 Gamification (Command System) layer",
+    "title": "W5 - Gamification (Command System) layer",
     "status": "pending",
     "track": "w5"
   },
