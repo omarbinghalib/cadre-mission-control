@@ -13,35 +13,39 @@
   },
   {
     "title": "W1 - Backend spine (FastAPI, accounts/auth, DB schema, device sync)",
-    "status": "in_progress",
+    "status": "done",
     "track": "w1",
-    "note": "Wave-1 foundation worker building this + the shared-TS foundation together."
+    "note": "Verified: uvicorn runs, /health 200, device-token auth, 11 domain router stubs live, 11 commits pushed."
   },
   {
     "title": "W1 - Frontend/shared-TS foundation (packages/core + packages/agents)",
-    "status": "in_progress",
+    "status": "done",
     "track": "w1",
-    "note": "Same Wave-1 foundation worker; sibling lane to the backend spine."
+    "note": "Verified: full workspace typecheck + build green, design tokens ported, module rail + 10 module stubs, agents TS contracts."
   },
   {
     "title": "W2 - Email engine (IMAP/SMTP, unified inbox, drafts, AI replies) - MVP",
-    "status": "pending",
-    "track": "w2"
+    "status": "in_progress",
+    "track": "w2",
+    "note": "Wave-2 lane dispatched, in progress."
   },
   {
     "title": "W2 - Model Manager + Router (local model install/manage, API providers, per-agent brains)",
-    "status": "pending",
-    "track": "w2"
+    "status": "in_progress",
+    "track": "w2",
+    "note": "Wave-2 lane dispatched, in progress."
   },
   {
     "title": "W2 - Understanding layer (thread intelligence, runs on local LLM)",
-    "status": "pending",
-    "track": "w2"
+    "status": "in_progress",
+    "track": "w2",
+    "note": "Wave-2 lane dispatched, in progress."
   },
   {
     "title": "W2 - Agent Builder (permissions selector + orders/tasks + draft-and-approve autonomy)",
-    "status": "pending",
-    "track": "w2"
+    "status": "in_progress",
+    "track": "w2",
+    "note": "Wave-2 lane dispatched, in progress."
   },
   {
     "title": "W3 - Calendar",
