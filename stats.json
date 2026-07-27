@@ -1,7 +1,7 @@
 {
-  "updated": "2026-07-27T03:27:29Z",
-  "heartbeat_at": "2026-07-27T03:27:29Z",
-  "last_activity": "2026-07-27T03:27:29Z",
+  "updated": "2026-07-27T03:28:29Z",
+  "heartbeat_at": "2026-07-27T03:28:29Z",
+  "last_activity": "2026-07-27T03:28:29Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
@@ -31,8 +31,8 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-07-27T03:27:29Z",
-      "out_age_min": 9.8,
+      "out_last_active": "2026-07-27T03:28:29Z",
+      "out_age_min": 0.9,
       "log_bytes": null,
       "status": "live",
       "live": true,
@@ -49,13 +49,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-07-27T03:27:27Z",
+      "out_last_active": "2026-07-27T03:28:27Z",
       "out_age_min": 0.0,
-      "log_bytes": 374004,
-      "output_tokens": 32898,
-      "cache_read_tokens": 6379563,
-      "cache_creation_tokens": 372814,
-      "msgs": 105,
+      "log_bytes": 408545,
+      "output_tokens": 34814,
+      "cache_read_tokens": 7341214,
+      "cache_creation_tokens": 380961,
+      "msgs": 115,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -68,11 +68,11 @@
       "focus": "Bootstrap Cadre repo + docs",
       "agent_id": "aaf091e371d28ae5d",
       "short_id": "aaf091e3",
-      "head_commit": "docs: brand concept \u2014 cadre-concept.html + brand README pointer",
-      "head_commit_at": "2026-07-27T07:13:56+04:00",
-      "head_ago_min": 13.6,
+      "head_commit": "feat(backend): app factory wiring core + all 11 domain routers; pin deps",
+      "head_commit_at": "2026-07-27T07:28:27+04:00",
+      "head_ago_min": 0.0,
       "out_last_active": "2026-07-27T03:14:34Z",
-      "out_age_min": 12.9,
+      "out_age_min": 13.9,
       "log_bytes": 217633,
       "output_tokens": 25632,
       "cache_read_tokens": 2768838,
@@ -93,13 +93,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-07-27T03:27:17Z",
-      "out_age_min": 0.2,
-      "log_bytes": 650049,
-      "output_tokens": 46096,
-      "cache_read_tokens": 17107893,
-      "cache_creation_tokens": 367706,
-      "msgs": 179,
+      "out_last_active": "2026-07-27T03:28:27Z",
+      "out_age_min": 0.0,
+      "log_bytes": 683908,
+      "output_tokens": 50935,
+      "cache_read_tokens": 18610101,
+      "cache_creation_tokens": 378628,
+      "msgs": 189,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -112,17 +112,17 @@
       "full_id": "a344ae8a46cbda996",
       "group": "wave-1-foundation-spine",
       "group_label": "Wave 1 foundation spine",
-      "last_active": "2026-07-27T03:27:27Z",
-      "log_bytes": 374004,
+      "last_active": "2026-07-27T03:28:27Z",
+      "log_bytes": 408545,
       "live": true,
       "status": "live",
       "age_min": 0.0,
       "subagent": true,
       "recent": true,
-      "output_tokens": 32898,
-      "cache_read_tokens": 6379563,
-      "cache_creation_tokens": 372814,
-      "msgs": 105
+      "output_tokens": 34814,
+      "cache_read_tokens": 7341214,
+      "cache_creation_tokens": 380961,
+      "msgs": 115
     },
     {
       "id": "aaf091e3",
@@ -133,7 +133,7 @@
       "log_bytes": 217633,
       "live": false,
       "status": "idle",
-      "age_min": 12.9,
+      "age_min": 13.9,
       "subagent": true,
       "recent": true,
       "output_tokens": 25632,
@@ -146,29 +146,29 @@
       "full_id": "add2cbea4eefa8456",
       "group": "mission-control",
       "group_label": "Mission Control Worker",
-      "last_active": "2026-07-27T03:27:17Z",
-      "log_bytes": 650049,
+      "last_active": "2026-07-27T03:28:27Z",
+      "log_bytes": 683908,
       "live": true,
       "status": "live",
-      "age_min": 0.2,
+      "age_min": 0.0,
       "subagent": true,
       "recent": true,
-      "output_tokens": 46096,
-      "cache_read_tokens": 17107893,
-      "cache_creation_tokens": 367706,
-      "msgs": 179
+      "output_tokens": 50935,
+      "cache_read_tokens": 18610101,
+      "cache_creation_tokens": 378628,
+      "msgs": 189
     },
     {
       "id": "0f7b13a0",
       "full_id": "0f7b13a0-2a85-49c0-96d5-e5a8832d8b85",
       "group": "commander",
       "group_label": "Session 0f7b13a0",
-      "last_active": "2026-07-27T03:17:39Z",
+      "last_active": "2026-07-27T03:27:34Z",
       "output_tokens": 359174,
       "cache_read_tokens": 4069288,
       "cache_creation_tokens": 821883,
       "msgs": 52,
-      "age_min": 9.8,
+      "age_min": 0.9,
       "live": true,
       "status": "live",
       "subagent": false,
@@ -188,11 +188,35 @@
         "track": "w0",
         "branch": "main",
         "available": true,
-        "commits_24h": 8,
-        "commits_7d": 8
+        "commits_24h": 12,
+        "commits_7d": 12
       }
     ],
     "recent": [
+      {
+        "hash": "ba97e11",
+        "at": "2026-07-27T07:28:27+04:00",
+        "subject": "feat(backend): app factory wiring core + all 11 domain routers; pin deps",
+        "track": "w0"
+      },
+      {
+        "hash": "7dff8ac",
+        "at": "2026-07-27T07:28:19+04:00",
+        "subject": "feat(backend): per-domain router/model registry \u2014 11 self-registering domain stubs",
+        "track": "w0"
+      },
+      {
+        "hash": "78787ab",
+        "at": "2026-07-27T07:28:10+04:00",
+        "subject": "feat(backend): device-token auth (bootstrap + get_current_device) + sync/health routers",
+        "track": "w0"
+      },
+      {
+        "hash": "c45ce50",
+        "at": "2026-07-27T07:27:58+04:00",
+        "subject": "feat(backend): app skeleton \u2014 settings, SQLAlchemy 2.0 DB, core models",
+        "track": "w0"
+      },
       {
         "hash": "05b10fa",
         "at": "2026-07-27T07:13:56+04:00",
@@ -215,30 +239,6 @@
         "hash": "f1be5a0",
         "at": "2026-07-27T07:13:55+04:00",
         "subject": "docs: architecture \u2014 components, data flow, native bridges, MCP; stack marked PROPOSED",
-        "track": "w0"
-      },
-      {
-        "hash": "8a3d0ca",
-        "at": "2026-07-27T07:12:01+04:00",
-        "subject": "docs: CLAUDE.md \u2014 living project record (what/decisions/through-line/modules/models/agents/gamification/brand/workflow/open-decisions)",
-        "track": "w0"
-      },
-      {
-        "hash": "5545bdd",
-        "at": "2026-07-27T07:12:01+04:00",
-        "subject": "docs: top-level README \u2014 product summary + monorepo layout",
-        "track": "w0"
-      },
-      {
-        "hash": "f62eb54",
-        "at": "2026-07-27T07:10:29+04:00",
-        "subject": "scaffold: monorepo skeleton \u2014 pnpm workspaces, package.json stubs, service pyproject stubs, per-dir READMEs",
-        "track": "w0"
-      },
-      {
-        "hash": "44d7084",
-        "at": "2026-07-27T07:10:23+04:00",
-        "subject": "chore: repo bootstrap \u2014 .gitignore (Node/Python/Rust-Tauri/Capacitor/OS) + MIT LICENSE",
         "track": "w0"
       }
     ]
@@ -360,6 +360,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-07-27T03:27:29Z"
+    "checked_at": "2026-07-27T03:28:30Z"
   }
 }
