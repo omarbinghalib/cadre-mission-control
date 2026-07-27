@@ -1,0 +1,784 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Cadre Mission Control</title>
+<link rel="icon" id="favicon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%232a78d6'/%3E%3C/svg%3E">
+<style>
+  /* ---- design tokens (validated dataviz reference palette) ---- */
+  :root{
+    --bg:#f9f9f7; --panel:#fcfcfb; --panel-2:#f3f4f1;
+    --ink:#0b0b0b; --ink-2:#52514e; --muted:#898781;
+    --line:#e1e0d9; --line-strong:#c3c2b7;
+    --accent:#2a78d6; --accent-soft:#2a78d61a;
+    --fe:#2a78d6; --be:#1baf7a; --cmd:#4a3aa7;
+    --ok:#0ca30c; --warn:#fab219; --serious:#ec835a; --bad:#d03b3b;
+    --ok-ink:#006300;
+    --track:#e6e8ee; --ring:rgba(11,11,11,.10);
+    --seq-100:#cde2fb; --seq-250:#86b6ef; --seq-400:#3987e5; --seq-550:#1c5cab;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0d0d0d; --panel:#1a1a19; --panel-2:#222220;
+      --ink:#fff; --ink-2:#c3c2b7; --muted:#898781;
+      --line:#2c2c2a; --line-strong:#383835;
+      --accent:#3987e5; --accent-soft:#3987e522;
+      --fe:#3987e5; --be:#199e70; --cmd:#9085e9;
+      --ok:#0ca30c; --warn:#fab219; --serious:#ec835a; --bad:#d03b3b;
+      --ok-ink:#0ca30c;
+      --track:#2a2e37; --ring:rgba(255,255,255,.10);
+      --seq-100:#184f95; --seq-250:#1c5cab; --seq-400:#3987e5; --seq-550:#6da7ec;
+    }
+  }
+  :root[data-theme="light"]{
+    --bg:#f9f9f7; --panel:#fcfcfb; --panel-2:#f3f4f1; --ink:#0b0b0b; --ink-2:#52514e; --muted:#898781;
+    --line:#e1e0d9; --line-strong:#c3c2b7; --accent:#2a78d6; --accent-soft:#2a78d61a;
+    --fe:#2a78d6; --be:#1baf7a; --cmd:#4a3aa7; --ok:#0ca30c; --warn:#fab219; --serious:#ec835a; --bad:#d03b3b;
+    --ok-ink:#006300; --track:#e6e8ee; --ring:rgba(11,11,11,.10);
+    --seq-100:#cde2fb; --seq-250:#86b6ef; --seq-400:#3987e5; --seq-550:#1c5cab;
+  }
+  :root[data-theme="dark"]{
+    --bg:#0d0d0d; --panel:#1a1a19; --panel-2:#222220; --ink:#fff; --ink-2:#c3c2b7; --muted:#898781;
+    --line:#2c2c2a; --line-strong:#383835; --accent:#3987e5; --accent-soft:#3987e522;
+    --fe:#3987e5; --be:#199e70; --cmd:#9085e9; --ok:#0ca30c; --warn:#fab219; --serious:#ec835a; --bad:#d03b3b;
+    --ok-ink:#0ca30c; --track:#2a2e37; --ring:rgba(255,255,255,.10);
+    --seq-100:#184f95; --seq-250:#1c5cab; --seq-400:#3987e5; --seq-550:#6da7ec;
+  }
+  *{box-sizing:border-box}
+  html,body{max-width:100%;overflow-x:hidden}
+  body{background:var(--bg);color:var(--ink);
+    font:15px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;margin:0;padding:24px 18px 72px}
+  .wrap{max-width:1060px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+  .mono{font-family:ui-monospace,"Cascadia Code",Consolas,monospace;font-variant-numeric:tabular-nums}
+  h1{font-size:22px;margin:0;letter-spacing:.2px}
+  h2{font-size:15px;margin:0;letter-spacing:.2px}
+  .eyebrow{font-size:10.5px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin:0}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px 20px}
+  .split{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+  .row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+  .foot{color:var(--muted);font-size:12px}
+  .sub{color:var(--ink-2);font-size:13px}
+
+  header.top{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+  .fresh{display:flex;align-items:center;gap:9px;background:var(--panel);border:1px solid var(--line);
+    border-radius:999px;padding:7px 14px}
+  .pulse{width:9px;height:9px;border-radius:50%;background:var(--ok);flex:none}
+  .pulse.live{animation:pulse 1.6s ease-in-out infinite}
+  @keyframes pulse{50%{opacity:.3}}
+  @media (prefers-reduced-motion:reduce){.pulse.live{animation:none}}
+  .themebtn{background:var(--panel-2);border:1px solid var(--line);color:var(--ink-2);border-radius:999px;
+    padding:6px 12px;font-size:12px;cursor:pointer}
+
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}
+  .kpi{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:13px 15px}
+  .kpi .v{font-size:25px;font-weight:650;line-height:1.05}
+  .kpi .k{font-size:10.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-top:3px}
+
+  .chip{display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:600;letter-spacing:.06em;
+    text-transform:uppercase;padding:3px 9px;border-radius:999px;border:1px solid var(--line-strong);color:var(--ink-2)}
+  .chip.ok{border-color:var(--ok);color:var(--ok-ink)}
+  .chip.mute{border-color:var(--line-strong);color:var(--muted)}
+  .chip .d{width:7px;height:7px;border-radius:50%;background:currentColor}
+  .chip .dp{width:7px;height:7px;border-radius:50%;background:currentColor;flex:none}
+  .chip .dp.beat{animation:pulse 1.6s ease-in-out infinite}
+
+  .hbars{display:flex;flex-direction:column;gap:9px;margin-top:4px}
+  .hbar{display:grid;grid-template-columns:118px 1fr;gap:10px;align-items:center;font-size:12.5px}
+  .hbar .lab{color:var(--ink-2);text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .hbar .barwrap{display:flex;align-items:center;gap:8px}
+  .hbar .bar{height:15px;border-radius:0 4px 4px 0;min-width:2px;background:var(--seq-400)}
+  .hbar .val{color:var(--ink-2);font-size:12px;white-space:nowrap}
+
+  /* workers roster */
+  .wgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:14px;margin-top:14px}
+  .wcard{background:var(--panel-2);border:1px solid var(--line);border-left:3px solid var(--muted);
+    border-radius:10px;padding:14px 15px;display:flex;flex-direction:column;gap:7px}
+  .wcard.r-commander{border-left-color:var(--cmd)}
+  .wcard.r-backend{border-left-color:var(--be)}
+  .wcard.r-frontend{border-left-color:var(--fe)}
+  .wcard.r-mission-control{border-left-color:var(--ink-2)}
+  .wcard .whead{display:flex;justify-content:space-between;align-items:center;gap:8px}
+  .wname{font-weight:650;font-size:14px}
+  .wbranch{font-size:11px;color:var(--muted)}
+  .wfocus{font-size:12px;color:var(--ink-2);line-height:1.45}
+  .wact{font-size:11.5px;color:var(--ink);display:flex;gap:6px;align-items:baseline;
+    background:var(--panel);border:1px solid var(--line);border-radius:7px;padding:7px 9px;line-height:1.4}
+  .wact .arrow{color:var(--muted);flex:none}
+  .wact .sub,.wmeta .sub{color:var(--muted);font-size:inherit}
+  .wmeta{display:flex;gap:14px;flex-wrap:wrap;margin-top:auto;padding-top:2px;font-size:11px;color:var(--muted)}
+  .wmeta b{color:var(--ink-2);font-weight:600}
+
+  .scroll{overflow-x:auto}
+  table{width:100%;border-collapse:collapse;font-size:12.5px}
+  th,td{padding:7px 10px 7px 0;border-top:1px solid var(--line);text-align:left;vertical-align:middle}
+  th{color:var(--muted);font-weight:500;font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;border-top:none}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .sdot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:7px;vertical-align:middle}
+  .legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:2px}
+  .legend span{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--ink-2)}
+  .legend i{width:10px;height:10px;border-radius:3px;display:inline-block}
+  .banner{display:none;position:sticky;top:0;z-index:99;background:var(--bad);color:#fff;
+    font:600 13px/1.4 system-ui;padding:11px 16px;text-align:center;border-radius:0 0 8px 8px;margin:-24px -18px 4px}
+  .banner.warn{background:var(--warn);color:#3a2c00}
+  .banner b{text-decoration:underline}
+
+  /* time-to-go-live ETA (dual unit) */
+  .etahero{display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:center;margin-top:12px}
+  @media(max-width:620px){.etahero{grid-template-columns:1fr}}
+  .etabig{font-size:52px;font-weight:700;line-height:1;letter-spacing:-1px}
+  .etadual{display:flex;gap:10px;flex-wrap:wrap}
+  .etaunit{background:var(--panel-2);border:1px solid var(--line);border-radius:9px;padding:9px 15px}
+  .etaunit .u{font-size:19px;font-weight:650;line-height:1.1}
+  .etaunit .l{font-size:9.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-top:2px}
+  .etavel{display:flex;gap:16px;flex-wrap:wrap;margin-top:10px;font-size:12px;color:var(--ink-2)}
+
+  /* docker container grid */
+  .dgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:8px;margin-top:12px}
+  .dcell{border:1px solid var(--line);border-left:3px solid var(--muted);border-radius:8px;
+    padding:8px 10px;background:var(--panel-2);display:flex;flex-direction:column;gap:2px}
+  .dcell.up{border-left-color:var(--ok)}
+  .dcell.warn{border-left-color:var(--warn)}
+  .dcell.bad{border-left-color:var(--bad)}
+  .dcell.down{border-left-color:var(--bad);opacity:.7}
+  .dcell .dname{font-size:12.5px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .dcell .dmeta{font-size:10px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+  /* stack-health strip */
+  .hstrip{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px}
+  .hpill{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line-strong);
+    border-radius:999px;padding:5px 12px;font-size:12px;color:var(--ink-2)}
+  .hpill .hd{width:8px;height:8px;border-radius:50%;background:var(--muted);flex:none}
+  .hpill.up{border-color:var(--ok);color:var(--ok-ink)} .hpill.up .hd{background:var(--ok)}
+  .hpill.warn{border-color:var(--warn)} .hpill.warn .hd{background:var(--warn)}
+  .hpill.down{border-color:var(--bad);color:var(--bad)} .hpill.down .hd{background:var(--bad)}
+
+  /* recent-commits feed */
+  .cfeed{list-style:none;margin:8px 0 0;padding:0}
+  .cfeed li{display:flex;gap:9px;align-items:baseline;padding:5px 0;border-top:1px solid var(--line);font-size:12.5px}
+  .cfeed li:first-child{border-top:none}
+  .cfeed .cmk{width:8px;height:8px;border-radius:2px;flex:none;position:relative;top:2px}
+
+  /* tasks & progress tracker (commander-maintained work board; data-driven from tasks.json) */
+  .tkbar{height:14px;background:var(--track);border-radius:99px;overflow:hidden;display:flex;margin:12px 0 4px}
+  .tkbar>i{height:100%;transition:width .3s}
+  .tkbar .d{background:var(--ok)} .tkbar .p{background:var(--warn)}
+  .tk-group{margin-top:14px}
+  .tk-track{font-size:10.5px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);
+    margin:0 0 4px;display:flex;align-items:center;gap:7px}
+  .tk-track i{width:9px;height:9px;border-radius:3px;display:inline-block}
+  ul.tklist{list-style:none;margin:0;padding:0}
+  ul.tklist li.tk{display:grid;grid-template-columns:auto 1fr auto;gap:4px 10px;align-items:baseline;
+    padding:7px 0;border-top:1px solid var(--line)}
+  ul.tklist li.tk:first-child{border-top:none}
+  .tk .tkmk{width:10px;height:10px;border-radius:50%;flex:none;position:relative;top:3px}
+  .tk.done .tkmk{background:var(--ok)}
+  .tk.in_progress .tkmk{background:var(--warn);animation:pulse 1.6s ease-in-out infinite}
+  .tk.pending .tkmk{background:var(--line-strong)}
+  @media (prefers-reduced-motion:reduce){.tk.in_progress .tkmk{animation:none}}
+  .tk .tktitle{font-size:13px}
+  .tk.done .tktitle{color:var(--muted);text-decoration:line-through}
+  .tk .tkstatus{font-size:9.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);white-space:nowrap}
+  .tk .tknote{grid-column:2/-1;font-size:11px;color:var(--muted);margin-top:1px}
+  details.earlier{margin-top:12px;background:var(--panel-2);border:1px solid var(--line);border-radius:10px;padding:10px 14px}
+  details.earlier>summary{cursor:pointer;font-size:12.5px;color:var(--ink-2);list-style:none}
+  details.earlier>summary::-webkit-details-marker{display:none}
+  details.earlier>summary::before{content:"▸ ";color:var(--muted)}
+  details.earlier[open]>summary::before{content:"▾ "}
+  details.earlier .sub{color:var(--muted)}
+
+  /* ===== COMMANDER-NEEDS-ATTENTION red-alert mode ===== */
+  html.attention-on{--bg:#2a0808}
+  html.attention-on body{background:var(--bg)}
+  #attnOverlay{display:none;position:fixed;inset:0;z-index:9998;pointer-events:none;
+    box-shadow:inset 0 0 0 8px #d03b3b;animation:attnpulse 1.15s ease-in-out infinite}
+  html.attention-on #attnOverlay{display:block}
+  @keyframes attnpulse{
+    0%,100%{box-shadow:inset 0 0 0 7px rgba(208,59,59,.95)}
+    50%{box-shadow:inset 0 0 0 18px rgba(208,59,59,.45)}}
+  @media (prefers-reduced-motion:reduce){#attnOverlay{animation:none}}
+  #attnCard{display:none;position:fixed;top:18px;left:50%;transform:translateX(-50%);
+    z-index:9999;width:min(600px,calc(100% - 28px));background:#c0261f;color:#fff;
+    border:2px solid #fff;border-radius:14px;padding:18px 22px;
+    box-shadow:0 16px 50px rgba(0,0,0,.5);animation:attncard 1.15s ease-in-out infinite}
+  html.attention-on #attnCard{display:block}
+  @keyframes attncard{50%{box-shadow:0 16px 50px rgba(208,59,59,.9)}}
+  @media (prefers-reduced-motion:reduce){#attnCard{animation:none}}
+  #attnCard .ahead{font-size:16px;font-weight:800;letter-spacing:.3px;display:flex;
+    align-items:center;gap:9px;margin:0 0 8px}
+  #attnCard .amsg{font-size:14px;line-height:1.5;margin:0 0 10px;white-space:pre-wrap}
+  #attnCard .aopts-lab{font-size:10.5px;text-transform:uppercase;letter-spacing:.12em;
+    opacity:.85;margin:0 0 5px}
+  #attnCard ol.aopts{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:5px}
+  #attnCard ol.aopts li{font-size:13.5px;line-height:1.45}
+  #attnCard .afoot{font-size:11px;opacity:.85;margin:11px 0 0}
+
+</style>
+</head>
+<body>
+<div id="attn" class="banner"></div>
+<div id="pubBanner" class="banner warn"></div>
+
+<div id="attnOverlay"></div>
+<div id="attnCard" role="alertdialog" aria-live="assertive">
+  <p class="ahead">⚠ COMMANDER NEEDS YOUR ATTENTION</p>
+  <p class="amsg" id="attnMsg"></p>
+  <p class="aopts-lab">Decision options — reply in the session</p>
+  <ol class="aopts" id="attnOpts"></ol>
+  <p class="afoot" id="attnFoot"></p>
+</div>
+
+<div class="wrap">
+
+  <header class="top">
+    <div>
+      <p class="eyebrow">Cadre — multi-agent run</p>
+      <h1>Mission Control</h1>
+    </div>
+    <div class="row">
+      <button class="themebtn" id="themebtn" title="Toggle light/dark">◐ theme</button>
+      <div class="fresh"><span class="pulse live" id="pulse"></span>
+        <span id="freshTxt" class="mono" style="font-size:12.5px">data fresh</span>
+        <span id="clientChecked" class="mono" style="font-size:11px;color:var(--muted)"></span></div>
+    </div>
+  </header>
+
+
+  <!-- ============ TIME TO GO-LIVE — DUAL-UNIT ETA (config.progress) ============ -->
+  <section class="panel" id="secProgress" style="display:none">
+    <div class="split">
+      <div>
+        <p class="eyebrow">Overall completion + remaining effort, in two units — hours &amp; worker-sessions</p>
+        <h2>Time to go-live &mdash; estimate</h2>
+      </div>
+      <span class="chip mute"><span class="d"></span>estimate · not a commitment</span>
+    </div>
+    <div class="etahero">
+      <div>
+        <div class="etabig" id="etaPct">—</div>
+        <p class="foot" style="margin:2px 0 0">overall complete <span style="font-size:10px">(est.)</span></p>
+      </div>
+      <div>
+        <p class="eyebrow" style="margin:0 0 6px">Estimated remaining</p>
+        <div class="etadual">
+          <div class="etaunit"><div class="u" id="etaHours">—</div><div class="l">active work</div></div>
+          <div class="etaunit"><div class="u" id="etaSessions">—</div><div class="l">worker-sessions</div></div>
+        </div>
+        <div class="etavel" id="etaVel"></div>
+      </div>
+    </div>
+    <div id="etaTracks" class="hbars" style="margin-top:16px"></div>
+    <p class="foot" id="etaBasis" style="margin:12px 0 0"></p>
+  </section>
+
+  <!-- ============ TASKS & PROGRESS (commander-maintained work tracker; polls tasks.json) ============ -->
+  <section class="panel" id="tasksPanel" style="display:none">
+    <div class="split">
+      <div>
+        <p class="eyebrow">Live work tracker — the current plan, maintained by the commander (bin/tasks.sh)</p>
+        <h2>Tasks &amp; progress</h2>
+      </div>
+      <span class="foot mono" id="tkSummary">—</span>
+    </div>
+    <div class="tkbar" id="tkBar"></div>
+    <p class="foot" style="margin:2px 0 0">
+      <span style="color:var(--ok-ink)">■</span> done ·
+      <span style="color:var(--warn)">■</span> in&nbsp;progress ·
+      <span style="color:var(--muted)">■</span> pending
+    </p>
+    <div id="tkGroups"></div>
+  </section>
+
+  <!-- ============ ACTIVE WORKERS — LIVE ONLY ============ -->
+  <section class="panel">
+    <div class="split">
+      <div>
+        <p class="eyebrow">Who is working right now — live subagents only (task-output touched &lt;10m)</p>
+        <h2>Active workers</h2>
+      </div>
+      <span class="chip ok"><span class="dp beat"></span><span id="awCount">—</span> live now</span>
+    </div>
+    <div id="activeWorkers" class="wgrid"></div>
+  </section>
+
+  <!-- ============ WORKERS — COMMAND ROSTER ============ -->
+  <section class="panel">
+    <div class="split">
+      <div>
+        <p class="eyebrow">Command roster — who is on the job right now</p>
+        <h2>Workers</h2>
+      </div>
+      <div class="row">
+        <span class="foot mono" id="wStamp">last refreshed —</span>
+        <span class="chip ok"><span class="dp beat"></span><span id="wLive">0</span> live</span>
+      </div>
+    </div>
+    <p class="foot" style="margin:6px 0 0"><b>Live/idle</b> is each worker subagent's <b>task-output file mtime</b> (&lt;10&nbsp;min&nbsp;=&nbsp;live), combined with branch-commit recency; workers are <b>auto-detected</b> from the commander's subagents dir, so new ones appear on the next refresh. <b>Current activity</b> is the latest commit on the worker's branch; the Commander is the orchestrator (no branch). <b>Idle means no activity since the last refresh, not dead.</b></p>
+    <div id="workers" class="wgrid"></div>
+  </section>
+
+  <!-- ============ LIVE STACK — CONTAINERS & HEALTH (config.docker / health_checks) ============ -->
+  <section class="panel" id="secStack" style="display:none">
+    <div class="split">
+      <div>
+        <p class="eyebrow">Local stack — Docker containers + endpoint smoke checks (real, from the generator host)</p>
+        <h2>Live stack &mdash; containers &amp; health</h2>
+      </div>
+      <span class="foot mono" id="dockerSummary">—</span>
+    </div>
+    <p class="eyebrow" style="margin:14px 0 2px" id="healthLabel">Endpoint health</p>
+    <div id="healthStrip" class="hstrip"></div>
+    <p class="eyebrow" style="margin:16px 0 2px" id="dockerLabel">Containers <span style="text-transform:none;letter-spacing:0;color:var(--muted)">(green = up, amber = starting/unhealthy-checkable, red = down/unhealthy)</span></p>
+    <div id="dockerGrid" class="dgrid"></div>
+    <p class="foot" style="margin:10px 0 0">Live from <span class="mono">docker ps</span> + HTTP smoke on the generator's host (LOCAL/dev). If Docker or an endpoint is unreachable the generator degrades to <b>"unavailable"</b> rather than guessing.</p>
+  </section>
+
+  <!-- ============ RECENT COMMITS (config.commits / watch.repos) ============ -->
+  <section class="panel" id="secCommits" style="display:none">
+    <div class="split">
+      <div>
+        <p class="eyebrow">Latest commits across the watched branches — real cadence signal</p>
+        <h2>Recent commits</h2>
+      </div>
+      <span class="foot mono" id="commitVel">—</span>
+    </div>
+    <ul id="commitFeed" class="cfeed"></ul>
+  </section>
+
+  <!-- ============ CLAUDE SESSIONS & TOKENS ============ -->
+  <section class="panel">
+    <div class="split">
+      <div>
+        <p class="eyebrow">Every session — project-slug transcripts + the commander's subagent workers</p>
+        <h2>Session activity &amp; tokens</h2>
+      </div>
+      <div class="row">
+        <span class="foot mono" id="sessStamp">last refreshed —</span>
+        <span class="foot mono" id="sessAge">—</span>
+      </div>
+    </div>
+
+    <div class="kpis" style="margin-top:12px;grid-template-columns:repeat(auto-fit,minmax(130px,1fr))">
+      <div class="kpi"><div class="v mono" id="rollOut">—</div><div class="k">Output tokens</div></div>
+      <div class="kpi"><div class="v mono" id="rollCache">—</div><div class="k">Cache-read tokens</div></div>
+      <div class="kpi"><div class="v mono" id="rollMsg">—</div><div class="k">Assistant turns</div></div>
+      <div class="kpi"><div class="v mono" id="rollSess">—</div><div class="k">Sessions</div></div>
+      <div class="kpi"><div class="v mono" id="rollLive" style="color:var(--ok-ink)">—</div><div class="k">Live now (&lt;10m)</div></div>
+    </div>
+
+    <p class="eyebrow" style="margin:18px 0 6px">Output tokens by session — colour is the role track (transcript sessions only)</p>
+    <div class="legend" style="margin-bottom:8px">
+      <span><i style="background:var(--cmd)"></i>Commander</span>
+      <span><i style="background:var(--be)"></i>Backend</span>
+      <span><i style="background:var(--fe)"></i>Frontend</span>
+      <span><i style="background:var(--muted)"></i>Subagent worker</span>
+    </div>
+    <div id="tokChart" class="hbars"></div>
+
+    <p class="eyebrow" style="margin:18px 0 6px">All tracked sessions — transcripts + subagent workers</p>
+    <div class="scroll">
+      <table id="sessTable">
+        <thead><tr><th>Session</th><th>Track</th><th>Status</th>
+          <th class="num">Output</th><th class="num">Cache read</th><th class="num">Turns</th></tr></thead>
+        <tbody id="sessBody"></tbody>
+      </table>
+    </div>
+    <p class="foot" style="margin:10px 0 0"><b>Live</b> = file mtime touched in the last 10&nbsp;min (transcript <span class="mono">.jsonl</span> for slug sessions, task-output file for subagents). Subagent token counts are read directly from each worker's own transcript. No session is missing.</p>
+  </section>
+
+  <p class="foot" style="text-align:center">
+    Mission-control view · generated by the mission-control kit. Session/token panel refreshes from
+    <span class="mono">stats.json</span>; the page auto-reloads on new deploys.
+  </p>
+</div>
+
+<script>
+/* ===== baked fallback (works offline; stats.json overrides when served) ===== */
+const STATS = /*__STATS__*/{"updated":null,"schema":5,"totals":{},"workers":[],"sessions":[]}/*__/STATS__*/;
+
+const $=id=>document.getElementById(id);
+const esc=s=>{const d=document.createElement("span");d.textContent=String(s==null?"":s);return d.innerHTML;};
+function fmt(n){n=Number(n)||0;const a=Math.abs(n);
+  if(a>=1e9)return (n/1e9).toFixed(2).replace(/\.?0+$/,"")+"B";
+  if(a>=1e6)return (n/1e6).toFixed(2).replace(/\.?0+$/,"")+"M";
+  if(a>=1e3)return (n/1e3).toFixed(1).replace(/\.0$/,"")+"k";
+  return String(Math.round(n));}
+function fmtInt(n){return (Number(n)||0).toLocaleString("en-US");}
+function fmtBytes(b){b=Number(b)||0;if(b>=1048576)return (b/1048576).toFixed(1).replace(/\.0$/,"")+" MB";
+  if(b>=1024)return Math.round(b/1024)+" KB";return b+" B";}
+function ago(min){if(min<1)return "just now";if(min<60)return Math.floor(min)+"m ago";
+  const h=Math.floor(min/60);if(h<48)return h+"h ago";return Math.floor(h/24)+"d ago";}
+
+/* ===== workers roster ===== */
+function renderWorkers(j){
+  const ws=j.workers||[];
+  const t=j.totals||{};
+  $("wLive").textContent=(t.live_workers!=null?t.live_workers:ws.filter(w=>w.live).length);
+  const upd=j.updated?new Date(j.updated):null;
+  if($("wStamp")) $("wStamp").textContent = upd&&!isNaN(upd)
+    ? "last refreshed "+upd.toLocaleTimeString([], {hour:"2-digit",minute:"2-digit"})
+    : "last refreshed —";
+  $("workers").innerHTML=ws.map(w=>{
+    // honest 4-state: live / idle / stopped (harness-cancelled) / done (mission complete)
+    const st=w.status||"idle";
+    const live=st==="live", done=st==="done"||st==="complete", stopped=st==="stopped";
+    const M={live:{c:"ok",t:"live",d:"dp beat"},idle:{c:"mute",t:"idle",d:"dp"},
+             stopped:{c:"bad",t:"stopped",d:"dp"},done:{c:"mute",t:"complete ✓",d:"dp"},
+             complete:{c:"mute",t:"complete ✓",d:"dp"}}[st]||{c:"mute",t:st,d:"dp"};
+    const chipCls=M.c, dotCls=M.d, stTxt=M.t;
+    const role=w.role||"worker";
+    const branch=w.branch?`on <span class="mono">${esc(w.branch)}</span>`
+                          :`<span class="mono">${esc(w.short_id||"")}</span> · no branch`;
+    let act;
+    if(w.head_commit){
+      const rel=w.head_ago_min==null?"":(w.head_ago_min<1?"just now":ago(w.head_ago_min));
+      act=`<span class="arrow">▸</span><span><span class="mono">${esc(w.head_commit)}</span>`+
+          `<span class="sub"> · commit ${esc(rel)}</span></span>`;
+    } else if(role==="commander"){
+      act=`<span class="arrow">▸</span><span>orchestrating live <span class="sub">· ${esc(w.signal||"coordinating")}</span></span>`;
+    } else {
+      act=`<span class="arrow">▸</span><span>${esc(w.focus||"working")} <span class="sub">· no branch</span></span>`;
+    }
+    const oa=w.out_age_min;
+    const laTxt = done ? "completed "+ago(oa==null?0:oa)
+                 : stopped ? "stopped "+ago(oa==null?0:oa)+" · cancelled"
+                 : oa==null ? (live?"active now":"—")
+                 : (oa<1?"active just now":"active "+ago(oa));
+    const logTxt = w.log_bytes ? `<span title="worker task-output log size">${fmtBytes(w.log_bytes)} log</span>` : "";
+    const tokTxt = w.output_tokens!=null ? `<span title="output tokens this worker generated"><b>${fmt(w.output_tokens)}</b> out${w.msgs!=null?` · ${fmtInt(w.msgs)} turns`:""}</span>` : "";
+    return `<div class="wcard r-${esc(role)}">
+      <div class="whead"><span class="wname">${esc(w.name)}</span>
+        <span class="chip ${chipCls}"><span class="${dotCls}"></span>${stTxt}</span></div>
+      <div class="wbranch">${branch}</div>
+      <div class="wfocus">${esc(w.focus)}</div>
+      <div class="wact">${act}</div>
+      <div class="wmeta"><span>${laTxt}</span>${tokTxt?`<span>${tokTxt}</span>`:""}${logTxt?`<span>${logTxt}</span>`:""}<span class="sub" title="liveness signal">${esc(w.signal||"")}</span></div>
+    </div>`;}).join("");
+}
+
+/* ===== sessions & tokens ===== */
+const TRACK={frontend:"var(--fe)",backend:"var(--be)",commander:"var(--cmd)",
+  "mission-control":"var(--ink-2)"};
+function trackColor(g){return TRACK[g]||"var(--muted)";}
+function renderSessions(j){
+  const t=j.totals||{};
+  $("rollOut").textContent=fmt(t.output_tokens);
+  $("rollCache").textContent=fmt(t.cache_read_tokens);
+  $("rollMsg").textContent=fmtInt(t.msgs);
+  $("rollSess").textContent=t.sessions??"—";
+  $("rollLive").textContent=t.live_sessions??"—";
+  const upd=j.updated?new Date(j.updated):null;
+  $("sessAge").textContent = upd&&!isNaN(upd) ? "stats built "+ago((Date.now()-upd.getTime())/60000) : "stats: unknown";
+  if($("sessStamp")) $("sessStamp").textContent = upd&&!isNaN(upd)
+    ? "last refreshed "+upd.toLocaleTimeString([], {hour:"2-digit",minute:"2-digit"}) : "last refreshed —";
+
+  const arr=(j.sessions||[]).slice();
+  const tx=arr.filter(x=>x.output_tokens!=null).sort((a,b)=> (a.live!==b.live) ? (a.live?-1:1) : (b.output_tokens-a.output_tokens));
+  const max=Math.max(1,...tx.map(x=>x.output_tokens));
+  $("tokChart").innerHTML=tx.map(x=>{
+    const col=trackColor(x.group);
+    return `<div class="hbar"><div class="lab mono" title="${esc(x.group_label)} ${esc(x.id)}">${esc(x.id)}</div>
+      <div class="barwrap"><div class="bar" style="width:${(x.output_tokens/max*100).toFixed(1)}%;background:${col}"></div>
+      <span class="val mono">${fmt(x.output_tokens)}</span></div></div>`;}).join("");
+
+  const s=arr.sort((a,b)=> (a.live!==b.live) ? (a.live?-1:1) : ((a.age_min==null?1e9:a.age_min)-(b.age_min==null?1e9:b.age_min)));
+  const NA='<span style="color:var(--muted)">n/a</span>';
+  $("sessBody").innerHTML=s.map(x=>{
+    const live=x.live, sub=!!x.subagent, col=trackColor(x.group);
+    const st=x.status||(live?"live":"idle");
+    const dot=st==="live"?"var(--ok)":st==="stopped"?"var(--bad)":"var(--muted)";
+    const status=st==="live"?'<b style="color:var(--ok-ink)">live</b>'
+                :st==="stopped"?'<b style="color:var(--bad)">stopped</b>'
+                :st==="done"||st==="complete"?'complete ✓'
+                :"idle "+ago(x.age_min==null?0:x.age_min);
+    const kind=sub?' <span class="chip mute" style="padding:1px 6px;font-size:9px;vertical-align:middle" title="subagent worker">subagent</span>':'';
+    return `<tr>
+      <td><span class="sdot" style="background:${dot}"></span><span class="mono">${esc(x.id)}</span>${kind}</td>
+      <td><span class="sdot" style="background:${col};border-radius:2px"></span>${esc(x.group_label)}</td>
+      <td>${status}</td>
+      <td class="num mono">${x.output_tokens==null?NA:fmt(x.output_tokens)}</td>
+      <td class="num mono">${x.cache_read_tokens==null?NA:fmt(x.cache_read_tokens)}</td>
+      <td class="num mono">${x.msgs==null?NA:fmtInt(x.msgs)}</td></tr>`;}).join("");
+}
+
+/* ===== time-to-go-live ETA (dual unit) — config.progress ===== */
+function renderProgress(j){
+  const sec=$("secProgress"); if(!sec) return;
+  const p=j.progress;
+  if(!p){sec.style.display="none";return;}
+  sec.style.display="";
+  $("etaPct").textContent=p.overall_pct+"%";
+  const rng=(a)=>a&&a.length===2?(a[0]===a[1]?("~"+a[0]):("~"+a[0]+"–"+a[1])):"—";
+  $("etaHours").textContent=rng(p.remaining_hours)+" h";
+  $("etaSessions").textContent=rng(p.remaining_sessions);
+  $("etaTracks").innerHTML=(p.tracks||[]).map(t=>{
+    const col=trackColor(t.track);
+    return `<div class="hbar" style="grid-template-columns:78px 1fr"><div class="lab">${esc(t.label)}</div>
+      <div class="barwrap"><div class="bar" style="width:${t.pct}%;background:${col}"></div>
+      <span class="val mono">${t.pct}% est · rem ${rng(t.remaining_hours)}h · ${rng(t.remaining_sessions)} sess</span></div></div>`;}).join("");
+  $("etaBasis").textContent=p.basis||"";
+  const cm=j.commits;
+  if(cm&&cm.tracks&&$("etaVel")){
+    $("etaVel").innerHTML='<span class="foot">commit velocity (real):</span> '+cm.tracks.map(t=>t.available
+      ?`<span class="mono"><b>${esc(t.track)}</b> ${t.commits_24h==null?"—":t.commits_24h}/24h · ${t.commits_7d==null?"—":t.commits_7d}/7d</span>`
+      :`<span class="mono">${esc(t.track)} n/a</span>`).join(" &nbsp;·&nbsp; ");
+  }
+}
+
+/* ===== active workers (live only) ===== */
+function renderActiveWorkers(j){
+  const host=$("activeWorkers"); if(!host) return;
+  const ws=(j.workers||[]).filter(w=>w.status==="live");
+  const byId={}; (j.sessions||[]).forEach(s=>byId[s.id]=s);
+  if($("awCount")) $("awCount").textContent=ws.length;
+  if(!ws.length){host.innerHTML='<p class="foot" style="margin:12px 0 0">No workers live right now — see the full roster below.</p>';return;}
+  host.innerHTML=ws.map(w=>{
+    const role=w.role||"worker";
+    const branch=w.branch?`on <span class="mono">${esc(w.branch)}</span>`:`<span class="mono">${esc(w.short_id||"")}</span> · orchestrator`;
+    const oa=w.out_age_min, la=oa==null?"active now":(oa<1?"active just now":"active "+ago(oa));
+    const sess=byId[w.short_id]||{}; const tok=(sess.output_tokens!=null)?fmt(sess.output_tokens)+" out tok":(w.output_tokens!=null?fmt(w.output_tokens)+" out tok":"n/a (in worker)");
+    let act;
+    if(w.head_commit){const rel=w.head_ago_min==null?"":(w.head_ago_min<1?"just now":ago(w.head_ago_min));
+      act=`<span class="arrow">▸</span><span><span class="mono">${esc(w.head_commit)}</span><span class="sub"> · commit ${esc(rel)}</span></span>`;}
+    else if(role==="commander"){act=`<span class="arrow">▸</span><span>orchestrating live <span class="sub">· ${esc(w.signal||"coordinating")}</span></span>`;}
+    else{act=`<span class="arrow">▸</span><span>${esc(w.focus||"working")}</span>`;}
+    return `<div class="wcard r-${esc(role)}">
+      <div class="whead"><span class="wname">${esc(w.name)}</span><span class="chip ok"><span class="dp beat"></span>live</span></div>
+      <div class="wbranch">${branch}</div>
+      <div class="wfocus">${esc(w.focus)}</div>
+      <div class="wact">${act}</div>
+      <div class="wmeta"><span>${la}</span><span class="mono">${tok}</span></div>
+    </div>`;}).join("");
+}
+
+/* ===== docker container grid ===== */
+function renderDocker(j){
+  const dk=j.docker, host=$("dockerGrid"); if(!host) return;
+  if(!dk){$("dockerGrid").innerHTML="";if($("dockerLabel"))$("dockerLabel").style.display="none";return;}
+  if($("dockerLabel"))$("dockerLabel").style.display="";
+  if(!dk.available){
+    host.innerHTML=`<p class="foot" style="grid-column:1/-1">docker unavailable${dk.error?" — "+esc(dk.error):""}</p>`;
+    if($("dockerSummary")) $("dockerSummary").textContent="docker unavailable"; return;
+  }
+  const s=dk.summary||{};
+  if($("dockerSummary")) $("dockerSummary").textContent=`${s.running}/${s.total} up · ${s.healthy} healthy · ${s.problem} problem`;
+  host.innerHTML=(dk.containers||[]).map(c=>{
+    let cls="up"; if(!c.up) cls="down"; else if(c.health==="unhealthy") cls="bad"; else if(c.health==="starting") cls="warn";
+    const nm=c.display||c.name;
+    const meta=c.up?(c.uptime||"up")+(c.health&&c.health!=="none"?" · "+c.health:""):"down";
+    return `<div class="dcell ${cls}" title="${esc(c.name+" · "+c.status+(c.ports?" · ports "+c.ports:""))}">
+      <span class="dname">${esc(nm)}</span><span class="dmeta">${esc(meta)}</span></div>`;}).join("");
+}
+
+/* ===== stack-health strip ===== */
+function renderHealth(j){
+  const h=j.health, host=$("healthStrip"); if(!host) return;
+  if(!h||!h.length){host.innerHTML="";if($("healthLabel"))$("healthLabel").style.display="none";return;}
+  if($("healthLabel"))$("healthLabel").style.display="";
+  host.innerHTML=h.map(c=>{
+    const cls=c.ok?"up":(c.reachable?"warn":"down");
+    const st=c.status==null?"unreachable":c.status;
+    return `<span class="hpill ${cls}" title="${esc(c.method+" "+c.url)}"><span class="hd"></span>${esc(c.name)} <b class="mono">${esc(st)}</b></span>`;}).join("");
+}
+
+/* ===== live-stack section visibility (docker OR health present) ===== */
+function renderStack(j){
+  const sec=$("secStack"); if(!sec) return;
+  sec.style.display=(j.docker||(j.health&&j.health.length))?"":"none";
+  renderHealth(j); renderDocker(j);
+}
+
+/* ===== recent-commits feed ===== */
+function renderCommits(j){
+  const sec=$("secCommits"), cm=j.commits, host=$("commitFeed"); if(!sec||!host) return;
+  if(!cm||!(cm.recent&&cm.recent.length)){sec.style.display="none";return;}
+  sec.style.display="";
+  if(cm.tracks&&$("commitVel"))
+    $("commitVel").textContent=cm.tracks.filter(t=>t.available).map(t=>`${t.track} ${t.commits_24h==null?"—":t.commits_24h}/24h`).join(" · ");
+  host.innerHTML=(cm.recent||[]).map(c=>{
+    const col=trackColor(c.track);
+    const t=new Date(c.at); const rel=isNaN(t)?"":ago((Date.now()-t.getTime())/60000);
+    return `<li><span class="cmk" style="background:${col}"></span>
+      <span class="mono" style="color:var(--muted)">${esc(c.hash)}</span>
+      <span style="flex:1">${esc(c.subject)}</span>
+      <span class="foot mono">${esc(rel)}</span></li>`;}).join("");
+}
+
+/* ===== publisher freshness — is the scheduled heartbeat actually publishing? ===== */
+function renderPublisher(j){
+  const b=$("pubBanner"); if(!b) return;
+  const p=j.publisher;
+  const upd=j.updated?new Date(j.updated):null;
+  const age=upd&&!isNaN(upd)?(Date.now()-upd.getTime())/60000:null;
+  const t=upd&&!isNaN(upd)?upd.toLocaleTimeString([], {hour:"2-digit",minute:"2-digit"}):"—";
+  if(p&&p.paused){
+    b.style.display="block";
+    b.innerHTML=`⏸ PUBLISHER PAUSED (heartbeat task <b>${esc(p.state||"disabled")}</b>) — dashboard frozen at <b>${t}</b>`
+      +(age!=null?` · data age ${ago(age)}`:"")+`. Live worker states below may be out of date until the heartbeat is re-enabled.`;
+  } else {
+    b.style.display="none";
+  }
+}
+
+function renderExtras(j){renderProgress(j);renderActiveWorkers(j);renderStack(j);renderCommits(j);renderPublisher(j);}
+
+/* ===== tasks & progress tracker (data-driven from tasks.json; NO hardcoded plan) ===== */
+const TK_TRACK_ORDER=["backend","frontend","mission-control","audit","deploy"];
+const TK_STATUS={done:"done",in_progress:"in progress",pending:"pending"};
+function renderTasks(t){
+  const host=$("tkGroups"), panel=$("tasksPanel"); if(!host||!panel) return;
+  const all=Array.isArray(t)?t:(t&&Array.isArray(t.tasks)?t.tasks:[]);
+  // headline + bar reflect the CURRENT active plan only; an "archive" track collapses into one line
+  const archive=all.filter(x=>x.track==="archive");
+  const tasks=all.filter(x=>x.track!=="archive");
+  const total=tasks.length;
+  if(!total && !archive.length){panel.style.display="none";return;}
+  panel.style.display="";
+  const done=tasks.filter(x=>x.status==="done").length;
+  const ip=tasks.filter(x=>x.status==="in_progress").length;
+  if($("tkSummary")) $("tkSummary").textContent = total?`${done}/${total} done · ${ip} in progress`:"no active tasks";
+  const bar=$("tkBar");
+  if(bar) bar.innerHTML = total
+    ? `<i class="d" style="width:${(done/total*100).toFixed(1)}%"></i><i class="p" style="width:${(ip/total*100).toFixed(1)}%"></i>`
+    : "";
+  const groups={}; tasks.forEach(x=>{(groups[x.track||"other"]=groups[x.track||"other"]||[]).push(x);});
+  const order=TK_TRACK_ORDER.concat(Object.keys(groups).filter(k=>!TK_TRACK_ORDER.includes(k)));
+  let html=order.filter(k=>groups[k]).map(track=>{
+    const col=trackColor(track);
+    const rows=groups[track].map(x=>{
+      const st=x.status||"pending";
+      return `<li class="tk ${esc(st)}"><span class="tkmk"></span>
+        <span class="tktitle">${esc(x.title||"(untitled)")}</span>
+        <span class="tkstatus">${esc(TK_STATUS[st]||st)}</span>
+        ${x.note?`<span class="tknote">${esc(x.note)}</span>`:""}</li>`;}).join("");
+    return `<div class="tk-group"><p class="tk-track"><i style="background:${col}"></i>${esc(track)}</p>
+      <ul class="tklist">${rows}</ul></div>`;}).join("");
+  if(archive.length){
+    html+=archive.map(x=>`<details class="earlier"><summary>Previously shipped — <b>${esc(x.title||"prior work")}</b> <span class="sub">· click for scope</span></summary>
+      ${x.note?`<p class="foot" style="margin:8px 0 0">${esc(x.note)}</p>`:""}</details>`).join("");
+  }
+  host.innerHTML=html;
+}
+async function pollTasks(){
+  try{const r=await fetch("tasks.json?t="+Date.now(),{cache:"no-store"});
+    if(r.ok) renderTasks(await r.json());
+  }catch(e){/* missing/offline: leave as-is (panel stays hidden until a plan is published) */}
+}
+
+/* ===== client-side ticker (proves the PAGE itself is live, between server polls) ===== */
+function clientTick(){
+  const el=$("clientChecked"); if(!el) return;
+  const lp=window.__lastPoll;
+  if(!lp){el.textContent="";return;}
+  const s=Math.max(0,Math.round((Date.now()-lp)/1000));
+  el.textContent="· checked "+(s<60?s+"s":Math.floor(s/60)+"m")+" ago";
+}
+
+/* ===== freshness pulse ===== */
+function freshTick(){
+  const j=window.__lastStats||STATS;
+  const upd=j.updated?new Date(j.updated):null;
+  const mins= upd&&!isNaN(upd) ? (Date.now()-upd.getTime())/60000 : 1e9;
+  const p=$("pulse"),f=$("freshTxt");
+  if(mins<30){f.textContent="data fresh · "+ago(mins);p.style.background="var(--ok)";p.classList.add("live");}
+  else if(mins<180){f.textContent="aging · "+ago(mins);p.style.background="var(--warn)";p.classList.remove("live");}
+  else{f.textContent="stale · "+ago(mins);p.style.background="var(--bad)";p.classList.remove("live");}
+}
+
+function renderAll(j){window.__lastStats=j;renderSessions(j);renderWorkers(j);renderExtras(j);freshTick();}
+renderAll(STATS);
+
+async function pollStats(){
+  try{const r=await fetch("stats.json?t="+Date.now(),{cache:"no-store"});
+    window.__lastPoll=Date.now();
+    if(r.ok){const j=await r.json();if(j&&j.totals){renderAll(j);}}}catch(e){}
+}
+/* LIVE-STREAM: poll every 15s with no-store + a ?t= cache-buster; re-render every section in place;
+   a 1s client ticker shows "checked Ns ago" so the page proves itself live between server polls. */
+pollStats(); setInterval(pollStats,15000);
+pollTasks(); setInterval(pollTasks,15000);
+setInterval(freshTick,30000);
+setInterval(clientTick,1000);
+
+/* ===== theme toggle ===== */
+$("themebtn").onclick=()=>{
+  const cur=document.documentElement.getAttribute("data-theme");
+  const next=cur==="dark"?"light":cur==="light"?"dark":(matchMedia("(prefers-color-scheme: dark)").matches?"light":"dark");
+  document.documentElement.setAttribute("data-theme",next);
+};
+
+/* ===== auto-refresh + attention banner ===== */
+(function(){
+  let VER=null;
+  setInterval(async()=>{
+    try{const r=await fetch("version.json?t="+Date.now(),{cache:"no-store"});const j=await r.json();
+      const b=$("attn");
+      if(j.attention){b.style.display="block";b.textContent="NEEDS ATTENTION: "+j.attention;}
+      else b.style.display="none";
+      if(VER===null){VER=j.v;}
+      else if(j.v&&j.v!==VER){try{await fetch(location.pathname,{cache:"reload"});}catch(e){}
+        location.replace(location.pathname+"?v="+j.v);}
+    }catch(e){}
+  },15000);
+})();
+
+
+/* ===== COMMANDER-NEEDS-ATTENTION alert (display-only; polls attention.json) ===== */
+(function(){
+  const FAV_NORMAL="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='7' fill='%232a78d6'/%3E%3C/svg%3E";
+  const FAV_RED="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='8' fill='%23d03b3b'/%3E%3Ctext x='8' y='12.5' font-size='12' font-weight='bold' text-anchor='middle' fill='white'%3E!%3C/text%3E%3C/svg%3E";
+  const ATTN_TITLE=document.title;
+  let _attnNotified=null;   // raised_at we've already notified/beeped for
+  function _setFav(h){const l=$("favicon"); if(l) l.setAttribute("href",h);}
+  function attnBeep(){
+    try{const AC=window.AudioContext||window.webkitAudioContext; if(!AC) return;
+      const c=new AC(); if(c.state==="suspended"){c.resume().catch(()=>{});}
+      const mk=(t,f)=>{const o=c.createOscillator(),g=c.createGain();o.connect(g);g.connect(c.destination);
+        o.type="sine";o.frequency.value=f;const s=c.currentTime+t;
+        g.gain.setValueAtTime(0.0001,s);g.gain.exponentialRampToValueAtTime(0.32,s+0.02);
+        g.gain.exponentialRampToValueAtTime(0.0001,s+0.32);o.start(s);o.stop(s+0.34);};
+      mk(0,880); mk(0.4,1170);
+    }catch(e){}
+  }
+  function attnNotify(a){
+    try{ if("Notification" in window && Notification.permission==="granted"){
+      new Notification("⚠ COMMANDER NEEDS YOUR ATTENTION",{
+        body:(a.message||"")+((a.options&&a.options.length)?"\n\n• "+a.options.join("\n• "):""),
+        requireInteraction:true, tag:"mc-commander-attention", renotify:true });
+    }}catch(e){}
+  }
+  function renderAttention(a){
+    const on=!!(a&&a.active);
+    const root=document.documentElement;
+    if(on){
+      root.classList.add("attention-on");
+      $("attnMsg").textContent=a.message||"(no message provided)";
+      $("attnOpts").innerHTML=(a.options||[]).length
+        ? a.options.map(o=>`<li>${esc(o)}</li>`).join("")
+        : "<li>(no options listed — see the session)</li>";
+      const t=a.raised_at?new Date(a.raised_at):null;
+      $("attnFoot").textContent="raised "+(t&&!isNaN(t)?ago((Date.now()-t.getTime())/60000):"just now")
+        +" · this page only displays the ask — answer in the session";
+      if(!document.title.startsWith("🔴")) document.title="🔴 ATTENTION — "+ATTN_TITLE;
+      _setFav(FAV_RED);
+      if(a.raised_at && a.raised_at!==_attnNotified){ _attnNotified=a.raised_at; attnNotify(a); attnBeep(); }
+    } else {
+      root.classList.remove("attention-on");
+      document.title=ATTN_TITLE;
+      _setFav(FAV_NORMAL);
+      _attnNotified=null;
+    }
+  }
+  async function pollAttention(){
+    try{ const r=await fetch("attention.json?t="+Date.now(),{cache:"no-store"});
+      if(r.ok){ renderAttention(await r.json()); }
+    }catch(e){ /* missing/offline: keep current state, retry next tick */ }
+  }
+  try{ if("Notification" in window && Notification.permission==="default") Notification.requestPermission(); }catch(e){}
+  pollAttention(); setInterval(pollAttention,15000);
+})();
+
+</script>
+</body>
+</html>

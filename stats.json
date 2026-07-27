@@ -1,0 +1,326 @@
+{
+  "updated": "2026-07-27T03:16:43Z",
+  "heartbeat_at": "2026-07-27T03:16:43Z",
+  "last_activity": "2026-07-27T03:16:43Z",
+  "generated_by": "mission-control-kit (0f7b13a0)",
+  "schema": 5,
+  "totals": {
+    "output_tokens": 323439,
+    "cache_read_tokens": 3312004,
+    "cache_creation_tokens": 779366,
+    "msgs": 47,
+    "sessions": 3,
+    "live_sessions": 3,
+    "transcript_sessions": 1,
+    "subagent_sessions": 2,
+    "workers": 3,
+    "live_workers": 3,
+    "stopped_workers": 0,
+    "current_workers": 3,
+    "history_workers": 0,
+    "recent_window_min": 120.0
+  },
+  "workers": [
+    {
+      "name": "Cadre Commander",
+      "role": "commander",
+      "branch": null,
+      "focus": "Orchestrating the worker roster.",
+      "agent_id": "0f7b13a0 (root)",
+      "short_id": "0f7b13a0",
+      "head_commit": null,
+      "head_commit_at": null,
+      "head_ago_min": null,
+      "out_last_active": "2026-07-27T03:16:43Z",
+      "out_age_min": 2.1,
+      "log_bytes": null,
+      "status": "live",
+      "live": true,
+      "signal": "coordinating (orchestrator)",
+      "recent": true
+    },
+    {
+      "name": "Repo Bootstrap Worker",
+      "role": "repo-bootstrap",
+      "branch": "main",
+      "focus": "Bootstrap Cadre repo + docs",
+      "agent_id": "aaf091e371d28ae5d",
+      "short_id": "aaf091e3",
+      "head_commit": "docs: brand concept \u00e2\u20ac\u201d cadre-concept.html + brand README pointer",
+      "head_commit_at": "2026-07-27T07:13:56+04:00",
+      "head_ago_min": 2.8,
+      "out_last_active": "2026-07-27T03:14:34Z",
+      "out_age_min": 2.1,
+      "log_bytes": 217633,
+      "output_tokens": 25632,
+      "cache_read_tokens": 2768838,
+      "cache_creation_tokens": 241603,
+      "msgs": 76,
+      "status": "live",
+      "live": true,
+      "signal": "task-output mtime + git commit",
+      "recent": true
+    },
+    {
+      "name": "Mission Control Worker",
+      "role": "mission-control",
+      "branch": null,
+      "focus": "Stand up Cadre mission control",
+      "agent_id": "add2cbea4eefa8456",
+      "short_id": "add2cbea",
+      "head_commit": null,
+      "head_commit_at": null,
+      "head_ago_min": null,
+      "out_last_active": "2026-07-27T03:16:40Z",
+      "out_age_min": 0.0,
+      "log_bytes": 427158,
+      "output_tokens": 24845,
+      "cache_read_tokens": 7609805,
+      "cache_creation_tokens": 295601,
+      "msgs": 106,
+      "status": "live",
+      "live": true,
+      "signal": "task-output mtime + git commit",
+      "recent": true
+    }
+  ],
+  "sessions": [
+    {
+      "id": "aaf091e3",
+      "full_id": "aaf091e371d28ae5d",
+      "group": "repo-bootstrap",
+      "group_label": "Repo Bootstrap Worker",
+      "last_active": "2026-07-27T03:14:34Z",
+      "log_bytes": 217633,
+      "live": true,
+      "status": "live",
+      "age_min": 2.1,
+      "subagent": true,
+      "recent": true,
+      "output_tokens": 25632,
+      "cache_read_tokens": 2768838,
+      "cache_creation_tokens": 241603,
+      "msgs": 76
+    },
+    {
+      "id": "add2cbea",
+      "full_id": "add2cbea4eefa8456",
+      "group": "mission-control",
+      "group_label": "Mission Control Worker",
+      "last_active": "2026-07-27T03:16:40Z",
+      "log_bytes": 427158,
+      "live": true,
+      "status": "live",
+      "age_min": 0.0,
+      "subagent": true,
+      "recent": true,
+      "output_tokens": 24845,
+      "cache_read_tokens": 7609805,
+      "cache_creation_tokens": 295601,
+      "msgs": 106
+    },
+    {
+      "id": "0f7b13a0",
+      "full_id": "0f7b13a0-2a85-49c0-96d5-e5a8832d8b85",
+      "group": "commander",
+      "group_label": "Session 0f7b13a0",
+      "last_active": "2026-07-27T03:14:36Z",
+      "output_tokens": 323439,
+      "cache_read_tokens": 3312004,
+      "cache_creation_tokens": 779366,
+      "msgs": 47,
+      "age_min": 2.1,
+      "live": true,
+      "status": "live",
+      "subagent": false,
+      "recent": true
+    }
+  ],
+  "history": {
+    "workers": 0,
+    "by_status": {},
+    "last_active": null,
+    "note": "Prior-session workers \u2014 retired; not part of the current fleet."
+  },
+  "total_tokens": 323439,
+  "commits": {
+    "tracks": [
+      {
+        "track": "w0",
+        "branch": "main",
+        "available": true,
+        "commits_24h": 8,
+        "commits_7d": 8
+      }
+    ],
+    "recent": [
+      {
+        "hash": "05b10fa",
+        "at": "2026-07-27T07:13:56+04:00",
+        "subject": "docs: brand concept \u00e2\u20ac\u201d cadre-concept.html + brand README pointer",
+        "track": "w0"
+      },
+      {
+        "hash": "07ed974",
+        "at": "2026-07-27T07:13:56+04:00",
+        "subject": "docs: conversation log + decision record (D1-D20 + open O1-O3)",
+        "track": "w0"
+      },
+      {
+        "hash": "183c6af",
+        "at": "2026-07-27T07:13:55+04:00",
+        "subject": "docs: lane map \u00e2\u20ac\u201d Wave 0-5 build plan with dependencies + gated items index",
+        "track": "w0"
+      },
+      {
+        "hash": "f1be5a0",
+        "at": "2026-07-27T07:13:55+04:00",
+        "subject": "docs: architecture \u00e2\u20ac\u201d components, data flow, native bridges, MCP; stack marked PROPOSED",
+        "track": "w0"
+      },
+      {
+        "hash": "8a3d0ca",
+        "at": "2026-07-27T07:12:01+04:00",
+        "subject": "docs: CLAUDE.md \u00e2\u20ac\u201d living project record (what/decisions/through-line/modules/models/agents/gamification/brand/workflow/open-decisions)",
+        "track": "w0"
+      },
+      {
+        "hash": "5545bdd",
+        "at": "2026-07-27T07:12:01+04:00",
+        "subject": "docs: top-level README \u00e2\u20ac\u201d product summary + monorepo layout",
+        "track": "w0"
+      },
+      {
+        "hash": "f62eb54",
+        "at": "2026-07-27T07:10:29+04:00",
+        "subject": "scaffold: monorepo skeleton \u00e2\u20ac\u201d pnpm workspaces, package.json stubs, service pyproject stubs, per-dir READMEs",
+        "track": "w0"
+      },
+      {
+        "hash": "44d7084",
+        "at": "2026-07-27T07:10:23+04:00",
+        "subject": "chore: repo bootstrap \u00e2\u20ac\u201d .gitignore (Node/Python/Rust-Tauri/Capacitor/OS) + MIT LICENSE",
+        "track": "w0"
+      }
+    ]
+  },
+  "progress": {
+    "overall_pct": 6,
+    "remaining_hours": [
+      26,
+      51
+    ],
+    "remaining_sessions": [
+      7,
+      14
+    ],
+    "tracks": [
+      {
+        "track": "w0",
+        "label": "Wave 0 \u2014 Bootstrap",
+        "pct": 50,
+        "remaining_hours": [
+          2,
+          3
+        ],
+        "remaining_sessions": [
+          0,
+          1
+        ],
+        "weight": 1
+      },
+      {
+        "track": "w1",
+        "label": "Wave 1 \u2014 Backend spine",
+        "pct": 0,
+        "remaining_hours": [
+          2,
+          3
+        ],
+        "remaining_sessions": [
+          0,
+          1
+        ],
+        "weight": 1
+      },
+      {
+        "track": "w2",
+        "label": "Wave 2 \u2014 Email + AI core",
+        "pct": 0,
+        "remaining_hours": [
+          6,
+          12
+        ],
+        "remaining_sessions": [
+          2,
+          3
+        ],
+        "weight": 1
+      },
+      {
+        "track": "w3",
+        "label": "Wave 3 \u2014 Modules",
+        "pct": 0,
+        "remaining_hours": [
+          9,
+          18
+        ],
+        "remaining_sessions": [
+          2,
+          5
+        ],
+        "weight": 1
+      },
+      {
+        "track": "w4",
+        "label": "Wave 4 \u2014 Integrations + shells",
+        "pct": 0,
+        "remaining_hours": [
+          4,
+          9
+        ],
+        "remaining_sessions": [
+          1,
+          2
+        ],
+        "weight": 1
+      },
+      {
+        "track": "w5",
+        "label": "Wave 5 \u2014 Gamification",
+        "pct": 0,
+        "remaining_hours": [
+          2,
+          3
+        ],
+        "remaining_sessions": [
+          0,
+          1
+        ],
+        "weight": 1
+      },
+      {
+        "track": "verify",
+        "label": "Verify + capstone",
+        "pct": 0,
+        "remaining_hours": [
+          2,
+          3
+        ],
+        "remaining_sessions": [
+          0,
+          1
+        ],
+        "weight": 1
+      }
+    ],
+    "estimate": true,
+    "basis": "Overall % and per-track % are DERIVED from the task tracker (done=100%, in-progress=50%, pending=0%) \u2014 they auto-resync whenever tasks are updated, so the number can't lag scope. Remaining hours/sessions scale off the same remaining-work ratio. All ESTIMATES; the measured signal is commit velocity."
+  },
+  "publisher": {
+    "task": "cadre-mission-control",
+    "state": "not-registered",
+    "paused": true,
+    "checked_at": "2026-07-27T03:16:43Z"
+  }
+}
