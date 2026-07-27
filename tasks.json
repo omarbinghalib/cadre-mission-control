@@ -145,9 +145,33 @@
   },
   {
     "title": "Fix VAMS Settings spec: add org_slug + verify_tls (enable NEW VAMS config)",
-    "status": "in_progress",
+    "status": "done",
     "track": "w3",
-    "note": "Caught during Wave B merge review: the Settings VAMS form was missing org_slug, which the new multi-tenant VAMS requires. Fix dispatched."
+    "note": "Commit bfd36c1: old+new VAMS configs now save correctly."
+  },
+  {
+    "title": "Fix connector secret-retrieval path (in-process decrypted accessor)",
+    "status": "done",
+    "track": "w3",
+    "note": "All 3 connectors (VAMS/Mattermost/GitHub) now get decrypted secrets and can authenticate; 42 backend tests green. Commit 473eadb."
+  },
+  {
+    "title": "Build test installer (fresh Windows .exe, all modules + connectors, verified launching)",
+    "status": "done",
+    "track": "w4",
+    "note": "Cadre_0.0.0_x64-setup.exe built + installed + verified: window opens, backend health green, rail shows all modules incl Settings/Mattermost/GitHub/VAMS. Omar can now install + connect + test."
+  },
+  {
+    "title": "PyInstaller self-contained backend (installer portable to other machines)",
+    "status": "pending",
+    "track": "w4",
+    "note": "Follow-on surfaced from the test-installer build: current installer reuses the dev venv; needs a self-contained PyInstaller backend to be portable to other machines."
+  },
+  {
+    "title": "Inbox empty-DB 'Failed to fetch' - verify empty-state vs real error",
+    "status": "pending",
+    "track": "w4",
+    "note": "Follow-on surfaced from the test-installer build: on a fresh/empty DB the Inbox shows 'Failed to fetch' - needs verification of whether this is a real error or should be a proper empty-state."
   },
   {
     "title": "W3 - VPN / Secure Networking (NetBird integration + secure-tunnel spin-up)",
