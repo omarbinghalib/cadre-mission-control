@@ -9,7 +9,7 @@
     "title": "W0 - Mission-control dashboard",
     "status": "in_progress",
     "track": "w0",
-    "note": "this dashboard: config, task board, heartbeat scheduled task"
+    "note": "Built+configured+seeded; heartbeat scheduled task registered and verified pushing. Blocked on Omar: repo is private and this GitHub plan does not serve Pages for private repos (needs Omar to flip cadre-mission-control public, matching the existing vams-mission-control precedent, or upgrade plan) before the URL goes live."
   },
   {
     "title": "W1 - Backend spine (FastAPI, accounts/auth, DB schema, device sync)",
