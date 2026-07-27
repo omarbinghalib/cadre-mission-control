@@ -49,39 +49,45 @@
   },
   {
     "title": "Windows desktop shell + bundled backend (runnable Windows app)",
-    "status": "pending",
+    "status": "done",
     "track": "w4",
-    "note": "HIGH PRIORITY - NEXT UP after Wave 2 (reprioritized Windows-first): Tauri shell wrapping @cadre/core with the Python backend + services bundled as sidecars. This is the near-term 'running correctly' milestone; leads the existing W4 desktop-shell lane below in sequencing."
+    "note": "Verified end-to-end: dev launch opens a real native window with backend health-gated + Inbox/Model-Manager rendering; packaged NSIS installer (+ .msi) built, installed, and launched with UI green (screenshots captured). Built via the GNU/MinGW Rust toolchain (MSVC was UAC-blocked; routed around it). Commits 4f205d3..a4c16ad. Follow-on subtask: PyInstaller sidecar for a fully self-contained installer (currently reuses dev venv)."
   },
   {
     "title": "W3 - Calendar",
-    "status": "pending",
-    "track": "w3"
+    "status": "in_progress",
+    "track": "w3",
+    "note": "Wave A fanning out in parallel worktrees."
   },
   {
     "title": "W3 - Projects / Gantt",
-    "status": "pending",
-    "track": "w3"
+    "status": "in_progress",
+    "track": "w3",
+    "note": "Wave A fanning out in parallel worktrees."
   },
   {
     "title": "W3 - Reports",
-    "status": "pending",
-    "track": "w3"
+    "status": "in_progress",
+    "track": "w3",
+    "note": "Wave A fanning out in parallel worktrees."
   },
   {
     "title": "W3 - Presentations",
-    "status": "pending",
-    "track": "w3"
+    "status": "in_progress",
+    "track": "w3",
+    "note": "Wave A fanning out in parallel worktrees."
   },
   {
     "title": "W3 - Contacts",
-    "status": "pending",
-    "track": "w3"
+    "status": "in_progress",
+    "track": "w3",
+    "note": "Wave A fanning out in parallel worktrees."
   },
   {
     "title": "W3 - Chat (contextual per-module + general command chat)",
-    "status": "pending",
-    "track": "w3"
+    "status": "in_progress",
+    "track": "w3",
+    "note": "Wave A fanning out in parallel worktrees."
   },
   {
     "title": "W3 - VPN / Secure Networking (NetBird integration + secure-tunnel spin-up)",
