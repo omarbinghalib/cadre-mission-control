@@ -1,7 +1,7 @@
 {
-  "updated": "2026-07-27T03:37:29Z",
-  "heartbeat_at": "2026-07-27T03:37:29Z",
-  "last_activity": "2026-07-27T03:37:29Z",
+  "updated": "2026-07-27T03:38:30Z",
+  "heartbeat_at": "2026-07-27T03:38:30Z",
+  "last_activity": "2026-07-27T03:38:30Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
@@ -31,8 +31,8 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-07-27T03:37:29Z",
-      "out_age_min": 1.4,
+      "out_last_active": "2026-07-27T03:38:30Z",
+      "out_age_min": 0.9,
       "log_bytes": null,
       "status": "live",
       "live": true,
@@ -49,13 +49,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-07-27T03:37:27Z",
-      "out_age_min": 0.0,
-      "log_bytes": 666878,
-      "output_tokens": 71115,
-      "cache_read_tokens": 18314415,
-      "cache_creation_tokens": 746213,
-      "msgs": 202,
+      "out_last_active": "2026-07-27T03:38:26Z",
+      "out_age_min": 0.1,
+      "log_bytes": 705065,
+      "output_tokens": 74000,
+      "cache_read_tokens": 20305776,
+      "cache_creation_tokens": 756148,
+      "msgs": 215,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -68,11 +68,11 @@
       "focus": "Bootstrap Cadre repo + docs",
       "agent_id": "aaf091e371d28ae5d",
       "short_id": "aaf091e3",
-      "head_commit": "feat(backend): app factory wiring core + all 11 domain routers; pin deps",
-      "head_commit_at": "2026-07-27T07:28:27+04:00",
-      "head_ago_min": 9.0,
+      "head_commit": "chore: wire root scripts to delegate to workspace packages; commit pnpm-lock.yaml",
+      "head_commit_at": "2026-07-27T07:38:17+04:00",
+      "head_ago_min": 0.2,
       "out_last_active": "2026-07-27T03:14:34Z",
-      "out_age_min": 22.9,
+      "out_age_min": 23.9,
       "log_bytes": 217633,
       "output_tokens": 25632,
       "cache_read_tokens": 2768838,
@@ -93,13 +93,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-07-27T03:37:28Z",
-      "out_age_min": 0.0,
-      "log_bytes": 798794,
-      "output_tokens": 62148,
-      "cache_read_tokens": 24172164,
-      "cache_creation_tokens": 725344,
-      "msgs": 225,
+      "out_last_active": "2026-07-27T03:37:33Z",
+      "out_age_min": 1.0,
+      "log_bytes": 801451,
+      "output_tokens": 63118,
+      "cache_read_tokens": 24347214,
+      "cache_creation_tokens": 726334,
+      "msgs": 226,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -112,17 +112,17 @@
       "full_id": "a344ae8a46cbda996",
       "group": "wave-1-foundation-spine",
       "group_label": "Wave 1 foundation spine",
-      "last_active": "2026-07-27T03:37:27Z",
-      "log_bytes": 666878,
+      "last_active": "2026-07-27T03:38:26Z",
+      "log_bytes": 705065,
       "live": true,
       "status": "live",
-      "age_min": 0.0,
+      "age_min": 0.1,
       "subagent": true,
       "recent": true,
-      "output_tokens": 71115,
-      "cache_read_tokens": 18314415,
-      "cache_creation_tokens": 746213,
-      "msgs": 202
+      "output_tokens": 74000,
+      "cache_read_tokens": 20305776,
+      "cache_creation_tokens": 756148,
+      "msgs": 215
     },
     {
       "id": "aaf091e3",
@@ -133,7 +133,7 @@
       "log_bytes": 217633,
       "live": false,
       "status": "idle",
-      "age_min": 22.9,
+      "age_min": 23.9,
       "subagent": true,
       "recent": true,
       "output_tokens": 25632,
@@ -146,29 +146,29 @@
       "full_id": "add2cbea4eefa8456",
       "group": "mission-control",
       "group_label": "Mission Control Worker",
-      "last_active": "2026-07-27T03:37:28Z",
-      "log_bytes": 798794,
+      "last_active": "2026-07-27T03:37:33Z",
+      "log_bytes": 801451,
       "live": true,
       "status": "live",
-      "age_min": 0.0,
+      "age_min": 1.0,
       "subagent": true,
       "recent": true,
-      "output_tokens": 62148,
-      "cache_read_tokens": 24172164,
-      "cache_creation_tokens": 725344,
-      "msgs": 225
+      "output_tokens": 63118,
+      "cache_read_tokens": 24347214,
+      "cache_creation_tokens": 726334,
+      "msgs": 226
     },
     {
       "id": "0f7b13a0",
       "full_id": "0f7b13a0-2a85-49c0-96d5-e5a8832d8b85",
       "group": "commander",
       "group_label": "Session 0f7b13a0",
-      "last_active": "2026-07-27T03:36:02Z",
+      "last_active": "2026-07-27T03:37:35Z",
       "output_tokens": 409354,
       "cache_read_tokens": 5419260,
       "cache_creation_tokens": 871335,
       "msgs": 60,
-      "age_min": 1.4,
+      "age_min": 0.9,
       "live": true,
       "status": "live",
       "subagent": false,
@@ -188,57 +188,57 @@
         "track": "w0",
         "branch": "main",
         "available": true,
-        "commits_24h": 12,
-        "commits_7d": 12
+        "commits_24h": 19,
+        "commits_7d": 19
       }
     ],
     "recent": [
       {
+        "hash": "0cd25ca",
+        "at": "2026-07-27T07:38:17+04:00",
+        "subject": "chore: wire root scripts to delegate to workspace packages; commit pnpm-lock.yaml",
+        "track": "w0"
+      },
+      {
+        "hash": "7fdd2d7",
+        "at": "2026-07-27T07:38:09+04:00",
+        "subject": "feat(agents): @cadre/agents TS contracts \u2014 Agent/Order/Permission/Brain/Router/Runtime",
+        "track": "w0"
+      },
+      {
+        "hash": "e42e15b",
+        "at": "2026-07-27T07:38:01+04:00",
+        "subject": "feat(core): typed API client with device-token auth header",
+        "track": "w0"
+      },
+      {
+        "hash": "2c50eee",
+        "at": "2026-07-27T07:37:54+04:00",
+        "subject": "feat(core): command console shell \u2014 module rail, router, entry point",
+        "track": "w0"
+      },
+      {
+        "hash": "9217a80",
+        "at": "2026-07-27T07:37:46+04:00",
+        "subject": "feat(core): module registry + 10 self-registering module stubs",
+        "track": "w0"
+      },
+      {
+        "hash": "1c04ae0",
+        "at": "2026-07-27T07:37:39+04:00",
+        "subject": "feat(core): design tokens \u2014 tokens.css + theme.ts ported from brand concept",
+        "track": "w0"
+      },
+      {
+        "hash": "14429b0",
+        "at": "2026-07-27T07:37:32+04:00",
+        "subject": "feat(core): Vite + React + TS scaffold \u2014 build config, tsconfig, index.html",
+        "track": "w0"
+      },
+      {
         "hash": "ba97e11",
         "at": "2026-07-27T07:28:27+04:00",
         "subject": "feat(backend): app factory wiring core + all 11 domain routers; pin deps",
-        "track": "w0"
-      },
-      {
-        "hash": "7dff8ac",
-        "at": "2026-07-27T07:28:19+04:00",
-        "subject": "feat(backend): per-domain router/model registry \u2014 11 self-registering domain stubs",
-        "track": "w0"
-      },
-      {
-        "hash": "78787ab",
-        "at": "2026-07-27T07:28:10+04:00",
-        "subject": "feat(backend): device-token auth (bootstrap + get_current_device) + sync/health routers",
-        "track": "w0"
-      },
-      {
-        "hash": "c45ce50",
-        "at": "2026-07-27T07:27:58+04:00",
-        "subject": "feat(backend): app skeleton \u2014 settings, SQLAlchemy 2.0 DB, core models",
-        "track": "w0"
-      },
-      {
-        "hash": "05b10fa",
-        "at": "2026-07-27T07:13:56+04:00",
-        "subject": "docs: brand concept \u2014 cadre-concept.html + brand README pointer",
-        "track": "w0"
-      },
-      {
-        "hash": "07ed974",
-        "at": "2026-07-27T07:13:56+04:00",
-        "subject": "docs: conversation log + decision record (D1-D20 + open O1-O3)",
-        "track": "w0"
-      },
-      {
-        "hash": "183c6af",
-        "at": "2026-07-27T07:13:55+04:00",
-        "subject": "docs: lane map \u2014 Wave 0-5 build plan with dependencies + gated items index",
-        "track": "w0"
-      },
-      {
-        "hash": "f1be5a0",
-        "at": "2026-07-27T07:13:55+04:00",
-        "subject": "docs: architecture \u2014 components, data flow, native bridges, MCP; stack marked PROPOSED",
         "track": "w0"
       }
     ]
@@ -360,6 +360,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-07-27T03:37:29Z"
+    "checked_at": "2026-07-27T03:38:31Z"
   }
 }
