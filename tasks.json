@@ -84,6 +84,12 @@
     "note": "New module + backend domain 'network'; integrates the NetBird (WireGuard mesh) management API + netbird CLI; 'spin up a secure VPN' = provision network + setup keys + connect devices; also the secure transport for iPhone <-> on-prem model <-> backend <-> VAMS. Self-hosting a NetBird control plane is a GATED sub-option. Lead lane of the next wave after Wave 2 clears."
   },
   {
+    "title": "W3 - Settings > External Connectors (LLM providers: Claude/Grok/others + VAMS old+new endpoints/creds)",
+    "status": "pending",
+    "track": "w3",
+    "note": "Settings-page section to configure LLM API providers (Claude, Grok/xAI, others) each with endpoint+key, plus VAMS connections (endpoint+creds) that must be backward-compatible with BOTH old and new VAMS. Spans the Model Manager provider registry + the Integrations (VAMS) connector + a Settings UI surface."
+  },
+  {
     "title": "W4 - Integrations (VAMS + API/MCP plugin framework)",
     "status": "pending",
     "track": "w4"
