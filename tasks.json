@@ -27,25 +27,25 @@
     "title": "W2 - Email engine (IMAP/SMTP, unified inbox, drafts, AI replies) - MVP",
     "status": "in_progress",
     "track": "w2",
-    "note": "Wave-2 lane dispatched, in progress."
+    "note": "Recovered/salvaged after lane cancellation: backend done + committed (5595395); inbox frontend now building in an isolated worktree."
   },
   {
     "title": "W2 - Model Manager + Router (local model install/manage, API providers, per-agent brains)",
     "status": "in_progress",
     "track": "w2",
-    "note": "Wave-2 lane dispatched, in progress."
+    "note": "Recovered/salvaged after lane cancellation: backend done + 11/11 tests, committed (cd30323); frontend now building in an isolated worktree."
   },
   {
     "title": "W2 - Understanding layer (thread intelligence, runs on local LLM)",
-    "status": "in_progress",
+    "status": "done",
     "track": "w2",
-    "note": "Wave-2 lane dispatched, in progress."
+    "note": "Backend complete, imports/boots, 21/21 tests pass; no frontend needed by design (feeds other modules). Committed fed9c43."
   },
   {
     "title": "W2 - Agent Builder (permissions selector + orders/tasks + draft-and-approve autonomy)",
     "status": "in_progress",
     "track": "w2",
-    "note": "Wave-2 lane dispatched, in progress."
+    "note": "Recovered/salvaged after lane cancellation: backend done, committed (098edf3); frontend + packages/agents runtime now building in an isolated worktree."
   },
   {
     "title": "W3 - Calendar",
