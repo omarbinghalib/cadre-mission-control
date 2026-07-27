@@ -91,9 +91,21 @@
   },
   {
     "title": "Email -> Understanding pipeline wiring (populate derived feeds)",
+    "status": "done",
+    "track": "w3",
+    "note": "Verified live end-to-end: email sync enqueues threads -> background worker -> understanding extraction -> /derived/calendar,tasks,contacts return real thread-traceable data (degraded heuristic path works with no local model); idempotent job queue added (seed of the multi-device run-once processor). Pushed main 5f8ea61, with tests."
+  },
+  {
+    "title": "Fix understanding contact-name matching (Name <email> parsing)",
+    "status": "pending",
+    "track": "w3",
+    "note": "Small follow-on. Pre-existing accuracy quirk in services/understanding: commitment/action owners don't increment contact counts because it matches a bare name against the full 'Name <email>' string. Minor extraction fix."
+  },
+  {
+    "title": "Wave B scaffold: register connector surfaces (Settings, Mattermost, GitHub, VAMS)",
     "status": "in_progress",
     "track": "w3",
-    "note": "HIGH PRIORITY: wiring email sync to feed threads through the understanding layer so derived module feeds (calendar/projects/reports/contacts) show real data instead of empty. Foundational to the 'email chains -> everything' through-line. A lane discovered nothing currently triggers /understand, so the store is empty on a fresh setup."
+    "note": "Sets up the Wave B connector fill lanes to parallelize cleanly."
   },
   {
     "title": "W3 - VPN / Secure Networking (NetBird integration + secure-tunnel spin-up)",
