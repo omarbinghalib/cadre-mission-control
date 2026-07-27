@@ -87,7 +87,13 @@
     "title": "W3 - Settings > External Connectors (LLM providers: Claude/Grok/others + VAMS old+new endpoints/creds)",
     "status": "pending",
     "track": "w3",
-    "note": "Settings-page section to configure LLM API providers (Claude, Grok/xAI, others) each with endpoint+key, plus VAMS connections (endpoint+creds) that must be backward-compatible with BOTH old and new VAMS. Spans the Model Manager provider registry + the Integrations (VAMS) connector + a Settings UI surface."
+    "note": "SINGLE place for ALL connector credentials: LLM API providers (Claude, Grok/xAI, others) each with endpoint+key; VAMS connections (endpoint+creds) backward-compatible with BOTH old and new VAMS; and Mattermost (endpoint + token). Spans the Model Manager provider registry + the Integrations (VAMS) connector + the Mattermost connector + a Settings UI surface."
+  },
+  {
+    "title": "W3 - Mattermost integration (team chat as a first-class surface + connector)",
+    "status": "pending",
+    "track": "w3",
+    "note": "Integrate Mattermost (open-source team chat) as a first-class comms surface in Cadre (view/send channels + DMs); endpoint + token configured in Settings > External Connectors; can also feed the understanding layer and be agent-actionable (permission-gated). New module + backend domain (single-owner lane; edits shared registries)."
   },
   {
     "title": "W4 - Integrations (VAMS + API/MCP plugin framework)",
