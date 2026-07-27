@@ -81,7 +81,7 @@
     "title": "W3 - VPN / Secure Networking (NetBird integration + secure-tunnel spin-up)",
     "status": "pending",
     "track": "w3",
-    "note": "New module + backend domain 'network'; integrates the NetBird (WireGuard mesh) management API + netbird CLI; 'spin up a secure VPN' = provision network + setup keys + connect devices; also the secure transport for iPhone <-> on-prem model <-> backend <-> VAMS. Self-hosting a NetBird control plane is a GATED sub-option. Lead lane of the next wave after Wave 2 clears."
+    "note": "New module + backend domain 'network'; integrates the NetBird (WireGuard mesh) management API + netbird CLI; 'spin up a secure VPN' = provision network + setup keys + connect devices; also the secure transport for iPhone <-> on-prem model <-> backend <-> VAMS. Self-hosting a NetBird control plane is a GATED sub-option. Lead lane of the next wave after Wave 2 clears. ADAPTIVE / NETWORK-AWARE ROUTING: Cadre auto-detects in-office vs remote and, when remote, automatically routes VAMS traffic through the work-PC gateway peer (a NetBird routing peer advertising the VAMS DB subnet) - Cadre configures the network route + access policy/ACL itself via the NetBird management API, with failover awareness if the work PC is offline."
   },
   {
     "title": "W3 - Settings > External Connectors (LLM providers: Claude/Grok/others + VAMS old+new endpoints/creds)",
@@ -94,6 +94,12 @@
     "status": "pending",
     "track": "w3",
     "note": "Integrate Mattermost (open-source team chat) as a first-class comms surface in Cadre (view/send channels + DMs); endpoint + token configured in Settings > External Connectors; can also feed the understanding layer and be agent-actionable (permission-gated). New module + backend domain (single-owner lane; edits shared registries)."
+  },
+  {
+    "title": "Security hardening & data-protection audit (cross-cutting)",
+    "status": "pending",
+    "track": "cross-cutting",
+    "note": "Encrypt all secrets at rest (email creds, LLM API keys, VAMS creds, Mattermost tokens, NetBird keys); TLS everywhere; NetBird mesh for internal transport; no-secret-logging; least-privilege agent permissions; secure encrypted device sync; no data-shipping telemetry. Every lane must comply; a final audit GATES done. Already recorded in CLAUDE.md section 14 + docs/lanes.md."
   },
   {
     "title": "W4 - Integrations (VAMS + API/MCP plugin framework)",
