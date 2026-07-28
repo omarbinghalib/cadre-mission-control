@@ -1,6 +1,6 @@
 {
-  "updated": "2026-07-28T16:47:34Z",
-  "heartbeat_at": "2026-07-28T16:47:34Z",
+  "updated": "2026-07-28T17:02:37Z",
+  "heartbeat_at": "2026-07-28T17:02:37Z",
   "last_activity": "2026-07-28T15:04:11Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
@@ -9,15 +9,15 @@
     "cache_read_tokens": 175312393,
     "cache_creation_tokens": 17986795,
     "msgs": 443,
-    "sessions": 3,
+    "sessions": 2,
     "live_sessions": 0,
     "transcript_sessions": 1,
-    "subagent_sessions": 2,
-    "workers": 3,
+    "subagent_sessions": 1,
+    "workers": 2,
     "live_workers": 0,
     "stopped_workers": 0,
-    "current_workers": 3,
-    "history_workers": 43,
+    "current_workers": 2,
+    "history_workers": 44,
     "recent_window_min": 120.0
   },
   "workers": [
@@ -32,33 +32,11 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": null,
-      "out_age_min": 103.1,
+      "out_age_min": 118.1,
       "log_bytes": null,
       "status": "idle",
       "live": false,
       "signal": "coordinating (orchestrator)",
-      "recent": true
-    },
-    {
-      "name": "Finalize: verify, version, build, GitHub release",
-      "role": "finalize-verify-version-build-github-release",
-      "branch": null,
-      "focus": "Finalize: verify, version, build, GitHub release",
-      "agent_id": "abdd7f6453bd53a21",
-      "short_id": "abdd7f64",
-      "head_commit": null,
-      "head_commit_at": null,
-      "head_ago_min": null,
-      "out_last_active": "2026-07-28T14:51:40Z",
-      "out_age_min": 115.9,
-      "log_bytes": 588821,
-      "output_tokens": 44302,
-      "cache_read_tokens": 13284839,
-      "cache_creation_tokens": 934749,
-      "msgs": 229,
-      "status": "idle",
-      "live": false,
-      "signal": "task-output mtime + git commit",
       "recent": true
     },
     {
@@ -72,7 +50,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-07-28T15:04:11Z",
-      "out_age_min": 103.4,
+      "out_age_min": 118.4,
       "log_bytes": 2079095,
       "output_tokens": 235833,
       "cache_read_tokens": 95913946,
@@ -86,23 +64,6 @@
   ],
   "sessions": [
     {
-      "id": "abdd7f64",
-      "full_id": "abdd7f6453bd53a21",
-      "group": "finalize-verify-version-build-github-release",
-      "group_label": "Finalize: verify, version, build, GitHub release",
-      "last_active": "2026-07-28T14:51:40Z",
-      "log_bytes": 588821,
-      "live": false,
-      "status": "idle",
-      "age_min": 115.9,
-      "subagent": true,
-      "recent": true,
-      "output_tokens": 44302,
-      "cache_read_tokens": 13284839,
-      "cache_creation_tokens": 934749,
-      "msgs": 229
-    },
-    {
       "id": "add2cbea",
       "full_id": "add2cbea4eefa8456",
       "group": "mission-control",
@@ -111,7 +72,7 @@
       "log_bytes": 2079095,
       "live": false,
       "status": "idle",
-      "age_min": 103.4,
+      "age_min": 118.4,
       "subagent": true,
       "recent": true,
       "output_tokens": 235833,
@@ -129,7 +90,7 @@
       "cache_read_tokens": 175312393,
       "cache_creation_tokens": 17986795,
       "msgs": 443,
-      "age_min": 103.1,
+      "age_min": 118.1,
       "live": false,
       "status": "idle",
       "subagent": false,
@@ -137,12 +98,12 @@
     }
   ],
   "history": {
-    "workers": 43,
+    "workers": 44,
     "by_status": {
-      "idle": 39,
+      "idle": 40,
       "stopped": 4
     },
-    "last_active": "2026-07-28T12:59:52Z",
+    "last_active": "2026-07-28T14:51:40Z",
     "note": "Prior-session workers \u2014 retired; not part of the current fleet."
   },
   "total_tokens": 2030032,
@@ -338,6 +299,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-07-28T16:47:35Z"
+    "checked_at": "2026-07-28T17:02:39Z"
   }
 }
