@@ -162,64 +162,82 @@
     "note": "Cadre_0.0.0_x64-setup.exe built + installed + verified: window opens, backend health green, rail shows all modules incl Settings/Mattermost/GitHub/VAMS. Omar can now install + connect + test."
   },
   {
-    "title": "PyInstaller self-contained backend (installer portable to other machines)",
-    "status": "pending",
-    "track": "w4",
-    "note": "Follow-on surfaced from the test-installer build: current installer reuses the dev venv; needs a self-contained PyInstaller backend to be portable to other machines."
-  },
-  {
-    "title": "Inbox empty-DB 'Failed to fetch' - verify empty-state vs real error",
-    "status": "pending",
-    "track": "w4",
-    "note": "Follow-on surfaced from the test-installer build: on a fresh/empty DB the Inbox shows 'Failed to fetch' - needs verification of whether this is a real error or should be a proper empty-state."
-  },
-  {
-    "title": "W3 - VPN / Secure Networking (NetBird integration + secure-tunnel spin-up)",
-    "status": "pending",
+    "title": "VAMS/COO attention feed (delays/bottlenecks/problems/mistakes) + COO executive report",
+    "status": "done",
     "track": "w3",
-    "note": "New module + backend domain 'network'; integrates the NetBird (WireGuard mesh) management API + netbird CLI; 'spin up a secure VPN' = provision network + setup keys + connect devices; also the secure transport for iPhone <-> on-prem model <-> backend <-> VAMS. Self-hosting a NetBird control plane is a GATED sub-option. Lead lane of the next wave after Wave 2 clears. ADAPTIVE / NETWORK-AWARE ROUTING: Cadre auto-detects in-office vs remote and, when remote, automatically routes VAMS traffic through the work-PC gateway peer (a NetBird routing peer advertising the VAMS DB subnet) - Cadre configures the network route + access policy/ACL itself via the NetBird management API, with failover awareness if the work PC is offline."
-  },
-  {
-    "title": "Gateway-mesh + internal-resources registry + adaptive routing (VAMS/drives/any service)",
-    "status": "pending",
-    "track": "w3",
-    "note": "Accumulated scope, recorded in docs. Generalizes the VPN/Secure-Networking adaptive routing beyond VAMS to any registered internal resource (drives, services) via a shared gateway-mesh + resource registry."
-  },
-  {
-    "title": "Network map + NetBird dashboard section (manage)",
-    "status": "pending",
-    "track": "w3",
-    "note": "Accumulated scope, recorded in docs. In-app 'manage' section: visual network map + NetBird status/peers/routes."
-  },
-  {
-    "title": "LLM map + live usage telemetry (manage)",
-    "status": "pending",
-    "track": "w3",
-    "note": "Accumulated scope, recorded in docs. In-app 'manage' section: map of configured LLM providers/models + live usage telemetry."
-  },
-  {
-    "title": "NFS/SMB -> real Windows mapped drive (OS-level, adaptive-routed)",
-    "status": "pending",
-    "track": "w3",
-    "note": "Accumulated scope, recorded in docs. Expose a network share as a real OS-level mapped drive on Windows, routed adaptively (in-office vs remote via the gateway-mesh)."
-  },
-  {
-    "title": "App lifecycle: tray/background, startup+shutdown splash, teardown-on-quit",
-    "status": "pending",
-    "track": "w3",
-    "note": "Accumulated scope, recorded in docs. Desktop app lifecycle: system-tray/background mode, startup + shutdown splash screens, clean teardown on quit."
+    "note": "Wave C merged to main at 5d41960 (130 backend + 29 model-manager tests green, 149 API paths)."
   },
   {
     "title": "Email auto-organization (learn folders, spam, sort, feed understanding)",
-    "status": "pending",
+    "status": "done",
     "track": "w3",
-    "note": "Accumulated scope, recorded in docs. Learns the user's folder structure, spam patterns, and sorting habits; auto-organizes and feeds signal to the Understanding layer."
+    "note": "Wave C merged to main at 5d41960 (130 backend + 29 model-manager tests green, 149 API paths)."
   },
   {
     "title": "Audit log + Activity report (all auto-actions, reversible)",
-    "status": "pending",
+    "status": "done",
     "track": "w3",
-    "note": "Accumulated scope, recorded in docs. Full audit log + human-readable activity report of every autonomous/agent action; every logged action must be reversible."
+    "note": "Wave C merged to main at 5d41960 (130 backend + 29 model-manager tests green, 149 API paths)."
+  },
+  {
+    "title": "W3 - VPN / Secure Networking (NetBird integration + secure-tunnel spin-up)",
+    "status": "done",
+    "track": "w3",
+    "note": "NetBird connect shipped as part of Wave C, merged to main at 5d41960 (130 backend + 29 model-manager tests green, 149 API paths). ADAPTIVE / NETWORK-AWARE ROUTING: Cadre auto-detects in-office vs remote and, when remote, automatically routes VAMS traffic through the work-PC gateway peer (a NetBird routing peer advertising the VAMS DB subnet) - Cadre configures the network route + access policy/ACL itself via the NetBird management API, with failover awareness if the work PC is offline. Self-hosting a NetBird control plane remains a GATED sub-option."
+  },
+  {
+    "title": "Network map + NetBird dashboard section (manage)",
+    "status": "done",
+    "track": "w3",
+    "note": "NetBird management dashboard shipped as part of Wave C, merged to main at 5d41960 (130 backend + 29 model-manager tests green, 149 API paths)."
+  },
+  {
+    "title": "LLM map + live usage telemetry (manage)",
+    "status": "done",
+    "track": "w3",
+    "note": "Wave C merged to main at 5d41960 (130 backend + 29 model-manager tests green, 149 API paths)."
+  },
+  {
+    "title": "Per-section health (green/amber/red + needs-attention), cross-cutting",
+    "status": "done",
+    "track": "cross-cutting",
+    "note": "Wave C merged to main at 5d41960 (130 backend + 29 model-manager tests green, 149 API paths). NOTE: the green/amber/red health PATTERN shipped for the model layer specifically - establishes the reusable cross-cutting mechanism; other sections adopt it as they land."
+  },
+  {
+    "title": "App lifecycle: tray/background, startup+shutdown splash, teardown-on-quit",
+    "status": "in_progress",
+    "track": "w3",
+    "note": "Round-2 lane, dispatched in a parallel worktree, paired with the PyInstaller portable-installer task below."
+  },
+  {
+    "title": "PyInstaller self-contained backend (installer portable to other machines)",
+    "status": "in_progress",
+    "track": "w4",
+    "note": "Round-2 lane, dispatched in a parallel worktree, paired with the desktop-lifecycle task above."
+  },
+  {
+    "title": "Gateway-mesh + internal-resources registry + adaptive routing (VAMS/drives/any service)",
+    "status": "in_progress",
+    "track": "w3",
+    "note": "Round-2 'networking depth' lane, dispatched in a parallel worktree, paired with the OS-drive-mounting task below."
+  },
+  {
+    "title": "NFS/SMB -> real Windows mapped drive (OS-level, adaptive-routed)",
+    "status": "in_progress",
+    "track": "w3",
+    "note": "Round-2 'networking depth' lane, dispatched in a parallel worktree, paired with the gateway-mesh/adaptive-routing task above."
+  },
+  {
+    "title": "Voice recognition (local STT) + Claude Code chat mode",
+    "status": "in_progress",
+    "track": "w3",
+    "note": "Round-2 lane, dispatched in a parallel worktree. Local speech-to-text for voice input, plus a Claude-Code-style agentic chat mode."
+  },
+  {
+    "title": "Security hardening & data-protection audit (cross-cutting)",
+    "status": "in_progress",
+    "track": "cross-cutting",
+    "note": "Round-2 lane: audit wiring across domains + a security hardening pass, dispatched in a parallel worktree. Encrypt all secrets at rest (email creds, LLM API keys, VAMS creds, Mattermost tokens, NetBird keys); TLS everywhere; NetBird mesh for internal transport; no-secret-logging; least-privilege agent permissions; secure encrypted device sync; no data-shipping telemetry. Every lane must comply; a final audit GATES done. Already recorded in CLAUDE.md section 14 + docs/lanes.md. ALSO cross-cutting policies in force project-wide: (1) hard approval-gate - no send / VAMS-write / Mattermost-post without human review; (2) the 'intelligence bar' quality standard for AI-driven actions. See docs/lanes.md."
   },
   {
     "title": "Multi-device coordination (backend run-once, leader-election/failover)",
@@ -228,16 +246,10 @@
     "note": "Accumulated scope, recorded in docs. Ensures the backend runs once across a user's devices via leader-election, with failover if the leader goes offline."
   },
   {
-    "title": "Per-section health (green/amber/red + needs-attention), cross-cutting",
+    "title": "Inbox empty-DB 'Failed to fetch' - verify empty-state vs real error",
     "status": "pending",
-    "track": "cross-cutting",
-    "note": "Accumulated scope, recorded in docs. Every section/module surfaces a green/amber/red health state + a needs-attention signal, cross-cutting across the whole app."
-  },
-  {
-    "title": "Security hardening & data-protection audit (cross-cutting)",
-    "status": "pending",
-    "track": "cross-cutting",
-    "note": "Encrypt all secrets at rest (email creds, LLM API keys, VAMS creds, Mattermost tokens, NetBird keys); TLS everywhere; NetBird mesh for internal transport; no-secret-logging; least-privilege agent permissions; secure encrypted device sync; no data-shipping telemetry. Every lane must comply; a final audit GATES done. Already recorded in CLAUDE.md section 14 + docs/lanes.md. ALSO cross-cutting policies in force project-wide: (1) hard approval-gate - no send / VAMS-write / Mattermost-post without human review; (2) the 'intelligence bar' quality standard for AI-driven actions. See docs/lanes.md."
+    "track": "w4",
+    "note": "Follow-on surfaced from the test-installer build: on a fresh/empty DB the Inbox shows 'Failed to fetch' - needs verification of whether this is a real error or should be a proper empty-state."
   },
   {
     "title": "W4 - Integrations (VAMS + API/MCP plugin framework)",
