@@ -97,9 +97,9 @@
   },
   {
     "title": "Fix understanding contact-name matching (Name <email> parsing)",
-    "status": "pending",
+    "status": "in_progress",
     "track": "w3",
-    "note": "Small follow-on. Pre-existing accuracy quirk in services/understanding: commitment/action owners don't increment contact counts because it matches a bare name against the full 'Name <email>' string. Minor extraction fix."
+    "note": "Final-tail lane, dispatched in a parallel worktree, paired with the Inbox empty-DB fetch bugfix. Pre-existing accuracy quirk in services/understanding: commitment/action owners don't increment contact counts because it matches a bare name against the full 'Name <email>' string."
   },
   {
     "title": "Wave B scaffold: register connector surfaces (Settings, Mattermost, GitHub, VAMS)",
@@ -205,51 +205,57 @@
   },
   {
     "title": "App lifecycle: tray/background, startup+shutdown splash, teardown-on-quit",
-    "status": "in_progress",
+    "status": "done",
     "track": "w3",
-    "note": "Round-2 lane, dispatched in a parallel worktree, paired with the PyInstaller portable-installer task below."
+    "note": "Round 2 merged to main at b3e1bb9 (187 backend + 40 model-manager tests green, 164 API paths, DESKTOP builds fully green, portable MSI+NSIS installers produced with the PyInstaller sidecar)."
   },
   {
     "title": "PyInstaller self-contained backend (installer portable to other machines)",
-    "status": "in_progress",
+    "status": "done",
     "track": "w4",
-    "note": "Round-2 lane, dispatched in a parallel worktree, paired with the desktop-lifecycle task above."
+    "note": "Round 2 merged to main at b3e1bb9 (187 backend + 40 model-manager tests green, 164 API paths, DESKTOP builds fully green, portable MSI+NSIS installers produced with the PyInstaller sidecar)."
   },
   {
     "title": "Gateway-mesh + internal-resources registry + adaptive routing (VAMS/drives/any service)",
-    "status": "in_progress",
+    "status": "done",
     "track": "w3",
-    "note": "Round-2 'networking depth' lane, dispatched in a parallel worktree, paired with the OS-drive-mounting task below."
+    "note": "Round 2 merged to main at b3e1bb9 (187 backend + 40 model-manager tests green, 164 API paths, DESKTOP builds fully green, portable MSI+NSIS installers produced with the PyInstaller sidecar)."
   },
   {
     "title": "NFS/SMB -> real Windows mapped drive (OS-level, adaptive-routed)",
-    "status": "in_progress",
+    "status": "done",
     "track": "w3",
-    "note": "Round-2 'networking depth' lane, dispatched in a parallel worktree, paired with the gateway-mesh/adaptive-routing task above."
+    "note": "Round 2 merged to main at b3e1bb9 (187 backend + 40 model-manager tests green, 164 API paths, DESKTOP builds fully green, portable MSI+NSIS installers produced with the PyInstaller sidecar)."
   },
   {
     "title": "Voice recognition (local STT) + Claude Code chat mode",
-    "status": "in_progress",
+    "status": "done",
     "track": "w3",
-    "note": "Round-2 lane, dispatched in a parallel worktree. Local speech-to-text for voice input, plus a Claude-Code-style agentic chat mode."
+    "note": "Round 2 merged to main at b3e1bb9 (187 backend + 40 model-manager tests green, 164 API paths, DESKTOP builds fully green, portable MSI+NSIS installers produced with the PyInstaller sidecar)."
   },
   {
     "title": "Security hardening & data-protection audit (cross-cutting)",
     "status": "in_progress",
     "track": "cross-cutting",
-    "note": "Round-2 lane: audit wiring across domains + a security hardening pass, dispatched in a parallel worktree. Encrypt all secrets at rest (email creds, LLM API keys, VAMS creds, Mattermost tokens, NetBird keys); TLS everywhere; NetBird mesh for internal transport; no-secret-logging; least-privilege agent permissions; secure encrypted device sync; no data-shipping telemetry. Every lane must comply; a final audit GATES done. Already recorded in CLAUDE.md section 14 + docs/lanes.md. ALSO cross-cutting policies in force project-wide: (1) hard approval-gate - no send / VAMS-write / Mattermost-post without human review; (2) the 'intelligence bar' quality standard for AI-driven actions. See docs/lanes.md."
+    "note": "Audit-wiring-across-domains portion DONE as of round 2 (b3e1bb9): email/mattermost/github writes are now audited. Remaining scope continues via the new 'Security fixes: encrypt EmailAccount IMAP/SMTP creds...' task below; a final audit still GATES done. Encrypt all secrets at rest (email creds, LLM API keys, VAMS creds, Mattermost tokens, NetBird keys); TLS everywhere; NetBird mesh for internal transport; no-secret-logging; least-privilege agent permissions; secure encrypted device sync; no data-shipping telemetry. Already recorded in CLAUDE.md section 14 + docs/lanes.md. ALSO cross-cutting policies in force project-wide: (1) hard approval-gate - no send / VAMS-write / Mattermost-post without human review; (2) the 'intelligence bar' quality standard for AI-driven actions. See docs/lanes.md."
   },
   {
-    "title": "Multi-device coordination (backend run-once, leader-election/failover)",
-    "status": "pending",
-    "track": "w3",
-    "note": "Accumulated scope, recorded in docs. Ensures the backend runs once across a user's devices via leader-election, with failover if the leader goes offline."
+    "title": "Security fixes: encrypt EmailAccount IMAP/SMTP creds at rest + swap to a vetted cipher library",
+    "status": "in_progress",
+    "track": "cross-cutting",
+    "note": "Final-tail lane, dispatched in a parallel worktree. Part of the broader security-hardening & data-protection audit (cross-cutting) scope."
   },
   {
     "title": "Inbox empty-DB 'Failed to fetch' - verify empty-state vs real error",
-    "status": "pending",
+    "status": "in_progress",
     "track": "w4",
-    "note": "Follow-on surfaced from the test-installer build: on a fresh/empty DB the Inbox shows 'Failed to fetch' - needs verification of whether this is a real error or should be a proper empty-state."
+    "note": "Final-tail lane, dispatched in a parallel worktree, paired with the understanding contact-name-matching bugfix. On a fresh/empty DB the Inbox shows 'Failed to fetch' - needs verification of whether this is a real error or should be a proper empty-state."
+  },
+  {
+    "title": "Multi-device coordination (backend run-once, leader-election/failover)",
+    "status": "in_progress",
+    "track": "w3",
+    "note": "Final-tail lane, dispatched in a parallel worktree. Ensures the backend runs once across a user's devices via leader-election, with failover if the leader goes offline."
   },
   {
     "title": "W4 - Integrations (VAMS + API/MCP plugin framework)",
