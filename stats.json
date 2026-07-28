@@ -1,23 +1,23 @@
 {
-  "updated": "2026-07-28T14:54:22Z",
-  "heartbeat_at": "2026-07-28T14:54:22Z",
-  "last_activity": "2026-07-28T14:54:18Z",
+  "updated": "2026-07-28T14:58:37Z",
+  "heartbeat_at": "2026-07-28T14:58:37Z",
+  "last_activity": "2026-07-28T14:58:35Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
-    "output_tokens": 1981024,
-    "cache_read_tokens": 165350224,
-    "cache_creation_tokens": 17926208,
-    "msgs": 430,
-    "sessions": 3,
-    "live_sessions": 2,
+    "output_tokens": 2028834,
+    "cache_read_tokens": 173760577,
+    "cache_creation_tokens": 17981245,
+    "msgs": 441,
+    "sessions": 4,
+    "live_sessions": 3,
     "transcript_sessions": 1,
-    "subagent_sessions": 2,
-    "workers": 3,
-    "live_workers": 2,
+    "subagent_sessions": 3,
+    "workers": 4,
+    "live_workers": 3,
     "stopped_workers": 0,
-    "current_workers": 3,
-    "history_workers": 43,
+    "current_workers": 4,
+    "history_workers": 42,
     "recent_window_min": 120.0
   },
   "workers": [
@@ -31,8 +31,8 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-07-28T14:54:18Z",
-      "out_age_min": 0.8,
+      "out_last_active": "2026-07-28T14:58:35Z",
+      "out_age_min": 0.5,
       "log_bytes": null,
       "status": "live",
       "live": true,
@@ -50,7 +50,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-07-28T12:59:52Z",
-      "out_age_min": 114.4,
+      "out_age_min": 118.7,
       "log_bytes": 924298,
       "output_tokens": 87316,
       "cache_read_tokens": 29882585,
@@ -72,12 +72,34 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-07-28T14:51:40Z",
-      "out_age_min": 2.7,
+      "out_age_min": 6.9,
       "log_bytes": 588821,
       "output_tokens": 44302,
       "cache_read_tokens": 13284839,
       "cache_creation_tokens": 934749,
       "msgs": 229,
+      "status": "live",
+      "live": true,
+      "signal": "task-output mtime + git commit",
+      "recent": true
+    },
+    {
+      "name": "Mission Control Worker",
+      "role": "mission-control",
+      "branch": null,
+      "focus": "Stand up Cadre mission control",
+      "agent_id": "add2cbea4eefa8456",
+      "short_id": "add2cbea",
+      "head_commit": null,
+      "head_commit_at": null,
+      "head_ago_min": null,
+      "out_last_active": "2026-07-28T14:58:01Z",
+      "out_age_min": 0.6,
+      "log_bytes": 2052448,
+      "output_tokens": 233232,
+      "cache_read_tokens": 89911587,
+      "cache_creation_tokens": 9700895,
+      "msgs": 471,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -94,7 +116,7 @@
       "log_bytes": 924298,
       "live": false,
       "status": "idle",
-      "age_min": 114.4,
+      "age_min": 118.7,
       "subagent": true,
       "recent": true,
       "output_tokens": 87316,
@@ -111,7 +133,7 @@
       "log_bytes": 588821,
       "live": true,
       "status": "live",
-      "age_min": 2.7,
+      "age_min": 6.9,
       "subagent": true,
       "recent": true,
       "output_tokens": 44302,
@@ -120,16 +142,33 @@
       "msgs": 229
     },
     {
+      "id": "add2cbea",
+      "full_id": "add2cbea4eefa8456",
+      "group": "mission-control",
+      "group_label": "Mission Control Worker",
+      "last_active": "2026-07-28T14:58:01Z",
+      "log_bytes": 2052448,
+      "live": true,
+      "status": "live",
+      "age_min": 0.6,
+      "subagent": true,
+      "recent": true,
+      "output_tokens": 233232,
+      "cache_read_tokens": 89911587,
+      "cache_creation_tokens": 9700895,
+      "msgs": 471
+    },
+    {
       "id": "0f7b13a0",
       "full_id": "0f7b13a0-2a85-49c0-96d5-e5a8832d8b85",
       "group": "commander",
       "group_label": "Session 0f7b13a0",
-      "last_active": "2026-07-28T14:53:28Z",
-      "output_tokens": 1981024,
-      "cache_read_tokens": 165350224,
-      "cache_creation_tokens": 17926208,
-      "msgs": 430,
-      "age_min": 0.9,
+      "last_active": "2026-07-28T14:58:08Z",
+      "output_tokens": 2028834,
+      "cache_read_tokens": 173760577,
+      "cache_creation_tokens": 17981245,
+      "msgs": 441,
+      "age_min": 0.5,
       "live": true,
       "status": "live",
       "subagent": false,
@@ -137,15 +176,15 @@
     }
   ],
   "history": {
-    "workers": 43,
+    "workers": 42,
     "by_status": {
-      "idle": 39,
+      "idle": 38,
       "stopped": 4
     },
-    "last_active": "2026-07-28T12:22:13Z",
+    "last_active": "2026-07-28T12:17:37Z",
     "note": "Prior-session workers \u2014 retired; not part of the current fleet."
   },
-  "total_tokens": 1981024,
+  "total_tokens": 2028834,
   "commits": {
     "tracks": [
       {
@@ -208,14 +247,14 @@
     ]
   },
   "progress": {
-    "overall_pct": 91,
+    "overall_pct": 94,
     "remaining_hours": [
-      7,
-      14
+      4,
+      9
     ],
     "remaining_sessions": [
-      2,
-      4
+      1,
+      2
     ],
     "tracks": [
       {
@@ -291,10 +330,10 @@
       {
         "track": "w5",
         "label": "Wave 5 \u2014 Gamification",
-        "pct": 50,
+        "pct": 100,
         "remaining_hours": [
-          1,
-          2
+          0,
+          0
         ],
         "remaining_sessions": [
           0,
@@ -319,14 +358,14 @@
       {
         "track": "verify",
         "label": "Verify + capstone",
-        "pct": 0,
+        "pct": 100,
         "remaining_hours": [
-          2,
-          3
+          0,
+          0
         ],
         "remaining_sessions": [
           0,
-          1
+          0
         ],
         "weight": 1
       }
@@ -336,8 +375,8 @@
   },
   "publisher": {
     "task": "cadre-mission-control",
-    "state": "Running",
+    "state": "Ready",
     "paused": false,
-    "checked_at": "2026-07-28T14:54:27Z"
+    "checked_at": "2026-07-28T14:58:40Z"
   }
 }
