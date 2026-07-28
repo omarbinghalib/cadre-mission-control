@@ -1,7 +1,7 @@
 {
-  "updated": "2026-07-28T09:52:52Z",
-  "heartbeat_at": "2026-07-28T09:52:52Z",
-  "last_activity": "2026-07-28T09:52:49Z",
+  "updated": "2026-07-28T09:53:33Z",
+  "heartbeat_at": "2026-07-28T09:53:33Z",
+  "last_activity": "2026-07-28T09:53:33Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
@@ -31,8 +31,8 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-07-28T09:52:49Z",
-      "out_age_min": 0.8,
+      "out_last_active": "2026-07-28T09:53:33Z",
+      "out_age_min": 1.5,
       "log_bytes": null,
       "status": "live",
       "live": true,
@@ -49,13 +49,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-07-28T09:52:42Z",
-      "out_age_min": 0.1,
-      "log_bytes": 2145172,
-      "output_tokens": 126979,
-      "cache_read_tokens": 71813685,
-      "cache_creation_tokens": 5708590,
-      "msgs": 436,
+      "out_last_active": "2026-07-28T09:52:57Z",
+      "out_age_min": 0.6,
+      "log_bytes": 2282221,
+      "output_tokens": 127112,
+      "cache_read_tokens": 72119147,
+      "cache_creation_tokens": 5709753,
+      "msgs": 437,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -68,17 +68,17 @@
       "full_id": "a2ba4fc2f057ed314",
       "group": "round2-desktop-lifecycle-pyinstaller",
       "group_label": "Round2: desktop lifecycle + PyInstaller",
-      "last_active": "2026-07-28T09:52:42Z",
-      "log_bytes": 2145172,
+      "last_active": "2026-07-28T09:52:57Z",
+      "log_bytes": 2282221,
       "live": true,
       "status": "live",
-      "age_min": 0.1,
+      "age_min": 0.6,
       "subagent": true,
       "recent": true,
-      "output_tokens": 126979,
-      "cache_read_tokens": 71813685,
-      "cache_creation_tokens": 5708590,
-      "msgs": 436
+      "output_tokens": 127112,
+      "cache_read_tokens": 72119147,
+      "cache_creation_tokens": 5709753,
+      "msgs": 437
     },
     {
       "id": "0f7b13a0",
@@ -90,7 +90,7 @@
       "cache_read_tokens": 141621463,
       "cache_creation_tokens": 8767247,
       "msgs": 385,
-      "age_min": 0.8,
+      "age_min": 1.5,
       "live": true,
       "status": "live",
       "subagent": false,
@@ -113,7 +113,7 @@
         "track": "w0",
         "branch": "main",
         "available": true,
-        "commits_24h": 79,
+        "commits_24h": 78,
         "commits_7d": 125
       }
     ],
@@ -299,6 +299,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-07-28T09:52:54Z"
+    "checked_at": "2026-07-28T09:53:33Z"
   }
 }
