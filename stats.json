@@ -1,7 +1,7 @@
 {
-  "updated": "2026-07-28T17:02:37Z",
-  "heartbeat_at": "2026-07-28T17:02:37Z",
-  "last_activity": "2026-07-28T15:04:11Z",
+  "updated": "2026-07-28T17:17:34Z",
+  "heartbeat_at": "2026-07-28T17:17:34Z",
+  "last_activity": null,
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
@@ -9,15 +9,15 @@
     "cache_read_tokens": 175312393,
     "cache_creation_tokens": 17986795,
     "msgs": 443,
-    "sessions": 2,
+    "sessions": 1,
     "live_sessions": 0,
     "transcript_sessions": 1,
-    "subagent_sessions": 1,
-    "workers": 2,
+    "subagent_sessions": 0,
+    "workers": 1,
     "live_workers": 0,
     "stopped_workers": 0,
-    "current_workers": 2,
-    "history_workers": 44,
+    "current_workers": 1,
+    "history_workers": 45,
     "recent_window_min": 120.0
   },
   "workers": [
@@ -32,54 +32,15 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": null,
-      "out_age_min": 118.1,
+      "out_age_min": 133.1,
       "log_bytes": null,
       "status": "idle",
       "live": false,
       "signal": "coordinating (orchestrator)",
       "recent": true
-    },
-    {
-      "name": "Mission Control Worker",
-      "role": "mission-control",
-      "branch": null,
-      "focus": "Stand up Cadre mission control",
-      "agent_id": "add2cbea4eefa8456",
-      "short_id": "add2cbea",
-      "head_commit": null,
-      "head_commit_at": null,
-      "head_ago_min": null,
-      "out_last_active": "2026-07-28T15:04:11Z",
-      "out_age_min": 118.4,
-      "log_bytes": 2079095,
-      "output_tokens": 235833,
-      "cache_read_tokens": 95913946,
-      "cache_creation_tokens": 9706163,
-      "msgs": 483,
-      "status": "idle",
-      "live": false,
-      "signal": "task-output mtime + git commit",
-      "recent": true
     }
   ],
   "sessions": [
-    {
-      "id": "add2cbea",
-      "full_id": "add2cbea4eefa8456",
-      "group": "mission-control",
-      "group_label": "Mission Control Worker",
-      "last_active": "2026-07-28T15:04:11Z",
-      "log_bytes": 2079095,
-      "live": false,
-      "status": "idle",
-      "age_min": 118.4,
-      "subagent": true,
-      "recent": true,
-      "output_tokens": 235833,
-      "cache_read_tokens": 95913946,
-      "cache_creation_tokens": 9706163,
-      "msgs": 483
-    },
     {
       "id": "0f7b13a0",
       "full_id": "0f7b13a0-2a85-49c0-96d5-e5a8832d8b85",
@@ -90,7 +51,7 @@
       "cache_read_tokens": 175312393,
       "cache_creation_tokens": 17986795,
       "msgs": 443,
-      "age_min": 118.1,
+      "age_min": 133.1,
       "live": false,
       "status": "idle",
       "subagent": false,
@@ -98,12 +59,12 @@
     }
   ],
   "history": {
-    "workers": 44,
+    "workers": 45,
     "by_status": {
-      "idle": 40,
+      "idle": 41,
       "stopped": 4
     },
-    "last_active": "2026-07-28T14:51:40Z",
+    "last_active": "2026-07-28T15:04:11Z",
     "note": "Prior-session workers \u2014 retired; not part of the current fleet."
   },
   "total_tokens": 2030032,
@@ -299,6 +260,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-07-28T17:02:39Z"
+    "checked_at": "2026-07-28T17:17:35Z"
   }
 }
