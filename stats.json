@@ -1,7 +1,7 @@
 {
-  "updated": "2026-07-28T11:34:22Z",
-  "heartbeat_at": "2026-07-28T11:34:22Z",
-  "last_activity": "2026-07-28T11:34:21Z",
+  "updated": "2026-07-28T11:35:55Z",
+  "heartbeat_at": "2026-07-28T11:35:55Z",
+  "last_activity": "2026-07-28T11:35:54Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
@@ -31,8 +31,8 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-07-28T11:34:21Z",
-      "out_age_min": 0.7,
+      "out_last_active": "2026-07-28T11:35:54Z",
+      "out_age_min": 2.2,
       "log_bytes": null,
       "status": "live",
       "live": true,
@@ -50,7 +50,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-07-28T10:01:39Z",
-      "out_age_min": 92.7,
+      "out_age_min": 94.3,
       "log_bytes": 2599879,
       "output_tokens": 145488,
       "cache_read_tokens": 86410311,
@@ -71,13 +71,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-07-28T11:34:21Z",
-      "out_age_min": 0.0,
-      "log_bytes": 91041,
-      "output_tokens": 2818,
-      "cache_read_tokens": 487931,
-      "cache_creation_tokens": 48866,
-      "msgs": 19,
+      "out_last_active": "2026-07-28T11:35:49Z",
+      "out_age_min": 0.1,
+      "log_bytes": 148268,
+      "output_tokens": 5922,
+      "cache_read_tokens": 1469369,
+      "cache_creation_tokens": 69126,
+      "msgs": 42,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -93,13 +93,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-07-28T11:34:20Z",
-      "out_age_min": 0.0,
-      "log_bytes": 40765,
-      "output_tokens": 1183,
-      "cache_read_tokens": 154486,
-      "cache_creation_tokens": 22710,
-      "msgs": 9,
+      "out_last_active": "2026-07-28T11:35:49Z",
+      "out_age_min": 0.1,
+      "log_bytes": 115984,
+      "output_tokens": 5805,
+      "cache_read_tokens": 830160,
+      "cache_creation_tokens": 52676,
+      "msgs": 29,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -116,7 +116,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-07-28T11:31:22Z",
-      "out_age_min": 3.0,
+      "out_age_min": 4.5,
       "log_bytes": 473117,
       "output_tokens": 36398,
       "cache_read_tokens": 7513423,
@@ -137,13 +137,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-07-28T11:34:20Z",
-      "out_age_min": 0.0,
-      "log_bytes": 37264,
-      "output_tokens": 726,
-      "cache_read_tokens": 113520,
-      "cache_creation_tokens": 14343,
-      "msgs": 7,
+      "out_last_active": "2026-07-28T11:35:32Z",
+      "out_age_min": 0.4,
+      "log_bytes": 85470,
+      "output_tokens": 5403,
+      "cache_read_tokens": 453939,
+      "cache_creation_tokens": 27409,
+      "msgs": 20,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -159,13 +159,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-07-28T11:34:04Z",
-      "out_age_min": 0.3,
-      "log_bytes": 1836860,
-      "output_tokens": 198938,
-      "cache_read_tokens": 75534446,
-      "cache_creation_tokens": 7768922,
-      "msgs": 436,
+      "out_last_active": "2026-07-28T11:35:27Z",
+      "out_age_min": 0.5,
+      "log_bytes": 1861191,
+      "output_tokens": 205407,
+      "cache_read_tokens": 77729906,
+      "cache_creation_tokens": 7781480,
+      "msgs": 441,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -182,7 +182,7 @@
       "log_bytes": 2599879,
       "live": false,
       "status": "idle",
-      "age_min": 92.7,
+      "age_min": 94.3,
       "subagent": true,
       "recent": true,
       "output_tokens": 145488,
@@ -195,34 +195,34 @@
       "full_id": "a3defb040e30134e7",
       "group": "tail-security-crypto-fixes",
       "group_label": "Tail: security crypto fixes",
-      "last_active": "2026-07-28T11:34:21Z",
-      "log_bytes": 91041,
+      "last_active": "2026-07-28T11:35:49Z",
+      "log_bytes": 148268,
       "live": true,
       "status": "live",
-      "age_min": 0.0,
+      "age_min": 0.1,
       "subagent": true,
       "recent": true,
-      "output_tokens": 2818,
-      "cache_read_tokens": 487931,
-      "cache_creation_tokens": 48866,
-      "msgs": 19
+      "output_tokens": 5922,
+      "cache_read_tokens": 1469369,
+      "cache_creation_tokens": 69126,
+      "msgs": 42
     },
     {
       "id": "a893fd4e",
       "full_id": "a893fd4ed30794eb1",
       "group": "tail-inbox-understanding-bugfixes",
       "group_label": "Tail: Inbox + understanding bugfixes",
-      "last_active": "2026-07-28T11:34:20Z",
-      "log_bytes": 40765,
+      "last_active": "2026-07-28T11:35:49Z",
+      "log_bytes": 115984,
       "live": true,
       "status": "live",
-      "age_min": 0.0,
+      "age_min": 0.1,
       "subagent": true,
       "recent": true,
-      "output_tokens": 1183,
-      "cache_read_tokens": 154486,
-      "cache_creation_tokens": 22710,
-      "msgs": 9
+      "output_tokens": 5805,
+      "cache_read_tokens": 830160,
+      "cache_creation_tokens": 52676,
+      "msgs": 29
     },
     {
       "id": "a8c643b6",
@@ -233,7 +233,7 @@
       "log_bytes": 473117,
       "live": true,
       "status": "live",
-      "age_min": 3.0,
+      "age_min": 4.5,
       "subagent": true,
       "recent": true,
       "output_tokens": 36398,
@@ -246,34 +246,34 @@
       "full_id": "ab42341a2bff02d35",
       "group": "tail-multi-device-coordination",
       "group_label": "Tail: multi-device coordination",
-      "last_active": "2026-07-28T11:34:20Z",
-      "log_bytes": 37264,
+      "last_active": "2026-07-28T11:35:32Z",
+      "log_bytes": 85470,
       "live": true,
       "status": "live",
-      "age_min": 0.0,
+      "age_min": 0.4,
       "subagent": true,
       "recent": true,
-      "output_tokens": 726,
-      "cache_read_tokens": 113520,
-      "cache_creation_tokens": 14343,
-      "msgs": 7
+      "output_tokens": 5403,
+      "cache_read_tokens": 453939,
+      "cache_creation_tokens": 27409,
+      "msgs": 20
     },
     {
       "id": "add2cbea",
       "full_id": "add2cbea4eefa8456",
       "group": "mission-control",
       "group_label": "Mission Control Worker",
-      "last_active": "2026-07-28T11:34:04Z",
-      "log_bytes": 1836860,
+      "last_active": "2026-07-28T11:35:27Z",
+      "log_bytes": 1861191,
       "live": true,
       "status": "live",
-      "age_min": 0.3,
+      "age_min": 0.5,
       "subagent": true,
       "recent": true,
-      "output_tokens": 198938,
-      "cache_read_tokens": 75534446,
-      "cache_creation_tokens": 7768922,
-      "msgs": 436
+      "output_tokens": 205407,
+      "cache_read_tokens": 77729906,
+      "cache_creation_tokens": 7781480,
+      "msgs": 441
     },
     {
       "id": "0f7b13a0",
@@ -285,7 +285,7 @@
       "cache_read_tokens": 144674516,
       "cache_creation_tokens": 14919717,
       "msgs": 398,
-      "age_min": 0.7,
+      "age_min": 2.2,
       "live": true,
       "status": "live",
       "subagent": false,
@@ -364,14 +364,14 @@
     ]
   },
   "progress": {
-    "overall_pct": 77,
+    "overall_pct": 84,
     "remaining_hours": [
-      16,
-      33
+      11,
+      22
     ],
     "remaining_sessions": [
-      4,
-      9
+      3,
+      6
     ],
     "tracks": [
       {
@@ -419,28 +419,28 @@
       {
         "track": "w3",
         "label": "Wave 3 \u2014 Modules",
-        "pct": 86,
+        "pct": 96,
         "remaining_hours": [
-          6,
-          12
-        ],
-        "remaining_sessions": [
           2,
           3
+        ],
+        "remaining_sessions": [
+          0,
+          1
         ],
         "weight": 1
       },
       {
         "track": "w4",
         "label": "Wave 4 \u2014 Integrations + shells",
-        "pct": 36,
+        "pct": 50,
         "remaining_hours": [
-          7,
-          14
+          5,
+          10
         ],
         "remaining_sessions": [
-          2,
-          4
+          1,
+          3
         ],
         "weight": 1
       },
@@ -461,14 +461,14 @@
       {
         "track": "cross-cutting",
         "label": "Cross-cutting \u2014 Security & data protection",
-        "pct": 75,
+        "pct": 67,
         "remaining_hours": [
-          1,
-          2
+          2,
+          3
         ],
         "remaining_sessions": [
           0,
-          0
+          1
         ],
         "weight": 1
       },
@@ -494,6 +494,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-07-28T11:34:24Z"
+    "checked_at": "2026-07-28T11:35:56Z"
   }
 }
