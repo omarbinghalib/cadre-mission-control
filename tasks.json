@@ -260,13 +260,14 @@
   {
     "title": "W4 - Integrations (VAMS + API/MCP plugin framework)",
     "status": "pending",
-    "track": "w4"
+    "track": "w4",
+    "note": "Honest deferral at v0.1.0 release: the generic MCP/plugin framework is deferred; the named connectors (VAMS, Mattermost, GitHub) are done."
   },
   {
     "title": "W4 - Desktop shell (Tauri) + Windows on-device model plugin",
     "status": "pending",
     "track": "w4",
-    "note": "Original desktop-shell lane; the on-device-model-plugin portion follows the new higher-priority 'Windows desktop shell + bundled backend' task above."
+    "note": "Honest deferral at v0.1.0 release: the desktop shell itself shipped (see 'Windows desktop shell + bundled backend' above); the on-device-model-plugin portion is deferred."
   },
   {
     "title": "W4 - Mobile shell (Capacitor) + Apple Intelligence + on-device model plugins",
@@ -274,18 +275,24 @@
     "track": "w4",
     "gated": true,
     "parked": true,
-    "note": "PARKED/DEFERRED: Windows-first reprioritization - mobile is paused, not cancelled. Also GATED - blocked on Apple Developer signing + physical iPhone/Mac hardware; needs Omar. Excluded from autonomous ETA."
+    "note": "PARKED/DEFERRED at v0.1.0 release: parked by Omar (Windows-first), not cancelled. Also GATED - blocked on Apple Developer signing + physical iPhone/Mac hardware; needs Omar. Excluded from autonomous ETA."
   },
   {
     "title": "W5 - Gamification (Command System) layer",
-    "status": "in_progress",
+    "status": "done",
     "track": "w5",
-    "note": "Dispatched now: rank ladder + Merit + commendations + agents-as-units, tied to real outcomes, fully optional."
+    "note": "Built + merged to main at c68284b: Merit computed from real audit-log outcomes, rank ladder, commendations, agents-as-units, fully optional. 224 backend tests green."
   },
   {
     "title": "Verify gate + capstone",
-    "status": "pending",
+    "status": "done",
     "track": "verify",
-    "note": "parity/verify gate + learnings capstone"
+    "note": "VERIFY half closed at the Cadre v0.1.0 release: full app verified green (224 backend + 40 model-manager + 22 understanding tests, JS build/typecheck green). The capstone (learnings/memory/playbook capture) is a separate follow-on activity outside this task board's scope."
+  },
+  {
+    "title": "Release Cadre v0.1.0 (Windows installer + GitHub Release)",
+    "status": "done",
+    "track": "verify",
+    "note": "Version bumped to 0.1.0, tagged. Portable NSIS .exe (~30MB) + MSI (~32MB) built with the PyInstaller sidecar. GitHub Release live: https://github.com/omarbinghalib/cadre/releases/tag/v0.1.0 with both assets."
   }
 ]
