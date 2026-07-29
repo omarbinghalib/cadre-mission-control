@@ -300,6 +300,12 @@
     "note": "v0.1.1 (main cd06f16, tag v0.1.1): installer now bundles 3 sidecars (fully portable, no dev-venv dependency); model-manager keys now encrypted at rest too."
   },
   {
+    "title": "First-run import wizard (Outlook Classic mailboxes + Mattermost desktop servers)",
+    "status": "done",
+    "track": "w3",
+    "note": "v0.1.2 (main e99e4f5, tag v0.1.2): detects accounts/servers from the Windows registry + Mattermost config, pre-fills them (address/host/ports/SSL); user supplies password/PAT (encrypted, never harvested). Also an 'Import from Outlook/Mattermost' button in Settings. 18 new tests, 299 backend green."
+  },
+  {
     "title": "W4 - Mobile shell (Capacitor) + Apple Intelligence + on-device model plugins",
     "status": "pending",
     "track": "w4",
@@ -328,6 +334,12 @@
     "title": "Release Cadre v0.1.1 (fully-portable installer + GitHub Release)",
     "status": "done",
     "track": "verify",
-    "note": "FINAL: main cd06f16, tag v0.1.1, GitHub Release live with the fully-portable (3-sidecar) installer. Buildable scope is effectively complete; only the Mac-gated iOS items remain."
+    "note": "main cd06f16, tag v0.1.1, GitHub Release live with the fully-portable (3-sidecar) installer."
+  },
+  {
+    "title": "Release Cadre v0.1.2 (portable installer + GitHub Release)",
+    "status": "done",
+    "track": "verify",
+    "note": "FINAL: main e99e4f5, tag v0.1.2, GitHub Release live. Verified: installer launches, all 3 sidecars health-green; assets live at the v0.1.2 release."
   }
 ]
