@@ -1,6 +1,6 @@
 {
-  "updated": "2026-07-29T12:53:31Z",
-  "heartbeat_at": "2026-07-29T12:53:31Z",
+  "updated": "2026-07-29T13:08:32Z",
+  "heartbeat_at": "2026-07-29T13:08:32Z",
   "last_activity": "2026-07-29T11:55:55Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
@@ -9,15 +9,15 @@
     "cache_read_tokens": 266625900,
     "cache_creation_tokens": 28518266,
     "msgs": 558,
-    "sessions": 4,
+    "sessions": 3,
     "live_sessions": 0,
     "transcript_sessions": 1,
-    "subagent_sessions": 3,
-    "workers": 4,
+    "subagent_sessions": 2,
+    "workers": 3,
     "live_workers": 0,
     "stopped_workers": 0,
-    "current_workers": 4,
-    "history_workers": 57,
+    "current_workers": 3,
+    "history_workers": 58,
     "recent_window_min": 120.0
   },
   "workers": [
@@ -32,33 +32,11 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": null,
-      "out_age_min": 57.4,
+      "out_age_min": 72.4,
       "log_bytes": null,
       "status": "idle",
       "live": false,
       "signal": "coordinating (orchestrator)",
-      "recent": true
-    },
-    {
-      "name": "Finalize v0.1.2: verify, build, release",
-      "role": "finalize-v0-1-2-verify-build-release",
-      "branch": null,
-      "focus": "Finalize v0.1.2: verify, build, release",
-      "agent_id": "a3f482746bfab7a46",
-      "short_id": "a3f48274",
-      "head_commit": null,
-      "head_commit_at": null,
-      "head_ago_min": null,
-      "out_last_active": "2026-07-29T11:03:52Z",
-      "out_age_min": 109.6,
-      "log_bytes": 308285,
-      "output_tokens": 20050,
-      "cache_read_tokens": 4616088,
-      "cache_creation_tokens": 352911,
-      "msgs": 126,
-      "status": "idle",
-      "live": false,
-      "signal": "task-output mtime + git commit",
       "recent": true
     },
     {
@@ -72,7 +50,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-07-29T11:55:55Z",
-      "out_age_min": 57.6,
+      "out_age_min": 72.6,
       "log_bytes": 2398209,
       "output_tokens": 265060,
       "cache_read_tokens": 117002033,
@@ -94,7 +72,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-07-29T11:51:00Z",
-      "out_age_min": 62.5,
+      "out_age_min": 77.5,
       "log_bytes": 339620,
       "output_tokens": 22153,
       "cache_read_tokens": 5457361,
@@ -108,23 +86,6 @@
   ],
   "sessions": [
     {
-      "id": "a3f48274",
-      "full_id": "a3f482746bfab7a46",
-      "group": "finalize-v0-1-2-verify-build-release",
-      "group_label": "Finalize v0.1.2: verify, build, release",
-      "last_active": "2026-07-29T11:03:52Z",
-      "log_bytes": 308285,
-      "live": false,
-      "status": "idle",
-      "age_min": 109.6,
-      "subagent": true,
-      "recent": true,
-      "output_tokens": 20050,
-      "cache_read_tokens": 4616088,
-      "cache_creation_tokens": 352911,
-      "msgs": 126
-    },
-    {
       "id": "add2cbea",
       "full_id": "add2cbea4eefa8456",
       "group": "mission-control",
@@ -133,7 +94,7 @@
       "log_bytes": 2398209,
       "live": false,
       "status": "idle",
-      "age_min": 57.6,
+      "age_min": 72.6,
       "subagent": true,
       "recent": true,
       "output_tokens": 265060,
@@ -150,7 +111,7 @@
       "log_bytes": 339620,
       "live": false,
       "status": "idle",
-      "age_min": 62.5,
+      "age_min": 77.5,
       "subagent": true,
       "recent": true,
       "output_tokens": 22153,
@@ -168,7 +129,7 @@
       "cache_read_tokens": 266625900,
       "cache_creation_tokens": 28518266,
       "msgs": 558,
-      "age_min": 57.4,
+      "age_min": 72.4,
       "live": false,
       "status": "idle",
       "subagent": false,
@@ -176,12 +137,12 @@
     }
   ],
   "history": {
-    "workers": 57,
+    "workers": 58,
     "by_status": {
-      "idle": 53,
+      "idle": 54,
       "stopped": 4
     },
-    "last_active": "2026-07-29T10:12:00Z",
+    "last_active": "2026-07-29T11:03:52Z",
     "note": "Prior-session workers \u2014 retired; not part of the current fleet."
   },
   "total_tokens": 2480109,
@@ -191,7 +152,7 @@
         "track": "w0",
         "branch": "main",
         "available": true,
-        "commits_24h": 45,
+        "commits_24h": 44,
         "commits_7d": 197
       }
     ],
@@ -377,6 +338,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-07-29T12:53:31Z"
+    "checked_at": "2026-07-29T13:08:33Z"
   }
 }
