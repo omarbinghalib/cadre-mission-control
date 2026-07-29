@@ -1,7 +1,7 @@
 {
-  "updated": "2026-07-29T11:33:33Z",
-  "heartbeat_at": "2026-07-29T11:33:33Z",
-  "last_activity": "2026-07-29T11:33:33Z",
+  "updated": "2026-07-29T11:34:29Z",
+  "heartbeat_at": "2026-07-29T11:34:29Z",
+  "last_activity": "2026-07-29T11:34:29Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
@@ -10,11 +10,11 @@
     "cache_creation_tokens": 28499281,
     "msgs": 551,
     "sessions": 5,
-    "live_sessions": 2,
+    "live_sessions": 1,
     "transcript_sessions": 1,
     "subagent_sessions": 4,
     "workers": 5,
-    "live_workers": 2,
+    "live_workers": 1,
     "stopped_workers": 0,
     "current_workers": 5,
     "history_workers": 56,
@@ -31,11 +31,11 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-07-29T11:33:33Z",
-      "out_age_min": 9.1,
+      "out_last_active": null,
+      "out_age_min": 10.0,
       "log_bytes": null,
-      "status": "live",
-      "live": true,
+      "status": "idle",
+      "live": false,
       "signal": "coordinating (orchestrator)",
       "recent": true
     },
@@ -50,7 +50,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-07-29T11:03:52Z",
-      "out_age_min": 29.7,
+      "out_age_min": 30.6,
       "log_bytes": 308285,
       "output_tokens": 20050,
       "cache_read_tokens": 4616088,
@@ -72,7 +72,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-07-29T10:12:00Z",
-      "out_age_min": 81.5,
+      "out_age_min": 82.5,
       "log_bytes": 753046,
       "output_tokens": 63962,
       "cache_read_tokens": 22631787,
@@ -94,7 +94,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-07-29T11:08:54Z",
-      "out_age_min": 24.6,
+      "out_age_min": 25.6,
       "log_bytes": 2289915,
       "output_tokens": 255509,
       "cache_read_tokens": 109945882,
@@ -115,13 +115,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-07-29T11:33:31Z",
+      "out_last_active": "2026-07-29T11:34:29Z",
       "out_age_min": 0.0,
-      "log_bytes": 200282,
-      "output_tokens": 12204,
-      "cache_read_tokens": 2594429,
-      "cache_creation_tokens": 87161,
-      "msgs": 85,
+      "log_bytes": 222104,
+      "output_tokens": 13439,
+      "cache_read_tokens": 3060706,
+      "cache_creation_tokens": 92949,
+      "msgs": 95,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -138,7 +138,7 @@
       "log_bytes": 308285,
       "live": false,
       "status": "idle",
-      "age_min": 29.7,
+      "age_min": 30.6,
       "subagent": true,
       "recent": true,
       "output_tokens": 20050,
@@ -155,7 +155,7 @@
       "log_bytes": 753046,
       "live": false,
       "status": "idle",
-      "age_min": 81.5,
+      "age_min": 82.5,
       "subagent": true,
       "recent": true,
       "output_tokens": 63962,
@@ -172,7 +172,7 @@
       "log_bytes": 2289915,
       "live": false,
       "status": "idle",
-      "age_min": 24.6,
+      "age_min": 25.6,
       "subagent": true,
       "recent": true,
       "output_tokens": 255509,
@@ -185,17 +185,17 @@
       "full_id": "ae735a93499f74071",
       "group": "hotfix-cors-base-url-release-v0-1-3",
       "group_label": "Hotfix CORS/base-url + release v0.1.3",
-      "last_active": "2026-07-29T11:33:31Z",
-      "log_bytes": 200282,
+      "last_active": "2026-07-29T11:34:29Z",
+      "log_bytes": 222104,
       "live": true,
       "status": "live",
       "age_min": 0.0,
       "subagent": true,
       "recent": true,
-      "output_tokens": 12204,
-      "cache_read_tokens": 2594429,
-      "cache_creation_tokens": 87161,
-      "msgs": 85
+      "output_tokens": 13439,
+      "cache_read_tokens": 3060706,
+      "cache_creation_tokens": 92949,
+      "msgs": 95
     },
     {
       "id": "0f7b13a0",
@@ -207,9 +207,9 @@
       "cache_read_tokens": 259785685,
       "cache_creation_tokens": 28499281,
       "msgs": 551,
-      "age_min": 9.1,
-      "live": true,
-      "status": "live",
+      "age_min": 10.0,
+      "live": false,
+      "status": "idle",
       "subagent": false,
       "recent": true
     }
@@ -230,11 +230,17 @@
         "track": "w0",
         "branch": "main",
         "available": true,
-        "commits_24h": 54,
-        "commits_7d": 196
+        "commits_24h": 55,
+        "commits_7d": 197
       }
     ],
     "recent": [
+      {
+        "hash": "f42fa2a",
+        "at": "2026-07-29T15:33:37+04:00",
+        "subject": "fix: allow Tauri webview origin (CORS) + 127.0.0.1 base URL; release v0.1.3",
+        "track": "w0"
+      },
       {
         "hash": "e99e4f5",
         "at": "2026-07-29T14:26:00+04:00",
@@ -275,12 +281,6 @@
         "hash": "cd06f16",
         "at": "2026-07-29T11:31:21+04:00",
         "subject": "chore: release v0.1.1",
-        "track": "w0"
-      },
-      {
-        "hash": "5f3058b",
-        "at": "2026-07-29T11:13:42+04:00",
-        "subject": "Merge lane/waveH-packaging-security into main",
         "track": "w0"
       }
     ]
@@ -416,6 +416,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-07-29T11:33:34Z"
+    "checked_at": "2026-07-29T11:34:29Z"
   }
 }
