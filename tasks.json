@@ -306,6 +306,12 @@
     "note": "v0.1.2 (main e99e4f5, tag v0.1.2): detects accounts/servers from the Windows registry + Mattermost config, pre-fills them (address/host/ports/SSL); user supplies password/PAT (encrypted, never harvested). Also an 'Import from Outlook/Mattermost' button in Settings. 18 new tests, 299 backend green."
   },
   {
+    "title": "Hotfix: packaged app 'Failed to fetch' on all modules (CORS + localhost/127.0.0.1 mismatch)",
+    "status": "done",
+    "track": "w4",
+    "note": "CRITICAL, v0.1.3 (main f42fa2a, tag v0.1.3). Root cause: CORS allowlist omitted the Tauri webview origin (tauri.localhost) + client used localhost (IPv6-ambiguous) instead of 127.0.0.1. Fixed via allow_origin_regex for tauri origins + DEFAULT_BASE_URL=127.0.0.1:8000; new test_cors.py; VERIFIED with an Origin-bearing curl against the installed backend (access-control-allow-origin echoed on the exact failing /email/accounts path). This is what made prior releases non-functional when installed. FOR THE RECORD: prior releases (v0.1.0-0.1.2) were verified only via Origin-less curl-to-/health, which bypassed CORS and missed this; v0.1.3's verification uses an Origin header (the real webview path) -- a lesson for how this board's own 'verified' claims get checked going forward."
+  },
+  {
     "title": "W4 - Mobile shell (Capacitor) + Apple Intelligence + on-device model plugins",
     "status": "pending",
     "track": "w4",
@@ -340,6 +346,12 @@
     "title": "Release Cadre v0.1.2 (portable installer + GitHub Release)",
     "status": "done",
     "track": "verify",
-    "note": "FINAL: main e99e4f5, tag v0.1.2, GitHub Release live. Verified: installer launches, all 3 sidecars health-green; assets live at the v0.1.2 release."
+    "note": "main e99e4f5, tag v0.1.2, GitHub Release live. Verified: installer launches, all 3 sidecars health-green; assets live at the v0.1.2 release. Superseded by v0.1.3 below (a critical CORS hotfix that this release's health-check-only verification had missed)."
+  },
+  {
+    "title": "Release Cadre v0.1.3 (portable installer + GitHub Release) - CRITICAL HOTFIX",
+    "status": "done",
+    "track": "verify",
+    "note": "FINAL: main f42fa2a, tag v0.1.3, GitHub Release live. Ships the CORS/localhost hotfix that made prior installed releases non-functional (see the hotfix task above)."
   }
 ]
