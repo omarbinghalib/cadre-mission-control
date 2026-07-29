@@ -1,7 +1,7 @@
 {
-  "updated": "2026-07-29T16:15:33Z",
-  "heartbeat_at": "2026-07-29T16:15:33Z",
-  "last_activity": "2026-07-29T16:15:33Z",
+  "updated": "2026-07-29T16:16:34Z",
+  "heartbeat_at": "2026-07-29T16:16:34Z",
+  "last_activity": "2026-07-29T16:16:34Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
@@ -31,8 +31,8 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-07-29T16:15:33Z",
-      "out_age_min": 4.1,
+      "out_last_active": "2026-07-29T16:16:34Z",
+      "out_age_min": 5.1,
       "log_bytes": null,
       "status": "live",
       "live": true,
@@ -49,13 +49,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-07-29T16:15:30Z",
-      "out_age_min": 0.0,
-      "log_bytes": 1404468,
-      "output_tokens": 72354,
-      "cache_read_tokens": 39866754,
-      "cache_creation_tokens": 387546,
-      "msgs": 324,
+      "out_last_active": "2026-07-29T16:16:30Z",
+      "out_age_min": 0.1,
+      "log_bytes": 1425985,
+      "output_tokens": 73558,
+      "cache_read_tokens": 41888924,
+      "cache_creation_tokens": 392326,
+      "msgs": 334,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -72,7 +72,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-07-29T15:25:14Z",
-      "out_age_min": 50.3,
+      "out_age_min": 51.3,
       "log_bytes": 486728,
       "output_tokens": 25601,
       "cache_read_tokens": 6186685,
@@ -94,7 +94,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-07-29T15:00:15Z",
-      "out_age_min": 75.3,
+      "out_age_min": 76.3,
       "log_bytes": 847371,
       "output_tokens": 62396,
       "cache_read_tokens": 30969470,
@@ -116,7 +116,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-07-29T14:40:36Z",
-      "out_age_min": 94.9,
+      "out_age_min": 96.0,
       "log_bytes": 742502,
       "output_tokens": 73854,
       "cache_read_tokens": 19922591,
@@ -134,17 +134,17 @@
       "full_id": "a150f08be7f8280aa",
       "group": "diagnose-fix-inbox-failed-to-fetch",
       "group_label": "Diagnose+fix inbox Failed to fetch",
-      "last_active": "2026-07-29T16:15:30Z",
-      "log_bytes": 1404468,
+      "last_active": "2026-07-29T16:16:30Z",
+      "log_bytes": 1425985,
       "live": true,
       "status": "live",
-      "age_min": 0.0,
+      "age_min": 0.1,
       "subagent": true,
       "recent": true,
-      "output_tokens": 72354,
-      "cache_read_tokens": 39866754,
-      "cache_creation_tokens": 387546,
-      "msgs": 324
+      "output_tokens": 73558,
+      "cache_read_tokens": 41888924,
+      "cache_creation_tokens": 392326,
+      "msgs": 334
     },
     {
       "id": "ad6ae35f",
@@ -155,7 +155,7 @@
       "log_bytes": 486728,
       "live": false,
       "status": "idle",
-      "age_min": 50.3,
+      "age_min": 51.3,
       "subagent": true,
       "recent": true,
       "output_tokens": 25601,
@@ -172,7 +172,7 @@
       "log_bytes": 847371,
       "live": false,
       "status": "idle",
-      "age_min": 75.3,
+      "age_min": 76.3,
       "subagent": true,
       "recent": true,
       "output_tokens": 62396,
@@ -189,7 +189,7 @@
       "log_bytes": 742502,
       "live": false,
       "status": "idle",
-      "age_min": 94.9,
+      "age_min": 96.0,
       "subagent": true,
       "recent": true,
       "output_tokens": 73854,
@@ -207,7 +207,7 @@
       "cache_read_tokens": 274520330,
       "cache_creation_tokens": 31557113,
       "msgs": 583,
-      "age_min": 4.1,
+      "age_min": 5.1,
       "live": true,
       "status": "live",
       "subagent": false,
@@ -230,11 +230,17 @@
         "track": "w0",
         "branch": "main",
         "available": true,
-        "commits_24h": 47,
-        "commits_7d": 201
+        "commits_24h": 48,
+        "commits_7d": 202
       }
     ],
     "recent": [
+      {
+        "hash": "4491622",
+        "at": "2026-07-29T20:16:10+04:00",
+        "subject": "fix(core): shared BackendGate \u2014 stop flashing \"Failed to fetch\" during backend cold-start",
+        "track": "w0"
+      },
       {
         "hash": "48d6b63",
         "at": "2026-07-29T19:04:36+04:00",
@@ -275,12 +281,6 @@
         "hash": "5b0e10c",
         "at": "2026-07-29T14:05:42+04:00",
         "subject": "feat(inbox,settings): surface the first-run Outlook/Mattermost import wizard",
-        "track": "w0"
-      },
-      {
-        "hash": "9bfaea3",
-        "at": "2026-07-29T14:05:15+04:00",
-        "subject": "feat(core): add shared Outlook/Mattermost first-run import wizard component",
         "track": "w0"
       }
     ]
@@ -416,6 +416,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-07-29T16:15:34Z"
+    "checked_at": "2026-07-29T16:16:35Z"
   }
 }
