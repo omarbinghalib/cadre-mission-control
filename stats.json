@@ -1,7 +1,7 @@
 {
-  "updated": "2026-07-29T15:04:32Z",
-  "heartbeat_at": "2026-07-29T15:04:32Z",
-  "last_activity": "2026-07-29T15:04:32Z",
+  "updated": "2026-07-29T15:05:34Z",
+  "heartbeat_at": "2026-07-29T15:05:34Z",
+  "last_activity": "2026-07-29T15:05:33Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
@@ -31,8 +31,8 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-07-29T15:04:32Z",
-      "out_age_min": 3.0,
+      "out_last_active": "2026-07-29T15:05:33Z",
+      "out_age_min": 4.0,
       "log_bytes": null,
       "status": "live",
       "live": true,
@@ -49,13 +49,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-07-29T15:04:31Z",
+      "out_last_active": "2026-07-29T15:05:32Z",
       "out_age_min": 0.0,
-      "log_bytes": 90246,
-      "output_tokens": 4511,
-      "cache_read_tokens": 819772,
-      "cache_creation_tokens": 27610,
-      "msgs": 37,
+      "log_bytes": 120370,
+      "output_tokens": 6562,
+      "cache_read_tokens": 1238863,
+      "cache_creation_tokens": 34495,
+      "msgs": 51,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -72,7 +72,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-07-29T15:00:15Z",
-      "out_age_min": 4.3,
+      "out_age_min": 5.3,
       "log_bytes": 847371,
       "output_tokens": 62396,
       "cache_read_tokens": 30969470,
@@ -94,7 +94,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-07-29T14:40:36Z",
-      "out_age_min": 23.9,
+      "out_age_min": 25.0,
       "log_bytes": 742502,
       "output_tokens": 73854,
       "cache_read_tokens": 19922591,
@@ -112,17 +112,17 @@
       "full_id": "ad6ae35fa23396a42",
       "group": "merge-cut-v0-1-4-release",
       "group_label": "Merge + cut v0.1.4 release",
-      "last_active": "2026-07-29T15:04:31Z",
-      "log_bytes": 90246,
+      "last_active": "2026-07-29T15:05:32Z",
+      "log_bytes": 120370,
       "live": true,
       "status": "live",
       "age_min": 0.0,
       "subagent": true,
       "recent": true,
-      "output_tokens": 4511,
-      "cache_read_tokens": 819772,
-      "cache_creation_tokens": 27610,
-      "msgs": 37
+      "output_tokens": 6562,
+      "cache_read_tokens": 1238863,
+      "cache_creation_tokens": 34495,
+      "msgs": 51
     },
     {
       "id": "afaa7ad2",
@@ -133,7 +133,7 @@
       "log_bytes": 847371,
       "live": true,
       "status": "live",
-      "age_min": 4.3,
+      "age_min": 5.3,
       "subagent": true,
       "recent": true,
       "output_tokens": 62396,
@@ -150,7 +150,7 @@
       "log_bytes": 742502,
       "live": false,
       "status": "idle",
-      "age_min": 23.9,
+      "age_min": 25.0,
       "subagent": true,
       "recent": true,
       "output_tokens": 73854,
@@ -168,7 +168,7 @@
       "cache_read_tokens": 273957747,
       "cache_creation_tokens": 31491466,
       "msgs": 575,
-      "age_min": 3.0,
+      "age_min": 4.0,
       "live": true,
       "status": "live",
       "subagent": false,
@@ -191,11 +191,17 @@
         "track": "w0",
         "branch": "main",
         "available": true,
-        "commits_24h": 46,
-        "commits_7d": 200
+        "commits_24h": 47,
+        "commits_7d": 201
       }
     ],
     "recent": [
+      {
+        "hash": "48d6b63",
+        "at": "2026-07-29T19:04:36+04:00",
+        "subject": "Bump version to 0.1.4",
+        "track": "w0"
+      },
       {
         "hash": "3737112",
         "at": "2026-07-29T19:01:53+04:00",
@@ -236,12 +242,6 @@
         "hash": "9bfaea3",
         "at": "2026-07-29T14:05:15+04:00",
         "subject": "feat(core): add shared Outlook/Mattermost first-run import wizard component",
-        "track": "w0"
-      },
-      {
-        "hash": "6698ae6",
-        "at": "2026-07-29T14:04:57+04:00",
-        "subject": "feat(core): wire first-run import detection into inbox + mattermost api layers",
         "track": "w0"
       }
     ]
@@ -377,6 +377,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-07-29T15:04:33Z"
+    "checked_at": "2026-07-29T15:05:35Z"
   }
 }
