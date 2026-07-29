@@ -1,7 +1,7 @@
 {
-  "updated": "2026-07-29T14:30:19Z",
-  "heartbeat_at": "2026-07-29T14:30:19Z",
-  "last_activity": "2026-07-29T14:30:13Z",
+  "updated": "2026-07-29T14:31:58Z",
+  "heartbeat_at": "2026-07-29T14:31:58Z",
+  "last_activity": "2026-07-29T14:31:55Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
@@ -31,8 +31,8 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-07-29T14:30:13Z",
-      "out_age_min": 5.4,
+      "out_last_active": "2026-07-29T14:31:55Z",
+      "out_age_min": 7.1,
       "log_bytes": null,
       "status": "live",
       "live": true,
@@ -50,7 +50,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-07-29T14:28:25Z",
-      "out_age_min": 1.8,
+      "out_age_min": 3.5,
       "log_bytes": 361163,
       "output_tokens": 30486,
       "cache_read_tokens": 6220142,
@@ -71,13 +71,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-07-29T14:29:01Z",
-      "out_age_min": 1.2,
-      "log_bytes": 706253,
-      "output_tokens": 71695,
-      "cache_read_tokens": 17748851,
-      "cache_creation_tokens": 371682,
-      "msgs": 151,
+      "out_last_active": "2026-07-29T14:31:50Z",
+      "out_age_min": 0.1,
+      "log_bytes": 727213,
+      "output_tokens": 73130,
+      "cache_read_tokens": 19547777,
+      "cache_creation_tokens": 377470,
+      "msgs": 161,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -94,7 +94,7 @@
       "log_bytes": 361163,
       "live": true,
       "status": "live",
-      "age_min": 1.8,
+      "age_min": 3.5,
       "subagent": true,
       "recent": true,
       "output_tokens": 30486,
@@ -107,17 +107,17 @@
       "full_id": "afdbd0c2fbf3c4197",
       "group": "inbox-settings-ux-restructure-layout-fill",
       "group_label": "Inbox/Settings UX restructure + layout fill",
-      "last_active": "2026-07-29T14:29:01Z",
-      "log_bytes": 706253,
+      "last_active": "2026-07-29T14:31:50Z",
+      "log_bytes": 727213,
       "live": true,
       "status": "live",
-      "age_min": 1.2,
+      "age_min": 0.1,
       "subagent": true,
       "recent": true,
-      "output_tokens": 71695,
-      "cache_read_tokens": 17748851,
-      "cache_creation_tokens": 371682,
-      "msgs": 151
+      "output_tokens": 73130,
+      "cache_read_tokens": 19547777,
+      "cache_creation_tokens": 377470,
+      "msgs": 161
     },
     {
       "id": "0f7b13a0",
@@ -129,7 +129,7 @@
       "cache_read_tokens": 273623608,
       "cache_creation_tokens": 31421654,
       "msgs": 568,
-      "age_min": 5.5,
+      "age_min": 7.1,
       "live": true,
       "status": "live",
       "subagent": false,
@@ -152,11 +152,17 @@
         "track": "w0",
         "branch": "main",
         "available": true,
-        "commits_24h": 43,
-        "commits_7d": 197
+        "commits_24h": 44,
+        "commits_7d": 198
       }
     ],
     "recent": [
+      {
+        "hash": "cc30253",
+        "at": "2026-07-29T18:31:18+04:00",
+        "subject": "fix(inbox,settings): move mail account setup into Settings; Inbox drill-down + shared fill-layout fix",
+        "track": "w0"
+      },
       {
         "hash": "f42fa2a",
         "at": "2026-07-29T15:33:37+04:00",
@@ -197,12 +203,6 @@
         "hash": "8079ccf",
         "at": "2026-07-29T13:57:55+04:00",
         "subject": "feat(email): detect Outlook Classic accounts for first-run import",
-        "track": "w0"
-      },
-      {
-        "hash": "cd06f16",
-        "at": "2026-07-29T11:31:21+04:00",
-        "subject": "chore: release v0.1.1",
         "track": "w0"
       }
     ]
@@ -338,6 +338,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-07-29T14:30:21Z"
+    "checked_at": "2026-07-29T14:32:00Z"
   }
 }
