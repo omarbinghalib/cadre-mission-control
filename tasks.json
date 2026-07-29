@@ -201,7 +201,7 @@
     "title": "Per-section health (green/amber/red + needs-attention), cross-cutting",
     "status": "done",
     "track": "cross-cutting",
-    "note": "Wave C merged to main at 5d41960 (130 backend + 29 model-manager tests green, 149 API paths). NOTE: the green/amber/red health PATTERN shipped for the model layer specifically - establishes the reusable cross-cutting mechanism; other sections adopt it as they land."
+    "note": "Wave C merged to main at 5d41960 (130 backend + 29 model-manager tests green, 149 API paths). Pattern shipped for the model layer first; see 'Per-section health rollout (all modules)' below for the full rollout."
   },
   {
     "title": "App lifecycle: tray/background, startup+shutdown splash, teardown-on-quit",
@@ -213,7 +213,7 @@
     "title": "PyInstaller self-contained backend (installer portable to other machines)",
     "status": "done",
     "track": "w4",
-    "note": "Round 2 merged to main at b3e1bb9 (187 backend + 40 model-manager tests green, 164 API paths, DESKTOP builds fully green, portable MSI+NSIS installers produced with the PyInstaller sidecar)."
+    "note": "Round 2 merged to main at b3e1bb9 (187 backend + 40 model-manager tests green, 164 API paths, DESKTOP builds fully green, portable MSI+NSIS installers produced with the PyInstaller sidecar). See 'Fully-portable 3-sidecar installer' below for the v0.1.1 follow-on."
   },
   {
     "title": "Gateway-mesh + internal-resources registry + adaptive routing (VAMS/drives/any service)",
@@ -259,23 +259,52 @@
   },
   {
     "title": "W4 - Integrations (VAMS + API/MCP plugin framework)",
-    "status": "pending",
+    "status": "done",
     "track": "w4",
-    "note": "Honest deferral at v0.1.0 release: the generic MCP/plugin framework is deferred; the named connectors (VAMS, Mattermost, GitHub) are done."
+    "note": "v0.1.1 (main cd06f16, tag v0.1.1): generic MCP/plugin framework built + merged; the Integrations module is now real (not just named connectors)."
   },
   {
     "title": "W4 - Desktop shell (Tauri) + Windows on-device model plugin",
-    "status": "pending",
+    "status": "done",
     "track": "w4",
-    "note": "Honest deferral at v0.1.0 release: the desktop shell itself shipped (see 'Windows desktop shell + bundled backend' above); the on-device-model-plugin portion is deferred."
+    "note": "v0.1.1 (main cd06f16, tag v0.1.1): Windows bundled on-device model shipped, closing the previously-deferred on-device-model-plugin portion of this lane."
+  },
+  {
+    "title": "Per-section health rollout (all modules)",
+    "status": "done",
+    "track": "cross-cutting",
+    "note": "v0.1.1 (main cd06f16, tag v0.1.1): the green/amber/red + needs-attention health pattern (previously shipped for the model layer only) is now rolled out across all modules."
+  },
+  {
+    "title": "User guide (docs/user-guide)",
+    "status": "done",
+    "track": "verify",
+    "note": "v0.1.1 (main cd06f16, tag v0.1.1): user-facing documentation shipped at docs/user-guide."
+  },
+  {
+    "title": "End-to-end verification (docs/VERIFICATION-v0.1.0.md)",
+    "status": "done",
+    "track": "verify",
+    "note": "v0.1.1 (main cd06f16, tag v0.1.1): documented end-to-end verification pass, complementing the 'Verify gate + capstone' task above."
+  },
+  {
+    "title": "Backend correctness (SQLite WAL/timeout, VAMS token auth, approved-send+call-api dispatch, /bundled proxy)",
+    "status": "done",
+    "track": "cross-cutting",
+    "note": "v0.1.1 (main cd06f16, tag v0.1.1): SQLite WAL/timeout fix, VAMS token auth fix, approved-send + call-api dispatch fix, /bundled proxy fix."
+  },
+  {
+    "title": "Fully-portable 3-sidecar installer + model-manager key encryption",
+    "status": "done",
+    "track": "w4",
+    "note": "v0.1.1 (main cd06f16, tag v0.1.1): installer now bundles 3 sidecars (fully portable, no dev-venv dependency); model-manager keys now encrypted at rest too."
   },
   {
     "title": "W4 - Mobile shell (Capacitor) + Apple Intelligence + on-device model plugins",
     "status": "pending",
     "track": "w4",
     "gated": true,
-    "parked": true,
-    "note": "PARKED/DEFERRED at v0.1.0 release: parked by Omar (Windows-first), not cancelled. Also GATED - blocked on Apple Developer signing + physical iPhone/Mac hardware; needs Omar. Excluded from autonomous ETA."
+    "note": "SCAFFOLDED as of v0.1.1, but the actual iOS build/sign + Swift-plugin compile is Mac-gated (needs Xcode + an Apple Developer account); the on-device Apple Intelligence plugin is likewise Mac-gated. Not active work pending that hardware/account access. Excluded from autonomous ETA."
   },
   {
     "title": "W5 - Gamification (Command System) layer",
@@ -294,5 +323,11 @@
     "status": "done",
     "track": "verify",
     "note": "Version bumped to 0.1.0, tagged. Portable NSIS .exe (~30MB) + MSI (~32MB) built with the PyInstaller sidecar. GitHub Release live: https://github.com/omarbinghalib/cadre/releases/tag/v0.1.0 with both assets."
+  },
+  {
+    "title": "Release Cadre v0.1.1 (fully-portable installer + GitHub Release)",
+    "status": "done",
+    "track": "verify",
+    "note": "FINAL: main cd06f16, tag v0.1.1, GitHub Release live with the fully-portable (3-sidecar) installer. Buildable scope is effectively complete; only the Mac-gated iOS items remain."
   }
 ]
