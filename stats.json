@@ -1,7 +1,7 @@
 {
-  "updated": "2026-07-29T18:33:34Z",
-  "heartbeat_at": "2026-07-29T18:33:34Z",
-  "last_activity": "2026-07-29T16:35:37Z",
+  "updated": "2026-07-29T18:48:30Z",
+  "heartbeat_at": "2026-07-29T18:48:30Z",
+  "last_activity": null,
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
@@ -9,15 +9,15 @@
     "cache_read_tokens": 275634135,
     "cache_creation_tokens": 31603623,
     "msgs": 595,
-    "sessions": 2,
+    "sessions": 1,
     "live_sessions": 0,
     "transcript_sessions": 1,
-    "subagent_sessions": 1,
-    "workers": 2,
+    "subagent_sessions": 0,
+    "workers": 1,
     "live_workers": 0,
     "stopped_workers": 0,
-    "current_workers": 2,
-    "history_workers": 64,
+    "current_workers": 1,
+    "history_workers": 65,
     "recent_window_min": 120.0
   },
   "workers": [
@@ -32,54 +32,15 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": null,
-      "out_age_min": 115.9,
+      "out_age_min": 130.9,
       "log_bytes": null,
       "status": "idle",
       "live": false,
       "signal": "coordinating (orchestrator)",
       "recent": true
-    },
-    {
-      "name": "Cut v0.1.5 release",
-      "role": "cut-v0-1-5-release",
-      "branch": null,
-      "focus": "Cut v0.1.5 release",
-      "agent_id": "a2e896b0217b6d2e0",
-      "short_id": "a2e896b0",
-      "head_commit": null,
-      "head_commit_at": null,
-      "head_ago_min": null,
-      "out_last_active": "2026-07-29T16:35:37Z",
-      "out_age_min": 118.0,
-      "log_bytes": 221726,
-      "output_tokens": 17889,
-      "cache_read_tokens": 2650870,
-      "cache_creation_tokens": 107433,
-      "msgs": 86,
-      "status": "idle",
-      "live": false,
-      "signal": "task-output mtime + git commit",
-      "recent": true
     }
   ],
   "sessions": [
-    {
-      "id": "a2e896b0",
-      "full_id": "a2e896b0217b6d2e0",
-      "group": "cut-v0-1-5-release",
-      "group_label": "Cut v0.1.5 release",
-      "last_active": "2026-07-29T16:35:37Z",
-      "log_bytes": 221726,
-      "live": false,
-      "status": "idle",
-      "age_min": 118.0,
-      "subagent": true,
-      "recent": true,
-      "output_tokens": 17889,
-      "cache_read_tokens": 2650870,
-      "cache_creation_tokens": 107433,
-      "msgs": 86
-    },
     {
       "id": "0f7b13a0",
       "full_id": "0f7b13a0-2a85-49c0-96d5-e5a8832d8b85",
@@ -90,7 +51,7 @@
       "cache_read_tokens": 275634135,
       "cache_creation_tokens": 31603623,
       "msgs": 595,
-      "age_min": 115.9,
+      "age_min": 130.9,
       "live": false,
       "status": "idle",
       "subagent": false,
@@ -98,12 +59,12 @@
     }
   ],
   "history": {
-    "workers": 64,
+    "workers": 65,
     "by_status": {
-      "idle": 60,
+      "idle": 61,
       "stopped": 4
     },
-    "last_active": "2026-07-29T16:17:01Z",
+    "last_active": "2026-07-29T16:35:37Z",
     "note": "Prior-session workers \u2014 retired; not part of the current fleet."
   },
   "total_tokens": 2619905,
@@ -299,6 +260,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-07-29T18:33:35Z"
+    "checked_at": "2026-07-29T18:48:31Z"
   }
 }
