@@ -1,7 +1,7 @@
 {
-  "updated": "2026-07-29T10:03:54Z",
-  "heartbeat_at": "2026-07-29T10:03:54Z",
-  "last_activity": "2026-07-29T10:03:51Z",
+  "updated": "2026-07-29T10:04:56Z",
+  "heartbeat_at": "2026-07-29T10:04:56Z",
+  "last_activity": "2026-07-29T10:04:55Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
@@ -31,8 +31,8 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-07-29T10:03:51Z",
-      "out_age_min": 6.7,
+      "out_last_active": "2026-07-29T10:04:55Z",
+      "out_age_min": 7.8,
       "log_bytes": null,
       "status": "live",
       "live": true,
@@ -49,13 +49,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-07-29T10:03:19Z",
-      "out_age_min": 0.5,
-      "log_bytes": 703625,
-      "output_tokens": 58741,
-      "cache_read_tokens": 19193290,
-      "cache_creation_tokens": 303411,
-      "msgs": 169,
+      "out_last_active": "2026-07-29T10:04:46Z",
+      "out_age_min": 0.2,
+      "log_bytes": 719613,
+      "output_tokens": 60885,
+      "cache_read_tokens": 20264754,
+      "cache_creation_tokens": 306279,
+      "msgs": 175,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -72,7 +72,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-07-29T08:15:56Z",
-      "out_age_min": 107.9,
+      "out_age_min": 109.0,
       "log_bytes": 911896,
       "output_tokens": 49189,
       "cache_read_tokens": 29679191,
@@ -94,7 +94,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-07-29T08:21:56Z",
-      "out_age_min": 101.9,
+      "out_age_min": 103.0,
       "log_bytes": 2186500,
       "output_tokens": 246383,
       "cache_read_tokens": 102724333,
@@ -112,17 +112,17 @@
       "full_id": "a6bc50177930eada2",
       "group": "build-first-run-outlook-mattermost-import",
       "group_label": "Build first-run Outlook+Mattermost import",
-      "last_active": "2026-07-29T10:03:19Z",
-      "log_bytes": 703625,
+      "last_active": "2026-07-29T10:04:46Z",
+      "log_bytes": 719613,
       "live": true,
       "status": "live",
-      "age_min": 0.5,
+      "age_min": 0.2,
       "subagent": true,
       "recent": true,
-      "output_tokens": 58741,
-      "cache_read_tokens": 19193290,
-      "cache_creation_tokens": 303411,
-      "msgs": 169
+      "output_tokens": 60885,
+      "cache_read_tokens": 20264754,
+      "cache_creation_tokens": 306279,
+      "msgs": 175
     },
     {
       "id": "ab36f53f",
@@ -133,7 +133,7 @@
       "log_bytes": 911896,
       "live": false,
       "status": "idle",
-      "age_min": 107.9,
+      "age_min": 109.0,
       "subagent": true,
       "recent": true,
       "output_tokens": 49189,
@@ -150,7 +150,7 @@
       "log_bytes": 2186500,
       "live": false,
       "status": "idle",
-      "age_min": 101.9,
+      "age_min": 103.0,
       "subagent": true,
       "recent": true,
       "output_tokens": 246383,
@@ -168,7 +168,7 @@
       "cache_read_tokens": 235172409,
       "cache_creation_tokens": 28390407,
       "msgs": 525,
-      "age_min": 6.8,
+      "age_min": 7.8,
       "live": true,
       "status": "live",
       "subagent": false,
@@ -191,11 +191,17 @@
         "track": "w0",
         "branch": "main",
         "available": true,
-        "commits_24h": 54,
+        "commits_24h": 51,
         "commits_7d": 192
       }
     ],
     "recent": [
+      {
+        "hash": "6698ae6",
+        "at": "2026-07-29T14:04:57+04:00",
+        "subject": "feat(core): wire first-run import detection into inbox + mattermost api layers",
+        "track": "w0"
+      },
       {
         "hash": "10be829",
         "at": "2026-07-29T13:58:15+04:00",
@@ -236,12 +242,6 @@
         "hash": "2f0c1cb",
         "at": "2026-07-29T11:02:48+04:00",
         "subject": "Bundle model-manager + understanding as desktop sidecars; encrypt provider keys at rest",
-        "track": "w0"
-      },
-      {
-        "hash": "5a0e568",
-        "at": "2026-07-29T10:17:41+04:00",
-        "subject": "feat(backend): add /model-manager/bundled/* proxy passthrough routes",
         "track": "w0"
       }
     ]
@@ -377,6 +377,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-07-29T10:03:56Z"
+    "checked_at": "2026-07-29T10:04:58Z"
   }
 }
