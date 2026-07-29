@@ -1,7 +1,7 @@
 {
-  "updated": "2026-07-29T10:25:29Z",
-  "heartbeat_at": "2026-07-29T10:25:29Z",
-  "last_activity": "2026-07-29T10:25:29Z",
+  "updated": "2026-07-29T10:26:37Z",
+  "heartbeat_at": "2026-07-29T10:26:37Z",
+  "last_activity": "2026-07-29T10:26:34Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
@@ -32,7 +32,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": null,
-      "out_age_min": 12.4,
+      "out_age_min": 13.6,
       "log_bytes": null,
       "status": "idle",
       "live": false,
@@ -49,13 +49,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-07-29T10:25:29Z",
-      "out_age_min": 0.0,
-      "log_bytes": 122147,
-      "output_tokens": 6508,
-      "cache_read_tokens": 1243810,
-      "cache_creation_tokens": 70024,
-      "msgs": 55,
+      "out_last_active": "2026-07-29T10:26:34Z",
+      "out_age_min": 0.1,
+      "log_bytes": 164649,
+      "output_tokens": 9075,
+      "cache_read_tokens": 1921238,
+      "cache_creation_tokens": 81524,
+      "msgs": 74,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -72,7 +72,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-07-29T10:12:00Z",
-      "out_age_min": 13.5,
+      "out_age_min": 14.6,
       "log_bytes": 753046,
       "output_tokens": 63962,
       "cache_read_tokens": 22631787,
@@ -90,17 +90,17 @@
       "full_id": "a3f482746bfab7a46",
       "group": "finalize-v0-1-2-verify-build-release",
       "group_label": "Finalize v0.1.2: verify, build, release",
-      "last_active": "2026-07-29T10:25:29Z",
-      "log_bytes": 122147,
+      "last_active": "2026-07-29T10:26:34Z",
+      "log_bytes": 164649,
       "live": true,
       "status": "live",
-      "age_min": 0.0,
+      "age_min": 0.1,
       "subagent": true,
       "recent": true,
-      "output_tokens": 6508,
-      "cache_read_tokens": 1243810,
-      "cache_creation_tokens": 70024,
-      "msgs": 55
+      "output_tokens": 9075,
+      "cache_read_tokens": 1921238,
+      "cache_creation_tokens": 81524,
+      "msgs": 74
     },
     {
       "id": "a6bc5017",
@@ -111,7 +111,7 @@
       "log_bytes": 753046,
       "live": false,
       "status": "idle",
-      "age_min": 13.5,
+      "age_min": 14.6,
       "subagent": true,
       "recent": true,
       "output_tokens": 63962,
@@ -129,7 +129,7 @@
       "cache_read_tokens": 239857386,
       "cache_creation_tokens": 28403755,
       "msgs": 530,
-      "age_min": 12.4,
+      "age_min": 13.6,
       "live": false,
       "status": "idle",
       "subagent": false,
@@ -152,11 +152,17 @@
         "track": "w0",
         "branch": "main",
         "available": true,
-        "commits_24h": 53,
-        "commits_7d": 195
+        "commits_24h": 54,
+        "commits_7d": 196
       }
     ],
     "recent": [
+      {
+        "hash": "e99e4f5",
+        "at": "2026-07-29T14:26:00+04:00",
+        "subject": "chore: release v0.1.2",
+        "track": "w0"
+      },
       {
         "hash": "5b0e10c",
         "at": "2026-07-29T14:05:42+04:00",
@@ -197,12 +203,6 @@
         "hash": "5f3058b",
         "at": "2026-07-29T11:13:42+04:00",
         "subject": "Merge lane/waveH-packaging-security into main",
-        "track": "w0"
-      },
-      {
-        "hash": "830c438",
-        "at": "2026-07-29T11:12:48+04:00",
-        "subject": "Merge lane/waveH-backend-fixes into main",
         "track": "w0"
       }
     ]
@@ -338,6 +338,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-07-29T10:25:29Z"
+    "checked_at": "2026-07-29T10:26:42Z"
   }
 }
