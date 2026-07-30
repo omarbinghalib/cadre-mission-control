@@ -1,6 +1,6 @@
 {
-  "updated": "2026-07-29T19:18:30Z",
-  "heartbeat_at": "2026-07-29T19:18:30Z",
+  "updated": "2026-07-30T02:13:30Z",
+  "heartbeat_at": "2026-07-30T02:13:30Z",
   "last_activity": null,
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
@@ -32,7 +32,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": null,
-      "out_age_min": 160.9,
+      "out_age_min": 575.9,
       "log_bytes": null,
       "status": "idle",
       "live": false,
@@ -51,7 +51,7 @@
       "cache_read_tokens": 275634135,
       "cache_creation_tokens": 31603623,
       "msgs": 595,
-      "age_min": 160.9,
+      "age_min": 575.9,
       "live": false,
       "status": "idle",
       "subagent": false,
@@ -260,6 +260,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-07-29T19:18:30Z"
+    "checked_at": "2026-07-30T02:13:30Z"
   }
 }
