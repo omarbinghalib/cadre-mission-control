@@ -1,7 +1,7 @@
 {
-  "updated": "2026-07-30T04:46:29Z",
-  "heartbeat_at": "2026-07-30T04:46:29Z",
-  "last_activity": "2026-07-30T04:46:26Z",
+  "updated": "2026-07-30T04:47:29Z",
+  "heartbeat_at": "2026-07-30T04:47:29Z",
+  "last_activity": "2026-07-30T04:47:08Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
@@ -32,7 +32,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": null,
-      "out_age_min": 43.7,
+      "out_age_min": 44.7,
       "log_bytes": null,
       "status": "idle",
       "live": false,
@@ -50,7 +50,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-07-30T04:00:09Z",
-      "out_age_min": 46.3,
+      "out_age_min": 47.3,
       "log_bytes": 256946,
       "output_tokens": 15383,
       "cache_read_tokens": 3634073,
@@ -71,13 +71,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-07-30T04:46:26Z",
-      "out_age_min": 0.0,
-      "log_bytes": 3180266,
-      "output_tokens": 93748,
-      "cache_read_tokens": 77334315,
-      "cache_creation_tokens": 1620970,
-      "msgs": 348,
+      "out_last_active": "2026-07-30T04:47:08Z",
+      "out_age_min": 0.3,
+      "log_bytes": 3198939,
+      "output_tokens": 95770,
+      "cache_read_tokens": 80346999,
+      "cache_creation_tokens": 1629092,
+      "msgs": 356,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -94,7 +94,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-07-30T02:47:55Z",
-      "out_age_min": 118.6,
+      "out_age_min": 119.6,
       "log_bytes": 366513,
       "output_tokens": 13790,
       "cache_read_tokens": 2898841,
@@ -116,7 +116,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-07-30T03:46:21Z",
-      "out_age_min": 60.1,
+      "out_age_min": 61.1,
       "log_bytes": 2040294,
       "output_tokens": 133844,
       "cache_read_tokens": 67652761,
@@ -138,7 +138,7 @@
       "log_bytes": 256946,
       "live": false,
       "status": "idle",
-      "age_min": 46.3,
+      "age_min": 47.3,
       "subagent": true,
       "recent": true,
       "output_tokens": 15383,
@@ -151,17 +151,17 @@
       "full_id": "a794982ceeb712c6e",
       "group": "clean-layout-across-all-modules",
       "group_label": "Clean layout across all modules",
-      "last_active": "2026-07-30T04:46:26Z",
-      "log_bytes": 3180266,
+      "last_active": "2026-07-30T04:47:08Z",
+      "log_bytes": 3198939,
       "live": true,
       "status": "live",
-      "age_min": 0.0,
+      "age_min": 0.3,
       "subagent": true,
       "recent": true,
-      "output_tokens": 93748,
-      "cache_read_tokens": 77334315,
-      "cache_creation_tokens": 1620970,
-      "msgs": 348
+      "output_tokens": 95770,
+      "cache_read_tokens": 80346999,
+      "cache_creation_tokens": 1629092,
+      "msgs": 356
     },
     {
       "id": "aac8aafe",
@@ -172,7 +172,7 @@
       "log_bytes": 366513,
       "live": false,
       "status": "idle",
-      "age_min": 118.6,
+      "age_min": 119.6,
       "subagent": true,
       "recent": true,
       "output_tokens": 13790,
@@ -189,7 +189,7 @@
       "log_bytes": 2040294,
       "live": false,
       "status": "idle",
-      "age_min": 60.1,
+      "age_min": 61.1,
       "subagent": true,
       "recent": true,
       "output_tokens": 133844,
@@ -207,7 +207,7 @@
       "cache_read_tokens": 284438974,
       "cache_creation_tokens": 32057640,
       "msgs": 655,
-      "age_min": 43.7,
+      "age_min": 44.7,
       "live": false,
       "status": "idle",
       "subagent": false,
@@ -230,11 +230,17 @@
         "track": "w0",
         "branch": "main",
         "available": true,
-        "commits_24h": 54,
-        "commits_7d": 208
+        "commits_24h": 55,
+        "commits_7d": 209
       }
     ],
     "recent": [
+      {
+        "hash": "9e662cd",
+        "at": "2026-07-30T08:46:40+04:00",
+        "subject": "Apply Inbox's full-bleed layout to every other module",
+        "track": "w0"
+      },
       {
         "hash": "db9c643",
         "at": "2026-07-30T07:49:12+04:00",
@@ -275,12 +281,6 @@
         "hash": "4491622",
         "at": "2026-07-29T20:16:10+04:00",
         "subject": "fix(core): shared BackendGate \u2014 stop flashing \"Failed to fetch\" during backend cold-start",
-        "track": "w0"
-      },
-      {
-        "hash": "48d6b63",
-        "at": "2026-07-29T19:04:36+04:00",
-        "subject": "Bump version to 0.1.4",
         "track": "w0"
       }
     ]
@@ -416,6 +416,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-07-30T04:46:29Z"
+    "checked_at": "2026-07-30T04:47:29Z"
   }
 }
