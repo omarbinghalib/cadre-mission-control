@@ -1,7 +1,7 @@
 {
-  "updated": "2026-07-30T11:41:28Z",
-  "heartbeat_at": "2026-07-30T11:41:28Z",
-  "last_activity": "2026-07-30T09:44:44Z",
+  "updated": "2026-07-30T11:56:28Z",
+  "heartbeat_at": "2026-07-30T11:56:28Z",
+  "last_activity": null,
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
@@ -9,15 +9,15 @@
     "cache_read_tokens": 296066008,
     "cache_creation_tokens": 33006580,
     "msgs": 709,
-    "sessions": 2,
+    "sessions": 1,
     "live_sessions": 0,
     "transcript_sessions": 1,
-    "subagent_sessions": 1,
-    "workers": 2,
+    "subagent_sessions": 0,
+    "workers": 1,
     "live_workers": 0,
     "stopped_workers": 0,
-    "current_workers": 2,
-    "history_workers": 72,
+    "current_workers": 1,
+    "history_workers": 73,
     "recent_window_min": 120.0
   },
   "workers": [
@@ -32,54 +32,15 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": null,
-      "out_age_min": 115.5,
+      "out_age_min": 130.5,
       "log_bytes": null,
       "status": "idle",
       "live": false,
       "signal": "coordinating (orchestrator)",
       "recent": true
-    },
-    {
-      "name": "Rebuild backend, cut v0.1.9",
-      "role": "rebuild-backend-cut-v0-1-9",
-      "branch": null,
-      "focus": "Rebuild backend, cut v0.1.9",
-      "agent_id": "ad683b0ad581890cf",
-      "short_id": "ad683b0a",
-      "head_commit": null,
-      "head_commit_at": null,
-      "head_ago_min": null,
-      "out_last_active": "2026-07-30T09:44:44Z",
-      "out_age_min": 116.7,
-      "log_bytes": 536877,
-      "output_tokens": 15544,
-      "cache_read_tokens": 3477080,
-      "cache_creation_tokens": 107767,
-      "msgs": 92,
-      "status": "idle",
-      "live": false,
-      "signal": "task-output mtime + git commit",
-      "recent": true
     }
   ],
   "sessions": [
-    {
-      "id": "ad683b0a",
-      "full_id": "ad683b0ad581890cf",
-      "group": "rebuild-backend-cut-v0-1-9",
-      "group_label": "Rebuild backend, cut v0.1.9",
-      "last_active": "2026-07-30T09:44:44Z",
-      "log_bytes": 536877,
-      "live": false,
-      "status": "idle",
-      "age_min": 116.7,
-      "subagent": true,
-      "recent": true,
-      "output_tokens": 15544,
-      "cache_read_tokens": 3477080,
-      "cache_creation_tokens": 107767,
-      "msgs": 92
-    },
     {
       "id": "0f7b13a0",
       "full_id": "0f7b13a0-2a85-49c0-96d5-e5a8832d8b85",
@@ -90,7 +51,7 @@
       "cache_read_tokens": 296066008,
       "cache_creation_tokens": 33006580,
       "msgs": 709,
-      "age_min": 115.5,
+      "age_min": 130.5,
       "live": false,
       "status": "idle",
       "subagent": false,
@@ -98,12 +59,12 @@
     }
   ],
   "history": {
-    "workers": 72,
+    "workers": 73,
     "by_status": {
-      "idle": 68,
+      "idle": 69,
       "stopped": 4
     },
-    "last_active": "2026-07-30T09:31:25Z",
+    "last_active": "2026-07-30T09:44:44Z",
     "note": "Prior-session workers \u2014 retired; not part of the current fleet."
   },
   "total_tokens": 2857212,
@@ -299,6 +260,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-07-30T11:41:28Z"
+    "checked_at": "2026-07-30T11:56:28Z"
   }
 }
