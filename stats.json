@@ -1,7 +1,7 @@
 {
-  "updated": "2026-07-30T09:29:28Z",
-  "heartbeat_at": "2026-07-30T09:29:28Z",
-  "last_activity": "2026-07-30T09:29:26Z",
+  "updated": "2026-07-30T09:30:28Z",
+  "heartbeat_at": "2026-07-30T09:30:28Z",
+  "last_activity": "2026-07-30T09:30:19Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
@@ -32,7 +32,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": null,
-      "out_age_min": 16.0,
+      "out_age_min": 17.0,
       "log_bytes": null,
       "status": "idle",
       "live": false,
@@ -49,13 +49,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-07-30T09:29:26Z",
-      "out_age_min": 0.0,
-      "log_bytes": 995980,
-      "output_tokens": 74335,
-      "cache_read_tokens": 21429344,
-      "cache_creation_tokens": 517818,
-      "msgs": 202,
+      "out_last_active": "2026-07-30T09:30:19Z",
+      "out_age_min": 0.2,
+      "log_bytes": 1041911,
+      "output_tokens": 75307,
+      "cache_read_tokens": 23132799,
+      "cache_creation_tokens": 542082,
+      "msgs": 211,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -68,17 +68,17 @@
       "full_id": "ace94be5c75ebb841",
       "group": "fix-mattermost-failed-to-fetch",
       "group_label": "Fix Mattermost failed-to-fetch",
-      "last_active": "2026-07-30T09:29:26Z",
-      "log_bytes": 995980,
+      "last_active": "2026-07-30T09:30:19Z",
+      "log_bytes": 1041911,
       "live": true,
       "status": "live",
-      "age_min": 0.0,
+      "age_min": 0.2,
       "subagent": true,
       "recent": true,
-      "output_tokens": 74335,
-      "cache_read_tokens": 21429344,
-      "cache_creation_tokens": 517818,
-      "msgs": 202
+      "output_tokens": 75307,
+      "cache_read_tokens": 23132799,
+      "cache_creation_tokens": 542082,
+      "msgs": 211
     },
     {
       "id": "0f7b13a0",
@@ -90,7 +90,7 @@
       "cache_read_tokens": 292925831,
       "cache_creation_tokens": 32976449,
       "msgs": 697,
-      "age_min": 16.0,
+      "age_min": 17.0,
       "live": false,
       "status": "idle",
       "subagent": false,
@@ -113,11 +113,17 @@
         "track": "w0",
         "branch": "main",
         "available": true,
-        "commits_24h": 20,
-        "commits_7d": 210
+        "commits_24h": 21,
+        "commits_7d": 211
       }
     ],
     "recent": [
+      {
+        "hash": "7b8e6b5",
+        "at": "2026-07-30T13:29:59+04:00",
+        "subject": "fix(mattermost): pool connections + bound concurrency to fix hanging /channels",
+        "track": "w0"
+      },
       {
         "hash": "ccd94ce",
         "at": "2026-07-30T08:49:41+04:00",
@@ -158,12 +164,6 @@
         "hash": "697d138",
         "at": "2026-07-30T06:31:20+04:00",
         "subject": "Redesign Inbox to a full-bleed, flat 3-pane layout",
-        "track": "w0"
-      },
-      {
-        "hash": "e9787e1",
-        "at": "2026-07-29T20:19:27+04:00",
-        "subject": "Bump version to 0.1.5",
         "track": "w0"
       }
     ]
@@ -299,6 +299,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-07-30T09:29:28Z"
+    "checked_at": "2026-07-30T09:30:28Z"
   }
 }
