@@ -1,7 +1,7 @@
 {
-  "updated": "2026-07-30T04:49:29Z",
-  "heartbeat_at": "2026-07-30T04:49:29Z",
-  "last_activity": "2026-07-30T04:49:29Z",
+  "updated": "2026-07-30T04:50:29Z",
+  "heartbeat_at": "2026-07-30T04:50:29Z",
+  "last_activity": "2026-07-30T04:50:29Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
@@ -31,8 +31,8 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-07-30T04:49:29Z",
-      "out_age_min": 0.5,
+      "out_last_active": "2026-07-30T04:50:29Z",
+      "out_age_min": 1.5,
       "log_bytes": null,
       "status": "live",
       "live": true,
@@ -49,13 +49,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-07-30T04:49:27Z",
-      "out_age_min": 0.0,
-      "log_bytes": 36545,
-      "output_tokens": 1738,
-      "cache_read_tokens": 275211,
-      "cache_creation_tokens": 14020,
-      "msgs": 16,
+      "out_last_active": "2026-07-30T04:50:22Z",
+      "out_age_min": 0.1,
+      "log_bytes": 75337,
+      "output_tokens": 3362,
+      "cache_read_tokens": 679941,
+      "cache_creation_tokens": 25176,
+      "msgs": 34,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -72,7 +72,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-07-30T04:00:09Z",
-      "out_age_min": 49.3,
+      "out_age_min": 50.3,
       "log_bytes": 256946,
       "output_tokens": 15383,
       "cache_read_tokens": 3634073,
@@ -94,7 +94,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-07-30T04:47:32Z",
-      "out_age_min": 1.9,
+      "out_age_min": 3.0,
       "log_bytes": 3205323,
       "output_tokens": 97849,
       "cache_read_tokens": 80725118,
@@ -116,7 +116,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-07-30T03:46:21Z",
-      "out_age_min": 63.1,
+      "out_age_min": 64.1,
       "log_bytes": 2040294,
       "output_tokens": 133844,
       "cache_read_tokens": 67652761,
@@ -134,17 +134,17 @@
       "full_id": "a658b579f6a865ab1",
       "group": "cut-v0-1-8-release",
       "group_label": "Cut v0.1.8 release",
-      "last_active": "2026-07-30T04:49:27Z",
-      "log_bytes": 36545,
+      "last_active": "2026-07-30T04:50:22Z",
+      "log_bytes": 75337,
       "live": true,
       "status": "live",
-      "age_min": 0.0,
+      "age_min": 0.1,
       "subagent": true,
       "recent": true,
-      "output_tokens": 1738,
-      "cache_read_tokens": 275211,
-      "cache_creation_tokens": 14020,
-      "msgs": 16
+      "output_tokens": 3362,
+      "cache_read_tokens": 679941,
+      "cache_creation_tokens": 25176,
+      "msgs": 34
     },
     {
       "id": "a71ac30e",
@@ -155,7 +155,7 @@
       "log_bytes": 256946,
       "live": false,
       "status": "idle",
-      "age_min": 49.3,
+      "age_min": 50.3,
       "subagent": true,
       "recent": true,
       "output_tokens": 15383,
@@ -172,7 +172,7 @@
       "log_bytes": 3205323,
       "live": true,
       "status": "live",
-      "age_min": 1.9,
+      "age_min": 3.0,
       "subagent": true,
       "recent": true,
       "output_tokens": 97849,
@@ -189,7 +189,7 @@
       "log_bytes": 2040294,
       "live": false,
       "status": "idle",
-      "age_min": 63.1,
+      "age_min": 64.1,
       "subagent": true,
       "recent": true,
       "output_tokens": 133844,
@@ -207,7 +207,7 @@
       "cache_read_tokens": 286431805,
       "cache_creation_tokens": 32093899,
       "msgs": 665,
-      "age_min": 0.5,
+      "age_min": 1.5,
       "live": true,
       "status": "live",
       "subagent": false,
@@ -230,11 +230,17 @@
         "track": "w0",
         "branch": "main",
         "available": true,
-        "commits_24h": 55,
-        "commits_7d": 209
+        "commits_24h": 56,
+        "commits_7d": 210
       }
     ],
     "recent": [
+      {
+        "hash": "ccd94ce",
+        "at": "2026-07-30T08:49:41+04:00",
+        "subject": "Bump version to 0.1.8",
+        "track": "w0"
+      },
       {
         "hash": "9e662cd",
         "at": "2026-07-30T08:46:40+04:00",
@@ -275,12 +281,6 @@
         "hash": "e9787e1",
         "at": "2026-07-29T20:19:27+04:00",
         "subject": "Bump version to 0.1.5",
-        "track": "w0"
-      },
-      {
-        "hash": "4491622",
-        "at": "2026-07-29T20:16:10+04:00",
-        "subject": "fix(core): shared BackendGate \u2014 stop flashing \"Failed to fetch\" during backend cold-start",
         "track": "w0"
       }
     ]
@@ -416,6 +416,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-07-30T04:49:29Z"
+    "checked_at": "2026-07-30T04:50:29Z"
   }
 }
