@@ -1,6 +1,6 @@
 {
-  "updated": "2026-07-30T11:26:28Z",
-  "heartbeat_at": "2026-07-30T11:26:28Z",
+  "updated": "2026-07-30T11:41:28Z",
+  "heartbeat_at": "2026-07-30T11:41:28Z",
   "last_activity": "2026-07-30T09:44:44Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
@@ -9,15 +9,15 @@
     "cache_read_tokens": 296066008,
     "cache_creation_tokens": 33006580,
     "msgs": 709,
-    "sessions": 3,
+    "sessions": 2,
     "live_sessions": 0,
     "transcript_sessions": 1,
-    "subagent_sessions": 2,
-    "workers": 3,
+    "subagent_sessions": 1,
+    "workers": 2,
     "live_workers": 0,
     "stopped_workers": 0,
-    "current_workers": 3,
-    "history_workers": 71,
+    "current_workers": 2,
+    "history_workers": 72,
     "recent_window_min": 120.0
   },
   "workers": [
@@ -32,33 +32,11 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": null,
-      "out_age_min": 100.5,
+      "out_age_min": 115.5,
       "log_bytes": null,
       "status": "idle",
       "live": false,
       "signal": "coordinating (orchestrator)",
-      "recent": true
-    },
-    {
-      "name": "Fix Mattermost failed-to-fetch",
-      "role": "fix-mattermost-failed-to-fetch",
-      "branch": null,
-      "focus": "Fix Mattermost failed-to-fetch",
-      "agent_id": "ace94be5c75ebb841",
-      "short_id": "ace94be5",
-      "head_commit": null,
-      "head_commit_at": null,
-      "head_ago_min": null,
-      "out_last_active": "2026-07-30T09:31:25Z",
-      "out_age_min": 115.1,
-      "log_bytes": 1062242,
-      "output_tokens": 78472,
-      "cache_read_tokens": 24321283,
-      "cache_creation_tokens": 545974,
-      "msgs": 217,
-      "status": "idle",
-      "live": false,
-      "signal": "task-output mtime + git commit",
       "recent": true
     },
     {
@@ -72,7 +50,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-07-30T09:44:44Z",
-      "out_age_min": 101.7,
+      "out_age_min": 116.7,
       "log_bytes": 536877,
       "output_tokens": 15544,
       "cache_read_tokens": 3477080,
@@ -86,23 +64,6 @@
   ],
   "sessions": [
     {
-      "id": "ace94be5",
-      "full_id": "ace94be5c75ebb841",
-      "group": "fix-mattermost-failed-to-fetch",
-      "group_label": "Fix Mattermost failed-to-fetch",
-      "last_active": "2026-07-30T09:31:25Z",
-      "log_bytes": 1062242,
-      "live": false,
-      "status": "idle",
-      "age_min": 115.1,
-      "subagent": true,
-      "recent": true,
-      "output_tokens": 78472,
-      "cache_read_tokens": 24321283,
-      "cache_creation_tokens": 545974,
-      "msgs": 217
-    },
-    {
       "id": "ad683b0a",
       "full_id": "ad683b0ad581890cf",
       "group": "rebuild-backend-cut-v0-1-9",
@@ -111,7 +72,7 @@
       "log_bytes": 536877,
       "live": false,
       "status": "idle",
-      "age_min": 101.7,
+      "age_min": 116.7,
       "subagent": true,
       "recent": true,
       "output_tokens": 15544,
@@ -129,7 +90,7 @@
       "cache_read_tokens": 296066008,
       "cache_creation_tokens": 33006580,
       "msgs": 709,
-      "age_min": 100.5,
+      "age_min": 115.5,
       "live": false,
       "status": "idle",
       "subagent": false,
@@ -137,12 +98,12 @@
     }
   ],
   "history": {
-    "workers": 71,
+    "workers": 72,
     "by_status": {
-      "idle": 67,
+      "idle": 68,
       "stopped": 4
     },
-    "last_active": "2026-07-30T04:55:46Z",
+    "last_active": "2026-07-30T09:31:25Z",
     "note": "Prior-session workers \u2014 retired; not part of the current fleet."
   },
   "total_tokens": 2857212,
@@ -152,7 +113,7 @@
         "track": "w0",
         "branch": "main",
         "available": true,
-        "commits_24h": 17,
+        "commits_24h": 16,
         "commits_7d": 213
       }
     ],
@@ -338,6 +299,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-07-30T11:26:28Z"
+    "checked_at": "2026-07-30T11:41:28Z"
   }
 }
