@@ -1,7 +1,7 @@
 {
-  "updated": "2026-07-30T02:34:32Z",
-  "heartbeat_at": "2026-07-30T02:34:32Z",
-  "last_activity": "2026-07-30T02:34:32Z",
+  "updated": "2026-07-30T02:35:30Z",
+  "heartbeat_at": "2026-07-30T02:35:30Z",
+  "last_activity": "2026-07-30T02:35:30Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
@@ -31,8 +31,8 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-07-30T02:34:32Z",
-      "out_age_min": 0.5,
+      "out_last_active": "2026-07-30T02:35:30Z",
+      "out_age_min": 1.5,
       "log_bytes": null,
       "status": "live",
       "live": true,
@@ -50,7 +50,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-07-30T02:31:59Z",
-      "out_age_min": 2.5,
+      "out_age_min": 3.5,
       "log_bytes": 716093,
       "output_tokens": 29937,
       "cache_read_tokens": 6978692,
@@ -71,13 +71,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-07-30T02:34:32Z",
+      "out_last_active": "2026-07-30T02:35:29Z",
       "out_age_min": 0.0,
-      "log_bytes": 47210,
-      "output_tokens": 2697,
-      "cache_read_tokens": 367333,
-      "cache_creation_tokens": 20725,
-      "msgs": 20,
+      "log_bytes": 75471,
+      "output_tokens": 4238,
+      "cache_read_tokens": 654017,
+      "cache_creation_tokens": 28976,
+      "msgs": 32,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -94,7 +94,7 @@
       "log_bytes": 716093,
       "live": true,
       "status": "live",
-      "age_min": 2.5,
+      "age_min": 3.5,
       "subagent": true,
       "recent": true,
       "output_tokens": 29937,
@@ -107,17 +107,17 @@
       "full_id": "aac8aafeaae0bb738",
       "group": "cut-v0-1-6-release",
       "group_label": "Cut v0.1.6 release",
-      "last_active": "2026-07-30T02:34:32Z",
-      "log_bytes": 47210,
+      "last_active": "2026-07-30T02:35:29Z",
+      "log_bytes": 75471,
       "live": true,
       "status": "live",
       "age_min": 0.0,
       "subagent": true,
       "recent": true,
-      "output_tokens": 2697,
-      "cache_read_tokens": 367333,
-      "cache_creation_tokens": 20725,
-      "msgs": 20
+      "output_tokens": 4238,
+      "cache_read_tokens": 654017,
+      "cache_creation_tokens": 28976,
+      "msgs": 32
     },
     {
       "id": "0f7b13a0",
@@ -129,7 +129,7 @@
       "cache_read_tokens": 276913977,
       "cache_creation_tokens": 31922361,
       "msgs": 608,
-      "age_min": 0.6,
+      "age_min": 1.5,
       "live": true,
       "status": "live",
       "subagent": false,
@@ -152,11 +152,17 @@
         "track": "w0",
         "branch": "main",
         "available": true,
-        "commits_24h": 50,
-        "commits_7d": 204
+        "commits_24h": 51,
+        "commits_7d": 205
       }
     ],
     "recent": [
+      {
+        "hash": "4f70f2d",
+        "at": "2026-07-30T06:35:05+04:00",
+        "subject": "Bump version to 0.1.6",
+        "track": "w0"
+      },
       {
         "hash": "697d138",
         "at": "2026-07-30T06:31:20+04:00",
@@ -197,12 +203,6 @@
         "hash": "cc30253",
         "at": "2026-07-29T18:31:18+04:00",
         "subject": "fix(inbox,settings): move mail account setup into Settings; Inbox drill-down + shared fill-layout fix",
-        "track": "w0"
-      },
-      {
-        "hash": "f42fa2a",
-        "at": "2026-07-29T15:33:37+04:00",
-        "subject": "fix: allow Tauri webview origin (CORS) + 127.0.0.1 base URL; release v0.1.3",
         "track": "w0"
       }
     ]
@@ -338,6 +338,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-07-30T02:34:32Z"
+    "checked_at": "2026-07-30T02:35:30Z"
   }
 }
