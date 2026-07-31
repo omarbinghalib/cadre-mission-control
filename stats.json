@@ -1,14 +1,14 @@
 {
-  "updated": "2026-07-31T02:49:28Z",
-  "heartbeat_at": "2026-07-31T02:49:28Z",
-  "last_activity": "2026-07-31T02:49:28Z",
+  "updated": "2026-07-31T02:50:28Z",
+  "heartbeat_at": "2026-07-31T02:50:28Z",
+  "last_activity": "2026-07-31T02:50:28Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
-    "output_tokens": 2880678,
-    "cache_read_tokens": 296143789,
-    "cache_creation_tokens": 33739108,
-    "msgs": 712,
+    "output_tokens": 2911983,
+    "cache_read_tokens": 297494304,
+    "cache_creation_tokens": 33779363,
+    "msgs": 717,
     "sessions": 1,
     "live_sessions": 1,
     "transcript_sessions": 1,
@@ -31,8 +31,8 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-07-31T02:49:28Z",
-      "out_age_min": 0.6,
+      "out_last_active": "2026-07-31T02:50:28Z",
+      "out_age_min": 0.1,
       "log_bytes": null,
       "status": "live",
       "live": true,
@@ -46,12 +46,12 @@
       "full_id": "0f7b13a0-2a85-49c0-96d5-e5a8832d8b85",
       "group": "commander",
       "group_label": "Session 0f7b13a0",
-      "last_active": "2026-07-31T02:48:53Z",
-      "output_tokens": 2880678,
-      "cache_read_tokens": 296143789,
-      "cache_creation_tokens": 33739108,
-      "msgs": 712,
-      "age_min": 0.6,
+      "last_active": "2026-07-31T02:50:24Z",
+      "output_tokens": 2911983,
+      "cache_read_tokens": 297494304,
+      "cache_creation_tokens": 33779363,
+      "msgs": 717,
+      "age_min": 0.1,
       "live": true,
       "status": "live",
       "subagent": false,
@@ -67,7 +67,7 @@
     "last_active": "2026-07-30T09:44:44Z",
     "note": "Prior-session workers \u2014 retired; not part of the current fleet."
   },
-  "total_tokens": 2880678,
+  "total_tokens": 2911983,
   "commits": {
     "tracks": [
       {
@@ -260,6 +260,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-07-31T02:49:28Z"
+    "checked_at": "2026-07-31T02:50:28Z"
   }
 }
