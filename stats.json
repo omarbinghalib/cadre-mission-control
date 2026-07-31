@@ -1,7 +1,7 @@
 {
-  "updated": "2026-07-31T03:14:29Z",
-  "heartbeat_at": "2026-07-31T03:14:29Z",
-  "last_activity": "2026-07-31T03:14:29Z",
+  "updated": "2026-07-31T03:15:29Z",
+  "heartbeat_at": "2026-07-31T03:15:29Z",
+  "last_activity": "2026-07-31T03:15:28Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
@@ -31,8 +31,8 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-07-31T03:14:29Z",
-      "out_age_min": 3.9,
+      "out_last_active": "2026-07-31T03:15:28Z",
+      "out_age_min": 4.9,
       "log_bytes": null,
       "status": "live",
       "live": true,
@@ -49,13 +49,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-07-31T03:14:28Z",
+      "out_last_active": "2026-07-31T03:15:28Z",
       "out_age_min": 0.0,
-      "log_bytes": 764649,
-      "output_tokens": 64868,
-      "cache_read_tokens": 22052944,
-      "cache_creation_tokens": 401022,
-      "msgs": 188,
+      "log_bytes": 790962,
+      "output_tokens": 69231,
+      "cache_read_tokens": 23704422,
+      "cache_creation_tokens": 405007,
+      "msgs": 197,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -68,17 +68,17 @@
       "full_id": "a79e4e2d540ce2067",
       "group": "fix-mattermost-status-500-cors",
       "group_label": "Fix mattermost status 500/CORS",
-      "last_active": "2026-07-31T03:14:28Z",
-      "log_bytes": 764649,
+      "last_active": "2026-07-31T03:15:28Z",
+      "log_bytes": 790962,
       "live": true,
       "status": "live",
       "age_min": 0.0,
       "subagent": true,
       "recent": true,
-      "output_tokens": 64868,
-      "cache_read_tokens": 22052944,
-      "cache_creation_tokens": 401022,
-      "msgs": 188
+      "output_tokens": 69231,
+      "cache_read_tokens": 23704422,
+      "cache_creation_tokens": 405007,
+      "msgs": 197
     },
     {
       "id": "0f7b13a0",
@@ -90,7 +90,7 @@
       "cache_read_tokens": 299218222,
       "cache_creation_tokens": 33844541,
       "msgs": 723,
-      "age_min": 3.9,
+      "age_min": 4.9,
       "live": true,
       "status": "live",
       "subagent": false,
@@ -113,11 +113,17 @@
         "track": "w0",
         "branch": "main",
         "available": true,
-        "commits_24h": 8,
-        "commits_7d": 213
+        "commits_24h": 9,
+        "commits_7d": 214
       }
     ],
     "recent": [
+      {
+        "hash": "96eac00",
+        "at": "2026-07-31T07:14:47+04:00",
+        "subject": "fix(mattermost,cors): fix instant \"Couldn't reach the Cadre backend\" on /mattermost/status",
+        "track": "w0"
+      },
       {
         "hash": "40b0430",
         "at": "2026-07-30T13:33:35+04:00",
@@ -158,12 +164,6 @@
         "hash": "75fa3f1",
         "at": "2026-07-30T07:48:34+04:00",
         "subject": "Merge full-mailbox sync (all folders, full history, background + progress bars) into v0.1.7",
-        "track": "w0"
-      },
-      {
-        "hash": "d08a14c",
-        "at": "2026-07-30T07:45:23+04:00",
-        "subject": "Add full-mailbox sync: all folders, full history, background + incremental",
         "track": "w0"
       }
     ]
@@ -299,6 +299,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-07-31T03:14:29Z"
+    "checked_at": "2026-07-31T03:15:29Z"
   }
 }
