@@ -1,7 +1,7 @@
 {
-  "updated": "2026-07-31T06:28:29Z",
-  "heartbeat_at": "2026-07-31T06:28:29Z",
-  "last_activity": "2026-07-31T04:38:42Z",
+  "updated": "2026-07-31T06:43:29Z",
+  "heartbeat_at": "2026-07-31T06:43:29Z",
+  "last_activity": null,
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
@@ -9,15 +9,15 @@
     "cache_read_tokens": 312532770,
     "cache_creation_tokens": 33960347,
     "msgs": 764,
-    "sessions": 2,
+    "sessions": 1,
     "live_sessions": 0,
     "transcript_sessions": 1,
-    "subagent_sessions": 1,
-    "workers": 2,
+    "subagent_sessions": 0,
+    "workers": 1,
     "live_workers": 0,
     "stopped_workers": 0,
-    "current_workers": 2,
-    "history_workers": 75,
+    "current_workers": 1,
+    "history_workers": 76,
     "recent_window_min": 120.0
   },
   "workers": [
@@ -32,54 +32,15 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": null,
-      "out_age_min": 100.1,
+      "out_age_min": 115.1,
       "log_bytes": null,
       "status": "idle",
       "live": false,
       "signal": "coordinating (orchestrator)",
       "recent": true
-    },
-    {
-      "name": "Fix encryption key stability, ship v0.1.11",
-      "role": "fix-encryption-key-stability-ship-v0-1-11",
-      "branch": null,
-      "focus": "Fix encryption key stability, ship v0.1.11",
-      "agent_id": "a45aa092c7b385f28",
-      "short_id": "a45aa092",
-      "head_commit": null,
-      "head_commit_at": null,
-      "head_ago_min": null,
-      "out_last_active": "2026-07-31T04:38:42Z",
-      "out_age_min": 109.8,
-      "log_bytes": 1873994,
-      "output_tokens": 123521,
-      "cache_read_tokens": 130613990,
-      "cache_creation_tokens": 784432,
-      "msgs": 571,
-      "status": "idle",
-      "live": false,
-      "signal": "task-output mtime + git commit",
-      "recent": true
     }
   ],
   "sessions": [
-    {
-      "id": "a45aa092",
-      "full_id": "a45aa092c7b385f28",
-      "group": "fix-encryption-key-stability-ship-v0-1-11",
-      "group_label": "Fix encryption key stability, ship v0.1.11",
-      "last_active": "2026-07-31T04:38:42Z",
-      "log_bytes": 1873994,
-      "live": false,
-      "status": "idle",
-      "age_min": 109.8,
-      "subagent": true,
-      "recent": true,
-      "output_tokens": 123521,
-      "cache_read_tokens": 130613990,
-      "cache_creation_tokens": 784432,
-      "msgs": 571
-    },
     {
       "id": "0f7b13a0",
       "full_id": "0f7b13a0-2a85-49c0-96d5-e5a8832d8b85",
@@ -90,7 +51,7 @@
       "cache_read_tokens": 312532770,
       "cache_creation_tokens": 33960347,
       "msgs": 764,
-      "age_min": 100.1,
+      "age_min": 115.1,
       "live": false,
       "status": "idle",
       "subagent": false,
@@ -98,12 +59,12 @@
     }
   ],
   "history": {
-    "workers": 75,
+    "workers": 76,
     "by_status": {
-      "idle": 71,
+      "idle": 72,
       "stopped": 4
     },
-    "last_active": "2026-07-31T03:34:16Z",
+    "last_active": "2026-07-31T04:38:42Z",
     "note": "Prior-session workers \u2014 retired; not part of the current fleet."
   },
   "total_tokens": 3026472,
@@ -299,6 +260,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-07-31T06:28:29Z"
+    "checked_at": "2026-07-31T06:43:29Z"
   }
 }
