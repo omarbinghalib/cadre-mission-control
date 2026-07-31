@@ -1,22 +1,22 @@
 {
-  "updated": "2026-07-31T03:16:29Z",
-  "heartbeat_at": "2026-07-31T03:16:29Z",
-  "last_activity": "2026-07-31T03:16:29Z",
+  "updated": "2026-07-31T03:17:29Z",
+  "heartbeat_at": "2026-07-31T03:17:29Z",
+  "last_activity": "2026-07-31T03:17:29Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
-    "output_tokens": 2944444,
-    "cache_read_tokens": 300128632,
-    "cache_creation_tokens": 33853637,
-    "msgs": 726,
-    "sessions": 2,
-    "live_sessions": 2,
+    "output_tokens": 2946982,
+    "cache_read_tokens": 301050784,
+    "cache_creation_tokens": 33859480,
+    "msgs": 729,
+    "sessions": 3,
+    "live_sessions": 3,
     "transcript_sessions": 1,
-    "subagent_sessions": 1,
-    "workers": 2,
-    "live_workers": 2,
+    "subagent_sessions": 2,
+    "workers": 3,
+    "live_workers": 3,
     "stopped_workers": 0,
-    "current_workers": 2,
+    "current_workers": 3,
     "history_workers": 73,
     "recent_window_min": 120.0
   },
@@ -31,8 +31,8 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-07-31T03:16:29Z",
-      "out_age_min": 0.4,
+      "out_last_active": "2026-07-31T03:17:29Z",
+      "out_age_min": 0.9,
       "log_bytes": null,
       "status": "live",
       "live": true,
@@ -50,12 +50,34 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-07-31T03:15:28Z",
-      "out_age_min": 1.0,
+      "out_age_min": 2.0,
       "log_bytes": 790962,
       "output_tokens": 69231,
       "cache_read_tokens": 23704422,
       "cache_creation_tokens": 405007,
       "msgs": 197,
+      "status": "live",
+      "live": true,
+      "signal": "task-output mtime + git commit",
+      "recent": true
+    },
+    {
+      "name": "Rebuild backend, cut v0.1.10",
+      "role": "rebuild-backend-cut-v0-1-10",
+      "branch": null,
+      "focus": "Rebuild backend, cut v0.1.10",
+      "agent_id": "aec801b7b58757bbb",
+      "short_id": "aec801b7",
+      "head_commit": null,
+      "head_commit_at": null,
+      "head_ago_min": null,
+      "out_last_active": "2026-07-31T03:17:29Z",
+      "out_age_min": 0.0,
+      "log_bytes": 69565,
+      "output_tokens": 2154,
+      "cache_read_tokens": 504516,
+      "cache_creation_tokens": 39594,
+      "msgs": 25,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -72,7 +94,7 @@
       "log_bytes": 790962,
       "live": true,
       "status": "live",
-      "age_min": 1.0,
+      "age_min": 2.0,
       "subagent": true,
       "recent": true,
       "output_tokens": 69231,
@@ -81,16 +103,33 @@
       "msgs": 197
     },
     {
+      "id": "aec801b7",
+      "full_id": "aec801b7b58757bbb",
+      "group": "rebuild-backend-cut-v0-1-10",
+      "group_label": "Rebuild backend, cut v0.1.10",
+      "last_active": "2026-07-31T03:17:29Z",
+      "log_bytes": 69565,
+      "live": true,
+      "status": "live",
+      "age_min": 0.0,
+      "subagent": true,
+      "recent": true,
+      "output_tokens": 2154,
+      "cache_read_tokens": 504516,
+      "cache_creation_tokens": 39594,
+      "msgs": 25
+    },
+    {
       "id": "0f7b13a0",
       "full_id": "0f7b13a0-2a85-49c0-96d5-e5a8832d8b85",
       "group": "commander",
       "group_label": "Session 0f7b13a0",
-      "last_active": "2026-07-31T03:16:05Z",
-      "output_tokens": 2944444,
-      "cache_read_tokens": 300128632,
-      "cache_creation_tokens": 33853637,
-      "msgs": 726,
-      "age_min": 0.4,
+      "last_active": "2026-07-31T03:16:37Z",
+      "output_tokens": 2946982,
+      "cache_read_tokens": 301050784,
+      "cache_creation_tokens": 33859480,
+      "msgs": 729,
+      "age_min": 0.9,
       "live": true,
       "status": "live",
       "subagent": false,
@@ -106,18 +145,24 @@
     "last_active": "2026-07-30T09:44:44Z",
     "note": "Prior-session workers \u2014 retired; not part of the current fleet."
   },
-  "total_tokens": 2944444,
+  "total_tokens": 2946982,
   "commits": {
     "tracks": [
       {
         "track": "w0",
         "branch": "main",
         "available": true,
-        "commits_24h": 9,
-        "commits_7d": 214
+        "commits_24h": 10,
+        "commits_7d": 215
       }
     ],
     "recent": [
+      {
+        "hash": "d481e72",
+        "at": "2026-07-31T07:17:11+04:00",
+        "subject": "Bump version to 0.1.10",
+        "track": "w0"
+      },
       {
         "hash": "96eac00",
         "at": "2026-07-31T07:14:47+04:00",
@@ -158,12 +203,6 @@
         "hash": "db9c643",
         "at": "2026-07-30T07:49:12+04:00",
         "subject": "Bump version to 0.1.7",
-        "track": "w0"
-      },
-      {
-        "hash": "75fa3f1",
-        "at": "2026-07-30T07:48:34+04:00",
-        "subject": "Merge full-mailbox sync (all folders, full history, background + progress bars) into v0.1.7",
         "track": "w0"
       }
     ]
@@ -299,6 +338,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-07-31T03:16:29Z"
+    "checked_at": "2026-07-31T03:17:29Z"
   }
 }
