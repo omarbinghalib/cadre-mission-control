@@ -1,20 +1,20 @@
 {
-  "updated": "2026-08-10T03:31:29Z",
-  "heartbeat_at": "2026-08-10T03:31:29Z",
-  "last_activity": null,
+  "updated": "2026-08-10T03:46:31Z",
+  "heartbeat_at": "2026-08-10T03:46:31Z",
+  "last_activity": "2026-08-10T03:46:30Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
     "output_tokens": 3026472,
     "cache_read_tokens": 312532770,
     "cache_creation_tokens": 33960347,
-    "msgs": 764,
+    "msgs": 765,
     "sessions": 1,
-    "live_sessions": 0,
+    "live_sessions": 1,
     "transcript_sessions": 1,
     "subagent_sessions": 0,
     "workers": 1,
-    "live_workers": 0,
+    "live_workers": 1,
     "stopped_workers": 0,
     "current_workers": 1,
     "history_workers": 76,
@@ -31,11 +31,11 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": null,
-      "out_age_min": 55.9,
+      "out_last_active": "2026-08-10T03:46:30Z",
+      "out_age_min": 0.3,
       "log_bytes": null,
-      "status": "idle",
-      "live": false,
+      "status": "live",
+      "live": true,
       "signal": "coordinating (orchestrator)",
       "recent": true
     }
@@ -46,14 +46,14 @@
       "full_id": "0f7b13a0-2a85-49c0-96d5-e5a8832d8b85",
       "group": "commander",
       "group_label": "Session 0f7b13a0",
-      "last_active": "2026-08-10T02:35:33Z",
+      "last_active": "2026-08-10T03:46:14Z",
       "output_tokens": 3026472,
       "cache_read_tokens": 312532770,
       "cache_creation_tokens": 33960347,
-      "msgs": 764,
-      "age_min": 55.9,
-      "live": false,
-      "status": "idle",
+      "msgs": 765,
+      "age_min": 0.3,
+      "live": true,
+      "status": "live",
       "subagent": false,
       "recent": true
     }
@@ -260,6 +260,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-08-10T03:31:29Z"
+    "checked_at": "2026-08-10T03:46:31Z"
   }
 }
