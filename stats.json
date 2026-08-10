@@ -1,7 +1,7 @@
 {
-  "updated": "2026-08-10T04:35:29Z",
-  "heartbeat_at": "2026-08-10T04:35:29Z",
-  "last_activity": "2026-08-10T04:35:28Z",
+  "updated": "2026-08-10T04:36:30Z",
+  "heartbeat_at": "2026-08-10T04:36:30Z",
+  "last_activity": "2026-08-10T04:36:29Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
@@ -31,8 +31,8 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-10T04:35:28Z",
-      "out_age_min": 5.3,
+      "out_last_active": "2026-08-10T04:36:29Z",
+      "out_age_min": 6.3,
       "log_bytes": null,
       "status": "live",
       "live": true,
@@ -49,13 +49,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-10T04:35:28Z",
-      "out_age_min": 0.0,
-      "log_bytes": 2074697,
-      "output_tokens": 126717,
-      "cache_read_tokens": 87635535,
-      "cache_creation_tokens": 914314,
-      "msgs": 369,
+      "out_last_active": "2026-08-10T04:36:18Z",
+      "out_age_min": 0.2,
+      "log_bytes": 2096170,
+      "output_tokens": 130001,
+      "cache_read_tokens": 90283902,
+      "cache_creation_tokens": 924106,
+      "msgs": 376,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -71,13 +71,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-10T04:35:28Z",
-      "out_age_min": 0.0,
-      "log_bytes": 1691190,
-      "output_tokens": 83135,
-      "cache_read_tokens": 51848643,
-      "cache_creation_tokens": 825335,
-      "msgs": 274,
+      "out_last_active": "2026-08-10T04:36:06Z",
+      "out_age_min": 0.4,
+      "log_bytes": 1709779,
+      "output_tokens": 84901,
+      "cache_read_tokens": 54159980,
+      "cache_creation_tokens": 828909,
+      "msgs": 282,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -90,34 +90,34 @@
       "full_id": "a73a3b9dd3671d1ac",
       "group": "add-lm-studio-ollama-support",
       "group_label": "Add LM Studio + Ollama support",
-      "last_active": "2026-08-10T04:35:28Z",
-      "log_bytes": 2074697,
+      "last_active": "2026-08-10T04:36:18Z",
+      "log_bytes": 2096170,
       "live": true,
       "status": "live",
-      "age_min": 0.0,
+      "age_min": 0.2,
       "subagent": true,
       "recent": true,
-      "output_tokens": 126717,
-      "cache_read_tokens": 87635535,
-      "cache_creation_tokens": 914314,
-      "msgs": 369
+      "output_tokens": 130001,
+      "cache_read_tokens": 90283902,
+      "cache_creation_tokens": 924106,
+      "msgs": 376
     },
     {
       "id": "add3bd8d",
       "full_id": "add3bd8d3ee048130",
       "group": "add-mattermost-password-login-ship-v0-1-12",
       "group_label": "Add Mattermost password login, ship v0.1.12",
-      "last_active": "2026-08-10T04:35:28Z",
-      "log_bytes": 1691190,
+      "last_active": "2026-08-10T04:36:06Z",
+      "log_bytes": 1709779,
       "live": true,
       "status": "live",
-      "age_min": 0.0,
+      "age_min": 0.4,
       "subagent": true,
       "recent": true,
-      "output_tokens": 83135,
-      "cache_read_tokens": 51848643,
-      "cache_creation_tokens": 825335,
-      "msgs": 274
+      "output_tokens": 84901,
+      "cache_read_tokens": 54159980,
+      "cache_creation_tokens": 828909,
+      "msgs": 282
     },
     {
       "id": "0f7b13a0",
@@ -129,7 +129,7 @@
       "cache_read_tokens": 317365089,
       "cache_creation_tokens": 34995171,
       "msgs": 781,
-      "age_min": 5.3,
+      "age_min": 6.3,
       "live": true,
       "status": "live",
       "subagent": false,
@@ -152,11 +152,23 @@
         "track": "w0",
         "branch": "main",
         "available": true,
-        "commits_24h": 1,
-        "commits_7d": 1
+        "commits_24h": 3,
+        "commits_7d": 3
       }
     ],
     "recent": [
+      {
+        "hash": "ff78bcd",
+        "at": "2026-08-10T08:35:43+04:00",
+        "subject": "Bump version to 0.1.12",
+        "track": "w0"
+      },
+      {
+        "hash": "ae91361",
+        "at": "2026-08-10T08:35:35+04:00",
+        "subject": "feat(settings): add auth-mode toggle for the Mattermost connector form",
+        "track": "w0"
+      },
       {
         "hash": "63952ca",
         "at": "2026-08-10T08:35:28+04:00",
@@ -191,18 +203,6 @@
         "hash": "bb14e08",
         "at": "2026-07-30T13:30:31+04:00",
         "subject": "fix(core): never surface a bare \"Failed to fetch\"; fix Mattermost WS host",
-        "track": "w0"
-      },
-      {
-        "hash": "7b8e6b5",
-        "at": "2026-07-30T13:29:59+04:00",
-        "subject": "fix(mattermost): pool connections + bound concurrency to fix hanging /channels",
-        "track": "w0"
-      },
-      {
-        "hash": "ccd94ce",
-        "at": "2026-07-30T08:49:41+04:00",
-        "subject": "Bump version to 0.1.8",
         "track": "w0"
       }
     ]
@@ -338,6 +338,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-08-10T04:35:29Z"
+    "checked_at": "2026-08-10T04:36:30Z"
   }
 }
