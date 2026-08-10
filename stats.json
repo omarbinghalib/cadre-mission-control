@@ -1,7 +1,7 @@
 {
-  "updated": "2026-08-10T04:34:30Z",
-  "heartbeat_at": "2026-08-10T04:34:30Z",
-  "last_activity": "2026-08-10T04:34:29Z",
+  "updated": "2026-08-10T04:35:29Z",
+  "heartbeat_at": "2026-08-10T04:35:29Z",
+  "last_activity": "2026-08-10T04:35:28Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
@@ -31,8 +31,8 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-10T04:34:29Z",
-      "out_age_min": 4.3,
+      "out_last_active": "2026-08-10T04:35:28Z",
+      "out_age_min": 5.3,
       "log_bytes": null,
       "status": "live",
       "live": true,
@@ -49,13 +49,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-10T04:34:28Z",
+      "out_last_active": "2026-08-10T04:35:28Z",
       "out_age_min": 0.0,
-      "log_bytes": 1890036,
-      "output_tokens": 125558,
-      "cache_read_tokens": 84288555,
-      "cache_creation_tokens": 896370,
-      "msgs": 360,
+      "log_bytes": 2074697,
+      "output_tokens": 126717,
+      "cache_read_tokens": 87635535,
+      "cache_creation_tokens": 914314,
+      "msgs": 369,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -71,13 +71,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-10T04:34:28Z",
+      "out_last_active": "2026-08-10T04:35:28Z",
       "out_age_min": 0.0,
-      "log_bytes": 1658191,
-      "output_tokens": 81896,
-      "cache_read_tokens": 47856692,
-      "cache_creation_tokens": 819238,
-      "msgs": 260,
+      "log_bytes": 1691190,
+      "output_tokens": 83135,
+      "cache_read_tokens": 51848643,
+      "cache_creation_tokens": 825335,
+      "msgs": 274,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -90,34 +90,34 @@
       "full_id": "a73a3b9dd3671d1ac",
       "group": "add-lm-studio-ollama-support",
       "group_label": "Add LM Studio + Ollama support",
-      "last_active": "2026-08-10T04:34:28Z",
-      "log_bytes": 1890036,
+      "last_active": "2026-08-10T04:35:28Z",
+      "log_bytes": 2074697,
       "live": true,
       "status": "live",
       "age_min": 0.0,
       "subagent": true,
       "recent": true,
-      "output_tokens": 125558,
-      "cache_read_tokens": 84288555,
-      "cache_creation_tokens": 896370,
-      "msgs": 360
+      "output_tokens": 126717,
+      "cache_read_tokens": 87635535,
+      "cache_creation_tokens": 914314,
+      "msgs": 369
     },
     {
       "id": "add3bd8d",
       "full_id": "add3bd8d3ee048130",
       "group": "add-mattermost-password-login-ship-v0-1-12",
       "group_label": "Add Mattermost password login, ship v0.1.12",
-      "last_active": "2026-08-10T04:34:28Z",
-      "log_bytes": 1658191,
+      "last_active": "2026-08-10T04:35:28Z",
+      "log_bytes": 1691190,
       "live": true,
       "status": "live",
       "age_min": 0.0,
       "subagent": true,
       "recent": true,
-      "output_tokens": 81896,
-      "cache_read_tokens": 47856692,
-      "cache_creation_tokens": 819238,
-      "msgs": 260
+      "output_tokens": 83135,
+      "cache_read_tokens": 51848643,
+      "cache_creation_tokens": 825335,
+      "msgs": 274
     },
     {
       "id": "0f7b13a0",
@@ -129,7 +129,7 @@
       "cache_read_tokens": 317365089,
       "cache_creation_tokens": 34995171,
       "msgs": 781,
-      "age_min": 4.3,
+      "age_min": 5.3,
       "live": true,
       "status": "live",
       "subagent": false,
@@ -152,11 +152,17 @@
         "track": "w0",
         "branch": "main",
         "available": true,
-        "commits_24h": 0,
-        "commits_7d": 0
+        "commits_24h": 1,
+        "commits_7d": 1
       }
     ],
     "recent": [
+      {
+        "hash": "63952ca",
+        "at": "2026-08-10T08:35:28+04:00",
+        "subject": "feat(mattermost): add username/password login as an alternative to a PAT",
+        "track": "w0"
+      },
       {
         "hash": "411dc44",
         "at": "2026-07-31T08:36:50+04:00",
@@ -197,12 +203,6 @@
         "hash": "ccd94ce",
         "at": "2026-07-30T08:49:41+04:00",
         "subject": "Bump version to 0.1.8",
-        "track": "w0"
-      },
-      {
-        "hash": "9e662cd",
-        "at": "2026-07-30T08:46:40+04:00",
-        "subject": "Apply Inbox's full-bleed layout to every other module",
         "track": "w0"
       }
     ]
@@ -338,6 +338,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-08-10T04:34:30Z"
+    "checked_at": "2026-08-10T04:35:29Z"
   }
 }
