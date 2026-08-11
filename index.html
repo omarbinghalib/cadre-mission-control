@@ -250,7 +250,7 @@
   <span class="chip ok" style="border-color:var(--ok);background:var(--ok-ink);color:#fff"><b>WAVE 2 SHIPPED — v0.1.23</b></span>
   <span class="chip ok"><span class="dp beat"></span>2 lanes running — v0.1.24 + v0.1.25</span>
   <span class="chip mute">18 releases shipped</span>
-  <span class="chip mute">7 queued (polish)</span>
+  <span class="chip mute">6 queued (polish)</span>
 </div>
 
 <p class="eyebrow" style="margin:16px 0 8px">Milestone</p>
@@ -273,7 +273,7 @@
   <li style="padding:10px 0;border-top:1px solid var(--line)">
     <span class="wname" style="font-weight:650">Chat streaming + timeout fix</span>
     <span class="chip ok" style="margin-left:8px">running</span>
-    <div class="sub" style="margin-top:3px">With tools on, chat hangs on "generating" and times out at 45s — doesn't stream live even though LM Studio streams fine underneath — and the user's own message only appears at the end. Fix: stream the tool loop end-to-end, remove the 45s abort (idle-watchdog instead), render the user's message optimistically. Ships as a patch (~v0.1.25).</div>
+    <div class="sub" style="margin-top:3px">With tools on, chat hangs on "generating" and times out at 45s — doesn't stream live even though LM Studio streams fine underneath — and the user's own message only appears at the end. Fix: stream the tool loop end-to-end, remove the 45s abort (idle-watchdog instead), render the user's message optimistically. Also now folded in: cache runtime availability (probe Ollama once + cache + fast-fail ~1s + dedupe + manual refresh) so Model Manager tabs load fast whether Ollama is present or not. Ships as a patch (~v0.1.25).</div>
   </li>
 </ul>
 
@@ -285,7 +285,6 @@
 <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0">
   <li style="padding:7px 0;border-top:1px solid var(--line)"><span class="sub"><b style="color:var(--ink-2)">Streaming for tool turns</b> — stream tool-calling turns to the UI like regular chat, not just the final answer</span></li>
   <li style="padding:7px 0;border-top:1px solid var(--line)"><span class="sub"><b style="color:var(--ink-2)">Clean up [[cite:id]] markers</b> — the citation marker shows up literally in message text; needs proper rendering</span></li>
-  <li style="padding:7px 0;border-top:1px solid var(--line)"><span class="sub"><b style="color:var(--ink-2)">Fix slow LLM-map when Ollama absent</b> — backend probes Ollama sequentially per candidate, ~24-33s; flagged by 2 lanes</span></li>
   <li style="padding:7px 0;border-top:1px solid var(--line)"><span class="sub"><b style="color:var(--ink-2)">Fix archive UID-drift bug</b> — a second IMAP UID-drift bug in service.py's archive path, distinct from the MOVE UID-drift already fixed</span></li>
   <li style="padding:7px 0;border-top:1px solid var(--line)"><span class="sub"><b style="color:var(--ink-2)">Proper migration framework (Alembic)</b> — the v0.1.22 startup schema reconciler is a pragmatic add-only guard, not a real migration system</span></li>
   <li style="padding:7px 0;border-top:1px solid var(--line)"><span class="sub"><b style="color:var(--ink-2)">Fix reconciler-logging gap</b> — main.py never calls logging.basicConfig, so the schema reconciler's INFO logs are silently no-op'd</span></li>
