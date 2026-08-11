@@ -1,6 +1,6 @@
 {
-  "updated": "2026-08-11T17:37:30Z",
-  "heartbeat_at": "2026-08-11T17:37:30Z",
+  "updated": "2026-08-11T17:52:30Z",
+  "heartbeat_at": "2026-08-11T17:52:30Z",
   "last_activity": "2026-08-11T16:24:49Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
@@ -32,7 +32,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": null,
-      "out_age_min": 70.1,
+      "out_age_min": 85.1,
       "log_bytes": null,
       "status": "idle",
       "live": false,
@@ -50,7 +50,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-08-11T16:24:49Z",
-      "out_age_min": 72.7,
+      "out_age_min": 87.7,
       "log_bytes": 4137121,
       "output_tokens": 381323,
       "cache_read_tokens": 683764080,
@@ -72,7 +72,7 @@
       "log_bytes": 4137121,
       "live": false,
       "status": "idle",
-      "age_min": 72.7,
+      "age_min": 87.7,
       "subagent": true,
       "recent": true,
       "output_tokens": 381323,
@@ -90,7 +90,7 @@
       "cache_read_tokens": 590013214,
       "cache_creation_tokens": 52235442,
       "msgs": 1260,
-      "age_min": 70.1,
+      "age_min": 85.1,
       "live": false,
       "status": "idle",
       "subagent": false,
@@ -172,6 +172,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-08-11T17:37:30Z"
+    "checked_at": "2026-08-11T17:52:30Z"
   }
 }
