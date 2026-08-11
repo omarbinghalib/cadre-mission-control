@@ -1,11 +1,5 @@
 [
   {
-    "title": "VAMS read-only Postgres connector",
-    "status": "in_progress",
-    "track": "active",
-    "note": "branch lane/vams-postgres-readonly (worktree cadre-wtPG). SELECT-only DB access for per-project VAMS data with no JSON endpoint; schema read from the Django source, psycopg bundled in the sidecar. Read-only DB role credential is in hand \u2014 actively verifying live queries against the real database."
-  },
-  {
     "title": "Model layer",
     "status": "in_progress",
     "track": "active",
@@ -46,6 +40,12 @@
     "status": "pending",
     "track": "queued",
     "note": "Connect the email and Mattermost pipelines into the knowledge-graph ingestion processors so new messages/threads flow into the graph automatically, not just on manual runs."
+  },
+  {
+    "title": "VAMS read-only Postgres connector \u2014 built, awaiting in-app live test",
+    "status": "done",
+    "track": "archive",
+    "note": "branch lane/vams-postgres-readonly, 70 new tests green: generic extensible read-only engine + Projects queries + psycopg bundling verified. Pending merge in the next release batch. NOT yet confirmed against the live schema \u2014 the worker's DB connection was sandbox-blocked (zero rows read); the real test is Omar entering the credential in-app once shipped."
   },
   {
     "title": "Knowledge graph + Mattermost ingestion \u2014 built & tested",
