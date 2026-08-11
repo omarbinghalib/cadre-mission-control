@@ -1,6 +1,9 @@
 {
-  "active": false,
-  "message": "",
-  "options": [],
-  "raised_at": null
+  "active": true,
+  "message": "Two decisions need Omar \u2014 both gate the VAMS data layer and wave 2.",
+  "options": [
+    "A: Create a dedicated read-only Postgres role (db name / user / password) for the VAMS DB connector \u2014 gates lane/vams-postgres-readonly and all of wave 2's live data",
+    "B: Rotate the personal VAMS web password shared in chat \u2014 recommend moving to a service account"
+  ],
+  "raised_at": "2026-08-11T04:12:20Z"
 }
