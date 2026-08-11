@@ -3,7 +3,13 @@
     "title": "VAMS projects query tools",
     "status": "in_progress",
     "track": "active",
-    "note": "branch lane/vams-projects-tools (worker a6a5f5ed). Triggered by real user feedback: Omar asked chat to list closed/stale VAMS projects and the AI answered \"provide me the data\" \u2014 no projects tool existed to call. Auditing + adding read-only projects tools (list/filter by stage+dates, closed/completed, STALE-by-date, stage counts, get) and registering them into the chat tool-loop. Ships as patch v0.1.24. Likely-also-a-factor: the \"Use tools\" chat toggle being off \u2014 flagged to Omar."
+    "note": "branch lane/vams-projects-tools (worker a6a5f5ed). Triggered by real user feedback: Omar asked chat to list closed/stale VAMS projects and the AI answered \"provide me the data\" \u2014 no projects tool existed to call. Auditing + adding read-only projects tools (list/filter by stage+dates, closed/completed, STALE-by-date, stage counts, get) and registering them into the chat tool-loop. Ships as patch v0.1.24."
+  },
+  {
+    "title": "Chat streaming + timeout fix",
+    "status": "in_progress",
+    "track": "active",
+    "note": "branch lane/chat-tool-streaming (worker a1356b5b). From live user feedback: with tools on, chat hangs on \"generating\" and TIMES OUT at 45s \u2014 doesn't stream live even though LM Studio streams fine underneath \u2014 and the user's own message only appears at the end. Fix: stream the tool loop end-to-end (live tokens + tool-call progress), remove the 45s abort for tool turns (idle-watchdog instead), render the user's message optimistically. Ships as a patch (~v0.1.25, coordinating version with the v0.1.24 projects-tools lane)."
   },
   {
     "title": "Streaming for tool turns",
