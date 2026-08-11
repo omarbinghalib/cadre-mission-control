@@ -250,15 +250,14 @@
   <span class="chip ok"><span class="dp beat"></span>3 lanes running</span>
   <span class="chip mute">13 shipped</span>
   <span class="chip mute">3 queued — wave 2</span>
-  <span class="chip" style="border-color:var(--bad);color:var(--bad)">2 need Omar</span>
 </div>
 
 <p class="eyebrow" style="margin:16px 0 8px">Active lanes — running now</p>
 <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0">
   <li style="padding:10px 0;border-top:1px solid var(--line)">
     <span class="wname" style="font-weight:650">VAMS Postgres connector</span>
-    <span class="chip" style="border-color:var(--warn);color:#8a5a00;margin-left:8px">blocked on Omar</span>
-    <div class="sub" style="margin-top:3px">Read-only SELECT-only DB access for per-project VAMS data that has no JSON endpoint — schema read from the Django source, psycopg bundled. Blocked on a read-only DB role credential.</div>
+    <span class="chip mute" style="margin-left:8px">awaiting input</span>
+    <div class="sub" style="margin-top:3px">Read-only SELECT-only DB access for per-project VAMS data that has no JSON endpoint — schema read from the Django source, psycopg bundled. Waiting on a read-only DB role credential (see "Awaiting from Omar" below).</div>
   </li>
   <li style="padding:10px 0;border-top:1px solid var(--line)">
     <span class="wname" style="font-weight:650">Model layer</span>
@@ -281,6 +280,9 @@
   <li style="padding:7px 0;border-top:1px solid var(--line)"><span class="sub"><b style="color:var(--ink-2)">Cross-source COO insights</b> — insights + improvement suggestions on the dashboard, across VAMS + email + Mattermost</span></li>
   <li style="padding:7px 0;border-top:1px solid var(--line)"><span class="sub"><b style="color:var(--ink-2)">Dashboard drill-down</b> — drill-down depth on any dashboard field</span></li>
 </ul>
+
+<p class="eyebrow" style="margin:18px 0 6px">Awaiting from Omar</p>
+<p class="sub" style="margin:0">Two inputs are still needed (tracked here, not as an alert): a dedicated read-only Postgres role (db name / user / password) for the VAMS DB connector — gates lane/vams-postgres-readonly and wave 2's live data; and rotating the personal VAMS web password shared in chat to a service account.</p>
 
   </section>
 
