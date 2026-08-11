@@ -1,7 +1,7 @@
 {
-  "updated": "2026-08-11T02:28:30Z",
-  "heartbeat_at": "2026-08-11T02:28:30Z",
-  "last_activity": "2026-08-11T02:28:29Z",
+  "updated": "2026-08-11T02:29:30Z",
+  "heartbeat_at": "2026-08-11T02:29:30Z",
+  "last_activity": "2026-08-11T02:29:29Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
@@ -31,8 +31,8 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-11T02:28:29Z",
-      "out_age_min": 3.4,
+      "out_last_active": "2026-08-11T02:29:29Z",
+      "out_age_min": 4.4,
       "log_bytes": null,
       "status": "live",
       "live": true,
@@ -49,13 +49,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-11T02:26:31Z",
-      "out_age_min": 2.0,
-      "log_bytes": 966893,
-      "output_tokens": 45556,
-      "cache_read_tokens": 22411198,
-      "cache_creation_tokens": 395921,
-      "msgs": 182,
+      "out_last_active": "2026-08-11T02:29:26Z",
+      "out_age_min": 0.1,
+      "log_bytes": 1005196,
+      "output_tokens": 46882,
+      "cache_read_tokens": 25234959,
+      "cache_creation_tokens": 406036,
+      "msgs": 198,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -68,17 +68,17 @@
       "full_id": "abcf9c791d734aa6a",
       "group": "fix-vams-auth-mode-ux-error",
       "group_label": "Fix VAMS auth-mode UX + error",
-      "last_active": "2026-08-11T02:26:31Z",
-      "log_bytes": 966893,
+      "last_active": "2026-08-11T02:29:26Z",
+      "log_bytes": 1005196,
       "live": true,
       "status": "live",
-      "age_min": 2.0,
+      "age_min": 0.1,
       "subagent": true,
       "recent": true,
-      "output_tokens": 45556,
-      "cache_read_tokens": 22411198,
-      "cache_creation_tokens": 395921,
-      "msgs": 182
+      "output_tokens": 46882,
+      "cache_read_tokens": 25234959,
+      "cache_creation_tokens": 406036,
+      "msgs": 198
     },
     {
       "id": "0f7b13a0",
@@ -90,7 +90,7 @@
       "cache_read_tokens": 354249767,
       "cache_creation_tokens": 38219458,
       "msgs": 900,
-      "age_min": 3.4,
+      "age_min": 4.4,
       "live": true,
       "status": "live",
       "subagent": false,
@@ -113,11 +113,17 @@
         "track": "w0",
         "branch": "main",
         "available": true,
-        "commits_24h": 30,
-        "commits_7d": 30
+        "commits_24h": 31,
+        "commits_7d": 31
       }
     ],
     "recent": [
+      {
+        "hash": "b1822d7",
+        "at": "2026-08-11T06:28:43+04:00",
+        "subject": "Bump version to 0.1.17",
+        "track": "w0"
+      },
       {
         "hash": "c4905c7",
         "at": "2026-08-11T06:19:55+04:00",
@@ -158,12 +164,6 @@
         "hash": "3a0b088",
         "at": "2026-08-10T11:58:49+04:00",
         "subject": "Bump version to 0.1.15",
-        "track": "w0"
-      },
-      {
-        "hash": "e260e13",
-        "at": "2026-08-10T11:56:21+04:00",
-        "subject": "fix(tests): update bundled-proxy fake response to expose .content bytes",
         "track": "w0"
       }
     ]
@@ -299,6 +299,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-08-11T02:28:30Z"
+    "checked_at": "2026-08-11T02:29:30Z"
   }
 }
