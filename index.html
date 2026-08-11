@@ -247,7 +247,7 @@
   <section class="panel">
     <div class="split"><div><p class="eyebrow">Cadre program — 4 lanes running now</p><h2>Fleet status at a glance</h2></div></div>
     <div class="row" style="gap:8px;flex-wrap:wrap;margin:8px 0 6px">
-  <span class="chip ok"><span class="dp beat"></span>4 lanes running</span>
+  <span class="chip ok"><span class="dp beat"></span>3 lanes running</span>
   <span class="chip" style="border-color:var(--accent);color:var(--accent)">release v0.1.19 in progress</span>
   <span class="chip mute">13 releases shipped</span>
   <span class="chip mute">4 queued — wave 2</span>
@@ -266,11 +266,6 @@
     <div class="sub" style="margin-top:3px">Chat on the selected brain (streaming), Cadre-managed local model load/unload (LM Studio without its own UI), workload → brain assignment across local + cloud with fallback chains — now closing Ollama-parity gaps and richer LLM-map usage data.</div>
   </li>
   <li style="padding:10px 0;border-top:1px solid var(--line)">
-    <span class="wname" style="font-weight:650">Email auto-organization</span>
-    <span class="chip ok" style="margin-left:8px">running</span>
-    <div class="sub" style="margin-top:3px">Making §22 real: learn folder taxonomy, spam/junk detection, auto-file with a learn → suggest → auto trust ladder, logged + reversible, local-model driven.</div>
-  </li>
-  <li style="padding:10px 0;border-top:1px solid var(--line)">
     <span class="wname" style="font-weight:650">VAMS query-tool catalog</span>
     <span class="chip ok" style="margin-left:8px">running</span>
     <div class="sub" style="margin-top:3px">Read-only query tools across the ERP chain (opportunities → sales orders → work orders → BOM → material reqs → POs, plus projects/engineering/procurement) that the AI will call. Stacks on the VAMS connector branch.</div>
@@ -287,6 +282,7 @@
 <p class="sub" style="margin:6px 0 0">Also delivered: the wave-2 COO intelligence architecture spec — designed the VAMS knowledge/query-tool layer, cross-source insight engine, and dashboard drill-down, unblocking the Email auto-organization and Knowledge graph lanes.</p>
 <p class="sub" style="margin:6px 0 0">And: the Knowledge graph + Mattermost ingestion lane — built &amp; tested (442 backend tests): a unified cross-source entity graph (email + Mattermost + VAMS) with record-code linking. On branch lane/knowledge-graph, pending merge in the next release batch — not yet user-visible.</p>
 <p class="sub" style="margin:6px 0 0">And: the VAMS read-only Postgres connector — built &amp; tested (70 new tests): a generic extensible read-only query engine + Projects queries, psycopg bundled. On branch lane/vams-postgres-readonly, pending merge. Not yet confirmed against the live schema (the build/test run's DB connection was sandbox-blocked — zero rows read); the real test is Omar entering the credential in-app once shipped.</p>
+<p class="sub" style="margin:6px 0 0">And: Email auto-organization — built &amp; tested (436 backend tests + 9 live-IMAP tests + a real-LM-Studio classification smoke). Off/Suggest/Auto control + kill switch + "Organize now" + a "Recently filed" log with undo; caught and fixed a real IMAP MOVE UID-drift bug along the way. On branch lane/email-auto-organize, queued for the v0.1.20 release batch (frontend + backend).</p>
 
 <p class="eyebrow" style="margin:18px 0 6px">Queued — wave 2 (not started, waiting on the data + model layers)</p>
 <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0">
