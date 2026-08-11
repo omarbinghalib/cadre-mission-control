@@ -1,11 +1,5 @@
 [
   {
-    "title": "Release v0.1.23 \u2014 merge capstone, rebuild backend + frontend, release",
-    "status": "in_progress",
-    "track": "release",
-    "note": "Integration/release in progress (worker abbef9f0): merging lane/coo-insights into main, rebuilding the cadre-backend sidecar and the frontend, and releasing. This ships the wave-2 capstone (COO insight engine + dashboard drill-down)."
-  },
-  {
     "title": "Streaming for tool turns",
     "status": "pending",
     "track": "queued",
@@ -36,10 +30,22 @@
     "note": "Polish. The v0.1.22 startup schema reconciler is a pragmatic add-only guard, not a real migration system \u2014 replace with Alembic (or equivalent) for versioned, reversible schema migrations."
   },
   {
+    "title": "Fix reconciler-logging gap",
+    "status": "pending",
+    "track": "queued",
+    "note": "Polish. main.py never calls logging.basicConfig, so the v0.1.22 schema reconciler's INFO logs are silently no-op'd instead of actually appearing anywhere."
+  },
+  {
+    "title": "Wire drill-down 'project' to VAMS records",
+    "status": "pending",
+    "track": "queued",
+    "note": "Polish. The dashboard drill-down evidence trail needs its 'project' concept properly wired to real VAMS project/record identifiers."
+  },
+  {
     "title": "COO insight engine + dashboard drill-down \u2014 built & tested (wave-2 capstone)",
     "status": "done",
     "track": "archive",
-    "note": "branch lane/coo-insights, 726 backend tests green, real-LM-Studio verified on a seeded cross-source scenario. Deterministic cross-source exception detection (VAMS + email + Mattermost) + model narration with fabrication REJECTED (proven: a fake $999,999.99 figure never reaches output) + a drill-down evidence trail on any dashboard field. THIS COMPLETES THE WAVE-2 VISION \u2014 Cadre reasons over the whole org. Merging to main + releasing as v0.1.23 (see above)."
+    "note": "branch lane/coo-insights, 726 backend tests green, real-LM-Studio verified on a seeded cross-source scenario. Deterministic cross-source exception detection (VAMS + email + Mattermost) + model narration with fabrication REJECTED (proven: a fake $999,999.99 figure never reaches output) + a drill-down evidence trail on any dashboard field. THIS COMPLETES THE WAVE-2 VISION \u2014 Cadre reasons over the whole org. Shipped in v0.1.23."
   },
   {
     "title": "Tool-calling + chat tool-loop \u2014 built & tested",
@@ -102,9 +108,9 @@
     "note": "The add-only startup schema reconciler shipped. Proven live: the real shipped exe added the 4 missing chat_messages columns to an old-schema DB with the existing row preserved \u2014 the user's real DB verified intact. v0.1.21's upgrade-crash bug is now RESOLVED; v0.1.22 is the current safe-to-install release for everyone, upgraders and fresh installs alike."
   },
   {
-    "title": "Shipped: 17 releases, v0.1.6 \u2192 v0.1.22 (current)",
+    "title": "WAVE 2 SHIPPED \u2014 18 releases, v0.1.6 \u2192 v0.1.23 (current)",
     "status": "done",
     "track": "archive",
-    "note": "v0.1.6 clean inbox layout \u00b7 v0.1.7 full-mailbox sync + progress bars \u00b7 v0.1.8 all-modules clean layout \u00b7 v0.1.9 Mattermost slow-load fix \u00b7 v0.1.10 Mattermost status/CORS-on-500 fix \u00b7 v0.1.11 DPAPI credential-persistence fix \u00b7 v0.1.12 Mattermost username/password login \u00b7 v0.1.13 LM Studio + Ollama runtimes \u00b7 v0.1.14 Mattermost author names \u00b7 v0.1.15 Command Dashboard + runtime-aware Model Manager + VAMS session auth \u00b7 v0.1.16 Google sign-in for email \u00b7 v0.1.17 VAMS auth-method UX \u00b7 v0.1.18 VAMS response-shape crash fix + projects stage counts \u00b7 v0.1.19 read-only VAMS Postgres connector + knowledge-graph foundation, psycopg bundling proven, 512 tests \u00b7 v0.1.20 chat-on-any-brain with real streaming, full local model management (LM Studio + Ollama), email auto-organization, Mattermost full sync, 35 VAMS read-only query tools across the ERP \u00b7 v0.1.21 ask-anything tool-calling loop (proven live: real LM Studio called KG + VAMS tools, cited/grounded, honestly reported VAMS-not-connected) + LLM mind map + the VAMS invoke bridge \u00b7 v0.1.22 HOTFIX: safe-upgrade schema reconciler, verified against a real old-schema DB with data preserved. Earlier (pre-release) waves \u2014 repo bootstrap, backend spine, email/model/understanding/agent-builder core, all 10 modules, connectors (VAMS/Mattermost/GitHub/NetBird), desktop shell + installer, security hardening, gamification layer \u2014 are also folded into this history; see GitHub Releases for full per-version notes."
+    "note": "v0.1.6 clean inbox layout \u00b7 v0.1.7 full-mailbox sync + progress bars \u00b7 v0.1.8 all-modules clean layout \u00b7 v0.1.9 Mattermost slow-load fix \u00b7 v0.1.10 Mattermost status/CORS-on-500 fix \u00b7 v0.1.11 DPAPI credential-persistence fix \u00b7 v0.1.12 Mattermost username/password login \u00b7 v0.1.13 LM Studio + Ollama runtimes \u00b7 v0.1.14 Mattermost author names \u00b7 v0.1.15 Command Dashboard + runtime-aware Model Manager + VAMS session auth \u00b7 v0.1.16 Google sign-in for email \u00b7 v0.1.17 VAMS auth-method UX \u00b7 v0.1.18 VAMS response-shape crash fix + projects stage counts \u00b7 v0.1.19 read-only VAMS Postgres connector + knowledge-graph foundation, psycopg bundling proven, 512 tests \u00b7 v0.1.20 chat-on-any-brain with real streaming, full local model management (LM Studio + Ollama), email auto-organization, Mattermost full sync, 35 VAMS read-only query tools across the ERP \u00b7 v0.1.21 ask-anything tool-calling loop (proven live: real LM Studio called KG + VAMS tools, cited/grounded, honestly reported VAMS-not-connected) + LLM mind map + the VAMS invoke bridge \u00b7 v0.1.22 HOTFIX: safe-upgrade schema reconciler, verified against a real old-schema DB with data preserved \u00b7 v0.1.23 the COO insight engine + dashboard drill-down capstone \u2014 726 tests, backend rebuilt, honest-empty verified, real DB intact. THE WAVE-2 VISION IS FULLY SHIPPED: Cadre reasons over the whole org (VAMS + email + Mattermost), grounded + cited, no fabrication. Earlier (pre-release) waves \u2014 repo bootstrap, backend spine, email/model/understanding/agent-builder core, all 10 modules, connectors (VAMS/Mattermost/GitHub/NetBird), desktop shell + installer, security hardening, gamification layer \u2014 are also folded into this history; see GitHub Releases for full per-version notes."
   }
 ]
