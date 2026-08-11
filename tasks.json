@@ -3,7 +3,7 @@
     "title": "VAMS projects query tools",
     "status": "in_progress",
     "track": "active",
-    "note": "branch lane/vams-projects-tools (worker a6a5f5ed). Triggered by real user feedback: Omar asked chat to list closed/stale VAMS projects and the AI answered \"provide me the data\" — no projects tool existed to call. Auditing + adding read-only projects tools (list/filter by stage+dates, closed/completed, STALE-by-date, stage counts, get) and registering them into the chat tool-loop. Ships as patch v0.1.24. Likely-also-a-factor: the \"Use tools\" chat toggle being off — flagged to Omar."
+    "note": "branch lane/vams-projects-tools (worker a6a5f5ed). Triggered by real user feedback: Omar asked chat to list closed/stale VAMS projects and the AI answered \"provide me the data\" \u2014 no projects tool existed to call. Auditing + adding read-only projects tools (list/filter by stage+dates, closed/completed, STALE-by-date, stage counts, get) and registering them into the chat tool-loop. Ships as patch v0.1.24. Likely-also-a-factor: the \"Use tools\" chat toggle being off \u2014 flagged to Omar."
   },
   {
     "title": "Streaming for tool turns",
