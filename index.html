@@ -247,7 +247,7 @@
   <section class="panel">
     <div class="split"><div><p class="eyebrow">Cadre program — 4 lanes running now</p><h2>Fleet status at a glance</h2></div></div>
     <div class="row" style="gap:8px;flex-wrap:wrap;margin:8px 0 6px">
-  <span class="chip ok"><span class="dp beat"></span>4 lanes running</span>
+  <span class="chip ok"><span class="dp beat"></span>3 lanes running</span>
   <span class="chip mute">14 releases shipped</span>
   <span class="chip mute">4 queued — wave 2</span>
 </div>
@@ -258,11 +258,6 @@
     <span class="wname" style="font-weight:650">VAMS query-tool catalog</span>
     <span class="chip ok" style="margin-left:8px">running</span>
     <div class="sub" style="margin-top:3px">Read-only query tools across the ERP chain (opportunities → sales orders → work orders → BOM → material reqs → POs, plus projects/engineering/procurement) that the AI will call. Stacks on the VAMS connector branch.</div>
-  </li>
-  <li style="padding:10px 0;border-top:1px solid var(--line)">
-    <span class="wname" style="font-weight:650">Mattermost persistence + sync</span>
-    <span class="chip ok" style="margin-left:8px">running</span>
-    <div class="sub" style="margin-top:3px">Cadre fetches Mattermost live today and stores nothing — building sync-and-persist (like the email full-sync) so threads are searchable and feed the knowledge graph. Stacks on the knowledge-graph branch.</div>
   </li>
   <li style="padding:10px 0;border-top:1px solid var(--line)">
     <span class="wname" style="font-weight:650">Tool-calling + chat tool-loop</span>
@@ -281,6 +276,7 @@
 <p class="sub" style="margin:6px 0 0">Also delivered: the wave-2 COO intelligence architecture spec — designed the VAMS knowledge/query-tool layer, cross-source insight engine, and dashboard drill-down, unblocking the Email auto-organization and Knowledge graph lanes.</p>
 <p class="sub" style="margin:6px 0 0">And: Email auto-organization — built &amp; tested (436 backend tests + 9 live-IMAP tests + a real-LM-Studio classification smoke). Off/Suggest/Auto control + kill switch + "Organize now" + a "Recently filed" log with undo; caught and fixed a real IMAP MOVE UID-drift bug along the way. On branch lane/email-auto-organize, queued for the v0.1.20 release batch (frontend + backend).</p>
 <p class="sub" style="margin:6px 0 0">And: Model layer — built &amp; tested (189 model-manager + 441 backend tests, real-LM-Studio verified). Chat on the selected brain with streaming; LM Studio full lifecycle via the lms CLI + download; Ollama full REST lifecycle; workload→brain policy; graph-shaped /map. On branch lane/model-layer, queued for the v0.1.20 batch — and unblocked the two lanes just launched above (Tool-calling, LLM mind-map).</p>
+<p class="sub" style="margin:6px 0 0">And: Mattermost persistence + sync — built &amp; tested (451 backend tests, sync-status UI, fake-server verified). Syncs + persists Mattermost threads (like the email full-sync) into an offline-searchable store, feeding the knowledge graph — closes the third data source: email + VAMS + Mattermost all now flow into the graph. On branch lane/mattermost-persistence, queued for the v0.1.20 batch.</p>
 
 <p class="eyebrow" style="margin:18px 0 6px">Queued — wave 2 (not started, waiting on the data + model layers)</p>
 <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0">
