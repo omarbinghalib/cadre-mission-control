@@ -1,27 +1,9 @@
 [
   {
-    "title": "Release v0.1.22 \u2014 HOTFIX: safe upgrade schema reconciler",
+    "title": "COO insight engine + dashboard drill-down",
     "status": "in_progress",
-    "track": "release",
-    "note": "Hotfix/release in progress (worker a9dd1a30). v0.1.21 has an upgrade bug: no DB migration system, so users with existing chat data crash on the new chat_messages columns. Building a safe, add-only startup schema reconciler so upgrades don't crash \u2014 a pragmatic guard, not a full migration framework (see queued polish: Alembic)."
-  },
-  {
-    "title": "Cross-source COO insights",
-    "status": "pending",
-    "track": "queued",
-    "note": "Final wave. COO insight + improvement suggestions on the dashboard, drawn across VAMS + email + Mattermost."
-  },
-  {
-    "title": "Dashboard drill-down",
-    "status": "pending",
-    "track": "queued",
-    "note": "Final wave. Drill-down depth on any dashboard field."
-  },
-  {
-    "title": "Wire knowledge ingestion triggers (email + Mattermost \u2192 graph)",
-    "status": "pending",
-    "track": "queued",
-    "note": "Final wave. Connect the email and Mattermost pipelines into the knowledge-graph ingestion processors so new messages/threads flow into the graph automatically, not just on manual runs."
+    "track": "active",
+    "note": "branch lane/coo-insights (worker a2f67b3f). The wave-2 capstone, final lane: cross-source exception-first insights (deterministic detection + model narration, no fabrication) across VAMS + email + Mattermost, plus a drill-down evidence trail on any dashboard field. Absorbs the prior 'final wave' queue: Cross-source COO insights, Dashboard drill-down, and Wire knowledge ingestion triggers (email + Mattermost \u2192 graph)."
   },
   {
     "title": "Streaming for tool turns",
@@ -108,9 +90,15 @@
     "note": "Design/spec lane complete (scratchpad/wave2-coo-intelligence-spec.md): designed the VAMS knowledge/query-tool layer, the cross-source (VAMS+email+Mattermost) COO insight engine, and dashboard drill-down. Unblocked the Email auto-organization and Knowledge graph build lanes."
   },
   {
-    "title": "Shipped: 16 releases, v0.1.6 \u2192 v0.1.21 (superseded by v0.1.22 for safe upgrade)",
+    "title": "Release v0.1.22 HOTFIX \u2014 verified: safe upgrades",
     "status": "done",
     "track": "archive",
-    "note": "v0.1.6 clean inbox layout \u00b7 v0.1.7 full-mailbox sync + progress bars \u00b7 v0.1.8 all-modules clean layout \u00b7 v0.1.9 Mattermost slow-load fix \u00b7 v0.1.10 Mattermost status/CORS-on-500 fix \u00b7 v0.1.11 DPAPI credential-persistence fix \u00b7 v0.1.12 Mattermost username/password login \u00b7 v0.1.13 LM Studio + Ollama runtimes \u00b7 v0.1.14 Mattermost author names \u00b7 v0.1.15 Command Dashboard + runtime-aware Model Manager + VAMS session auth \u00b7 v0.1.16 Google sign-in for email \u00b7 v0.1.17 VAMS auth-method UX \u00b7 v0.1.18 VAMS response-shape crash fix + projects stage counts \u00b7 v0.1.19 read-only VAMS Postgres connector + knowledge-graph foundation, psycopg bundling proven, 512 tests \u00b7 v0.1.20 chat-on-any-brain with real streaming, full local model management (LM Studio + Ollama), email auto-organization, Mattermost full sync, 35 VAMS read-only query tools across the ERP \u00b7 v0.1.21 ask-anything tool-calling loop (proven live: real LM Studio called KG + VAMS tools, cited/grounded, honestly reported VAMS-not-connected) + LLM mind map + the VAMS invoke bridge. CAVEAT: v0.1.21 has an upgrade bug (no DB migration system \u2014 existing chat data crashes on the new chat_messages columns); superseded by the v0.1.22 hotfix (in progress above) for anyone upgrading from an earlier install. Earlier (pre-release) waves \u2014 repo bootstrap, backend spine, email/model/understanding/agent-builder core, all 10 modules, connectors (VAMS/Mattermost/GitHub/NetBird), desktop shell + installer, security hardening, gamification layer \u2014 are also folded into this history; see GitHub Releases for full per-version notes."
+    "note": "The add-only startup schema reconciler shipped. Proven live: the real shipped exe added the 4 missing chat_messages columns to an old-schema DB with the existing row preserved \u2014 the user's real DB verified intact. v0.1.21's upgrade-crash bug is now RESOLVED; v0.1.22 is the current safe-to-install release for everyone, upgraders and fresh installs alike."
+  },
+  {
+    "title": "Shipped: 17 releases, v0.1.6 \u2192 v0.1.22 (current)",
+    "status": "done",
+    "track": "archive",
+    "note": "v0.1.6 clean inbox layout \u00b7 v0.1.7 full-mailbox sync + progress bars \u00b7 v0.1.8 all-modules clean layout \u00b7 v0.1.9 Mattermost slow-load fix \u00b7 v0.1.10 Mattermost status/CORS-on-500 fix \u00b7 v0.1.11 DPAPI credential-persistence fix \u00b7 v0.1.12 Mattermost username/password login \u00b7 v0.1.13 LM Studio + Ollama runtimes \u00b7 v0.1.14 Mattermost author names \u00b7 v0.1.15 Command Dashboard + runtime-aware Model Manager + VAMS session auth \u00b7 v0.1.16 Google sign-in for email \u00b7 v0.1.17 VAMS auth-method UX \u00b7 v0.1.18 VAMS response-shape crash fix + projects stage counts \u00b7 v0.1.19 read-only VAMS Postgres connector + knowledge-graph foundation, psycopg bundling proven, 512 tests \u00b7 v0.1.20 chat-on-any-brain with real streaming, full local model management (LM Studio + Ollama), email auto-organization, Mattermost full sync, 35 VAMS read-only query tools across the ERP \u00b7 v0.1.21 ask-anything tool-calling loop (proven live: real LM Studio called KG + VAMS tools, cited/grounded, honestly reported VAMS-not-connected) + LLM mind map + the VAMS invoke bridge \u00b7 v0.1.22 HOTFIX: safe-upgrade schema reconciler, verified against a real old-schema DB with data preserved. Earlier (pre-release) waves \u2014 repo bootstrap, backend spine, email/model/understanding/agent-builder core, all 10 modules, connectors (VAMS/Mattermost/GitHub/NetBird), desktop shell + installer, security hardening, gamification layer \u2014 are also folded into this history; see GitHub Releases for full per-version notes."
   }
 ]
