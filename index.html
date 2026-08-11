@@ -248,14 +248,8 @@
     <div class="split"><div><p class="eyebrow">Cadre program — 4 lanes running now</p><h2>Fleet status at a glance</h2></div></div>
     <div class="row" style="gap:8px;flex-wrap:wrap;margin:8px 0 6px">
   <span class="chip ok"><span class="dp beat"></span>3 lanes running</span>
-  <span class="chip" style="border-color:var(--accent);color:var(--accent)">release v0.1.19 in progress</span>
-  <span class="chip mute">13 releases shipped</span>
+  <span class="chip mute">14 releases shipped</span>
   <span class="chip mute">4 queued — wave 2</span>
-</div>
-
-<p class="eyebrow" style="margin:16px 0 8px">Release in progress</p>
-<div class="sub" style="padding:10px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-  <b style="color:var(--ink-2)">v0.1.19</b> — merging the finished <span class="mono">lane/knowledge-graph</span> and <span class="mono">lane/vams-postgres-readonly</span> branches into main. This is what gets the VAMS DB connector into Omar's hands for the in-app live test.
 </div>
 
 <p class="eyebrow" style="margin:16px 0 8px">Active lanes — running now</p>
@@ -278,10 +272,8 @@
 </ul>
 
 <p class="eyebrow" style="margin:18px 0 6px">Shipped</p>
-<p class="sub" style="margin:0">13 releases, <span class="mono">v0.1.6 → v0.1.18</span> (current) — clean full-bleed layouts, full mailbox sync, Mattermost fixes, DPAPI credential persistence, LM Studio + Ollama runtimes, the Command Dashboard, Google sign-in, and VAMS auth/crash fixes. Full per-release notes on <a href="https://github.com/omarbinghalib/cadre/releases" target="_blank" rel="noopener">GitHub Releases</a>; expand "Previously shipped" in Tasks &amp; progress below for the compact log.</p>
+<p class="sub" style="margin:0">14 releases, <span class="mono">v0.1.6 → v0.1.19</span> (current) — clean full-bleed layouts, full mailbox sync, Mattermost fixes, DPAPI credential persistence, LM Studio + Ollama runtimes, the Command Dashboard, Google sign-in, VAMS auth/crash fixes, and now (v0.1.19) the read-only VAMS Postgres connector + knowledge-graph foundation — psycopg bundling proven, 512 tests. Full per-release notes on <a href="https://github.com/omarbinghalib/cadre/releases" target="_blank" rel="noopener">GitHub Releases</a>; expand "Previously shipped" in Tasks &amp; progress below for the compact log.</p>
 <p class="sub" style="margin:6px 0 0">Also delivered: the wave-2 COO intelligence architecture spec — designed the VAMS knowledge/query-tool layer, cross-source insight engine, and dashboard drill-down, unblocking the Email auto-organization and Knowledge graph lanes.</p>
-<p class="sub" style="margin:6px 0 0">And: the Knowledge graph + Mattermost ingestion lane — built &amp; tested (442 backend tests): a unified cross-source entity graph (email + Mattermost + VAMS) with record-code linking. On branch lane/knowledge-graph, pending merge in the next release batch — not yet user-visible.</p>
-<p class="sub" style="margin:6px 0 0">And: the VAMS read-only Postgres connector — built &amp; tested (70 new tests): a generic extensible read-only query engine + Projects queries, psycopg bundled. On branch lane/vams-postgres-readonly, pending merge. Not yet confirmed against the live schema (the build/test run's DB connection was sandbox-blocked — zero rows read); the real test is Omar entering the credential in-app once shipped.</p>
 <p class="sub" style="margin:6px 0 0">And: Email auto-organization — built &amp; tested (436 backend tests + 9 live-IMAP tests + a real-LM-Studio classification smoke). Off/Suggest/Auto control + kill switch + "Organize now" + a "Recently filed" log with undo; caught and fixed a real IMAP MOVE UID-drift bug along the way. On branch lane/email-auto-organize, queued for the v0.1.20 release batch (frontend + backend).</p>
 
 <p class="eyebrow" style="margin:18px 0 6px">Queued — wave 2 (not started, waiting on the data + model layers)</p>
@@ -293,7 +285,11 @@
 </ul>
 
 <p class="eyebrow" style="margin:18px 0 6px">Awaiting from Omar</p>
-<p class="sub" style="margin:0">One input is still outstanding (tracked here, not as an alert): rotating the personal VAMS web password shared in chat to a dedicated service account.</p>
+<p class="sub" style="margin:0">Two items are outstanding (tracked here, not as an alert):</p>
+<ul style="list-style:none;margin:6px 0 0;padding:0;display:flex;flex-direction:column;gap:0">
+  <li style="padding:6px 0;border-top:1px solid var(--line)"><span class="sub">Test the VAMS database connection in-app (Settings → VAMS → data source: Database) now that v0.1.19 ships — this is the live-schema check.</span></li>
+  <li style="padding:6px 0;border-top:1px solid var(--line)"><span class="sub">Rotate the personal VAMS web password shared in chat to a dedicated service account.</span></li>
+</ul>
 
   </section>
 
