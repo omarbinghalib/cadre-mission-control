@@ -1,9 +1,9 @@
 [
   {
-    "title": "COO insight engine + dashboard drill-down",
+    "title": "Release v0.1.23 \u2014 merge capstone, rebuild backend + frontend, release",
     "status": "in_progress",
-    "track": "active",
-    "note": "branch lane/coo-insights (worker a2f67b3f). The wave-2 capstone, final lane: cross-source exception-first insights (deterministic detection + model narration, no fabrication) across VAMS + email + Mattermost, plus a drill-down evidence trail on any dashboard field. Absorbs the prior 'final wave' queue: Cross-source COO insights, Dashboard drill-down, and Wire knowledge ingestion triggers (email + Mattermost \u2192 graph)."
+    "track": "release",
+    "note": "Integration/release in progress (worker abbef9f0): merging lane/coo-insights into main, rebuilding the cadre-backend sidecar and the frontend, and releasing. This ships the wave-2 capstone (COO insight engine + dashboard drill-down)."
   },
   {
     "title": "Streaming for tool turns",
@@ -34,6 +34,12 @@
     "status": "pending",
     "track": "queued",
     "note": "Polish. The v0.1.22 startup schema reconciler is a pragmatic add-only guard, not a real migration system \u2014 replace with Alembic (or equivalent) for versioned, reversible schema migrations."
+  },
+  {
+    "title": "COO insight engine + dashboard drill-down \u2014 built & tested (wave-2 capstone)",
+    "status": "done",
+    "track": "archive",
+    "note": "branch lane/coo-insights, 726 backend tests green, real-LM-Studio verified on a seeded cross-source scenario. Deterministic cross-source exception detection (VAMS + email + Mattermost) + model narration with fabrication REJECTED (proven: a fake $999,999.99 figure never reaches output) + a drill-down evidence trail on any dashboard field. THIS COMPLETES THE WAVE-2 VISION \u2014 Cadre reasons over the whole org. Merging to main + releasing as v0.1.23 (see above)."
   },
   {
     "title": "Tool-calling + chat tool-loop \u2014 built & tested",
