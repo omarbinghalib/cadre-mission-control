@@ -6,40 +6,64 @@
     "note": "Integration/release in progress (worker aaea41a1): merging the 4 finished branches (VAMS query-tools, Mattermost persistence, Model layer, Email auto-organization) into main, reconciling 3 seams, rebuilding both the cadre-backend and cadre-model-manager sidecars, and releasing. Shipping done work now rather than waiting for Tool-calling \u2014 that + LLM mind-map ship in v0.1.21."
   },
   {
-    "title": "Tool-calling + chat tool-loop",
-    "status": "in_progress",
-    "track": "active",
-    "note": "branch lane/tool-calling (worktree cadre-wtTOOL). The linchpin capability: models call read-only tools (knowledge graph first, VAMS query tools plug in), answers grounded + cited, hard-fail if a brain can't do tools (no fabrication). Stacks on lane/model-layer, now merged. Unblocked by Model layer landing."
-  },
-  {
-    "title": "VAMS knowledge/query tools",
+    "title": "VAMS-tools invoke bridge",
     "status": "pending",
     "track": "queued",
-    "note": "Model answers any VAMS question via read-only query tools. Waiting on the Postgres connector + model layer to land; now being built directly as the VAMS query-tool catalog lane above."
+    "note": "v0.1.21 scope. Query-tools shipped the GET /vams/tools catalog + query functions but no invoke endpoint. Tool-calling's adapter needs POST /vams/tools/{name}/invoke + registry registration so the AI can actually query the ERP through it."
+  },
+  {
+    "title": "Release v0.1.21 \u2014 merge tool-calling + mind-map, ship invoke bridge",
+    "status": "pending",
+    "track": "queued",
+    "note": "v0.1.21 plan: merge lane/tool-calling + lane/llm-mind-map, build the VAMS-tools invoke bridge (above), then release. Next up after v0.1.20 lands."
   },
   {
     "title": "Cross-source COO insights",
     "status": "pending",
     "track": "queued",
-    "note": "COO insight + improvement suggestions on the dashboard, drawn across VAMS + email + Mattermost. Waiting on the data + model layers, and the knowledge graph spine."
+    "note": "Final wave. COO insight + improvement suggestions on the dashboard, drawn across VAMS + email + Mattermost."
   },
   {
     "title": "Dashboard drill-down",
     "status": "pending",
     "track": "queued",
-    "note": "Drill-down depth on any dashboard field. Waiting on the data + model layers."
+    "note": "Final wave. Drill-down depth on any dashboard field."
   },
   {
     "title": "Wire knowledge ingestion triggers (email + Mattermost \u2192 graph)",
     "status": "pending",
     "track": "queued",
-    "note": "Connect the email and Mattermost pipelines into the knowledge-graph ingestion processors so new messages/threads flow into the graph automatically, not just on manual runs."
+    "note": "Final wave. Connect the email and Mattermost pipelines into the knowledge-graph ingestion processors so new messages/threads flow into the graph automatically, not just on manual runs."
+  },
+  {
+    "title": "Streaming for tool turns",
+    "status": "pending",
+    "track": "queued",
+    "note": "Polish. Stream tool-calling turns to the UI like regular chat, not just the final answer."
+  },
+  {
+    "title": "Clean up [[cite:id]] citation markers",
+    "status": "pending",
+    "track": "queued",
+    "note": "Polish. The [[cite:id]] marker tool-calling emits for grounding shows up literally in message text; needs proper rendering instead of the raw cosmetic marker."
   },
   {
     "title": "Fix slow LLM-map when Ollama absent",
     "status": "pending",
     "track": "queued",
-    "note": "Backend probes Ollama sequentially per candidate when it's not installed, ~24-33s \u2014 flagged by 2 lanes. Fix after Tool-calling lands."
+    "note": "Polish. Backend probes Ollama sequentially per candidate when it's not installed, ~24-33s \u2014 flagged by 2 lanes."
+  },
+  {
+    "title": "Fix archive UID-drift bug in service.py",
+    "status": "pending",
+    "track": "queued",
+    "note": "Polish. A second IMAP UID-drift bug, this time in the archive path of service.py (distinct from the MOVE UID-drift already fixed in email auto-organization)."
+  },
+  {
+    "title": "Tool-calling + chat tool-loop \u2014 built & tested",
+    "status": "done",
+    "track": "archive",
+    "note": "branch lane/tool-calling, 487 backend + 209 model-manager tests green, real-LM-Studio smoke (model called KG tools \u2192 grounded cited answer). The AI answering engine: canonical tool registry, knowledge-graph tools with provenance, native+ReAct capability detection, HARD-FAIL guardrail (no fabrication), bounded cited loop with citation cross-validation. Branch pushed, ships in v0.1.21. The fleet has converged \u2014 zero active build lanes, only the v0.1.20 integration/release in progress."
   },
   {
     "title": "LLM mind-map visualization \u2014 built & tested",
