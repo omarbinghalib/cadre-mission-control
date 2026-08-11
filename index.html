@@ -256,8 +256,8 @@
 <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0">
   <li style="padding:10px 0;border-top:1px solid var(--line)">
     <span class="wname" style="font-weight:650">VAMS Postgres connector</span>
-    <span class="chip mute" style="margin-left:8px">awaiting input</span>
-    <div class="sub" style="margin-top:3px">Read-only SELECT-only DB access for per-project VAMS data that has no JSON endpoint — schema read from the Django source, psycopg bundled. Waiting on a read-only DB role credential (see "Awaiting from Omar" below).</div>
+    <span class="chip ok" style="margin-left:8px">verifying</span>
+    <div class="sub" style="margin-top:3px">Read-only SELECT-only DB access for per-project VAMS data that has no JSON endpoint — schema read from the Django source, psycopg bundled. Read-only DB role is in hand; actively verifying live queries against the real database.</div>
   </li>
   <li style="padding:10px 0;border-top:1px solid var(--line)">
     <span class="wname" style="font-weight:650">Model layer</span>
@@ -288,7 +288,7 @@
 </ul>
 
 <p class="eyebrow" style="margin:18px 0 6px">Awaiting from Omar</p>
-<p class="sub" style="margin:0">Two inputs are still needed (tracked here, not as an alert): a dedicated read-only Postgres role (db name / user / password) for the VAMS DB connector — gates lane/vams-postgres-readonly and wave 2's live data; and rotating the personal VAMS web password shared in chat to a service account.</p>
+<p class="sub" style="margin:0">One input is still outstanding (tracked here, not as an alert): rotating the personal VAMS web password shared in chat to a dedicated service account.</p>
 
   </section>
 
