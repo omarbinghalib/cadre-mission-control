@@ -48,6 +48,12 @@
     "note": "Connect the email and Mattermost pipelines into the knowledge-graph ingestion processors so new messages/threads flow into the graph automatically, not just on manual runs."
   },
   {
+    "title": "Model layer \u2014 built & tested",
+    "status": "done",
+    "track": "archive",
+    "note": "branch lane/model-layer, 189 model-manager + 441 backend tests green, real-LM-Studio verified. Chat on the selected brain with streaming; LM Studio full lifecycle via the lms CLI + download; Ollama full REST lifecycle; workload\u2192brain policy; graph-shaped /map. Branch pushed, queued for the v0.1.20 batch. Unblocked the two previously-gated Tool-calling and LLM mind-map lanes above."
+  },
+  {
     "title": "Email auto-organization \u2014 built & tested",
     "status": "done",
     "track": "archive",
