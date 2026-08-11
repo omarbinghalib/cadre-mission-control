@@ -247,9 +247,15 @@
   <section class="panel">
     <div class="split"><div><p class="eyebrow">Cadre program — 4 lanes running now</p><h2>Fleet status at a glance</h2></div></div>
     <div class="row" style="gap:8px;flex-wrap:wrap;margin:8px 0 6px">
-  <span class="chip ok"><span class="dp beat"></span>2 lanes running</span>
+  <span class="chip ok"><span class="dp beat"></span>4 lanes running</span>
+  <span class="chip" style="border-color:var(--accent);color:var(--accent)">release v0.1.19 in progress</span>
   <span class="chip mute">13 releases shipped</span>
-  <span class="chip mute">5 queued — wave 2</span>
+  <span class="chip mute">4 queued — wave 2</span>
+</div>
+
+<p class="eyebrow" style="margin:16px 0 8px">Release in progress</p>
+<div class="sub" style="padding:10px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <b style="color:var(--ink-2)">v0.1.19</b> — merging the finished <span class="mono">lane/knowledge-graph</span> and <span class="mono">lane/vams-postgres-readonly</span> branches into main. This is what gets the VAMS DB connector into Omar's hands for the in-app live test.
 </div>
 
 <p class="eyebrow" style="margin:16px 0 8px">Active lanes — running now</p>
@@ -264,6 +270,16 @@
     <span class="chip ok" style="margin-left:8px">running</span>
     <div class="sub" style="margin-top:3px">Making §22 real: learn folder taxonomy, spam/junk detection, auto-file with a learn → suggest → auto trust ladder, logged + reversible, local-model driven.</div>
   </li>
+  <li style="padding:10px 0;border-top:1px solid var(--line)">
+    <span class="wname" style="font-weight:650">VAMS query-tool catalog</span>
+    <span class="chip ok" style="margin-left:8px">running</span>
+    <div class="sub" style="margin-top:3px">Read-only query tools across the ERP chain (opportunities → sales orders → work orders → BOM → material reqs → POs, plus projects/engineering/procurement) that the AI will call. Stacks on the VAMS connector branch.</div>
+  </li>
+  <li style="padding:10px 0;border-top:1px solid var(--line)">
+    <span class="wname" style="font-weight:650">Mattermost persistence + sync</span>
+    <span class="chip ok" style="margin-left:8px">running</span>
+    <div class="sub" style="margin-top:3px">Cadre fetches Mattermost live today and stores nothing — building sync-and-persist (like the email full-sync) so threads are searchable and feed the knowledge graph. Stacks on the knowledge-graph branch.</div>
+  </li>
 </ul>
 
 <p class="eyebrow" style="margin:18px 0 6px">Shipped</p>
@@ -274,10 +290,9 @@
 
 <p class="eyebrow" style="margin:18px 0 6px">Queued — wave 2 (not started, waiting on the data + model layers)</p>
 <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0">
-  <li style="padding:7px 0;border-top:1px solid var(--line)"><span class="sub"><b style="color:var(--ink-2)">VAMS knowledge/query tools</b> — the model answers any VAMS question via read-only query tools</span></li>
+  <li style="padding:7px 0;border-top:1px solid var(--line)"><span class="sub"><b style="color:var(--ink-2)">VAMS knowledge/query tools</b> — the model answers any VAMS question via read-only query tools (now being built directly as the VAMS query-tool catalog lane above)</span></li>
   <li style="padding:7px 0;border-top:1px solid var(--line)"><span class="sub"><b style="color:var(--ink-2)">Cross-source COO insights</b> — insights + improvement suggestions on the dashboard, across VAMS + email + Mattermost</span></li>
   <li style="padding:7px 0;border-top:1px solid var(--line)"><span class="sub"><b style="color:var(--ink-2)">Dashboard drill-down</b> — drill-down depth on any dashboard field</span></li>
-  <li style="padding:7px 0;border-top:1px solid var(--line)"><span class="sub"><b style="color:var(--ink-2)">Mattermost persistence + sync</b> — Cadre fetches Mattermost live today and stores nothing; needs a sync-and-persist pipeline (like the email full-sync) so threads are searchable and can feed the knowledge graph</span></li>
   <li style="padding:7px 0;border-top:1px solid var(--line)"><span class="sub"><b style="color:var(--ink-2)">Wire knowledge ingestion triggers</b> — email + Mattermost → graph, automatically</span></li>
 </ul>
 
