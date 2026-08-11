@@ -1,9 +1,9 @@
 [
   {
-    "title": "Release v0.1.20 — merge 4 branches, reconcile seams, rebuild sidecars",
+    "title": "Release v0.1.20 \u2014 merge 4 branches, reconcile seams, rebuild sidecars",
     "status": "in_progress",
     "track": "release",
-    "note": "Integration/release in progress (worker aaea41a1): merging the 4 finished branches (VAMS query-tools, Mattermost persistence, Model layer, Email auto-organization) into main, reconciling 3 seams, rebuilding both the cadre-backend and cadre-model-manager sidecars, and releasing. Shipping done work now rather than waiting for Tool-calling — that + LLM mind-map ship in v0.1.21."
+    "note": "Integration/release in progress (worker aaea41a1): merging the 4 finished branches (VAMS query-tools, Mattermost persistence, Model layer, Email auto-organization) into main, reconciling 3 seams, rebuilding both the cadre-backend and cadre-model-manager sidecars, and releasing. Shipping done work now rather than waiting for Tool-calling \u2014 that + LLM mind-map ship in v0.1.21."
   },
   {
     "title": "Tool-calling + chat tool-loop",
