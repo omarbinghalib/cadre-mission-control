@@ -248,21 +248,22 @@
     <div class="split"><div><p class="eyebrow">Cadre program — 4 lanes running now</p><h2>Fleet status at a glance</h2></div></div>
     <div class="row" style="gap:8px;flex-wrap:wrap;margin:8px 0 6px">
   <span class="chip mute">0 build lanes running — fleet converged</span>
-  <span class="chip" style="border-color:var(--accent);color:var(--accent)">release v0.1.21 in progress</span>
-  <span class="chip mute">15 releases shipped</span>
-  <span class="chip mute">7 queued</span>
+  <span class="chip" style="border-color:var(--serious);color:var(--serious)">v0.1.22 HOTFIX in progress</span>
+  <span class="chip mute">16 releases shipped</span>
+  <span class="chip mute">8 queued</span>
 </div>
 
-<p class="eyebrow" style="margin:16px 0 8px">Release in progress</p>
+<p class="eyebrow" style="margin:16px 0 8px">Hotfix in progress</p>
 <div class="sub" style="padding:10px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-  <b style="color:var(--ink-2)">v0.1.21</b> — merging lane/tool-calling + lane/llm-mind-map into main, BUILDING the VAMS-tools invoke bridge (POST /vams/tools/{name}/invoke + registry registration — makes the AI able to actually query the ERP, not just see the catalog), rebuilding both the cadre-backend and cadre-model-manager sidecars, and releasing. Zero standalone build lanes otherwise.
+  <b style="color:var(--serious)">v0.1.22 — HOTFIX.</b> v0.1.21 shipped without a DB migration system, so anyone upgrading from an earlier install with existing chat data crashes on the new <span class="mono">chat_messages</span> columns. Building a safe, add-only startup schema reconciler so upgrades don't crash — a pragmatic guard (a proper migration framework is queued below).
 </div>
 
 <p class="eyebrow" style="margin:16px 0 8px">Active lanes</p>
-<p class="sub" style="margin:0;padding:10px 0;border-top:1px solid var(--line)">Zero build lanes running right now — the fleet has converged. Everything built so far is either shipping in v0.1.21 (in progress above) or queued for the final wave and polish beyond (below).</p>
+<p class="sub" style="margin:0;padding:10px 0;border-top:1px solid var(--line)">Zero build lanes running right now — the fleet has converged. Everything built so far is either shipping in v0.1.22 (in progress above) or queued for the final wave and polish beyond (below).</p>
 
 <p class="eyebrow" style="margin:18px 0 6px">Shipped</p>
-<p class="sub" style="margin:0">15 releases, <span class="mono">v0.1.6 → v0.1.20</span> (current) — clean full-bleed layouts, full mailbox sync, Mattermost fixes, DPAPI credential persistence, LM Studio + Ollama runtimes, the Command Dashboard, Google sign-in, VAMS auth/crash fixes, the read-only VAMS Postgres connector + knowledge-graph foundation (v0.1.19), and now (v0.1.20) chat-on-any-brain with real streaming, full local model management, email auto-organization, Mattermost full sync, and 35 VAMS read-only query tools across the ERP. Full per-release notes on <a href="https://github.com/omarbinghalib/cadre/releases" target="_blank" rel="noopener">GitHub Releases</a>; expand "Previously shipped" in Tasks &amp; progress below for the compact log.</p>
+<p class="sub" style="margin:0">16 releases, <span class="mono">v0.1.6 → v0.1.21</span> — clean full-bleed layouts, full mailbox sync, Mattermost fixes, DPAPI credential persistence, LM Studio + Ollama runtimes, the Command Dashboard, Google sign-in, VAMS auth/crash fixes, the read-only VAMS Postgres connector + knowledge-graph foundation (v0.1.19), chat-on-any-brain + full local model management + email auto-organization + Mattermost full sync + 35 VAMS query tools (v0.1.20), and now (v0.1.21) the ask-anything tool-calling loop — grounded, cited answers over the knowledge graph and (once connected) the VAMS ERP — plus the interactive LLM mind map. Full per-release notes on <a href="https://github.com/omarbinghalib/cadre/releases" target="_blank" rel="noopener">GitHub Releases</a>; expand "Previously shipped" in Tasks &amp; progress below for the compact log.</p>
+<p class="sub" style="margin:6px 0 0"><b style="color:var(--serious)">Caveat:</b> v0.1.21 has an upgrade bug (see the hotfix above) — anyone upgrading from an earlier install should wait for v0.1.22 rather than update to v0.1.21 directly. Fresh installs are unaffected.</p>
 <p class="sub" style="margin:6px 0 0">Also delivered: the wave-2 COO intelligence architecture spec — designed the VAMS knowledge/query-tool layer, cross-source insight engine, and dashboard drill-down, unblocking the Email auto-organization and Knowledge graph lanes.</p>
 
 <p class="eyebrow" style="margin:18px 0 6px">Final wave</p>
@@ -278,6 +279,7 @@
   <li style="padding:7px 0;border-top:1px solid var(--line)"><span class="sub"><b style="color:var(--ink-2)">Clean up [[cite:id]] markers</b> — the citation marker shows up literally in message text; needs proper rendering</span></li>
   <li style="padding:7px 0;border-top:1px solid var(--line)"><span class="sub"><b style="color:var(--ink-2)">Fix slow LLM-map when Ollama absent</b> — backend probes Ollama sequentially per candidate, ~24-33s; flagged by 2 lanes</span></li>
   <li style="padding:7px 0;border-top:1px solid var(--line)"><span class="sub"><b style="color:var(--ink-2)">Fix archive UID-drift bug</b> — a second IMAP UID-drift bug in service.py's archive path, distinct from the MOVE UID-drift already fixed</span></li>
+  <li style="padding:7px 0;border-top:1px solid var(--line)"><span class="sub"><b style="color:var(--ink-2)">Proper migration framework (Alembic)</b> — the v0.1.22 startup schema reconciler is a pragmatic add-only guard, not a real migration system</span></li>
 </ul>
 
 <p class="eyebrow" style="margin:18px 0 6px">Awaiting from Omar</p>
