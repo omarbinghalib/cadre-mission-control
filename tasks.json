@@ -3,19 +3,19 @@
     "title": "VAMS read-only Postgres connector",
     "status": "in_progress",
     "track": "active",
-    "note": "branch lane/vams-postgres-readonly (worktree cadre-wtPG). SELECT-only DB access for per-project VAMS data with no JSON endpoint; schema read from the Django source, psycopg bundled in the sidecar. Read-only DB role credential is in hand — actively verifying live queries against the real database."
+    "note": "branch lane/vams-postgres-readonly (worktree cadre-wtPG). SELECT-only DB access for per-project VAMS data with no JSON endpoint; schema read from the Django source, psycopg bundled in the sidecar. Read-only DB role credential is in hand \u2014 actively verifying live queries against the real database."
   },
   {
     "title": "Model layer",
     "status": "in_progress",
     "track": "active",
-    "note": "branch lane/model-layer (worktree cadre-wtMODEL). Chat runs on the selected brain (streaming), Cadre-managed local model load/unload (LM Studio without its own UI), workload→brain assignment across local + cloud with fallback chains — currently closing Ollama-parity gaps and building out richer LLM-map usage data."
+    "note": "branch lane/model-layer (worktree cadre-wtMODEL). Chat runs on the selected brain (streaming), Cadre-managed local model load/unload (LM Studio without its own UI), workload\u2192brain assignment across local + cloud with fallback chains \u2014 currently closing Ollama-parity gaps and building out richer LLM-map usage data."
   },
   {
     "title": "Email auto-organization",
     "status": "in_progress",
     "track": "active",
-    "note": "branch lane/email-auto-organize (worktree cadre-wtORG). Making §22 real: learn folder taxonomy, spam/junk detection, auto-file with a learn→suggest→auto trust ladder, logged + reversible, local-model driven."
+    "note": "branch lane/email-auto-organize (worktree cadre-wtORG). Making \u00a722 real: learn folder taxonomy, spam/junk detection, auto-file with a learn\u2192suggest\u2192auto trust ladder, logged + reversible, local-model driven."
   },
   {
     "title": "VAMS knowledge/query tools",
@@ -42,27 +42,27 @@
     "note": "Cadre currently fetches Mattermost live and stores nothing. Needs a sync-and-persist pipeline (like the email full-sync) so Mattermost threads are searchable and can feed the knowledge graph."
   },
   {
-    "title": "Wire knowledge ingestion triggers (email + Mattermost → graph)",
+    "title": "Wire knowledge ingestion triggers (email + Mattermost \u2192 graph)",
     "status": "pending",
     "track": "queued",
     "note": "Connect the email and Mattermost pipelines into the knowledge-graph ingestion processors so new messages/threads flow into the graph automatically, not just on manual runs."
   },
   {
-    "title": "Knowledge graph + Mattermost ingestion — built & tested",
+    "title": "Knowledge graph + Mattermost ingestion \u2014 built & tested",
     "status": "done",
     "track": "archive",
-    "note": "branch lane/knowledge-graph, 442 backend tests green. Unified cross-source entity graph (email + Mattermost + VAMS) with record-code linking + ingestion processors, built and tested. Pending merge in the next release batch — not yet user-visible. Unblocks the two queued Mattermost-persistence/ingestion-trigger items above."
+    "note": "branch lane/knowledge-graph, 442 backend tests green. Unified cross-source entity graph (email + Mattermost + VAMS) with record-code linking + ingestion processors, built and tested. Pending merge in the next release batch \u2014 not yet user-visible. Unblocks the two queued Mattermost-persistence/ingestion-trigger items above."
   },
   {
-    "title": "Wave-2 COO intelligence architecture — spec delivered",
+    "title": "Wave-2 COO intelligence architecture \u2014 spec delivered",
     "status": "done",
     "track": "archive",
     "note": "Design/spec lane complete (scratchpad/wave2-coo-intelligence-spec.md): designed the VAMS knowledge/query-tool layer, the cross-source (VAMS+email+Mattermost) COO insight engine, and dashboard drill-down. Unblocked the Email auto-organization and Knowledge graph build lanes."
   },
   {
-    "title": "Shipped: 13 releases, v0.1.6 → v0.1.18 (current)",
+    "title": "Shipped: 13 releases, v0.1.6 \u2192 v0.1.18 (current)",
     "status": "done",
     "track": "archive",
-    "note": "v0.1.6 clean inbox layout · v0.1.7 full-mailbox sync + progress bars · v0.1.8 all-modules clean layout · v0.1.9 Mattermost slow-load fix · v0.1.10 Mattermost status/CORS-on-500 fix · v0.1.11 DPAPI credential-persistence fix · v0.1.12 Mattermost username/password login · v0.1.13 LM Studio + Ollama runtimes · v0.1.14 Mattermost author names · v0.1.15 Command Dashboard + runtime-aware Model Manager + VAMS session auth · v0.1.16 Google sign-in for email · v0.1.17 VAMS auth-method UX · v0.1.18 VAMS response-shape crash fix + projects stage counts. Earlier (pre-release) waves — repo bootstrap, backend spine, email/model/understanding/agent-builder core, all 10 modules, connectors (VAMS/Mattermost/GitHub/NetBird), desktop shell + installer, security hardening, gamification layer — are also folded into this history; see GitHub Releases for full per-version notes."
+    "note": "v0.1.6 clean inbox layout \u00b7 v0.1.7 full-mailbox sync + progress bars \u00b7 v0.1.8 all-modules clean layout \u00b7 v0.1.9 Mattermost slow-load fix \u00b7 v0.1.10 Mattermost status/CORS-on-500 fix \u00b7 v0.1.11 DPAPI credential-persistence fix \u00b7 v0.1.12 Mattermost username/password login \u00b7 v0.1.13 LM Studio + Ollama runtimes \u00b7 v0.1.14 Mattermost author names \u00b7 v0.1.15 Command Dashboard + runtime-aware Model Manager + VAMS session auth \u00b7 v0.1.16 Google sign-in for email \u00b7 v0.1.17 VAMS auth-method UX \u00b7 v0.1.18 VAMS response-shape crash fix + projects stage counts. Earlier (pre-release) waves \u2014 repo bootstrap, backend spine, email/model/understanding/agent-builder core, all 10 modules, connectors (VAMS/Mattermost/GitHub/NetBird), desktop shell + installer, security hardening, gamification layer \u2014 are also folded into this history; see GitHub Releases for full per-version notes."
   }
 ]
