@@ -247,18 +247,13 @@
   <section class="panel">
     <div class="split"><div><p class="eyebrow">Cadre program — 4 lanes running now</p><h2>Fleet status at a glance</h2></div></div>
     <div class="row" style="gap:8px;flex-wrap:wrap;margin:8px 0 6px">
-  <span class="chip ok"><span class="dp beat"></span>3 lanes running</span>
+  <span class="chip ok"><span class="dp beat"></span>2 lanes running</span>
   <span class="chip mute">13 releases shipped</span>
   <span class="chip mute">5 queued — wave 2</span>
 </div>
 
 <p class="eyebrow" style="margin:16px 0 8px">Active lanes — running now</p>
 <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0">
-  <li style="padding:10px 0;border-top:1px solid var(--line)">
-    <span class="wname" style="font-weight:650">VAMS Postgres connector</span>
-    <span class="chip ok" style="margin-left:8px">verifying</span>
-    <div class="sub" style="margin-top:3px">Read-only SELECT-only DB access for per-project VAMS data that has no JSON endpoint — schema read from the Django source, psycopg bundled. Read-only DB role is in hand; actively verifying live queries against the real database.</div>
-  </li>
   <li style="padding:10px 0;border-top:1px solid var(--line)">
     <span class="wname" style="font-weight:650">Model layer</span>
     <span class="chip ok" style="margin-left:8px">running</span>
@@ -275,6 +270,7 @@
 <p class="sub" style="margin:0">13 releases, <span class="mono">v0.1.6 → v0.1.18</span> (current) — clean full-bleed layouts, full mailbox sync, Mattermost fixes, DPAPI credential persistence, LM Studio + Ollama runtimes, the Command Dashboard, Google sign-in, and VAMS auth/crash fixes. Full per-release notes on <a href="https://github.com/omarbinghalib/cadre/releases" target="_blank" rel="noopener">GitHub Releases</a>; expand "Previously shipped" in Tasks &amp; progress below for the compact log.</p>
 <p class="sub" style="margin:6px 0 0">Also delivered: the wave-2 COO intelligence architecture spec — designed the VAMS knowledge/query-tool layer, cross-source insight engine, and dashboard drill-down, unblocking the Email auto-organization and Knowledge graph lanes.</p>
 <p class="sub" style="margin:6px 0 0">And: the Knowledge graph + Mattermost ingestion lane — built &amp; tested (442 backend tests): a unified cross-source entity graph (email + Mattermost + VAMS) with record-code linking. On branch lane/knowledge-graph, pending merge in the next release batch — not yet user-visible.</p>
+<p class="sub" style="margin:6px 0 0">And: the VAMS read-only Postgres connector — built &amp; tested (70 new tests): a generic extensible read-only query engine + Projects queries, psycopg bundled. On branch lane/vams-postgres-readonly, pending merge. Not yet confirmed against the live schema (the build/test run's DB connection was sandbox-blocked — zero rows read); the real test is Omar entering the credential in-app once shipped.</p>
 
 <p class="eyebrow" style="margin:18px 0 6px">Queued — wave 2 (not started, waiting on the data + model layers)</p>
 <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0">
