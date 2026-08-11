@@ -1,9 +1,9 @@
 [
   {
-    "title": "Release v0.1.21 \u2014 merge tool-calling + mind-map, build invoke bridge, rebuild sidecars",
+    "title": "Release v0.1.22 \u2014 HOTFIX: safe upgrade schema reconciler",
     "status": "in_progress",
     "track": "release",
-    "note": "Integration/release in progress (worker ad77c9df): merging lane/tool-calling + lane/llm-mind-map into main, BUILDING the VAMS-tools invoke bridge (POST /vams/tools/{name}/invoke + registry registration \u2014 makes the AI able to actually query the ERP, not just see the catalog), rebuilding both the cadre-backend and cadre-model-manager sidecars, and releasing. Zero standalone build lanes otherwise."
+    "note": "Hotfix/release in progress (worker a9dd1a30). v0.1.21 has an upgrade bug: no DB migration system, so users with existing chat data crash on the new chat_messages columns. Building a safe, add-only startup schema reconciler so upgrades don't crash \u2014 a pragmatic guard, not a full migration framework (see queued polish: Alembic)."
   },
   {
     "title": "Cross-source COO insights",
@@ -48,22 +48,28 @@
     "note": "Polish. A second IMAP UID-drift bug, this time in the archive path of service.py (distinct from the MOVE UID-drift already fixed in email auto-organization)."
   },
   {
+    "title": "Proper migration framework (Alembic)",
+    "status": "pending",
+    "track": "queued",
+    "note": "Polish. The v0.1.22 startup schema reconciler is a pragmatic add-only guard, not a real migration system \u2014 replace with Alembic (or equivalent) for versioned, reversible schema migrations."
+  },
+  {
     "title": "Tool-calling + chat tool-loop \u2014 built & tested",
     "status": "done",
     "track": "archive",
-    "note": "branch lane/tool-calling, 487 backend + 209 model-manager tests green, real-LM-Studio smoke (model called KG tools \u2192 grounded cited answer). The AI answering engine: canonical tool registry, knowledge-graph tools with provenance, native+ReAct capability detection, HARD-FAIL guardrail (no fabrication), bounded cited loop with citation cross-validation. Branch pushed, ships in v0.1.21. The fleet has converged \u2014 zero active build lanes, only the v0.1.20 integration/release in progress."
+    "note": "branch lane/tool-calling, 487 backend + 209 model-manager tests green, real-LM-Studio smoke (model called KG tools \u2192 grounded cited answer). The AI answering engine: canonical tool registry, knowledge-graph tools with provenance, native+ReAct capability detection, HARD-FAIL guardrail (no fabrication), bounded cited loop with citation cross-validation. Shipped in v0.1.21."
   },
   {
     "title": "LLM mind-map visualization \u2014 built & tested",
     "status": "done",
     "track": "archive",
-    "note": "branch lane/llm-mind-map, 21 tests, live-verified against real LM Studio + Ollama-absent. Interactive SVG node graph (runtimes/models/workloads/agents, local vs cloud bands, pan/zoom, hover-highlight, click-inspect) \u2014 hand-rolled, no new dependency, theme-aware. Found + fixed 2 render bugs along the way. Frontend-only branch, ships in v0.1.21 (with Tool-calling)."
+    "note": "branch lane/llm-mind-map, 21 tests, live-verified against real LM Studio + Ollama-absent. Interactive SVG node graph (runtimes/models/workloads/agents, local vs cloud bands, pan/zoom, hover-highlight, click-inspect) \u2014 hand-rolled, no new dependency, theme-aware. Found + fixed 2 render bugs along the way. Shipped in v0.1.21."
   },
   {
     "title": "VAMS query-tool catalog \u2014 built & tested",
     "status": "done",
     "track": "archive",
-    "note": "branch lane/vams-query-tools, 562 backend tests green. Shipped in v0.1.20 as 35 read-only query tools across sales/production/procurement/engineering plus job-chain traversal (opportunities\u2192sales orders\u2192work orders\u2192BOM\u2192material reqs\u2192POs), GET /vams/tools. Unblocks the Tool-calling lane's VAMS plug-in \u2014 the invoke bridge is being built now in the v0.1.21 release."
+    "note": "branch lane/vams-query-tools, 562 backend tests green. Shipped in v0.1.20 as 35 read-only query tools across sales/production/procurement/engineering plus job-chain traversal (opportunities\u2192sales orders\u2192work orders\u2192BOM\u2192material reqs\u2192POs), GET /vams/tools. The invoke bridge (POST /vams/tools/{name}/invoke) that makes these actually callable by the AI shipped in v0.1.21."
   },
   {
     "title": "Mattermost persistence + sync \u2014 built & tested",
@@ -102,9 +108,9 @@
     "note": "Design/spec lane complete (scratchpad/wave2-coo-intelligence-spec.md): designed the VAMS knowledge/query-tool layer, the cross-source (VAMS+email+Mattermost) COO insight engine, and dashboard drill-down. Unblocked the Email auto-organization and Knowledge graph build lanes."
   },
   {
-    "title": "Shipped: 15 releases, v0.1.6 \u2192 v0.1.20 (current)",
+    "title": "Shipped: 16 releases, v0.1.6 \u2192 v0.1.21 (superseded by v0.1.22 for safe upgrade)",
     "status": "done",
     "track": "archive",
-    "note": "v0.1.6 clean inbox layout \u00b7 v0.1.7 full-mailbox sync + progress bars \u00b7 v0.1.8 all-modules clean layout \u00b7 v0.1.9 Mattermost slow-load fix \u00b7 v0.1.10 Mattermost status/CORS-on-500 fix \u00b7 v0.1.11 DPAPI credential-persistence fix \u00b7 v0.1.12 Mattermost username/password login \u00b7 v0.1.13 LM Studio + Ollama runtimes \u00b7 v0.1.14 Mattermost author names \u00b7 v0.1.15 Command Dashboard + runtime-aware Model Manager + VAMS session auth \u00b7 v0.1.16 Google sign-in for email \u00b7 v0.1.17 VAMS auth-method UX \u00b7 v0.1.18 VAMS response-shape crash fix + projects stage counts \u00b7 v0.1.19 read-only VAMS Postgres connector + knowledge-graph foundation, psycopg bundling proven, 512 tests \u00b7 v0.1.20 chat-on-any-brain with real streaming, full local model management (LM Studio + Ollama), email auto-organization, Mattermost full sync, 35 VAMS read-only query tools across the ERP. Earlier (pre-release) waves \u2014 repo bootstrap, backend spine, email/model/understanding/agent-builder core, all 10 modules, connectors (VAMS/Mattermost/GitHub/NetBird), desktop shell + installer, security hardening, gamification layer \u2014 are also folded into this history; see GitHub Releases for full per-version notes."
+    "note": "v0.1.6 clean inbox layout \u00b7 v0.1.7 full-mailbox sync + progress bars \u00b7 v0.1.8 all-modules clean layout \u00b7 v0.1.9 Mattermost slow-load fix \u00b7 v0.1.10 Mattermost status/CORS-on-500 fix \u00b7 v0.1.11 DPAPI credential-persistence fix \u00b7 v0.1.12 Mattermost username/password login \u00b7 v0.1.13 LM Studio + Ollama runtimes \u00b7 v0.1.14 Mattermost author names \u00b7 v0.1.15 Command Dashboard + runtime-aware Model Manager + VAMS session auth \u00b7 v0.1.16 Google sign-in for email \u00b7 v0.1.17 VAMS auth-method UX \u00b7 v0.1.18 VAMS response-shape crash fix + projects stage counts \u00b7 v0.1.19 read-only VAMS Postgres connector + knowledge-graph foundation, psycopg bundling proven, 512 tests \u00b7 v0.1.20 chat-on-any-brain with real streaming, full local model management (LM Studio + Ollama), email auto-organization, Mattermost full sync, 35 VAMS read-only query tools across the ERP \u00b7 v0.1.21 ask-anything tool-calling loop (proven live: real LM Studio called KG + VAMS tools, cited/grounded, honestly reported VAMS-not-connected) + LLM mind map + the VAMS invoke bridge. CAVEAT: v0.1.21 has an upgrade bug (no DB migration system \u2014 existing chat data crashes on the new chat_messages columns); superseded by the v0.1.22 hotfix (in progress above) for anyone upgrading from an earlier install. Earlier (pre-release) waves \u2014 repo bootstrap, backend spine, email/model/understanding/agent-builder core, all 10 modules, connectors (VAMS/Mattermost/GitHub/NetBird), desktop shell + installer, security hardening, gamification layer \u2014 are also folded into this history; see GitHub Releases for full per-version notes."
   }
 ]
