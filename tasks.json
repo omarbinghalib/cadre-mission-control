@@ -3,7 +3,7 @@
     "title": "VAMS read-only Postgres connector",
     "status": "in_progress",
     "track": "active",
-    "note": "branch lane/vams-postgres-readonly (worktree cadre-wtPG). SELECT-only DB access for per-project VAMS data with no JSON endpoint; schema read from the Django source, psycopg bundled in the sidecar. Waiting on Omar for a read-only DB role credential to test live \u2014 see \u201cAwaiting from Omar\u201d."
+    "note": "branch lane/vams-postgres-readonly (worktree cadre-wtPG). SELECT-only DB access for per-project VAMS data with no JSON endpoint; schema read from the Django source, psycopg bundled in the sidecar. Read-only DB role credential is in hand \u2014 actively verifying live queries against the real database."
   },
   {
     "title": "Model layer",
