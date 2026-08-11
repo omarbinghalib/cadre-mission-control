@@ -1,357 +1,44 @@
 [
   {
-    "title": "W0 - Repo bootstrap + CLAUDE.md + architecture/lane docs",
-    "status": "done",
-    "track": "w0",
-    "note": "Bootstrap worker pushed 8 commits: monorepo skeleton, CLAUDE.md, architecture + lane docs, all on main."
+    "title": "VAMS read-only Postgres connector",
+    "status": "in_progress",
+    "track": "active",
+    "note": "branch lane/vams-postgres-readonly (worktree cadre-wtPG). SELECT-only DB access for per-project VAMS data with no JSON endpoint; schema read from the Django source, psycopg bundled in the sidecar. BLOCKED on Omar for a read-only DB role credential to test live \u2014 see needs-attention."
   },
   {
-    "title": "W0 - Mission-control dashboard",
-    "status": "done",
-    "track": "w0",
-    "note": "Built, configured, task board seeded; heartbeat scheduled task registered and verified live-ticking (2 manual ticks pushed OK). Public-URL activation (Pages needs the repo public or a paid plan) is a SEPARATE pending decision with Omar, tracked outside this task."
+    "title": "Model layer",
+    "status": "in_progress",
+    "track": "active",
+    "note": "branch lane/model-layer (worktree cadre-wtMODEL). Chat runs on the selected brain (streaming), Cadre-managed local model load/unload (LM Studio without its own UI), and workload\u2192brain assignment across local + cloud with fallback chains."
   },
   {
-    "title": "W1 - Backend spine (FastAPI, accounts/auth, DB schema, device sync)",
-    "status": "done",
-    "track": "w1",
-    "note": "Verified: uvicorn runs, /health 200, device-token auth, 11 domain router stubs live, 11 commits pushed."
+    "title": "Wave-2 COO intelligence architecture",
+    "status": "in_progress",
+    "track": "active",
+    "note": "Design/spec lane (no branch yet \u2014 writes a spec). Designing the VAMS knowledge/query-tool layer, the cross-source (VAMS+email+Mattermost) COO insight engine, and dashboard drill-down, so wave 2 can fan out into parallel build lanes."
   },
   {
-    "title": "W1 - Frontend/shared-TS foundation (packages/core + packages/agents)",
-    "status": "done",
-    "track": "w1",
-    "note": "Verified: full workspace typecheck + build green, design tokens ported, module rail + 10 module stubs, agents TS contracts."
-  },
-  {
-    "title": "W2 - Email engine (IMAP/SMTP, unified inbox, drafts, AI replies) - MVP",
-    "status": "done",
-    "track": "w2",
-    "note": "Wave 2 complete: backend + frontend, full build green. HEAD b0ce760."
-  },
-  {
-    "title": "W2 - Model Manager + Router (local model install/manage, API providers, per-agent brains)",
-    "status": "done",
-    "track": "w2",
-    "note": "Wave 2 complete: backend + frontend, full build green. HEAD b0ce760."
-  },
-  {
-    "title": "W2 - Understanding layer (thread intelligence, runs on local LLM)",
-    "status": "done",
-    "track": "w2",
-    "note": "Backend complete, imports/boots, 21/21 tests pass; no frontend needed by design (feeds other modules). Committed fed9c43."
-  },
-  {
-    "title": "W2 - Agent Builder (permissions selector + orders/tasks + draft-and-approve autonomy)",
-    "status": "done",
-    "track": "w2",
-    "note": "Wave 2 complete: backend + frontend, full build green. HEAD b0ce760."
-  },
-  {
-    "title": "Windows desktop shell + bundled backend (runnable Windows app)",
-    "status": "done",
-    "track": "w4",
-    "note": "Verified end-to-end: dev launch opens a real native window with backend health-gated + Inbox/Model-Manager rendering; packaged NSIS installer (+ .msi) built, installed, and launched with UI green (screenshots captured). Built via the GNU/MinGW Rust toolchain (MSVC was UAC-blocked; routed around it). Commits 4f205d3..a4c16ad. Follow-on subtask: PyInstaller sidecar for a fully self-contained installer (currently reuses dev venv)."
-  },
-  {
-    "title": "W3 - Calendar",
-    "status": "done",
-    "track": "w3",
-    "note": "Wave A merged to main at HEAD 0983376, conflict-free; @cadre/core + @cadre/agents build green, backend loads all domains = 87 API paths."
-  },
-  {
-    "title": "W3 - Projects / Gantt",
-    "status": "done",
-    "track": "w3",
-    "note": "Wave A merged to main at HEAD 0983376, conflict-free; @cadre/core + @cadre/agents build green, backend loads all domains = 87 API paths."
-  },
-  {
-    "title": "W3 - Reports",
-    "status": "done",
-    "track": "w3",
-    "note": "Wave A merged to main at HEAD 0983376, conflict-free; @cadre/core + @cadre/agents build green, backend loads all domains = 87 API paths."
-  },
-  {
-    "title": "W3 - Presentations",
-    "status": "done",
-    "track": "w3",
-    "note": "Wave A merged to main at HEAD 0983376, conflict-free; @cadre/core + @cadre/agents build green, backend loads all domains = 87 API paths."
-  },
-  {
-    "title": "W3 - Contacts",
-    "status": "done",
-    "track": "w3",
-    "note": "Wave A merged to main at HEAD 0983376, conflict-free; @cadre/core + @cadre/agents build green, backend loads all domains = 87 API paths."
-  },
-  {
-    "title": "W3 - Chat (contextual per-module + general command chat)",
-    "status": "done",
-    "track": "w3",
-    "note": "Wave A merged to main at HEAD 0983376, conflict-free; @cadre/core + @cadre/agents build green, backend loads all domains = 87 API paths."
-  },
-  {
-    "title": "Email -> Understanding pipeline wiring (populate derived feeds)",
-    "status": "done",
-    "track": "w3",
-    "note": "Verified live end-to-end: email sync enqueues threads -> background worker -> understanding extraction -> /derived/calendar,tasks,contacts return real thread-traceable data (degraded heuristic path works with no local model); idempotent job queue added (seed of the multi-device run-once processor). Pushed main 5f8ea61, with tests."
-  },
-  {
-    "title": "Fix understanding contact-name matching (Name <email> parsing)",
-    "status": "done",
-    "track": "w3",
-    "note": "Final tail merged to main at 0052be7 (213 backend + 22 understanding tests green, 165 API paths, /sync/status live)."
-  },
-  {
-    "title": "Wave B scaffold: register connector surfaces (Settings, Mattermost, GitHub, VAMS)",
-    "status": "done",
-    "track": "w3",
-    "note": "Wave B merged to main at 7e1f100, clean; 33 backend + 18 model-manager tests green, 122 API paths, VAMS<->Settings seam verified."
-  },
-  {
-    "title": "W3 - Settings > External Connectors (LLM providers: Claude/Grok/others + VAMS old+new endpoints/creds)",
-    "status": "done",
-    "track": "w3",
-    "note": "Wave B merged to main at 7e1f100, clean; 33 backend + 18 model-manager tests green, 122 API paths, VAMS<->Settings seam verified. Encrypted-at-rest creds."
-  },
-  {
-    "title": "VAMS connector (old+new)",
-    "status": "done",
-    "track": "w3",
-    "note": "Wave B merged to main at 7e1f100, clean; 33 backend + 18 model-manager tests green, 122 API paths, VAMS<->Settings seam verified."
-  },
-  {
-    "title": "W3 - Mattermost integration (team chat as a first-class surface + connector)",
-    "status": "done",
-    "track": "w3",
-    "note": "Wave B merged to main at 7e1f100, clean; 33 backend + 18 model-manager tests green, 122 API paths, VAMS<->Settings seam verified."
-  },
-  {
-    "title": "GitHub connector",
-    "status": "done",
-    "track": "w3",
-    "note": "Wave B merged to main at 7e1f100, clean; 33 backend + 18 model-manager tests green, 122 API paths, VAMS<->Settings seam verified."
-  },
-  {
-    "title": "Multi-org email",
-    "status": "done",
-    "track": "w3",
-    "note": "Wave B merged to main at 7e1f100, clean; 33 backend + 18 model-manager tests green, 122 API paths, VAMS<->Settings seam verified."
-  },
-  {
-    "title": "Resource-aware model catalog + custom LLM sources",
-    "status": "done",
-    "track": "w3",
-    "note": "Wave B merged to main at 7e1f100, clean; 33 backend + 18 model-manager tests green, 122 API paths, VAMS<->Settings seam verified."
-  },
-  {
-    "title": "Fix VAMS Settings spec: add org_slug + verify_tls (enable NEW VAMS config)",
-    "status": "done",
-    "track": "w3",
-    "note": "Commit bfd36c1: old+new VAMS configs now save correctly."
-  },
-  {
-    "title": "Fix connector secret-retrieval path (in-process decrypted accessor)",
-    "status": "done",
-    "track": "w3",
-    "note": "All 3 connectors (VAMS/Mattermost/GitHub) now get decrypted secrets and can authenticate; 42 backend tests green. Commit 473eadb."
-  },
-  {
-    "title": "Build test installer (fresh Windows .exe, all modules + connectors, verified launching)",
-    "status": "done",
-    "track": "w4",
-    "note": "Cadre_0.0.0_x64-setup.exe built + installed + verified: window opens, backend health green, rail shows all modules incl Settings/Mattermost/GitHub/VAMS. Omar can now install + connect + test."
-  },
-  {
-    "title": "VAMS/COO attention feed (delays/bottlenecks/problems/mistakes) + COO executive report",
-    "status": "done",
-    "track": "w3",
-    "note": "Wave C merged to main at 5d41960 (130 backend + 29 model-manager tests green, 149 API paths)."
-  },
-  {
-    "title": "Email auto-organization (learn folders, spam, sort, feed understanding)",
-    "status": "done",
-    "track": "w3",
-    "note": "Wave C merged to main at 5d41960 (130 backend + 29 model-manager tests green, 149 API paths)."
-  },
-  {
-    "title": "Audit log + Activity report (all auto-actions, reversible)",
-    "status": "done",
-    "track": "w3",
-    "note": "Wave C merged to main at 5d41960 (130 backend + 29 model-manager tests green, 149 API paths)."
-  },
-  {
-    "title": "W3 - VPN / Secure Networking (NetBird integration + secure-tunnel spin-up)",
-    "status": "done",
-    "track": "w3",
-    "note": "NetBird connect shipped as part of Wave C, merged to main at 5d41960 (130 backend + 29 model-manager tests green, 149 API paths). ADAPTIVE / NETWORK-AWARE ROUTING: Cadre auto-detects in-office vs remote and, when remote, automatically routes VAMS traffic through the work-PC gateway peer (a NetBird routing peer advertising the VAMS DB subnet) - Cadre configures the network route + access policy/ACL itself via the NetBird management API, with failover awareness if the work PC is offline. Self-hosting a NetBird control plane remains a GATED sub-option."
-  },
-  {
-    "title": "Network map + NetBird dashboard section (manage)",
-    "status": "done",
-    "track": "w3",
-    "note": "NetBird management dashboard shipped as part of Wave C, merged to main at 5d41960 (130 backend + 29 model-manager tests green, 149 API paths)."
-  },
-  {
-    "title": "LLM map + live usage telemetry (manage)",
-    "status": "done",
-    "track": "w3",
-    "note": "Wave C merged to main at 5d41960 (130 backend + 29 model-manager tests green, 149 API paths)."
-  },
-  {
-    "title": "Per-section health (green/amber/red + needs-attention), cross-cutting",
-    "status": "done",
-    "track": "cross-cutting",
-    "note": "Wave C merged to main at 5d41960 (130 backend + 29 model-manager tests green, 149 API paths). Pattern shipped for the model layer first; see 'Per-section health rollout (all modules)' below for the full rollout."
-  },
-  {
-    "title": "App lifecycle: tray/background, startup+shutdown splash, teardown-on-quit",
-    "status": "done",
-    "track": "w3",
-    "note": "Round 2 merged to main at b3e1bb9 (187 backend + 40 model-manager tests green, 164 API paths, DESKTOP builds fully green, portable MSI+NSIS installers produced with the PyInstaller sidecar)."
-  },
-  {
-    "title": "PyInstaller self-contained backend (installer portable to other machines)",
-    "status": "done",
-    "track": "w4",
-    "note": "Round 2 merged to main at b3e1bb9 (187 backend + 40 model-manager tests green, 164 API paths, DESKTOP builds fully green, portable MSI+NSIS installers produced with the PyInstaller sidecar). See 'Fully-portable 3-sidecar installer' below for the v0.1.1 follow-on."
-  },
-  {
-    "title": "Gateway-mesh + internal-resources registry + adaptive routing (VAMS/drives/any service)",
-    "status": "done",
-    "track": "w3",
-    "note": "Round 2 merged to main at b3e1bb9 (187 backend + 40 model-manager tests green, 164 API paths, DESKTOP builds fully green, portable MSI+NSIS installers produced with the PyInstaller sidecar)."
-  },
-  {
-    "title": "NFS/SMB -> real Windows mapped drive (OS-level, adaptive-routed)",
-    "status": "done",
-    "track": "w3",
-    "note": "Round 2 merged to main at b3e1bb9 (187 backend + 40 model-manager tests green, 164 API paths, DESKTOP builds fully green, portable MSI+NSIS installers produced with the PyInstaller sidecar)."
-  },
-  {
-    "title": "Voice recognition (local STT) + Claude Code chat mode",
-    "status": "done",
-    "track": "w3",
-    "note": "Round 2 merged to main at b3e1bb9 (187 backend + 40 model-manager tests green, 164 API paths, DESKTOP builds fully green, portable MSI+NSIS installers produced with the PyInstaller sidecar)."
-  },
-  {
-    "title": "Security hardening & data-protection audit (cross-cutting)",
-    "status": "done",
-    "track": "cross-cutting",
-    "note": "Final tail merged to main at 0052be7 (213 backend + 22 understanding tests green, 165 API paths, /sync/status live): encryption half closed (AES-256-GCM). Remaining items are HONEST OPEN GAPS documented in docs/SECURITY.md as follow-ons, not active work: OS-keychain (O7), the verify_tls escape hatch, single-writer audit."
-  },
-  {
-    "title": "Security fixes: encrypt EmailAccount IMAP/SMTP creds at rest + swap to a vetted cipher library",
-    "status": "done",
-    "track": "cross-cutting",
-    "note": "Final tail merged to main at 0052be7 (213 backend + 22 understanding tests green, 165 API paths, /sync/status live). Now AES-256-GCM."
-  },
-  {
-    "title": "Inbox empty-DB 'Failed to fetch' - verify empty-state vs real error",
-    "status": "done",
-    "track": "w4",
-    "note": "Final tail merged to main at 0052be7 (213 backend + 22 understanding tests green, 165 API paths, /sync/status live)."
-  },
-  {
-    "title": "Multi-device coordination (backend run-once, leader-election/failover)",
-    "status": "done",
-    "track": "w3",
-    "note": "Final tail merged to main at 0052be7 (213 backend + 22 understanding tests green, 165 API paths, /sync/status live)."
-  },
-  {
-    "title": "W4 - Integrations (VAMS + API/MCP plugin framework)",
-    "status": "done",
-    "track": "w4",
-    "note": "v0.1.1 (main cd06f16, tag v0.1.1): generic MCP/plugin framework built + merged; the Integrations module is now real (not just named connectors)."
-  },
-  {
-    "title": "W4 - Desktop shell (Tauri) + Windows on-device model plugin",
-    "status": "done",
-    "track": "w4",
-    "note": "v0.1.1 (main cd06f16, tag v0.1.1): Windows bundled on-device model shipped, closing the previously-deferred on-device-model-plugin portion of this lane."
-  },
-  {
-    "title": "Per-section health rollout (all modules)",
-    "status": "done",
-    "track": "cross-cutting",
-    "note": "v0.1.1 (main cd06f16, tag v0.1.1): the green/amber/red + needs-attention health pattern (previously shipped for the model layer only) is now rolled out across all modules."
-  },
-  {
-    "title": "User guide (docs/user-guide)",
-    "status": "done",
-    "track": "verify",
-    "note": "v0.1.1 (main cd06f16, tag v0.1.1): user-facing documentation shipped at docs/user-guide."
-  },
-  {
-    "title": "End-to-end verification (docs/VERIFICATION-v0.1.0.md)",
-    "status": "done",
-    "track": "verify",
-    "note": "v0.1.1 (main cd06f16, tag v0.1.1): documented end-to-end verification pass, complementing the 'Verify gate + capstone' task above."
-  },
-  {
-    "title": "Backend correctness (SQLite WAL/timeout, VAMS token auth, approved-send+call-api dispatch, /bundled proxy)",
-    "status": "done",
-    "track": "cross-cutting",
-    "note": "v0.1.1 (main cd06f16, tag v0.1.1): SQLite WAL/timeout fix, VAMS token auth fix, approved-send + call-api dispatch fix, /bundled proxy fix."
-  },
-  {
-    "title": "Fully-portable 3-sidecar installer + model-manager key encryption",
-    "status": "done",
-    "track": "w4",
-    "note": "v0.1.1 (main cd06f16, tag v0.1.1): installer now bundles 3 sidecars (fully portable, no dev-venv dependency); model-manager keys now encrypted at rest too."
-  },
-  {
-    "title": "First-run import wizard (Outlook Classic mailboxes + Mattermost desktop servers)",
-    "status": "done",
-    "track": "w3",
-    "note": "v0.1.2 (main e99e4f5, tag v0.1.2): detects accounts/servers from the Windows registry + Mattermost config, pre-fills them (address/host/ports/SSL); user supplies password/PAT (encrypted, never harvested). Also an 'Import from Outlook/Mattermost' button in Settings. 18 new tests, 299 backend green."
-  },
-  {
-    "title": "Hotfix: packaged app 'Failed to fetch' on all modules (CORS + localhost/127.0.0.1 mismatch)",
-    "status": "done",
-    "track": "w4",
-    "note": "CRITICAL, v0.1.3 (main f42fa2a, tag v0.1.3). Root cause: CORS allowlist omitted the Tauri webview origin (tauri.localhost) + client used localhost (IPv6-ambiguous) instead of 127.0.0.1. Fixed via allow_origin_regex for tauri origins + DEFAULT_BASE_URL=127.0.0.1:8000; new test_cors.py; VERIFIED with an Origin-bearing curl against the installed backend (access-control-allow-origin echoed on the exact failing /email/accounts path). This is what made prior releases non-functional when installed. FOR THE RECORD: prior releases (v0.1.0-0.1.2) were verified only via Origin-less curl-to-/health, which bypassed CORS and missed this; v0.1.3's verification uses an Origin header (the real webview path) -- a lesson for how this board's own 'verified' claims get checked going forward."
-  },
-  {
-    "title": "W4 - Mobile shell (Capacitor) + Apple Intelligence + on-device model plugins",
+    "title": "VAMS knowledge/query tools",
     "status": "pending",
-    "track": "w4",
-    "gated": true,
-    "note": "SCAFFOLDED as of v0.1.1, but the actual iOS build/sign + Swift-plugin compile is Mac-gated (needs Xcode + an Apple Developer account); the on-device Apple Intelligence plugin is likewise Mac-gated. Not active work pending that hardware/account access. Excluded from autonomous ETA."
+    "track": "queued",
+    "note": "Model answers any VAMS question via read-only query tools. Waiting on the Postgres connector + model layer to land."
   },
   {
-    "title": "W5 - Gamification (Command System) layer",
-    "status": "done",
-    "track": "w5",
-    "note": "Built + merged to main at c68284b: Merit computed from real audit-log outcomes, rank ladder, commendations, agents-as-units, fully optional. 224 backend tests green."
+    "title": "Cross-source COO insights",
+    "status": "pending",
+    "track": "queued",
+    "note": "COO insight + improvement suggestions on the dashboard, drawn across VAMS + email + Mattermost. Waiting on the data + model layers."
   },
   {
-    "title": "Verify gate + capstone",
-    "status": "done",
-    "track": "verify",
-    "note": "VERIFY half closed at the Cadre v0.1.0 release: full app verified green (224 backend + 40 model-manager + 22 understanding tests, JS build/typecheck green). The capstone (learnings/memory/playbook capture) is a separate follow-on activity outside this task board's scope."
+    "title": "Dashboard drill-down",
+    "status": "pending",
+    "track": "queued",
+    "note": "Drill-down depth on any dashboard field. Waiting on the data + model layers."
   },
   {
-    "title": "Release Cadre v0.1.0 (Windows installer + GitHub Release)",
+    "title": "Shipped: 13 releases, v0.1.6 \u2192 v0.1.18 (current)",
     "status": "done",
-    "track": "verify",
-    "note": "Version bumped to 0.1.0, tagged. Portable NSIS .exe (~30MB) + MSI (~32MB) built with the PyInstaller sidecar. GitHub Release live: https://github.com/omarbinghalib/cadre/releases/tag/v0.1.0 with both assets."
-  },
-  {
-    "title": "Release Cadre v0.1.1 (fully-portable installer + GitHub Release)",
-    "status": "done",
-    "track": "verify",
-    "note": "main cd06f16, tag v0.1.1, GitHub Release live with the fully-portable (3-sidecar) installer."
-  },
-  {
-    "title": "Release Cadre v0.1.2 (portable installer + GitHub Release)",
-    "status": "done",
-    "track": "verify",
-    "note": "main e99e4f5, tag v0.1.2, GitHub Release live. Verified: installer launches, all 3 sidecars health-green; assets live at the v0.1.2 release. Superseded by v0.1.3 below (a critical CORS hotfix that this release's health-check-only verification had missed)."
-  },
-  {
-    "title": "Release Cadre v0.1.3 (portable installer + GitHub Release) - CRITICAL HOTFIX",
-    "status": "done",
-    "track": "verify",
-    "note": "FINAL: main f42fa2a, tag v0.1.3, GitHub Release live. Ships the CORS/localhost hotfix that made prior installed releases non-functional (see the hotfix task above)."
+    "track": "archive",
+    "note": "v0.1.6 clean inbox layout \u00b7 v0.1.7 full-mailbox sync + progress bars \u00b7 v0.1.8 all-modules clean layout \u00b7 v0.1.9 Mattermost slow-load fix \u00b7 v0.1.10 Mattermost status/CORS-on-500 fix \u00b7 v0.1.11 DPAPI credential-persistence fix \u00b7 v0.1.12 Mattermost username/password login \u00b7 v0.1.13 LM Studio + Ollama runtimes \u00b7 v0.1.14 Mattermost author names \u00b7 v0.1.15 Command Dashboard + runtime-aware Model Manager + VAMS session auth \u00b7 v0.1.16 Google sign-in for email \u00b7 v0.1.17 VAMS auth-method UX \u00b7 v0.1.18 VAMS response-shape crash fix + projects stage counts. Earlier (pre-release) waves \u2014 repo bootstrap, backend spine, email/model/understanding/agent-builder core, all 10 modules, connectors (VAMS/Mattermost/GitHub/NetBird), desktop shell + installer, security hardening, gamification layer \u2014 are also folded into this history; see GitHub Releases for full per-version notes."
   }
 ]
