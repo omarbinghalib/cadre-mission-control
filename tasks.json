@@ -63,25 +63,25 @@
     "title": "VAMS query-tool catalog \u2014 built & tested",
     "status": "done",
     "track": "archive",
-    "note": "branch lane/vams-query-tools, 562 backend tests green, branch pushed to origin. 28 read-only query tools across sales/production/procurement/engineering plus job-chain traversal (opportunities\u2192sales orders\u2192work orders\u2192BOM\u2192material reqs\u2192POs), GET /vams/tools. Queued for the v0.1.20 batch \u2014 unblocks the Tool-calling lane's VAMS plug-in."
+    "note": "branch lane/vams-query-tools, 562 backend tests green. Shipped in v0.1.20 as 35 read-only query tools across sales/production/procurement/engineering plus job-chain traversal (opportunities\u2192sales orders\u2192work orders\u2192BOM\u2192material reqs\u2192POs), GET /vams/tools. Unblocks the Tool-calling lane's VAMS plug-in \u2014 the invoke bridge is being built now in the v0.1.21 release."
   },
   {
     "title": "Mattermost persistence + sync \u2014 built & tested",
     "status": "done",
     "track": "archive",
-    "note": "branch lane/mattermost-persistence, 451 backend tests green, sync-status UI, fake-server verified. Syncs + persists Mattermost threads (like the email full-sync) into an offline-searchable store, feeding the knowledge graph \u2014 closes the third data source: email + VAMS + Mattermost all now flow into the graph. Branch pushed, queued for the v0.1.20 batch."
+    "note": "branch lane/mattermost-persistence, 451 backend tests green, sync-status UI, fake-server verified. Shipped in v0.1.20: syncs + persists Mattermost threads (like the email full-sync) into an offline-searchable store, feeding the knowledge graph \u2014 closes the third data source: email + VAMS + Mattermost all now flow into the graph."
   },
   {
     "title": "Model layer \u2014 built & tested",
     "status": "done",
     "track": "archive",
-    "note": "branch lane/model-layer, 189 model-manager + 441 backend tests green, real-LM-Studio verified. Chat on the selected brain with streaming; LM Studio full lifecycle via the lms CLI + download; Ollama full REST lifecycle; workload\u2192brain policy; graph-shaped /map. Branch pushed, queued for the v0.1.20 batch. Unblocked the two previously-gated Tool-calling and LLM mind-map lanes above."
+    "note": "branch lane/model-layer, 189 model-manager + 441 backend tests green, real-LM-Studio verified. Shipped in v0.1.20: chat on the selected brain with real token-by-token streaming; LM Studio full lifecycle via the lms CLI + download; Ollama full REST lifecycle; per-workload brain assignment; graph-shaped /map. Unblocked the Tool-calling and LLM mind-map lanes."
   },
   {
     "title": "Email auto-organization \u2014 built & tested",
     "status": "done",
     "track": "archive",
-    "note": "branch lane/email-auto-organize, 436 backend tests + 9 live-IMAP tests + a real-LM-Studio classification smoke, all green. Off/Suggest/Auto control + kill switch + \"Organize now\" + a \"Recently filed\" log with undo. Caught and fixed a real IMAP MOVE UID-drift bug along the way. Branch pushed, queued for the v0.1.20 release batch (frontend + backend)."
+    "note": "branch lane/email-auto-organize, 436 backend tests + 9 live-IMAP tests + a real-LM-Studio classification smoke, all green. Shipped in v0.1.20: Off/Suggest/Auto control + kill switch + \"Organize now\" + a \"Recently filed\" log with undo. Caught and fixed a real IMAP MOVE UID-drift bug along the way (a second, separate archive-path UID-drift bug is still queued)."
   },
   {
     "title": "VAMS read-only Postgres connector \u2014 shipped in v0.1.19, awaiting in-app live test",
@@ -102,9 +102,9 @@
     "note": "Design/spec lane complete (scratchpad/wave2-coo-intelligence-spec.md): designed the VAMS knowledge/query-tool layer, the cross-source (VAMS+email+Mattermost) COO insight engine, and dashboard drill-down. Unblocked the Email auto-organization and Knowledge graph build lanes."
   },
   {
-    "title": "Shipped: 14 releases, v0.1.6 \u2192 v0.1.19 (current)",
+    "title": "Shipped: 15 releases, v0.1.6 \u2192 v0.1.20 (current)",
     "status": "done",
     "track": "archive",
-    "note": "v0.1.6 clean inbox layout \u00b7 v0.1.7 full-mailbox sync + progress bars \u00b7 v0.1.8 all-modules clean layout \u00b7 v0.1.9 Mattermost slow-load fix \u00b7 v0.1.10 Mattermost status/CORS-on-500 fix \u00b7 v0.1.11 DPAPI credential-persistence fix \u00b7 v0.1.12 Mattermost username/password login \u00b7 v0.1.13 LM Studio + Ollama runtimes \u00b7 v0.1.14 Mattermost author names \u00b7 v0.1.15 Command Dashboard + runtime-aware Model Manager + VAMS session auth \u00b7 v0.1.16 Google sign-in for email \u00b7 v0.1.17 VAMS auth-method UX \u00b7 v0.1.18 VAMS response-shape crash fix + projects stage counts \u00b7 v0.1.19 read-only VAMS Postgres connector + knowledge-graph foundation, psycopg bundling proven, 512 tests. Earlier (pre-release) waves \u2014 repo bootstrap, backend spine, email/model/understanding/agent-builder core, all 10 modules, connectors (VAMS/Mattermost/GitHub/NetBird), desktop shell + installer, security hardening, gamification layer \u2014 are also folded into this history; see GitHub Releases for full per-version notes."
+    "note": "v0.1.6 clean inbox layout \u00b7 v0.1.7 full-mailbox sync + progress bars \u00b7 v0.1.8 all-modules clean layout \u00b7 v0.1.9 Mattermost slow-load fix \u00b7 v0.1.10 Mattermost status/CORS-on-500 fix \u00b7 v0.1.11 DPAPI credential-persistence fix \u00b7 v0.1.12 Mattermost username/password login \u00b7 v0.1.13 LM Studio + Ollama runtimes \u00b7 v0.1.14 Mattermost author names \u00b7 v0.1.15 Command Dashboard + runtime-aware Model Manager + VAMS session auth \u00b7 v0.1.16 Google sign-in for email \u00b7 v0.1.17 VAMS auth-method UX \u00b7 v0.1.18 VAMS response-shape crash fix + projects stage counts \u00b7 v0.1.19 read-only VAMS Postgres connector + knowledge-graph foundation, psycopg bundling proven, 512 tests \u00b7 v0.1.20 chat-on-any-brain with real streaming, full local model management (LM Studio + Ollama), email auto-organization, Mattermost full sync, 35 VAMS read-only query tools across the ERP. Earlier (pre-release) waves \u2014 repo bootstrap, backend spine, email/model/understanding/agent-builder core, all 10 modules, connectors (VAMS/Mattermost/GitHub/NetBird), desktop shell + installer, security hardening, gamification layer \u2014 are also folded into this history; see GitHub Releases for full per-version notes."
   }
 ]
