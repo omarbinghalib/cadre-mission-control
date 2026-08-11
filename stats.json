@@ -1,14 +1,14 @@
 {
-  "updated": "2026-08-11T04:11:29Z",
-  "heartbeat_at": "2026-08-11T04:11:29Z",
-  "last_activity": "2026-08-11T04:11:29Z",
+  "updated": "2026-08-11T04:12:30Z",
+  "heartbeat_at": "2026-08-11T04:12:30Z",
+  "last_activity": "2026-08-11T04:12:30Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
-    "output_tokens": 3511263,
-    "cache_read_tokens": 393336185,
-    "cache_creation_tokens": 41184417,
-    "msgs": 989,
+    "output_tokens": 3511779,
+    "cache_read_tokens": 393911633,
+    "cache_creation_tokens": 41187085,
+    "msgs": 990,
     "sessions": 7,
     "live_sessions": 5,
     "transcript_sessions": 1,
@@ -31,8 +31,8 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-11T04:11:29Z",
-      "out_age_min": 0.0,
+      "out_last_active": "2026-08-11T04:12:30Z",
+      "out_age_min": 0.9,
       "log_bytes": null,
       "status": "live",
       "live": true,
@@ -49,13 +49,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-11T04:11:21Z",
-      "out_age_min": 0.1,
-      "log_bytes": 736920,
-      "output_tokens": 76047,
-      "cache_read_tokens": 13095516,
-      "cache_creation_tokens": 462671,
-      "msgs": 128,
+      "out_last_active": "2026-08-11T04:11:38Z",
+      "out_age_min": 0.9,
+      "log_bytes": 744136,
+      "output_tokens": 76061,
+      "cache_read_tokens": 13707437,
+      "cache_creation_tokens": 476030,
+      "msgs": 131,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -71,13 +71,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-11T04:11:26Z",
+      "out_last_active": "2026-08-11T04:12:28Z",
       "out_age_min": 0.0,
-      "log_bytes": 330807,
-      "output_tokens": 24468,
-      "cache_read_tokens": 2988121,
-      "cache_creation_tokens": 280983,
-      "msgs": 52,
+      "log_bytes": 364633,
+      "output_tokens": 27376,
+      "cache_read_tokens": 4662497,
+      "cache_creation_tokens": 293052,
+      "msgs": 67,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -93,13 +93,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-11T04:09:46Z",
-      "out_age_min": 1.7,
-      "log_bytes": 622386,
-      "output_tokens": 18410,
-      "cache_read_tokens": 10093880,
-      "cache_creation_tokens": 576389,
-      "msgs": 86,
+      "out_last_active": "2026-08-11T04:12:15Z",
+      "out_age_min": 0.2,
+      "log_bytes": 666804,
+      "output_tokens": 18419,
+      "cache_read_tokens": 10288128,
+      "cache_creation_tokens": 577561,
+      "msgs": 87,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -115,13 +115,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-11T04:11:15Z",
-      "out_age_min": 0.2,
-      "log_bytes": 828161,
-      "output_tokens": 70185,
-      "cache_read_tokens": 18876571,
-      "cache_creation_tokens": 569894,
-      "msgs": 147,
+      "out_last_active": "2026-08-11T04:12:28Z",
+      "out_age_min": 0.0,
+      "log_bytes": 863810,
+      "output_tokens": 73447,
+      "cache_read_tokens": 21880223,
+      "cache_creation_tokens": 583460,
+      "msgs": 160,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -138,7 +138,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-08-11T03:30:44Z",
-      "out_age_min": 40.7,
+      "out_age_min": 41.8,
       "log_bytes": 1715182,
       "output_tokens": 134042,
       "cache_read_tokens": 100462961,
@@ -160,7 +160,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-08-11T02:40:16Z",
-      "out_age_min": 91.2,
+      "out_age_min": 92.2,
       "log_bytes": 1194835,
       "output_tokens": 61206,
       "cache_read_tokens": 39350301,
@@ -178,68 +178,68 @@
       "full_id": "a3904f81c4143d758",
       "group": "vams-postgres",
       "group_label": "VAMS Postgres Connector",
-      "last_active": "2026-08-11T04:11:21Z",
-      "log_bytes": 736920,
+      "last_active": "2026-08-11T04:11:38Z",
+      "log_bytes": 744136,
       "live": true,
       "status": "live",
-      "age_min": 0.1,
+      "age_min": 0.9,
       "subagent": true,
       "recent": true,
-      "output_tokens": 76047,
-      "cache_read_tokens": 13095516,
-      "cache_creation_tokens": 462671,
-      "msgs": 128
+      "output_tokens": 76061,
+      "cache_read_tokens": 13707437,
+      "cache_creation_tokens": 476030,
+      "msgs": 131
     },
     {
       "id": "a4b08b6a",
       "full_id": "a4b08b6ad312b12ad",
       "group": "mission-control",
       "group_label": "Mission Control Worker",
-      "last_active": "2026-08-11T04:11:26Z",
-      "log_bytes": 330807,
+      "last_active": "2026-08-11T04:12:28Z",
+      "log_bytes": 364633,
       "live": true,
       "status": "live",
       "age_min": 0.0,
       "subagent": true,
       "recent": true,
-      "output_tokens": 24468,
-      "cache_read_tokens": 2988121,
-      "cache_creation_tokens": 280983,
-      "msgs": 52
+      "output_tokens": 27376,
+      "cache_read_tokens": 4662497,
+      "cache_creation_tokens": 293052,
+      "msgs": 67
     },
     {
       "id": "a53af299",
       "full_id": "a53af2992d5812b36",
       "group": "wave2-design",
       "group_label": "Wave-2 COO Intelligence Architecture",
-      "last_active": "2026-08-11T04:09:46Z",
-      "log_bytes": 622386,
+      "last_active": "2026-08-11T04:12:15Z",
+      "log_bytes": 666804,
       "live": true,
       "status": "live",
-      "age_min": 1.7,
+      "age_min": 0.2,
       "subagent": true,
       "recent": true,
-      "output_tokens": 18410,
-      "cache_read_tokens": 10093880,
-      "cache_creation_tokens": 576389,
-      "msgs": 86
+      "output_tokens": 18419,
+      "cache_read_tokens": 10288128,
+      "cache_creation_tokens": 577561,
+      "msgs": 87
     },
     {
       "id": "a9c63783",
       "full_id": "a9c63783395a466bd",
       "group": "model-layer",
       "group_label": "Model Layer",
-      "last_active": "2026-08-11T04:11:15Z",
-      "log_bytes": 828161,
+      "last_active": "2026-08-11T04:12:28Z",
+      "log_bytes": 863810,
       "live": true,
       "status": "live",
-      "age_min": 0.2,
+      "age_min": 0.0,
       "subagent": true,
       "recent": true,
-      "output_tokens": 70185,
-      "cache_read_tokens": 18876571,
-      "cache_creation_tokens": 569894,
-      "msgs": 147
+      "output_tokens": 73447,
+      "cache_read_tokens": 21880223,
+      "cache_creation_tokens": 583460,
+      "msgs": 160
     },
     {
       "id": "aa5c9bdc",
@@ -250,7 +250,7 @@
       "log_bytes": 1715182,
       "live": false,
       "status": "idle",
-      "age_min": 40.7,
+      "age_min": 41.8,
       "subagent": true,
       "recent": true,
       "output_tokens": 134042,
@@ -267,7 +267,7 @@
       "log_bytes": 1194835,
       "live": false,
       "status": "idle",
-      "age_min": 91.2,
+      "age_min": 92.2,
       "subagent": true,
       "recent": true,
       "output_tokens": 61206,
@@ -280,12 +280,12 @@
       "full_id": "0f7b13a0-2a85-49c0-96d5-e5a8832d8b85",
       "group": "commander",
       "group_label": "Session 0f7b13a0",
-      "last_active": "2026-08-11T04:11:27Z",
-      "output_tokens": 3511263,
-      "cache_read_tokens": 393336185,
-      "cache_creation_tokens": 41184417,
-      "msgs": 989,
-      "age_min": 0.0,
+      "last_active": "2026-08-11T04:11:38Z",
+      "output_tokens": 3511779,
+      "cache_read_tokens": 393911633,
+      "cache_creation_tokens": 41187085,
+      "msgs": 990,
+      "age_min": 0.9,
       "live": true,
       "status": "live",
       "subagent": false,
@@ -301,7 +301,7 @@
     "last_active": "2026-08-10T08:48:04Z",
     "note": "Prior-session workers \u2014 retired; not part of the current fleet."
   },
-  "total_tokens": 3511263,
+  "total_tokens": 3511779,
   "commits": {
     "tracks": [
       {
@@ -363,137 +363,10 @@
       }
     ]
   },
-  "progress": {
-    "overall_pct": 98,
-    "remaining_hours": [
-      2,
-      3
-    ],
-    "remaining_sessions": [
-      0,
-      1
-    ],
-    "tracks": [
-      {
-        "track": "w0",
-        "label": "Wave 0 \u2014 Bootstrap",
-        "pct": 100,
-        "remaining_hours": [
-          0,
-          0
-        ],
-        "remaining_sessions": [
-          0,
-          0
-        ],
-        "weight": 1
-      },
-      {
-        "track": "w1",
-        "label": "Wave 1 \u2014 Backend spine",
-        "pct": 100,
-        "remaining_hours": [
-          0,
-          0
-        ],
-        "remaining_sessions": [
-          0,
-          0
-        ],
-        "weight": 1
-      },
-      {
-        "track": "w2",
-        "label": "Wave 2 \u2014 Email + AI core",
-        "pct": 100,
-        "remaining_hours": [
-          0,
-          0
-        ],
-        "remaining_sessions": [
-          0,
-          0
-        ],
-        "weight": 1
-      },
-      {
-        "track": "w3",
-        "label": "Wave 3 \u2014 Modules",
-        "pct": 100,
-        "remaining_hours": [
-          0,
-          0
-        ],
-        "remaining_sessions": [
-          0,
-          0
-        ],
-        "weight": 1
-      },
-      {
-        "track": "w4",
-        "label": "Wave 4 \u2014 Integrations + shells",
-        "pct": 89,
-        "remaining_hours": [
-          2,
-          3
-        ],
-        "remaining_sessions": [
-          0,
-          1
-        ],
-        "weight": 1
-      },
-      {
-        "track": "w5",
-        "label": "Wave 5 \u2014 Gamification",
-        "pct": 100,
-        "remaining_hours": [
-          0,
-          0
-        ],
-        "remaining_sessions": [
-          0,
-          0
-        ],
-        "weight": 1
-      },
-      {
-        "track": "cross-cutting",
-        "label": "Cross-cutting \u2014 Security & data protection",
-        "pct": 100,
-        "remaining_hours": [
-          0,
-          0
-        ],
-        "remaining_sessions": [
-          0,
-          0
-        ],
-        "weight": 1
-      },
-      {
-        "track": "verify",
-        "label": "Verify + capstone",
-        "pct": 100,
-        "remaining_hours": [
-          0,
-          0
-        ],
-        "remaining_sessions": [
-          0,
-          0
-        ],
-        "weight": 1
-      }
-    ],
-    "estimate": true,
-    "basis": "Overall % and per-track % are DERIVED from the task tracker (done=100%, in-progress=50%, pending=0%) \u2014 they auto-resync whenever tasks are updated, so the number can't lag scope. Remaining hours/sessions scale off the same remaining-work ratio. All ESTIMATES; the measured signal is commit velocity."
-  },
   "publisher": {
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-08-11T04:11:29Z"
+    "checked_at": "2026-08-11T04:12:31Z"
   }
 }
