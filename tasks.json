@@ -1,21 +1,9 @@
 [
   {
-    "title": "Release v0.1.20 \u2014 merge 4 branches, reconcile seams, rebuild sidecars",
+    "title": "Release v0.1.21 \u2014 merge tool-calling + mind-map, build invoke bridge, rebuild sidecars",
     "status": "in_progress",
     "track": "release",
-    "note": "Integration/release in progress (worker aaea41a1): merging the 4 finished branches (VAMS query-tools, Mattermost persistence, Model layer, Email auto-organization) into main, reconciling 3 seams, rebuilding both the cadre-backend and cadre-model-manager sidecars, and releasing. Shipping done work now rather than waiting for Tool-calling \u2014 that + LLM mind-map ship in v0.1.21."
-  },
-  {
-    "title": "VAMS-tools invoke bridge",
-    "status": "pending",
-    "track": "queued",
-    "note": "v0.1.21 scope. Query-tools shipped the GET /vams/tools catalog + query functions but no invoke endpoint. Tool-calling's adapter needs POST /vams/tools/{name}/invoke + registry registration so the AI can actually query the ERP through it."
-  },
-  {
-    "title": "Release v0.1.21 \u2014 merge tool-calling + mind-map, ship invoke bridge",
-    "status": "pending",
-    "track": "queued",
-    "note": "v0.1.21 plan: merge lane/tool-calling + lane/llm-mind-map, build the VAMS-tools invoke bridge (above), then release. Next up after v0.1.20 lands."
+    "note": "Integration/release in progress (worker ad77c9df): merging lane/tool-calling + lane/llm-mind-map into main, BUILDING the VAMS-tools invoke bridge (POST /vams/tools/{name}/invoke + registry registration \u2014 makes the AI able to actually query the ERP, not just see the catalog), rebuilding both the cadre-backend and cadre-model-manager sidecars, and releasing. Zero standalone build lanes otherwise."
   },
   {
     "title": "Cross-source COO insights",
