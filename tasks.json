@@ -9,7 +9,7 @@
     "title": "Chat streaming + timeout fix",
     "status": "in_progress",
     "track": "active",
-    "note": "branch lane/chat-tool-streaming (worker a1356b5b). From live user feedback: with tools on, chat hangs on \"generating\" and TIMES OUT at 45s \u2014 doesn't stream live even though LM Studio streams fine underneath \u2014 and the user's own message only appears at the end. Fix: stream the tool loop end-to-end (live tokens + tool-call progress), remove the 45s abort for tool turns (idle-watchdog instead), render the user's message optimistically. Ships as a patch (~v0.1.25, coordinating version with the v0.1.24 projects-tools lane)."
+    "note": "branch lane/chat-tool-streaming (worker a1356b5b). From live user feedback: with tools on, chat hangs on \"generating\" and TIMES OUT at 45s \u2014 doesn't stream live even though LM Studio streams fine underneath \u2014 and the user's own message only appears at the end. Fix: stream the tool loop end-to-end (live tokens + tool-call progress), remove the 45s abort for tool turns (idle-watchdog instead), render the user's message optimistically. ALSO folded in per user request (\"the whole Model Manager is slow, keeps trying Ollama\"): cache runtime availability \u2014 probe Ollama once + cache + fast-fail ~1s + dedupe + manual refresh \u2014 so Model Manager tabs load fast whether Ollama is present or not. Ships as a patch (~v0.1.25, coordinating version with the v0.1.24 projects-tools lane)."
   },
   {
     "title": "Streaming for tool turns",
@@ -22,12 +22,6 @@
     "status": "pending",
     "track": "queued",
     "note": "Polish. The [[cite:id]] marker tool-calling emits for grounding shows up literally in message text; needs proper rendering instead of the raw cosmetic marker."
-  },
-  {
-    "title": "Fix slow LLM-map when Ollama absent",
-    "status": "pending",
-    "track": "queued",
-    "note": "Polish. Backend probes Ollama sequentially per candidate when it's not installed, ~24-33s \u2014 flagged by 2 lanes."
   },
   {
     "title": "Fix archive UID-drift bug in service.py",
