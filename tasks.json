@@ -1,11 +1,5 @@
 [
   {
-    "title": "Model layer",
-    "status": "in_progress",
-    "track": "active",
-    "note": "branch lane/model-layer (worktree cadre-wtMODEL). Chat runs on the selected brain (streaming), Cadre-managed local model load/unload (LM Studio without its own UI), workload\u2192brain assignment across local + cloud with fallback chains \u2014 currently closing Ollama-parity gaps and building out richer LLM-map usage data."
-  },
-  {
     "title": "VAMS query-tool catalog",
     "status": "in_progress",
     "track": "active",
@@ -16,6 +10,18 @@
     "status": "in_progress",
     "track": "active",
     "note": "branch lane/mattermost-persistence (worktree cadre-wtMMP). Cadre currently fetches Mattermost live and stores nothing \u2014 building sync-and-persist (like the email full-sync) so threads are searchable and feed the knowledge graph. Stacks on the knowledge graph, now merged in v0.1.19."
+  },
+  {
+    "title": "Tool-calling + chat tool-loop",
+    "status": "in_progress",
+    "track": "active",
+    "note": "branch lane/tool-calling (worktree cadre-wtTOOL). The linchpin capability: models call read-only tools (knowledge graph first, VAMS query tools plug in), answers grounded + cited, hard-fail if a brain can't do tools (no fabrication). Stacks on lane/model-layer, now merged. Unblocked by Model layer landing."
+  },
+  {
+    "title": "LLM mind-map visualization",
+    "status": "in_progress",
+    "track": "active",
+    "note": "branch lane/llm-mind-map (worktree cadre-wtMAP). The interactive node graph of runtimes/models/workloads/fallbacks (local + cloud) that Omar requested. Stacks on lane/model-layer, now merged."
   },
   {
     "title": "VAMS knowledge/query tools",
