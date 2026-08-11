@@ -248,7 +248,7 @@
     <div class="split"><div><p class="eyebrow">Cadre program — 4 lanes running now</p><h2>Fleet status at a glance</h2></div></div>
     <div class="row" style="gap:8px;flex-wrap:wrap;margin:8px 0 6px">
   <span class="chip ok" style="border-color:var(--ok);background:var(--ok-ink);color:#fff"><b>WAVE 2 SHIPPED — v0.1.23</b></span>
-  <span class="chip ok"><span class="dp beat"></span>1 lane running — v0.1.24</span>
+  <span class="chip ok"><span class="dp beat"></span>2 lanes running — v0.1.24 + v0.1.25</span>
   <span class="chip mute">18 releases shipped</span>
   <span class="chip mute">7 queued (polish)</span>
 </div>
@@ -260,7 +260,7 @@
 
 <p class="eyebrow" style="margin:16px 0 8px">First real-data feedback</p>
 <div class="sub" style="padding:10px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-  Omar asked chat to list closed/stale VAMS projects — the AI answered "provide me the data," because no projects tool existed to call yet. Now being closed as <b style="color:var(--ink-2)">VAMS projects query tools</b> (running below): read-only projects tools (list/filter by stage+dates, closed/completed, STALE-by-date, stage counts, get), registered into the chat tool-loop, shipping as patch v0.1.24. A likely contributing factor was also flagged to Omar: the "Use tools" chat toggle may have been off.
+  Omar asked chat to list closed/stale VAMS projects — the AI answered "provide me the data," because no projects tool existed to call yet. <b style="color:var(--ink-2)">Update:</b> confirmed the VAMS tools ARE wired into chat (the model acknowledged them) — the toggle theory is resolved. The real remaining blockers are the missing projects tools themselves (v0.1.24, below) and a chat streaming/timeout bug (v0.1.25, below): with tools on, chat hangs on "generating" and times out at 45s instead of streaming live.
 </div>
 
 <p class="eyebrow" style="margin:16px 0 8px">Active lanes — running now</p>
@@ -269,6 +269,11 @@
     <span class="wname" style="font-weight:650">VAMS projects query tools</span>
     <span class="chip ok" style="margin-left:8px">running</span>
     <div class="sub" style="margin-top:3px">Audit + add read-only projects tools (list/filter by stage+dates, closed/completed, STALE-by-date, stage counts, get) and register them into the chat tool-loop. Ships as patch v0.1.24.</div>
+  </li>
+  <li style="padding:10px 0;border-top:1px solid var(--line)">
+    <span class="wname" style="font-weight:650">Chat streaming + timeout fix</span>
+    <span class="chip ok" style="margin-left:8px">running</span>
+    <div class="sub" style="margin-top:3px">With tools on, chat hangs on "generating" and times out at 45s — doesn't stream live even though LM Studio streams fine underneath — and the user's own message only appears at the end. Fix: stream the tool loop end-to-end, remove the 45s abort (idle-watchdog instead), render the user's message optimistically. Ships as a patch (~v0.1.25).</div>
   </li>
 </ul>
 
