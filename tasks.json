@@ -1,27 +1,21 @@
 [
   {
-    "title": "Release v0.1.19 \u2014 merge knowledge-graph + VAMS-Postgres-connector to main",
-    "status": "in_progress",
-    "track": "release",
-    "note": "Integration/release in progress: merging the finished lane/knowledge-graph and lane/vams-postgres-readonly branches into main. Gets the VAMS DB connector into Omar's hands for the in-app live test."
-  },
-  {
     "title": "Model layer",
     "status": "in_progress",
     "track": "active",
-    "note": "branch lane/model-layer (worktree cadre-wtMODEL). Chat runs on the selected brain (streaming), Cadre-managed local model load/unload (LM Studio without its own UI), workload\u2192brain assignment across local + cloud with fallback chains \u2014 currently closing Ollama-parity gaps and building out richer LLM-map usage data."
+    "note": "branch lane/model-layer (worktree cadre-wtMODEL). Chat runs on the selected brain (streaming), Cadre-managed local model load/unload (LM Studio without its own UI), workload→brain assignment across local + cloud with fallback chains — currently closing Ollama-parity gaps and building out richer LLM-map usage data."
   },
   {
     "title": "VAMS query-tool catalog",
     "status": "in_progress",
     "track": "active",
-    "note": "branch lane/vams-query-tools (worktree cadre-wtVQ). Read-only query tools across the ERP chain (opportunities\u2192sales orders\u2192work orders\u2192BOM\u2192material reqs\u2192POs, plus projects/engineering/procurement) that the AI will call. Stacks on the VAMS Postgres connector branch."
+    "note": "branch lane/vams-query-tools (worktree cadre-wtVQ). Read-only query tools across the ERP chain (opportunities→sales orders→work orders→BOM→material reqs→POs, plus projects/engineering/procurement) that the AI will call. Stacks on the VAMS Postgres connector, now merged in v0.1.19."
   },
   {
     "title": "Mattermost persistence + sync",
     "status": "in_progress",
     "track": "active",
-    "note": "branch lane/mattermost-persistence (worktree cadre-wtMMP). Cadre currently fetches Mattermost live and stores nothing \u2014 building sync-and-persist (like the email full-sync) so threads are searchable and feed the knowledge graph. Stacks on the knowledge-graph branch."
+    "note": "branch lane/mattermost-persistence (worktree cadre-wtMMP). Cadre currently fetches Mattermost live and stores nothing — building sync-and-persist (like the email full-sync) so threads are searchable and feed the knowledge graph. Stacks on the knowledge graph, now merged in v0.1.19."
   },
   {
     "title": "VAMS knowledge/query tools",
@@ -42,39 +36,39 @@
     "note": "Drill-down depth on any dashboard field. Waiting on the data + model layers."
   },
   {
-    "title": "Wire knowledge ingestion triggers (email + Mattermost \u2192 graph)",
+    "title": "Wire knowledge ingestion triggers (email + Mattermost → graph)",
     "status": "pending",
     "track": "queued",
     "note": "Connect the email and Mattermost pipelines into the knowledge-graph ingestion processors so new messages/threads flow into the graph automatically, not just on manual runs."
   },
   {
-    "title": "Email auto-organization \u2014 built & tested",
+    "title": "Email auto-organization — built & tested",
     "status": "done",
     "track": "archive",
     "note": "branch lane/email-auto-organize, 436 backend tests + 9 live-IMAP tests + a real-LM-Studio classification smoke, all green. Off/Suggest/Auto control + kill switch + \"Organize now\" + a \"Recently filed\" log with undo. Caught and fixed a real IMAP MOVE UID-drift bug along the way. Branch pushed, queued for the v0.1.20 release batch (frontend + backend)."
   },
   {
-    "title": "VAMS read-only Postgres connector \u2014 built, awaiting in-app live test",
+    "title": "VAMS read-only Postgres connector — shipped in v0.1.19, awaiting in-app live test",
     "status": "done",
     "track": "archive",
-    "note": "branch lane/vams-postgres-readonly, 70 new tests green: generic extensible read-only engine + Projects queries + psycopg bundling verified. Merging to main in release v0.1.19 (see above). NOT yet confirmed against the live schema \u2014 the worker's DB connection was sandbox-blocked (zero rows read); the real test is Omar entering the credential in-app once shipped."
+    "note": "Shipped in v0.1.19: read-only Postgres access for per-project VAMS data (Settings → VAMS → data source: Database), generic extensible query engine, psycopg bundling proven, 70 tests green as part of the 512-test release. Still NOT confirmed against the live schema — the build/test run's DB connection was sandbox-blocked (zero rows read); the real test is Omar entering the credential in-app now that it's shipped."
   },
   {
-    "title": "Knowledge graph + Mattermost ingestion \u2014 built & tested",
+    "title": "Knowledge graph + Mattermost ingestion — shipped in v0.1.19",
     "status": "done",
     "track": "archive",
-    "note": "branch lane/knowledge-graph, 442 backend tests green. Unified cross-source entity graph (email + Mattermost + VAMS) with record-code linking + ingestion processors, built and tested. Merging to main in release v0.1.19 (see above). Unblocked the Mattermost persistence + sync and VAMS query-tool catalog lanes above."
+    "note": "Shipped in v0.1.19: unified cross-source entity graph (email + Mattermost + VAMS) with record-code linking + ingestion processors, 442 tests green as part of the 512-test release. Internal foundation for cross-source intelligence — unblocked the Mattermost persistence + sync and VAMS query-tool catalog lanes above."
   },
   {
-    "title": "Wave-2 COO intelligence architecture \u2014 spec delivered",
+    "title": "Wave-2 COO intelligence architecture — spec delivered",
     "status": "done",
     "track": "archive",
     "note": "Design/spec lane complete (scratchpad/wave2-coo-intelligence-spec.md): designed the VAMS knowledge/query-tool layer, the cross-source (VAMS+email+Mattermost) COO insight engine, and dashboard drill-down. Unblocked the Email auto-organization and Knowledge graph build lanes."
   },
   {
-    "title": "Shipped: 13 releases, v0.1.6 \u2192 v0.1.18 (current)",
+    "title": "Shipped: 14 releases, v0.1.6 → v0.1.19 (current)",
     "status": "done",
     "track": "archive",
-    "note": "v0.1.6 clean inbox layout \u00b7 v0.1.7 full-mailbox sync + progress bars \u00b7 v0.1.8 all-modules clean layout \u00b7 v0.1.9 Mattermost slow-load fix \u00b7 v0.1.10 Mattermost status/CORS-on-500 fix \u00b7 v0.1.11 DPAPI credential-persistence fix \u00b7 v0.1.12 Mattermost username/password login \u00b7 v0.1.13 LM Studio + Ollama runtimes \u00b7 v0.1.14 Mattermost author names \u00b7 v0.1.15 Command Dashboard + runtime-aware Model Manager + VAMS session auth \u00b7 v0.1.16 Google sign-in for email \u00b7 v0.1.17 VAMS auth-method UX \u00b7 v0.1.18 VAMS response-shape crash fix + projects stage counts. Earlier (pre-release) waves \u2014 repo bootstrap, backend spine, email/model/understanding/agent-builder core, all 10 modules, connectors (VAMS/Mattermost/GitHub/NetBird), desktop shell + installer, security hardening, gamification layer \u2014 are also folded into this history; see GitHub Releases for full per-version notes."
+    "note": "v0.1.6 clean inbox layout · v0.1.7 full-mailbox sync + progress bars · v0.1.8 all-modules clean layout · v0.1.9 Mattermost slow-load fix · v0.1.10 Mattermost status/CORS-on-500 fix · v0.1.11 DPAPI credential-persistence fix · v0.1.12 Mattermost username/password login · v0.1.13 LM Studio + Ollama runtimes · v0.1.14 Mattermost author names · v0.1.15 Command Dashboard + runtime-aware Model Manager + VAMS session auth · v0.1.16 Google sign-in for email · v0.1.17 VAMS auth-method UX · v0.1.18 VAMS response-shape crash fix + projects stage counts · v0.1.19 read-only VAMS Postgres connector + knowledge-graph foundation, psycopg bundling proven, 512 tests. Earlier (pre-release) waves — repo bootstrap, backend spine, email/model/understanding/agent-builder core, all 10 modules, connectors (VAMS/Mattermost/GitHub/NetBird), desktop shell + installer, security hardening, gamification layer — are also folded into this history; see GitHub Releases for full per-version notes."
   }
 ]
