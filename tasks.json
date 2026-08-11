@@ -3,7 +3,7 @@
     "title": "VAMS read-only Postgres connector",
     "status": "in_progress",
     "track": "active",
-    "note": "branch lane/vams-postgres-readonly (worktree cadre-wtPG). SELECT-only DB access for per-project VAMS data with no JSON endpoint; schema read from the Django source, psycopg bundled in the sidecar. BLOCKED on Omar for a read-only DB role credential to test live \u2014 see needs-attention."
+    "note": "branch lane/vams-postgres-readonly (worktree cadre-wtPG). SELECT-only DB access for per-project VAMS data with no JSON endpoint; schema read from the Django source, psycopg bundled in the sidecar. Waiting on Omar for a read-only DB role credential to test live \u2014 see \u201cAwaiting from Omar\u201d."
   },
   {
     "title": "Model layer",
@@ -12,10 +12,16 @@
     "note": "branch lane/model-layer (worktree cadre-wtMODEL). Chat runs on the selected brain (streaming), Cadre-managed local model load/unload (LM Studio without its own UI), and workload\u2192brain assignment across local + cloud with fallback chains."
   },
   {
-    "title": "Wave-2 COO intelligence architecture",
+    "title": "Email auto-organization",
     "status": "in_progress",
     "track": "active",
-    "note": "Design/spec lane (no branch yet \u2014 writes a spec). Designing the VAMS knowledge/query-tool layer, the cross-source (VAMS+email+Mattermost) COO insight engine, and dashboard drill-down, so wave 2 can fan out into parallel build lanes."
+    "note": "branch lane/email-auto-organize (worktree cadre-wtORG). Making \u00a722 real: learn folder taxonomy, spam/junk detection, auto-file with a learn\u2192suggest\u2192auto trust ladder, logged + reversible, local-model driven."
+  },
+  {
+    "title": "Knowledge graph + Mattermost ingestion",
+    "status": "in_progress",
+    "track": "active",
+    "note": "branch lane/knowledge-graph (worktree cadre-wtKG). The wave-2 spine: unified cross-source entity graph (email + Mattermost + VAMS) linked by VAMS record codes; closes the confirmed gap that Mattermost wasn't feeding the understanding layer."
   },
   {
     "title": "VAMS knowledge/query tools",
@@ -27,13 +33,19 @@
     "title": "Cross-source COO insights",
     "status": "pending",
     "track": "queued",
-    "note": "COO insight + improvement suggestions on the dashboard, drawn across VAMS + email + Mattermost. Waiting on the data + model layers."
+    "note": "COO insight + improvement suggestions on the dashboard, drawn across VAMS + email + Mattermost. Waiting on the data + model layers, and now on the knowledge graph spine."
   },
   {
     "title": "Dashboard drill-down",
     "status": "pending",
     "track": "queued",
     "note": "Drill-down depth on any dashboard field. Waiting on the data + model layers."
+  },
+  {
+    "title": "Wave-2 COO intelligence architecture \u2014 spec delivered",
+    "status": "done",
+    "track": "archive",
+    "note": "Design/spec lane complete (scratchpad/wave2-coo-intelligence-spec.md): designed the VAMS knowledge/query-tool layer, the cross-source (VAMS+email+Mattermost) COO insight engine, and dashboard drill-down. Unblocked the Email auto-organization and Knowledge graph build lanes above."
   },
   {
     "title": "Shipped: 13 releases, v0.1.6 \u2192 v0.1.18 (current)",
