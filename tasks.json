@@ -12,12 +12,6 @@
     "note": "branch lane/tool-calling (worktree cadre-wtTOOL). The linchpin capability: models call read-only tools (knowledge graph first, VAMS query tools plug in), answers grounded + cited, hard-fail if a brain can't do tools (no fabrication). Stacks on lane/model-layer, now merged. Unblocked by Model layer landing."
   },
   {
-    "title": "LLM mind-map visualization",
-    "status": "in_progress",
-    "track": "active",
-    "note": "branch lane/llm-mind-map (worktree cadre-wtMAP). The interactive node graph of runtimes/models/workloads/fallbacks (local + cloud) that Omar requested. Stacks on lane/model-layer, now merged."
-  },
-  {
     "title": "VAMS knowledge/query tools",
     "status": "pending",
     "track": "queued",
@@ -40,6 +34,18 @@
     "status": "pending",
     "track": "queued",
     "note": "Connect the email and Mattermost pipelines into the knowledge-graph ingestion processors so new messages/threads flow into the graph automatically, not just on manual runs."
+  },
+  {
+    "title": "Fix slow LLM-map when Ollama absent",
+    "status": "pending",
+    "track": "queued",
+    "note": "Backend probes Ollama sequentially per candidate when it's not installed, ~24-33s \u2014 flagged by 2 lanes. Fix after Tool-calling lands."
+  },
+  {
+    "title": "LLM mind-map visualization \u2014 built & tested",
+    "status": "done",
+    "track": "archive",
+    "note": "branch lane/llm-mind-map, 21 tests, live-verified against real LM Studio + Ollama-absent. Interactive SVG node graph (runtimes/models/workloads/agents, local vs cloud bands, pan/zoom, hover-highlight, click-inspect) \u2014 hand-rolled, no new dependency, theme-aware. Found + fixed 2 render bugs along the way. Frontend-only branch, ships in v0.1.21 (with Tool-calling)."
   },
   {
     "title": "VAMS query-tool catalog \u2014 built & tested",
