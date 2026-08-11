@@ -247,10 +247,10 @@
   <section class="panel">
     <div class="split"><div><p class="eyebrow">Cadre program — 4 lanes running now</p><h2>Fleet status at a glance</h2></div></div>
     <div class="row" style="gap:8px;flex-wrap:wrap;margin:8px 0 6px">
-  <span class="chip ok"><span class="dp beat"></span>2 lanes running</span>
+  <span class="chip ok"><span class="dp beat"></span>1 lane running</span>
   <span class="chip" style="border-color:var(--accent);color:var(--accent)">release v0.1.20 in progress</span>
   <span class="chip mute">14 releases shipped</span>
-  <span class="chip mute">4 queued — wave 2</span>
+  <span class="chip mute">5 queued</span>
 </div>
 
 <p class="eyebrow" style="margin:16px 0 8px">Release in progress</p>
@@ -265,11 +265,6 @@
     <span class="chip ok" style="margin-left:8px">running</span>
     <div class="sub" style="margin-top:3px">The linchpin capability — models call read-only tools (knowledge graph first, VAMS query tools plug in), answers grounded + cited, hard-fail if a brain can't do tools (no fabrication). Just unblocked by Model layer landing.</div>
   </li>
-  <li style="padding:10px 0;border-top:1px solid var(--line)">
-    <span class="wname" style="font-weight:650">LLM mind-map visualization</span>
-    <span class="chip ok" style="margin-left:8px">running</span>
-    <div class="sub" style="margin-top:3px">The interactive node graph of runtimes/models/workloads/fallbacks (local + cloud) Omar requested. Just unblocked by Model layer landing.</div>
-  </li>
 </ul>
 
 <p class="eyebrow" style="margin:18px 0 6px">Shipped</p>
@@ -279,13 +274,15 @@
 <p class="sub" style="margin:6px 0 0">And: Model layer — built &amp; tested (189 model-manager + 441 backend tests, real-LM-Studio verified). Chat on the selected brain with streaming; LM Studio full lifecycle via the lms CLI + download; Ollama full REST lifecycle; workload→brain policy; graph-shaped /map. On branch lane/model-layer, queued for the v0.1.20 batch — and unblocked the two lanes just launched above (Tool-calling, LLM mind-map).</p>
 <p class="sub" style="margin:6px 0 0">And: Mattermost persistence + sync — built &amp; tested (451 backend tests, sync-status UI, fake-server verified). Syncs + persists Mattermost threads (like the email full-sync) into an offline-searchable store, feeding the knowledge graph — closes the third data source: email + VAMS + Mattermost all now flow into the graph. On branch lane/mattermost-persistence, queued for the v0.1.20 batch.</p>
 <p class="sub" style="margin:6px 0 0">And: VAMS query-tool catalog — built &amp; tested (562 backend tests). 28 read-only query tools across sales/production/procurement/engineering plus job-chain traversal (opportunities → sales orders → work orders → BOM → material reqs → POs). On branch lane/vams-query-tools, queued for the v0.1.20 batch — unblocks the Tool-calling lane's VAMS plug-in.</p>
+<p class="sub" style="margin:6px 0 0">And: LLM mind-map visualization — built &amp; tested (21 tests, live-verified against real LM Studio + Ollama-absent). Interactive SVG node graph of runtimes/models/workloads/agents (local vs cloud bands, pan/zoom, hover-highlight, click-inspect) — hand-rolled, no new dependency, theme-aware; found + fixed 2 render bugs along the way. Frontend-only branch, ships in v0.1.21 (with Tool-calling).</p>
 
-<p class="eyebrow" style="margin:18px 0 6px">Queued — wave 2 (not started, waiting on the data + model layers)</p>
+<p class="eyebrow" style="margin:18px 0 6px">Queued — not started</p>
 <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0">
   <li style="padding:7px 0;border-top:1px solid var(--line)"><span class="sub"><b style="color:var(--ink-2)">VAMS knowledge/query tools</b> — the model answers any VAMS question via read-only query tools (now being built directly as the VAMS query-tool catalog lane above)</span></li>
   <li style="padding:7px 0;border-top:1px solid var(--line)"><span class="sub"><b style="color:var(--ink-2)">Cross-source COO insights</b> — insights + improvement suggestions on the dashboard, across VAMS + email + Mattermost</span></li>
   <li style="padding:7px 0;border-top:1px solid var(--line)"><span class="sub"><b style="color:var(--ink-2)">Dashboard drill-down</b> — drill-down depth on any dashboard field</span></li>
   <li style="padding:7px 0;border-top:1px solid var(--line)"><span class="sub"><b style="color:var(--ink-2)">Wire knowledge ingestion triggers</b> — email + Mattermost → graph, automatically</span></li>
+  <li style="padding:7px 0;border-top:1px solid var(--line)"><span class="sub"><b style="color:var(--ink-2)">Fix slow LLM-map when Ollama absent</b> — backend probes Ollama sequentially per candidate, ~24-33s; flagged by 2 lanes. After Tool-calling lands.</span></li>
 </ul>
 
 <p class="eyebrow" style="margin:18px 0 6px">Awaiting from Omar</p>
