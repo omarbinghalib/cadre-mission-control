@@ -248,7 +248,7 @@
     <div class="split"><div><p class="eyebrow">Cadre program — 4 lanes running now</p><h2>Fleet status at a glance</h2></div></div>
     <div class="row" style="gap:8px;flex-wrap:wrap;margin:8px 0 6px">
   <span class="chip ok" style="border-color:var(--ok);background:var(--ok-ink);color:#fff"><b>WAVE 2 SHIPPED — v0.1.23</b></span>
-  <span class="chip ok"><span class="dp beat"></span>2 lanes running — v0.1.26 + v0.1.27</span>
+  <span class="chip ok"><span class="dp beat"></span>3 lanes running (at cap)</span>
   <span class="chip mute">20 releases shipped</span>
   <span class="chip mute">9 queued</span>
 </div>
@@ -278,6 +278,11 @@
     <span class="wname" style="font-weight:650">Background auto-sync</span>
     <span class="chip ok" style="margin-left:8px">running</span>
     <div class="sub" style="margin-top:3px">From user feedback: a scheduler that keeps email + Mattermost current automatically on an interval (incremental, resume-from-cursor, startup-kick, backoff, Settings on/off + interval) so the user never has to manually "sync everything" again. Also verifies cursors persist across restart and version-upgrade, and hardens the Mattermost sync errors the user reported (clear per-channel reasons + degrade + backoff). Folded in: Mattermost tab instant-load (render the persisted store instantly, background refresh — no "Connecting…" wall on every tab open) and Inbox tab instant-load (frontend-only: render persisted mail instantly, background refresh, stop re-fetching on every tab open). Ships as v0.1.27.</div>
+  </li>
+  <li style="padding:10px 0;border-top:1px solid var(--line)">
+    <span class="wname" style="font-weight:650">Organizer efficiency hotfix</span>
+    <span class="chip ok" style="margin-left:8px">running</span>
+    <div class="sub" style="margin-top:3px;padding:7px 9px;border-radius:7px;background:var(--panel-2);border:1px solid var(--serious)"><b style="color:var(--serious)">THE root cause</b> of Omar's "LLM so busy / everything stuck": the email auto-organizer was saturating his single local LLM. Two traced bugs in organizer.py — (A) emails that never get filed/suggested (all of his, with no learned folders yet) never get a terminal marker, so they're re-classified on EVERY sync, forever; (B) it runs the full LLM even with no folders, burning 130-440 reasoning tokens/email at 6 tok/s. Fix: skip the model when no folders, mark each email "skipped" once, cap max tokens. Scoped to organizer.py + tests only. Verified against the fake model router — not yet against his live LM Studio. <b style="color:var(--ink-2)">Immediate stopgap given to Omar:</b> set email organization to "Off" per account (the existing kill switch) to free his LLM right now while this ships.</div>
   </li>
 </ul>
 <p class="foot" style="margin:6px 0 0">Merge-reconcile seam noted: both lanes above add a startup line to app/main.py — additive, reconciled at merge. Operational note: active build lanes are deliberately kept to ≤3 — the workers run on Omar's own machine, and too much parallelism worsens the very live-app slowness he's reporting, so fixes are being folded into the running lanes rather than spawning more workers.</p>
