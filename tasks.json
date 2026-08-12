@@ -12,6 +12,12 @@
     "note": "branch lane/auto-sync (worker ae8cbc9c). From user feedback. A scheduler that keeps email + Mattermost current automatically on an interval \u2014 incremental, resume-from-cursor, startup-kick, backoff, Settings on/off + interval \u2014 so the user never has to manually \"sync everything\" again. Also: (a) verifies synced data + cursors persist across restart AND version-upgrade (never re-full-syncs), and (b) hardens the Mattermost sync errors the user reported \u2014 clear per-channel reasons + degrade + backoff; investigating DM/archived/permission/pagination and isolating knowledge-ingestion failures from fetch failures. The sync-status DISPLAY itself is folded into the v0.1.26 header lane above. FOLDED IN: Mattermost tab instant-load (render the persisted store instantly, background refresh \u2014 no \"Connecting\u2026\" wall on every tab open); Inbox tab instant-load (frontend-only: render persisted mail instantly, background refresh \u2014 stop re-fetching accounts/folders/threads on every tab open). Ships as v0.1.27. MERGE-RECONCILE SEAM: both this lane and lane/ai-activity-header (v0.1.26) add a startup line to app/main.py \u2014 additive, reconcile at merge."
   },
   {
+    "title": "Organizer efficiency hotfix",
+    "status": "in_progress",
+    "track": "active",
+    "note": "branch lane/organizer-efficiency. 3rd active lane — at the ≤3 cap, justified: this is THE root cause of Omar's \"LLM so busy / everything stuck.\" The email auto-organizer was saturating his single local LLM. Two traced bugs in services/backend/app/domains/email/organizer.py: (A) messages that don't get filed/suggested (every email for him — no learned folders yet) never get an EmailMoveEvent, so they're re-classified on EVERY sync, forever; (B) it runs the full LLM even with no folders (folder forced null), burning 130-440 reasoning tokens/email at 6 tok/s. Fix: skip the model entirely when no folders (heuristic spam-only), record a terminal \"skipped\" marker so each email is processed ONCE, cap the classifier's max tokens. Scoped to organizer.py + tests only (disjoint from the other two lanes). Verified against the fake model router — NOT yet against his live LM Studio. IMMEDIATE STOPGAP given to Omar while this ships: set email organization to \"Off\" per account (the existing kill switch) to free his LLM now."
+  },
+  {
     "title": "Streaming for tool turns",
     "status": "pending",
     "track": "queued",
