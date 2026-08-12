@@ -66,6 +66,12 @@
     "note": "Queued, SEQUENCED not parallel \u2014 collides with both active lanes' surfaces (the understanding pipeline v0.1.26 is throttling, and the email/settings domain v0.1.27 is editing). Dispatches after v0.1.26 + v0.1.27 land, on a clean merged base. Scope: a per-email-account \"Use AI on this account\" toggle \u2014 when off, the account still syncs + is readable but is EXCLUDED from AI processing (understanding pipeline / knowledge graph / insights / model calls). Default on, per-account opt-out."
   },
   {
+    "title": "Organizer efficiency hotfix \u2014 built & tested, READY \u2014 awaiting build",
+    "status": "done",
+    "track": "archive",
+    "note": "branch lane/organizer-efficiency (worker abdf524b). Fixes A/B/E landed: skip the model entirely when no folders, record a terminal \"skipped\" marker so each email is processed once (not re-classified every sync forever), cap the classifier's max tokens. 38 organizer tests green (34 existing + 4 new), scoped to just 2 files (organizer.py + test_email_organizer.py). Verified against the fake model router only \u2014 no live LM Studio, no port binds, no PIDs killed. Code complete, not yet in an installer: BATCHED into the next build together with the v0.1.26 dashboard-unblock (P1), to avoid two heavy back-to-back builds on Omar's machine (the build host, which is the same slowness he's fighting). His per-account \"Off\" stopgap covers the interim; a standalone-now build was offered if he prefers."
+  },
+  {
     "title": "Chat streaming + timeout fix \u2014 built & tested",
     "status": "done",
     "track": "archive",
