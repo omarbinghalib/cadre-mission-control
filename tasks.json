@@ -54,6 +54,12 @@
     "note": "Perf watch, not yet actioned. The streaming lane observed intermittent backend slowness under real load: background Mattermost/email sync running concurrently with SQLite WAL growth. Separate from the Ollama-probe fix (v0.1.25) \u2014 needs its own investigation."
   },
   {
+    "title": "Per-account AI switch (v0.1.28)",
+    "status": "pending",
+    "track": "queued",
+    "note": "Queued, SEQUENCED not parallel \u2014 collides with both active lanes' surfaces (the understanding pipeline v0.1.26 is throttling, and the email/settings domain v0.1.27 is editing). Dispatches after v0.1.26 + v0.1.27 land, on a clean merged base. Scope: a per-email-account \"Use AI on this account\" toggle \u2014 when off, the account still syncs + is readable but is EXCLUDED from AI processing (understanding pipeline / knowledge graph / insights / model calls). Default on, per-account opt-out."
+  },
+  {
     "title": "Chat streaming + timeout fix \u2014 built & tested",
     "status": "done",
     "track": "archive",
