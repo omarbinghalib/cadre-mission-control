@@ -250,7 +250,7 @@
   <span class="chip ok" style="border-color:var(--ok);background:var(--ok-ink);color:#fff"><b>WAVE 2 SHIPPED — v0.1.23</b></span>
   <span class="chip ok"><span class="dp beat"></span>2 lanes running — v0.1.26 + v0.1.27</span>
   <span class="chip mute">20 releases shipped</span>
-  <span class="chip mute">7 queued (polish)</span>
+  <span class="chip mute">8 queued (polish)</span>
 </div>
 
 <p class="eyebrow" style="margin:16px 0 8px">Milestone</p>
@@ -294,6 +294,7 @@
   <li style="padding:7px 0;border-top:1px solid var(--line)"><span class="sub"><b style="color:var(--ink-2)">Fix reconciler-logging gap</b> — main.py never calls logging.basicConfig, so the schema reconciler's INFO logs are silently no-op'd</span></li>
   <li style="padding:7px 0;border-top:1px solid var(--line)"><span class="sub"><b style="color:var(--ink-2)">Wire drill-down "project" to VAMS records</b> — the evidence trail's project concept needs proper VAMS record wiring</span></li>
   <li style="padding:7px 0;border-top:1px solid var(--line)"><span class="sub"><b style="color:var(--ink-2)">Backend perf watch-item</b> — intermittent slowness under real load (background Mattermost/email sync + SQLite WAL growth); not yet actioned, separate from the Ollama-probe fix</span></li>
+  <li style="padding:7px 0;border-top:1px solid var(--line)"><span class="sub"><b style="color:var(--ink-2)">Per-account AI switch (v0.1.28)</b> — a per-email-account "Use AI on this account" toggle (still syncs + readable when off, just excluded from AI processing); default on, per-account opt-out. Sequenced after v0.1.26 + v0.1.27 land — it collides with both lanes' surfaces (understanding pipeline, email/settings domain)</span></li>
 </ul>
 
 <p class="eyebrow" style="margin:18px 0 6px">Awaiting from Omar</p>
