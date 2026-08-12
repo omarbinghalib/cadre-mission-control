@@ -54,10 +54,10 @@
     "note": "Perf watch, not yet actioned. The streaming lane observed intermittent backend slowness under real load: background Mattermost/email sync running concurrently with SQLite WAL growth. Separate from the Ollama-probe fix (v0.1.25) \u2014 needs its own investigation."
   },
   {
-    "title": "Instant-load everywhere (app-wide) — HIGH PRIORITY",
+    "title": "Instant-load everywhere (app-wide) \u2014 HIGH PRIORITY",
     "status": "pending",
     "track": "queued",
-    "note": "SEQUENCED after v0.1.26 + v0.1.27 land (clean merged base; avoids colliding with the in-flight dashboard/inbox/mattermost edits). Omar's standing rule: NO screen/tab/options page may reload-everything-live on open — it slows the experience down too much. Build a shared client-side cached-resource primitive (instant-from-cache + background revalidate + in-place update, persisted) and migrate EVERY remaining module onto it: settings/options, calendar, projects, reports, presentations, contacts, agents, model-manager, network, vams — plus retrofit dashboard/inbox/mattermost onto the shared primitive for consistency. Will likely fan into a shared-primitive owner + module-partitioned sub-lanes (shared-surface pattern)."
+    "note": "SEQUENCED after v0.1.26 + v0.1.27 land (clean merged base; avoids colliding with the in-flight dashboard/inbox/mattermost edits). Omar's standing rule: NO screen/tab/options page may reload-everything-live on open \u2014 it slows the experience down too much. Build a shared client-side cached-resource primitive (instant-from-cache + background revalidate + in-place update, persisted) and migrate EVERY remaining module onto it: settings/options, calendar, projects, reports, presentations, contacts, agents, model-manager, network, vams \u2014 plus retrofit dashboard/inbox/mattermost onto the shared primitive for consistency. Will likely fan into a shared-primitive owner + module-partitioned sub-lanes (shared-surface pattern)."
   },
   {
     "title": "Per-account AI switch (v0.1.28)",
