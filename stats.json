@@ -1,7 +1,7 @@
 {
-  "updated": "2026-08-13T04:36:28Z",
-  "heartbeat_at": "2026-08-13T04:36:28Z",
-  "last_activity": "2026-08-13T04:36:28Z",
+  "updated": "2026-08-13T04:37:29Z",
+  "heartbeat_at": "2026-08-13T04:37:29Z",
+  "last_activity": "2026-08-13T04:37:29Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
@@ -32,7 +32,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": null,
-      "out_age_min": 23.5,
+      "out_age_min": 24.5,
       "log_bytes": null,
       "status": "idle",
       "live": false,
@@ -49,13 +49,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-13T04:36:28Z",
+      "out_last_active": "2026-08-13T04:37:29Z",
       "out_age_min": 0.0,
-      "log_bytes": 957137,
-      "output_tokens": 66863,
-      "cache_read_tokens": 41644147,
-      "cache_creation_tokens": 636172,
-      "msgs": 243,
+      "log_bytes": 993953,
+      "output_tokens": 70316,
+      "cache_read_tokens": 45558033,
+      "cache_creation_tokens": 644329,
+      "msgs": 258,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -72,7 +72,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-08-13T03:50:05Z",
-      "out_age_min": 46.4,
+      "out_age_min": 47.4,
       "log_bytes": 1219295,
       "output_tokens": 68262,
       "cache_read_tokens": 59388665,
@@ -90,17 +90,17 @@
       "full_id": "a7de5acd7539bc932",
       "group": "fix-upgrade-column-bug-ship-v0-1-30",
       "group_label": "Fix upgrade column bug, ship v0.1.30",
-      "last_active": "2026-08-13T04:36:28Z",
-      "log_bytes": 957137,
+      "last_active": "2026-08-13T04:37:29Z",
+      "log_bytes": 993953,
       "live": true,
       "status": "live",
       "age_min": 0.0,
       "subagent": true,
       "recent": true,
-      "output_tokens": 66863,
-      "cache_read_tokens": 41644147,
-      "cache_creation_tokens": 636172,
-      "msgs": 243
+      "output_tokens": 70316,
+      "cache_read_tokens": 45558033,
+      "cache_creation_tokens": 644329,
+      "msgs": 258
     },
     {
       "id": "afd30ea1",
@@ -111,7 +111,7 @@
       "log_bytes": 1219295,
       "live": false,
       "status": "idle",
-      "age_min": 46.4,
+      "age_min": 47.4,
       "subagent": true,
       "recent": true,
       "output_tokens": 68262,
@@ -129,7 +129,7 @@
       "cache_read_tokens": 641163543,
       "cache_creation_tokens": 57681323,
       "msgs": 1416,
-      "age_min": 23.5,
+      "age_min": 24.5,
       "live": false,
       "status": "idle",
       "subagent": false,
@@ -152,11 +152,29 @@
         "track": "w0",
         "branch": "main",
         "available": true,
-        "commits_24h": 22,
-        "commits_7d": 128
+        "commits_24h": 25,
+        "commits_7d": 131
       }
     ],
     "recent": [
+      {
+        "hash": "544f5d4",
+        "at": "2026-08-13T08:21:46+04:00",
+        "subject": "Bump version to 0.1.30",
+        "track": "w0"
+      },
+      {
+        "hash": "ac7031e",
+        "at": "2026-08-13T08:20:42+04:00",
+        "subject": "test: regression-guard the mattermost consecutive_failures upgrade crash",
+        "track": "w0"
+      },
+      {
+        "hash": "934dbb2",
+        "at": "2026-08-13T08:17:35+04:00",
+        "subject": "fix(hotfix): add server_default to mattermost consecutive_failures + audit sibling",
+        "track": "w0"
+      },
       {
         "hash": "89e29cd",
         "at": "2026-08-13T07:17:21+04:00",
@@ -186,24 +204,6 @@
         "at": "2026-08-12T09:54:14+04:00",
         "subject": "Merge origin/main (v0.1.27 auto-sync logging fix) into lane/ai-activity-header; version -> 0.1.28",
         "track": "w0"
-      },
-      {
-        "hash": "c915d9e",
-        "at": "2026-08-12T09:32:16+04:00",
-        "subject": "Fix: cadre.* module loggers were invisible (no root handler) + log auto-sync startup",
-        "track": "w0"
-      },
-      {
-        "hash": "0728267",
-        "at": "2026-08-12T09:16:20+04:00",
-        "subject": "fix: background_ai never blocks; test fixes surfaced by real suite run",
-        "track": "w0"
-      },
-      {
-        "hash": "2370202",
-        "at": "2026-08-12T08:53:28+04:00",
-        "subject": "Bump apps/desktop/package.json version to 0.1.27",
-        "track": "w0"
       }
     ]
   },
@@ -211,6 +211,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-08-13T04:36:28Z"
+    "checked_at": "2026-08-13T04:37:30Z"
   }
 }
