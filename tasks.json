@@ -30,6 +30,12 @@
     "note": "Wave B, batches into v0.1.32, still queued (not dispatched \u2014 1 active build lane, chat P1). RESHAPED scope (Omar decision, \"Live browse + lazy AI index\" \u2014 replaces the old \"faster full-history crawl\" plan): (a) BROWSING goes LIVE like the native app \u2014 WebSocket + live REST fetch, channels/messages load instantly and stay current, lazy-load on scroll, paint last-seen cache instantly then live on top; DROPS the eager full-history crawl entirely. (b) AI-INDEXING becomes LAZY/SCOPED \u2014 index only recent/active channels in the background plus more on-demand when the AI is actually asked, not a blanket full-history sync (replaces the auto-sync Mattermost full-crawl). (c) Sidebar reorg kept \u2014 sort the channel/DM list most-recent-first (DESC) and split Direct Messages into their own section, separate from Channels. Rationale: the local copy only ever existed to feed the cross-source AI; browsing never needed it, and the eager crawl was the actual source of the slowness. Also updates the Sync Status tab (queued above) to show Mattermost as \"live (connected)\" rather than \"crawling X% of history.\""
   },
   {
+    "title": "Email: recent-first + lazy AI index",
+    "status": "pending",
+    "track": "queued",
+    "note": "Wave B, batches into v0.1.32, still queued (not dispatched \u2014 1 active build lane, chat P1). Omar scope-add, sibling to the reshaped Mattermost lane above, same principle: DROP the eager full-mailbox-history crawl. Instead: fetch a folder's recent messages on open + message bodies on click + load older on scroll \u2014 email over IMAP is request/response, not a WebSocket, so this is \"recent-first + fetch-on-demand,\" not a live socket (contrast with Mattermost's live-browse). AI understanding stays ON (email is the core signal feeding calendar/projects/contacts/reports, so it isn't switched off) but goes LAZY: index recent + active mail in the background + deeper on-demand, rather than crawling years of history up front. Includes an optional \"backfill/index everything\" switch for full historical coverage when wanted. Ties into the Sync Status tab (queued above): email shows recent-first + indexing progress there."
+  },
+  {
     "title": "App-wide \"no screen reloads on open\" sweep",
     "status": "pending",
     "track": "queued",
