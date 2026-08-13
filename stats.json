@@ -1,14 +1,14 @@
 {
-  "updated": "2026-08-13T06:26:29Z",
-  "heartbeat_at": "2026-08-13T06:26:29Z",
-  "last_activity": "2026-08-13T06:26:29Z",
+  "updated": "2026-08-13T06:27:30Z",
+  "heartbeat_at": "2026-08-13T06:27:30Z",
+  "last_activity": "2026-08-13T06:27:30Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
-    "output_tokens": 5492616,
-    "cache_read_tokens": 672858264,
-    "cache_creation_tokens": 59161274,
-    "msgs": 1504,
+    "output_tokens": 5518016,
+    "cache_read_tokens": 674987474,
+    "cache_creation_tokens": 59185344,
+    "msgs": 1509,
     "sessions": 6,
     "live_sessions": 4,
     "transcript_sessions": 1,
@@ -31,8 +31,8 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-13T06:26:29Z",
-      "out_age_min": 0.5,
+      "out_last_active": "2026-08-13T06:27:30Z",
+      "out_age_min": 0.3,
       "log_bytes": null,
       "status": "live",
       "live": true,
@@ -49,13 +49,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-13T06:17:57Z",
-      "out_age_min": 8.5,
-      "log_bytes": 519370,
-      "output_tokens": 52779,
-      "cache_read_tokens": 10596493,
-      "cache_creation_tokens": 520687,
-      "msgs": 131,
+      "out_last_active": "2026-08-13T06:27:29Z",
+      "out_age_min": 0.0,
+      "log_bytes": 542260,
+      "output_tokens": 55165,
+      "cache_read_tokens": 11356957,
+      "cache_creation_tokens": 777089,
+      "msgs": 139,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -72,7 +72,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-08-13T06:18:34Z",
-      "out_age_min": 7.9,
+      "out_age_min": 8.9,
       "log_bytes": 1039465,
       "output_tokens": 72508,
       "cache_read_tokens": 47801380,
@@ -94,7 +94,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-08-13T04:38:37Z",
-      "out_age_min": 107.9,
+      "out_age_min": 108.9,
       "log_bytes": 1016750,
       "output_tokens": 73260,
       "cache_read_tokens": 47948225,
@@ -116,7 +116,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-08-13T06:15:34Z",
-      "out_age_min": 10.9,
+      "out_age_min": 11.9,
       "log_bytes": 683953,
       "output_tokens": 49108,
       "cache_read_tokens": 22848401,
@@ -137,13 +137,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-13T06:26:24Z",
-      "out_age_min": 0.1,
-      "log_bytes": 1240399,
-      "output_tokens": 119167,
-      "cache_read_tokens": 56933032,
-      "cache_creation_tokens": 1135004,
-      "msgs": 234,
+      "out_last_active": "2026-08-13T06:27:28Z",
+      "out_age_min": 0.0,
+      "log_bytes": 1266426,
+      "output_tokens": 121943,
+      "cache_read_tokens": 60417007,
+      "cache_creation_tokens": 1144029,
+      "msgs": 244,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -156,17 +156,17 @@
       "full_id": "a57407bc6d9369985",
       "group": "revive-maintain-mission-control-board",
       "group_label": "Revive + maintain mission-control board",
-      "last_active": "2026-08-13T06:17:57Z",
-      "log_bytes": 519370,
+      "last_active": "2026-08-13T06:27:29Z",
+      "log_bytes": 542260,
       "live": true,
       "status": "live",
-      "age_min": 8.5,
+      "age_min": 0.0,
       "subagent": true,
       "recent": true,
-      "output_tokens": 52779,
-      "cache_read_tokens": 10596493,
-      "cache_creation_tokens": 520687,
-      "msgs": 131
+      "output_tokens": 55165,
+      "cache_read_tokens": 11356957,
+      "cache_creation_tokens": 777089,
+      "msgs": 139
     },
     {
       "id": "a5f5dbee",
@@ -177,7 +177,7 @@
       "log_bytes": 1039465,
       "live": true,
       "status": "live",
-      "age_min": 7.9,
+      "age_min": 8.9,
       "subagent": true,
       "recent": true,
       "output_tokens": 72508,
@@ -194,7 +194,7 @@
       "log_bytes": 1016750,
       "live": false,
       "status": "idle",
-      "age_min": 107.9,
+      "age_min": 108.9,
       "subagent": true,
       "recent": true,
       "output_tokens": 73260,
@@ -211,7 +211,7 @@
       "log_bytes": 683953,
       "live": false,
       "status": "idle",
-      "age_min": 10.9,
+      "age_min": 11.9,
       "subagent": true,
       "recent": true,
       "output_tokens": 49108,
@@ -224,29 +224,29 @@
       "full_id": "abb225d55a25f30d5",
       "group": "chat-reliability-p1-ship-v0-1-31",
       "group_label": "Chat reliability P1, ship v0.1.31",
-      "last_active": "2026-08-13T06:26:24Z",
-      "log_bytes": 1240399,
+      "last_active": "2026-08-13T06:27:28Z",
+      "log_bytes": 1266426,
       "live": true,
       "status": "live",
-      "age_min": 0.1,
+      "age_min": 0.0,
       "subagent": true,
       "recent": true,
-      "output_tokens": 119167,
-      "cache_read_tokens": 56933032,
-      "cache_creation_tokens": 1135004,
-      "msgs": 234
+      "output_tokens": 121943,
+      "cache_read_tokens": 60417007,
+      "cache_creation_tokens": 1144029,
+      "msgs": 244
     },
     {
       "id": "0f7b13a0",
       "full_id": "0f7b13a0-2a85-49c0-96d5-e5a8832d8b85",
       "group": "commander",
       "group_label": "Session 0f7b13a0",
-      "last_active": "2026-08-13T06:25:56Z",
-      "output_tokens": 5492616,
-      "cache_read_tokens": 672858264,
-      "cache_creation_tokens": 59161274,
-      "msgs": 1504,
-      "age_min": 0.6,
+      "last_active": "2026-08-13T06:27:30Z",
+      "output_tokens": 5518016,
+      "cache_read_tokens": 674987474,
+      "cache_creation_tokens": 59185344,
+      "msgs": 1509,
+      "age_min": 0.0,
       "live": true,
       "status": "live",
       "subagent": false,
@@ -262,7 +262,7 @@
     "last_active": "2026-08-13T03:50:05Z",
     "note": "Prior-session workers \u2014 retired; not part of the current fleet."
   },
-  "total_tokens": 5492616,
+  "total_tokens": 5518016,
   "commits": {
     "tracks": [
       {
@@ -276,8 +276,8 @@
         "track": "w0",
         "branch": "lane/chat-reliability",
         "available": true,
-        "commits_24h": 6,
-        "commits_7d": 131
+        "commits_24h": 11,
+        "commits_7d": 136
       },
       {
         "track": "w0",
@@ -296,6 +296,36 @@
     ],
     "recent": [
       {
+        "hash": "df603b6",
+        "at": "2026-08-13T10:27:30+04:00",
+        "subject": "Bump version to 0.1.31",
+        "track": "w0"
+      },
+      {
+        "hash": "646b55b",
+        "at": "2026-08-13T10:27:23+04:00",
+        "subject": "feat(model-manager): keep the active chat brain warm (bounded pre-load)",
+        "track": "w0"
+      },
+      {
+        "hash": "aa43cf9",
+        "at": "2026-08-13T10:27:13+04:00",
+        "subject": "fix(routing): chat auto-selects a capable tool-use brain over a weak 2B",
+        "track": "w0"
+      },
+      {
+        "hash": "ba78511",
+        "at": "2026-08-13T10:27:02+04:00",
+        "subject": "fix(chat-ui): route the tools-ON send through the SSE stream end-to-end",
+        "track": "w0"
+      },
+      {
+        "hash": "5312f86",
+        "at": "2026-08-13T10:26:53+04:00",
+        "subject": "fix(chat): stream the tool-calling send over SSE (kill the 45s wall)",
+        "track": "w0"
+      },
+      {
         "hash": "3a4f367",
         "at": "2026-08-13T10:11:46+04:00",
         "subject": "email(ui): \"Use AI on this account\" toggle in Settings \u2192 Email Accounts",
@@ -312,36 +342,6 @@
         "at": "2026-08-13T10:06:18+04:00",
         "subject": "email: tests for per-mailbox AI switch (incl. old-schema upgrade)",
         "track": "w0"
-      },
-      {
-        "hash": "01758f0",
-        "at": "2026-08-13T10:06:09+04:00",
-        "subject": "email: PUT /accounts/{id}/ai-enabled + ai_enabled in EmailAccountOut",
-        "track": "w0"
-      },
-      {
-        "hash": "837cb98",
-        "at": "2026-08-13T10:06:01+04:00",
-        "subject": "email: skip AI processing for ai_enabled=False accounts at every entry point",
-        "track": "w0"
-      },
-      {
-        "hash": "26318a2",
-        "at": "2026-08-13T10:05:52+04:00",
-        "subject": "email: add ai_enabled column to EmailAccount (per-mailbox AI switch)",
-        "track": "w0"
-      },
-      {
-        "hash": "81a0d8e",
-        "at": "2026-08-13T09:59:51+04:00",
-        "subject": "fix(vams-ui): render attention feed instantly, load AI summary lazily",
-        "track": "w0"
-      },
-      {
-        "hash": "05b8b6a",
-        "at": "2026-08-13T09:59:50+04:00",
-        "subject": "test(vams): assert attention-feed summary is cached + pause-gated",
-        "track": "w0"
       }
     ]
   },
@@ -349,6 +349,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-08-13T06:26:30Z"
+    "checked_at": "2026-08-13T06:27:31Z"
   }
 }
