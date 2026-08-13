@@ -1,20 +1,20 @@
 {
-  "updated": "2026-08-13T02:57:36Z",
-  "heartbeat_at": "2026-08-13T02:57:36Z",
-  "last_activity": null,
+  "updated": "2026-08-13T03:02:14Z",
+  "heartbeat_at": "2026-08-13T03:02:14Z",
+  "last_activity": "2026-08-13T03:02:01Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
-    "output_tokens": 5071339,
-    "cache_read_tokens": 631148351,
-    "cache_creation_tokens": 56652225,
-    "msgs": 1374,
+    "output_tokens": 5080959,
+    "cache_read_tokens": 631256195,
+    "cache_creation_tokens": 57454861,
+    "msgs": 1378,
     "sessions": 1,
-    "live_sessions": 0,
+    "live_sessions": 1,
     "transcript_sessions": 1,
     "subagent_sessions": 0,
     "workers": 1,
-    "live_workers": 0,
+    "live_workers": 1,
     "stopped_workers": 0,
     "current_workers": 1,
     "history_workers": 111,
@@ -31,11 +31,11 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": null,
-      "out_age_min": 1243.6,
+      "out_last_active": "2026-08-13T03:02:01Z",
+      "out_age_min": 0.4,
       "log_bytes": null,
-      "status": "idle",
-      "live": false,
+      "status": "live",
+      "live": true,
       "signal": "coordinating (orchestrator)",
       "recent": true
     }
@@ -46,14 +46,14 @@
       "full_id": "0f7b13a0-2a85-49c0-96d5-e5a8832d8b85",
       "group": "commander",
       "group_label": "Session 0f7b13a0",
-      "last_active": "2026-08-12T06:13:57Z",
-      "output_tokens": 5071339,
-      "cache_read_tokens": 631148351,
-      "cache_creation_tokens": 56652225,
-      "msgs": 1374,
-      "age_min": 1243.6,
-      "live": false,
-      "status": "idle",
+      "last_active": "2026-08-13T03:02:13Z",
+      "output_tokens": 5080959,
+      "cache_read_tokens": 631256195,
+      "cache_creation_tokens": 57454861,
+      "msgs": 1378,
+      "age_min": 0.0,
+      "live": true,
+      "status": "live",
       "subagent": false,
       "recent": true
     }
@@ -67,7 +67,7 @@
     "last_active": "2026-08-12T06:07:43Z",
     "note": "Prior-session workers \u2014 retired; not part of the current fleet."
   },
-  "total_tokens": 5071339,
+  "total_tokens": 5080959,
   "commits": {
     "tracks": [
       {
@@ -133,6 +133,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-08-13T02:57:36Z"
+    "checked_at": "2026-08-13T03:02:17Z"
   }
 }
