@@ -1,7 +1,7 @@
 {
-  "updated": "2026-08-13T03:45:29Z",
-  "heartbeat_at": "2026-08-13T03:45:29Z",
-  "last_activity": "2026-08-13T03:45:29Z",
+  "updated": "2026-08-13T03:46:29Z",
+  "heartbeat_at": "2026-08-13T03:46:29Z",
+  "last_activity": "2026-08-13T03:46:29Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
@@ -31,8 +31,8 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-13T03:45:29Z",
-      "out_age_min": 7.9,
+      "out_last_active": "2026-08-13T03:46:29Z",
+      "out_age_min": 8.9,
       "log_bytes": null,
       "status": "live",
       "live": true,
@@ -49,13 +49,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-13T03:45:28Z",
-      "out_age_min": 0.0,
-      "log_bytes": 1099956,
-      "output_tokens": 56635,
-      "cache_read_tokens": 48916931,
-      "cache_creation_tokens": 412615,
-      "msgs": 374,
+      "out_last_active": "2026-08-13T03:46:25Z",
+      "out_age_min": 0.1,
+      "log_bytes": 1139734,
+      "output_tokens": 59103,
+      "cache_read_tokens": 52665698,
+      "cache_creation_tokens": 425157,
+      "msgs": 392,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -68,17 +68,17 @@
       "full_id": "afd30ea1ada98b933",
       "group": "integrate-ship-complete-v0-1-29",
       "group_label": "Integrate + ship complete v0.1.29",
-      "last_active": "2026-08-13T03:45:28Z",
-      "log_bytes": 1099956,
+      "last_active": "2026-08-13T03:46:25Z",
+      "log_bytes": 1139734,
       "live": true,
       "status": "live",
-      "age_min": 0.0,
+      "age_min": 0.1,
       "subagent": true,
       "recent": true,
-      "output_tokens": 56635,
-      "cache_read_tokens": 48916931,
-      "cache_creation_tokens": 412615,
-      "msgs": 374
+      "output_tokens": 59103,
+      "cache_read_tokens": 52665698,
+      "cache_creation_tokens": 425157,
+      "msgs": 392
     },
     {
       "id": "0f7b13a0",
@@ -90,7 +90,7 @@
       "cache_read_tokens": 633602566,
       "cache_creation_tokens": 57506098,
       "msgs": 1388,
-      "age_min": 7.9,
+      "age_min": 8.9,
       "live": true,
       "status": "live",
       "subagent": false,
@@ -113,11 +113,41 @@
         "track": "w0",
         "branch": "main",
         "available": true,
-        "commits_24h": 10,
-        "commits_7d": 112
+        "commits_24h": 26,
+        "commits_7d": 128
       }
     ],
     "recent": [
+      {
+        "hash": "89e29cd",
+        "at": "2026-08-13T07:17:21+04:00",
+        "subject": "Bump version to 0.1.29",
+        "track": "w0"
+      },
+      {
+        "hash": "c6112f9",
+        "at": "2026-08-13T07:11:11+04:00",
+        "subject": "Merge lane/organizer-efficiency into release/v0.1.29",
+        "track": "w0"
+      },
+      {
+        "hash": "b6762eb",
+        "at": "2026-08-13T07:11:05+04:00",
+        "subject": "Merge lane/ai-activity-header into release/v0.1.29",
+        "track": "w0"
+      },
+      {
+        "hash": "b0db6fa",
+        "at": "2026-08-12T09:56:52+04:00",
+        "subject": "header: use v0.1.27's REAL sync-status fields, not placeholders",
+        "track": "w0"
+      },
+      {
+        "hash": "e556028",
+        "at": "2026-08-12T09:54:14+04:00",
+        "subject": "Merge origin/main (v0.1.27 auto-sync logging fix) into lane/ai-activity-header; version -> 0.1.28",
+        "track": "w0"
+      },
       {
         "hash": "c915d9e",
         "at": "2026-08-12T09:32:16+04:00",
@@ -125,45 +155,15 @@
         "track": "w0"
       },
       {
+        "hash": "0728267",
+        "at": "2026-08-12T09:16:20+04:00",
+        "subject": "fix: background_ai never blocks; test fixes surfaced by real suite run",
+        "track": "w0"
+      },
+      {
         "hash": "2370202",
         "at": "2026-08-12T08:53:28+04:00",
         "subject": "Bump apps/desktop/package.json version to 0.1.27",
-        "track": "w0"
-      },
-      {
-        "hash": "7ce7592",
-        "at": "2026-08-12T08:50:26+04:00",
-        "subject": "Bump version to 0.1.27",
-        "track": "w0"
-      },
-      {
-        "hash": "29166ed",
-        "at": "2026-08-12T08:47:49+04:00",
-        "subject": "Settings: background auto-sync on/off + interval toggle",
-        "track": "w0"
-      },
-      {
-        "hash": "acea17f",
-        "at": "2026-08-12T08:47:41+04:00",
-        "subject": "Inbox tab: instant load from cache + sync ETA (frontend only)",
-        "track": "w0"
-      },
-      {
-        "hash": "0f7e5db",
-        "at": "2026-08-12T08:47:31+04:00",
-        "subject": "Mattermost tab: instant load from store + real progress bar/ETA",
-        "track": "w0"
-      },
-      {
-        "hash": "44da136",
-        "at": "2026-08-12T08:47:20+04:00",
-        "subject": "Tests: auto-sync scheduler + Mattermost hardening (fake servers only)",
-        "track": "w0"
-      },
-      {
-        "hash": "bdb9b8a",
-        "at": "2026-08-12T08:47:09+04:00",
-        "subject": "Email sync-status: honest progress-bar/ETA + auto-sync fields (additive)",
         "track": "w0"
       }
     ]
@@ -172,6 +172,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-08-13T03:45:29Z"
+    "checked_at": "2026-08-13T03:46:30Z"
   }
 }
