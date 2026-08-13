@@ -1,81 +1,63 @@
 [
   {
-    "title": "AI activity header + tame model churn",
+    "title": "Chat reliability \u2014 streaming + no-timeout (ships v0.1.31)",
     "status": "in_progress",
     "track": "active",
-    "note": "branch lane/ai-activity-header (worker acdd2f1f). P1 HEADLINE (first increment \u2014 home screen currently unusable): unblock /dashboard/summary, which was timing out at 45s (Omar saw \"too much AI usage\"). Root cause: the summary synchronously fans out to ~8 LIVE connector/runtime probes on every load (Mattermost get_status alone is a live 15s round-trip). Fix: serve the last-known summary from cache instantly + background refresh + cached/bounded connector health probes. Then the rest of the lane: from user feedback the user can see LM Studio is very busy and doesn't know why \u2014 building a PERSISTENT header on all pages showing what service/workload is using which model (live) + a \"Pause background AI\" switch, now also showing email/Mattermost/VAMS sync status (folded in from the auto-sync lane below). Also auditing + fixing the churn itself \u2014 likely the dashboard insight engine re-narrating on every load/poll, and understanding backfill of newly-synced data hammering the local model needlessly. Carries forward two v0.1.25 perf follow-ups: LM Studio cold-load-per-request (add auto-keep-brain-warm) and app/database.py holding a SQLite session per-request (contention). Ships as v0.1.26 on top of v0.1.27's now-merged base. Only active build lane right now (organizer-efficiency retargeted to v0.1.28, see archive below) \u2014 its ETA has been asked for, since it also decides whether Omar should build-now or wait."
+    "note": "branch lane/chat-reliability (worker abb225d55a25f30d5). P1: tool-calling chat must stream end-to-end \u2014 optimistic render of the user's own question the instant it's sent, live token-by-token streaming of the model's answer, and NO 45s timeout anywhere in the tool-calling path (not just extended \u2014 eliminated, liveness comes from the stream itself). Also routes chat OFF the small 2B model (google/gemma-4-e2b) onto a capable tool-calling model, user-overridable in settings, and keeps the chat brain warm so it doesn't cold-load per request. Ships its own release, v0.1.31."
   },
   {
-    "title": "Streaming for tool turns",
+    "title": "VAMS attention-feed AI-churn fix",
+    "status": "in_progress",
+    "track": "active",
+    "note": "branch lane/vams-attentionfeed-churn (worker a8f3d336271857a6c). Caches the dashboard's `_executive_summary` instead of re-narrating the model on every load/poll, pause-gates it so it honors the \"Pause background AI\" switch, and makes the frontend fetch it lazily instead of eagerly. Lands on branch \u2014 not its own release; expected to fold into the next build alongside the per-mailbox AI switch lane below."
+  },
+  {
+    "title": "Per-mailbox AI switch",
+    "status": "in_progress",
+    "track": "active",
+    "note": "branch lane/per-account-ai-switch (worker a5f5dbeee2b56cf85). Adds EmailAccount.ai_enabled (server_default='1', so existing accounts upgrade safely still on) \u2014 when an account is switched off it still syncs and stays fully readable, but is excluded from the understanding pipeline / organizer / knowledge-graph ingestion. Includes an old-schema upgrade regression test (parity with the v0.1.30 upgrade-crash lesson). Lands on branch \u2014 not its own release yet."
+  },
+  {
+    "title": "Mattermost: first-sync speed + sidebar UI",
     "status": "pending",
     "track": "queued",
-    "note": "Polish. Stream tool-calling turns to the UI like regular chat, not just the final answer."
+    "note": "Wave B, batches into v0.1.32 after the 3 active lanes land. Two parts: (a) SPEED \u2014 recent-messages-first sync with older history backfilled in the background, prioritize whichever channel is currently open, parallelize sync across channels; (b) sidebar UI \u2014 sort the channel/DM list most-recent-first (DESC) and split Direct Messages into their own section, separate from Channels."
   },
   {
-    "title": "Clean up [[cite:id]] citation markers",
+    "title": "App-wide \"no screen reloads on open\" sweep",
     "status": "pending",
     "track": "queued",
-    "note": "Polish. The [[cite:id]] marker tool-calling emits for grounding shows up literally in message text; needs proper rendering instead of the raw cosmetic marker."
+    "note": "Wave B, batches into v0.1.32. Omar's standing rule: no screen/tab/options page may reload-everything-live on open. Build the shared client-side cached-resource primitive (instant-from-cache + background revalidate, persisted) and migrate every remaining tab/options screen onto it \u2014 dashboard/inbox/mattermost are already done."
   },
   {
-    "title": "Fix archive UID-drift bug in service.py",
+    "title": "Stale \"running\" sync-job reaper",
     "status": "pending",
     "track": "queued",
-    "note": "Polish. A second IMAP UID-drift bug, this time in the archive path of service.py (distinct from the MOVE UID-drift already fixed in email auto-organization)."
+    "note": "Wave B, batches into v0.1.32. A sync crashing mid-run leaves its job row status=running forever, silently blocking both the auto-sync scheduler and manual \"Sync Now\" from ever retrying that source \u2014 matters a lot more now that background auto-sync (v0.1.27) runs on a timer."
   },
   {
-    "title": "Proper migration framework (Alembic)",
-    "status": "pending",
-    "track": "queued",
-    "note": "Polish. The v0.1.22 startup schema reconciler is a pragmatic add-only guard, not a real migration system \u2014 replace with Alembic (or equivalent) for versioned, reversible schema migrations."
-  },
-  {
-    "title": "Fix reconciler-logging gap",
-    "status": "pending",
-    "track": "queued",
-    "note": "Polish. main.py never calls logging.basicConfig, so the v0.1.22 schema reconciler's INFO logs are silently no-op'd instead of actually appearing anywhere."
-  },
-  {
-    "title": "Wire drill-down 'project' to VAMS records",
-    "status": "pending",
-    "track": "queued",
-    "note": "Polish. The dashboard drill-down evidence trail needs its 'project' concept properly wired to real VAMS project/record identifiers."
-  },
-  {
-    "title": "Backend perf watch-item under real load",
-    "status": "pending",
-    "track": "queued",
-    "note": "Perf watch, not yet actioned. The streaming lane observed intermittent backend slowness under real load: background Mattermost/email sync running concurrently with SQLite WAL growth. Separate from the Ollama-probe fix (v0.1.25) \u2014 needs its own investigation."
-  },
-  {
-    "title": "Instant-load everywhere (app-wide) \u2014 HIGH PRIORITY",
-    "status": "pending",
-    "track": "queued",
-    "note": "SEQUENCED after v0.1.26 + v0.1.27 land (clean merged base; avoids colliding with the in-flight dashboard/inbox/mattermost edits). Omar's standing rule: NO screen/tab/options page may reload-everything-live on open \u2014 it slows the experience down too much. Build a shared client-side cached-resource primitive (instant-from-cache + background revalidate + in-place update, persisted) and migrate EVERY remaining module onto it: settings/options, calendar, projects, reports, presentations, contacts, agents, model-manager, network, vams \u2014 plus retrofit dashboard/inbox/mattermost onto the shared primitive for consistency. Will likely fan into a shared-primitive owner + module-partitioned sub-lanes (shared-surface pattern)."
-  },
-  {
-    "title": "Per-account AI switch (v0.1.28)",
-    "status": "pending",
-    "track": "queued",
-    "note": "Queued, SEQUENCED not parallel \u2014 collides with both active lanes' surfaces (the understanding pipeline v0.1.26 is throttling, and the email/settings domain v0.1.27 is editing). Dispatches after v0.1.26 + v0.1.27 land, on a clean merged base. Scope: a per-email-account \"Use AI on this account\" toggle \u2014 when off, the account still syncs + is readable but is EXCLUDED from AI processing (understanding pipeline / knowledge graph / insights / model calls). Default on, per-account opt-out."
-  },
-  {
-    "title": "Stale 'running' sync-job reaper",
-    "status": "pending",
-    "track": "queued",
-    "note": "Reliability. A sync crashing mid-run leaves its job row status=running forever, silently blocking BOTH the auto-sync scheduler and manual \"Sync Now\" from ever retrying that source. Pre-existing bug, but matters a lot more now that auto-sync (v0.1.27) is live on a timer. Dispatch after v0.1.28."
-  },
-  {
-    "title": "Organizer efficiency hotfix \u2014 built & tested, READY \u2014 retargeted to v0.1.28",
+    "title": "AI activity header + tame model churn \u2014 SHIPPED",
     "status": "done",
     "track": "archive",
-    "note": "branch lane/organizer-efficiency (worker abdf524b). Fixes A/B/E landed: skip the model entirely when no folders, record a terminal \"skipped\" marker so each email is processed once (not re-classified every sync forever), cap the classifier's max tokens. 38 organizer tests green (34 existing + 4 new), scoped to just 2 files. Verified against the fake model router only \u2014 no live LM Studio, no port binds, no PIDs killed. Code complete, not yet in an installer: now targeted to fold onto v0.1.27's merged base as v0.1.28 \u2014 that's the build Omar should install; v0.1.27 alone can re-trigger the classifier churn via the new auto-sync timer. His per-account \"Off\" stopgap covers the interim; a standalone-now build was offered if he prefers."
+    "note": "branch lane/ai-activity-header (worker acdd2f1f), merged into release/v0.1.29. Unblocked /dashboard/summary, which was timing out at 45s (Omar saw \"too much AI usage\") \u2014 root cause was the summary synchronously fanning out to ~8 live connector/runtime probes on every load (Mattermost status alone a live 15s round-trip); fixed by serving the last-known summary from cache instantly + background refresh + cached/bounded connector health probes. Delivered a persistent header on all pages showing which service/workload is using which model live (email/Mattermost/VAMS sync status folded in) plus a \"Pause background AI\" switch, and real sync progress/ETA fields. Shipped in v0.1.29."
+  },
+  {
+    "title": "Organizer efficiency hotfix \u2014 SHIPPED",
+    "status": "done",
+    "track": "archive",
+    "note": "branch lane/organizer-efficiency (worker abdf524b), merged into release/v0.1.29 (this is the root-cause fix for the classifier churn, not a separate v0.1.28 \u2014 that intermediate version number was never released; organizer-efficiency + ai-activity-header shipped together as v0.1.29). Fixes: skip the model entirely when no folders, record a terminal \"skipped\" marker so each email is processed once (not re-classified every sync forever), cap the classifier's max tokens. 38 organizer tests green."
+  },
+  {
+    "title": "Mattermost upgrade-500 hotfix \u2014 SHIPPED",
+    "status": "done",
+    "track": "archive",
+    "note": "worker a7de5acd7539bc932, hotfix/v0.1.30. An upgrading install crashed the Mattermost integration with a 500 because the new consecutive_failures column had no server_default for existing rows; fixed with the server_default, audited sibling columns for the same class of bug, and added an old-schema upgrade regression test so this can't silently recur. Self-heals Mattermost on restart. Shipped in v0.1.30 (origin/main 544f5d4) \u2014 this is the build Omar should install next."
   },
   {
     "title": "Background auto-sync \u2014 SHIPPED",
     "status": "done",
     "track": "archive",
-    "note": "branch lane/auto-sync (worker ae8cbc9c), merged to main (HEAD c915d9e), GitHub release v0.1.27 published with MSI + setup.exe installers. Full backend suite 777 passed / 0 failed; shipped-build smoke-tested against a scratch DB (real user DB backed up first, no live accounts touched). Delivered: background auto-sync for email + Mattermost (incremental, resume-from-cursor, persists across restart/upgrade), Mattermost error hardening (per-channel backoff + named errors + isolated knowledge-ingestion), Mattermost-tab + Inbox-tab instant-load, per-service progress + honest ETA fields, and a Settings Auto-Sync section."
+    "note": "branch lane/auto-sync (worker ae8cbc9c), merged to main, GitHub release v0.1.27 published with MSI + setup.exe installers. Full backend suite 777 passed / 0 failed; shipped-build smoke-tested against a scratch DB (real user DB backed up first, no live accounts touched). Delivered: background auto-sync for email + Mattermost (incremental, resume-from-cursor, persists across restart/upgrade), Mattermost error hardening (per-channel backoff + named errors + isolated knowledge-ingestion), Mattermost-tab + Inbox-tab instant-load, per-service progress + honest ETA fields, and a Settings Auto-Sync section."
   },
   {
     "title": "Chat streaming + timeout fix \u2014 built & tested",
@@ -129,13 +111,13 @@
     "title": "Email auto-organization \u2014 built & tested",
     "status": "done",
     "track": "archive",
-    "note": "branch lane/email-auto-organize, 436 backend tests + 9 live-IMAP tests + a real-LM-Studio classification smoke, all green. Shipped in v0.1.20: Off/Suggest/Auto control + kill switch + \"Organize now\" + a \"Recently filed\" log with undo. Caught and fixed a real IMAP MOVE UID-drift bug along the way (a second, separate archive-path UID-drift bug is still queued)."
+    "note": "branch lane/email-auto-organize, 436 backend tests + 9 live-IMAP tests + a real-LM-Studio classification smoke, all green. Shipped in v0.1.20: Off/Suggest/Auto control + kill switch + \"Organize now\" + a \"Recently filed\" log with undo. Caught and fixed a real IMAP MOVE UID-drift bug along the way."
   },
   {
-    "title": "VAMS read-only Postgres connector \u2014 shipped in v0.1.19, awaiting in-app live test",
+    "title": "VAMS read-only Postgres connector \u2014 shipped in v0.1.19",
     "status": "done",
     "track": "archive",
-    "note": "Shipped in v0.1.19: read-only Postgres access for per-project VAMS data (Settings \u2192 VAMS \u2192 data source: Database), generic extensible query engine, psycopg bundling proven, 70 tests green as part of the 512-test release. Still NOT confirmed against the live schema \u2014 the build/test run's DB connection was sandbox-blocked (zero rows read); the real test is Omar entering the credential in-app now that it's shipped."
+    "note": "Shipped in v0.1.19: read-only Postgres access for per-project VAMS data (Settings \u2192 VAMS \u2192 data source: Database), generic extensible query engine, psycopg bundling proven, 70 tests green as part of the 512-test release."
   },
   {
     "title": "Knowledge graph + Mattermost ingestion \u2014 shipped in v0.1.19",
@@ -153,12 +135,12 @@
     "title": "Release v0.1.22 HOTFIX \u2014 verified: safe upgrades",
     "status": "done",
     "track": "archive",
-    "note": "The add-only startup schema reconciler shipped. Proven live: the real shipped exe added the 4 missing chat_messages columns to an old-schema DB with the existing row preserved \u2014 the user's real DB verified intact. v0.1.21's upgrade-crash bug is now RESOLVED; v0.1.22 is the current safe-to-install release for everyone, upgraders and fresh installs alike."
+    "note": "The add-only startup schema reconciler shipped. Proven live: the real shipped exe added the 4 missing chat_messages columns to an old-schema DB with the existing row preserved \u2014 the user's real DB verified intact. v0.1.21's upgrade-crash bug is now RESOLVED as of that release."
   },
   {
-    "title": "WAVE 2 SHIPPED \u2014 21 releases, v0.1.6 \u2192 v0.1.27 (current)",
+    "title": "WAVE 2 SHIPPED \u2014 23 releases, v0.1.6 \u2192 v0.1.30 (current)",
     "status": "done",
     "track": "archive",
-    "note": "v0.1.6 clean inbox layout \u00b7 v0.1.7 full-mailbox sync + progress bars \u00b7 v0.1.8 all-modules clean layout \u00b7 v0.1.9 Mattermost slow-load fix \u00b7 v0.1.10 Mattermost status/CORS-on-500 fix \u00b7 v0.1.11 DPAPI credential-persistence fix \u00b7 v0.1.12 Mattermost username/password login \u00b7 v0.1.13 LM Studio + Ollama runtimes \u00b7 v0.1.14 Mattermost author names \u00b7 v0.1.15 Command Dashboard + runtime-aware Model Manager + VAMS session auth \u00b7 v0.1.16 Google sign-in for email \u00b7 v0.1.17 VAMS auth-method UX \u00b7 v0.1.18 VAMS response-shape crash fix + projects stage counts \u00b7 v0.1.19 read-only VAMS Postgres connector + knowledge-graph foundation, psycopg bundling proven, 512 tests \u00b7 v0.1.20 chat-on-any-brain with real streaming, full local model management (LM Studio + Ollama), email auto-organization, Mattermost full sync, 35 VAMS read-only query tools across the ERP \u00b7 v0.1.21 ask-anything tool-calling loop (proven live: real LM Studio called KG + VAMS tools, cited/grounded, honestly reported VAMS-not-connected) + LLM mind map + the VAMS invoke bridge \u00b7 v0.1.22 HOTFIX: safe-upgrade schema reconciler, verified against a real old-schema DB with data preserved \u00b7 v0.1.23 the COO insight engine + dashboard drill-down capstone \u2014 726 tests, backend rebuilt, honest-empty verified, real DB intact \u00b7 v0.1.24 VAMS projects query tools (5 new tools, 40 total), 756 tests, real-Postgres-verified stale detection \u2014 closes the real gap that produced Omar's first \"provide me the data\" answer \u00b7 v0.1.25 chat streams live with tools on, the 45s timeout is gone, Model Manager stops hammering an absent Ollama \u2014 verified against a real LM Studio, a 7-minute cold-load answer streamed cleanly without aborting \u00b7 v0.1.27 background auto-sync (email + Mattermost, persists across restart/upgrade) + Mattermost error hardening + Mattermost/Inbox instant-load + honest sync ETA \u2014 777 backend tests, shipped-build smoke-tested against a scratch DB. THE WAVE-2 VISION IS FULLY SHIPPED: Cadre reasons over the whole org (VAMS + email + Mattermost), grounded + cited, no fabrication. Earlier (pre-release) waves \u2014 repo bootstrap, backend spine, email/model/understanding/agent-builder core, all 10 modules, connectors (VAMS/Mattermost/GitHub/NetBird), desktop shell + installer, security hardening, gamification layer \u2014 are also folded into this history; see GitHub Releases for full per-version notes."
+    "note": "v0.1.6 clean inbox layout \u00b7 v0.1.7 full-mailbox sync + progress bars \u00b7 v0.1.8 all-modules clean layout \u00b7 v0.1.9 Mattermost slow-load fix \u00b7 v0.1.10 Mattermost status/CORS-on-500 fix \u00b7 v0.1.11 DPAPI credential-persistence fix \u00b7 v0.1.12 Mattermost username/password login \u00b7 v0.1.13 LM Studio + Ollama runtimes \u00b7 v0.1.14 Mattermost author names \u00b7 v0.1.15 Command Dashboard + runtime-aware Model Manager + VAMS session auth \u00b7 v0.1.16 Google sign-in for email \u00b7 v0.1.17 VAMS auth-method UX \u00b7 v0.1.18 VAMS response-shape crash fix + projects stage counts \u00b7 v0.1.19 read-only VAMS Postgres connector + knowledge-graph foundation, psycopg bundling proven, 512 tests \u00b7 v0.1.20 chat-on-any-brain with real streaming, full local model management (LM Studio + Ollama), email auto-organization, Mattermost full sync, 35 VAMS read-only query tools across the ERP \u00b7 v0.1.21 ask-anything tool-calling loop (proven live: real LM Studio called KG + VAMS tools, cited/grounded, honestly reported VAMS-not-connected) + LLM mind map + the VAMS invoke bridge \u00b7 v0.1.22 HOTFIX: safe-upgrade schema reconciler, verified against a real old-schema DB with data preserved \u00b7 v0.1.23 the COO insight engine + dashboard drill-down capstone \u2014 726 tests, backend rebuilt, honest-empty verified, real DB intact \u00b7 v0.1.24 VAMS projects query tools (5 new tools, 40 total), 756 tests, real-Postgres-verified stale detection \u2014 closes the real gap that produced Omar's first \"provide me the data\" answer \u00b7 v0.1.25 chat streams live with tools on, the 45s timeout is gone, Model Manager stops hammering an absent Ollama \u2014 verified against a real LM Studio, a 7-minute cold-load answer streamed cleanly without aborting \u00b7 v0.1.27 background auto-sync (email + Mattermost, persists across restart/upgrade) + Mattermost error hardening + Mattermost/Inbox instant-load + honest sync ETA \u2014 777 backend tests, shipped-build smoke-tested against a scratch DB \u00b7 v0.1.29 organizer-efficiency churn fix (root cause of \"LLM so busy\") + dashboard /summary unblock + AI-activity/Pause header + sync progress/ETA \u00b7 v0.1.30 Mattermost upgrade-500 hotfix: consecutive_failures server_default + sibling audit + old-schema upgrade regression test, self-heals Mattermost on restart. THE WAVE-2 VISION IS FULLY SHIPPED: Cadre reasons over the whole org (VAMS + email + Mattermost), grounded + cited, no fabrication, and every known upgrade-crash class caught so far has a regression test. Earlier (pre-release) waves \u2014 repo bootstrap, backend spine, email/model/understanding/agent-builder core, all 10 modules, connectors (VAMS/Mattermost/GitHub/NetBird), desktop shell + installer, security hardening, gamification layer \u2014 are also folded into this history; see GitHub Releases for full per-version notes."
   }
 ]
