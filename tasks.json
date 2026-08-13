@@ -6,6 +6,12 @@
     "note": "branch lane/chat-reliability (worker abb225d55a25f30d5). P1: tool-calling chat must stream end-to-end \u2014 optimistic render of the user's own question the instant it's sent, live token-by-token streaming of the model's answer, and NO 45s timeout anywhere in the tool-calling path (not just extended \u2014 eliminated, liveness comes from the stream itself). Also routes chat OFF the small 2B model (google/gemma-4-e2b) onto a capable tool-calling model, user-overridable in settings, and keeps the chat brain warm so it doesn't cold-load per request. Ships its own release, v0.1.31."
   },
   {
+    "title": "Projects/Gantt from VAMS Sales Orders",
+    "status": "in_progress",
+    "track": "active",
+    "note": "branch lane/gantt-vams-sales-orders (worker ad602162). Omar request: the Projects/Gantt section polls OPEN sales orders from the VAMS Postgres (skips completed), renders each as a Gantt bar (order-received \u2192 contractual/forecasted delivery, on-track vs delayed, delivered marked), plus per-SO DETERMINISTIC analysis (stage, delivery status, value, downstream engineering/production/procurement WO+PO chain via job_chain, bottleneck/overdue flagged \u2014 no model call by default). Reuses existing pg_source_sales.py + pg_source_traversal (job_chain) + the existing GanttChart component. Builds/tests against a mock \u2014 never the production VAMS DB. Lands on branch for a batch."
+  },
+  {
     "title": "VAMS attention-feed AI-churn fix \u2014 code-complete, awaiting batch",
     "status": "done",
     "track": "ready",
