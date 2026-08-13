@@ -6,16 +6,16 @@
     "note": "branch lane/chat-reliability (worker abb225d55a25f30d5). P1: tool-calling chat must stream end-to-end \u2014 optimistic render of the user's own question the instant it's sent, live token-by-token streaming of the model's answer, and NO 45s timeout anywhere in the tool-calling path (not just extended \u2014 eliminated, liveness comes from the stream itself). Also routes chat OFF the small 2B model (google/gemma-4-e2b) onto a capable tool-calling model, user-overridable in settings, and keeps the chat brain warm so it doesn't cold-load per request. Ships its own release, v0.1.31."
   },
   {
-    "title": "Per-mailbox AI switch + Gmail \\Noselect fix",
-    "status": "in_progress",
-    "track": "active",
-    "note": "branch lane/per-account-ai-switch (worker a5f5dbeee2b56cf85). Adds EmailAccount.ai_enabled (server_default='1', so existing accounts upgrade safely still on) \u2014 when an account is switched off it still syncs and stays fully readable, but is excluded from the understanding pipeline / organizer / knowledge-graph ingestion. Includes an old-schema upgrade regression test (parity with the v0.1.30 upgrade-crash lesson). Scope expanded to also fix a Gmail IMAP \\Noselect folder-listing bug hit during the lane's work. Lands on branch \u2014 not its own release yet."
-  },
-  {
     "title": "VAMS attention-feed AI-churn fix \u2014 code-complete, awaiting batch",
     "status": "done",
     "track": "ready",
     "note": "branch lane/vams-attentionfeed-churn (worker a8f3d336271857a6c). CODE-COMPLETE: 3 micro-commits (backend cache + pause-gate for `_executive_summary` so it stops re-narrating the model on every load/poll and honors the \"Pause background AI\" switch, 7 new churn tests, frontend lazy-summary fetch). test_vams_attention_feed.py 33 passed, affected-path subset 67 passed, @cadre/core typecheck clean. NOT yet built/shipped \u2014 full backend suite re-runs at integration; batches into v0.1.32 alongside the rest of wave B."
+  },
+  {
+    "title": "Per-mailbox AI switch + Gmail \\Noselect fix \u2014 CERTIFIED, awaiting batch",
+    "status": "done",
+    "track": "ready",
+    "note": "branch lane/per-account-ai-switch (worker a5f5dbeee2b56cf85), HEAD 3a4f367. CERTIFIED: backend 809 passed / 0 failed baseline + isolation-verified \\Noselect delta; the ai_enabled OLD-schema upgrade test is GREEN (migration-trap guard: column def Boolean, nullable=False, server_default=\"1\", default=True \u2014 existing accounts backfill AI-on, row survives, idempotent, parity with the v0.1.30 upgrade-crash lesson); Gmail IMAP \\Noselect folder-skip test GREEN (3 passed); frontend typecheck + vitest (35) + build all green. Enforcement verified: understanding/organizer/knowledge-graph ingestion skip when AI is off; mailbox_sync + inbox read paths untouched (an AI-off account still syncs and stays fully readable). NOT yet built/shipped \u2014 batches into v0.1.32 alongside the rest of wave B."
   },
   {
     "title": "Sync Status & Control tab (own lane)",
