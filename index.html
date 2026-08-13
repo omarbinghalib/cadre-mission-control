@@ -248,8 +248,8 @@
     <div class="split"><div><p class="eyebrow">Cadre program — 3 lanes running now</p><h2>Fleet status at a glance</h2></div></div>
     <div class="row" style="gap:8px;flex-wrap:wrap;margin:8px 0 6px">
   <span class="chip ok" style="border-color:var(--ok);background:var(--ok-ink);color:#fff"><b>WAVE 2 SHIPPED — through v0.1.30</b></span>
-  <span class="chip ok"><span class="dp beat"></span>2 lanes running now</span>
-  <span class="chip mute">2 ready — awaiting batch</span>
+  <span class="chip ok"><span class="dp beat"></span>1 lane running now</span>
+  <span class="chip mute">3 ready — awaiting batch</span>
   <span class="chip mute">23 releases shipped</span>
   <span class="chip mute">5 queued — wave B</span>
 </div>
@@ -267,11 +267,6 @@
     <div class="sub" style="margin-top:3px;padding:7px 9px;border-radius:7px;background:var(--panel-2);border:1px solid var(--serious)"><b style="color:var(--serious)">P1:</b> tool-calling chat must stream end-to-end — the user's own question renders instantly (optimistic), the model's answer streams live token-by-token, and the 45s timeout is eliminated, not just extended (liveness comes from the stream itself).</div>
     <div class="sub" style="margin-top:6px">Also routes chat off the small 2B model (google/gemma-4-e2b) onto a capable tool-calling model — user-overridable in settings — and keeps the chat brain warm so it doesn't cold-load per request. Ships its own release as v0.1.31.</div>
   </li>
-  <li style="padding:10px 0;border-top:1px solid var(--line)">
-    <span class="wname" style="font-weight:650">Projects/Gantt from VAMS Sales Orders</span>
-    <span class="chip ok" style="margin-left:8px">running · lands on branch</span>
-    <div class="sub" style="margin-top:6px">Omar request: the Projects/Gantt section polls OPEN sales orders from the VAMS Postgres (skips completed) and renders each as a Gantt bar — order-received → contractual/forecasted delivery, on-track vs delayed, delivered marked — plus per-SO DETERMINISTIC analysis (stage, delivery status, value, downstream engineering/production/procurement WO+PO chain via <span class="mono">job_chain</span>, bottleneck/overdue flagged; <b>no model call by default</b>). Reuses existing <span class="mono">pg_source_sales.py</span> + <span class="mono">pg_source_traversal</span> (job_chain) + the existing GanttChart component. Builds/tests against a mock — never the production VAMS DB. Lands on <span class="mono">lane/gantt-vams-sales-orders</span> for a batch.</div>
-  </li>
 </ul>
 <p class="foot" style="margin:6px 0 0">Operational note: active build lanes are deliberately kept to ≤3 — the workers run on Omar's own machine, and too much parallelism worsens the very live-app slowness he's reported before.</p>
 
@@ -279,12 +274,15 @@
 <div class="sub" style="padding:10px 0;border-top:1px solid var(--line)">
   <b style="color:var(--ok-ink)">VAMS attention-feed AI-churn fix</b> — CODE-COMPLETE on <span class="mono">lane/vams-attentionfeed-churn</span> (worker a8f3d336): 3 micro-commits (backend cache + pause-gate for <span class="mono">_executive_summary</span> so it stops re-narrating the model on every load/poll and honors the "Pause background AI" switch, 7 new churn tests, frontend lazy-summary fetch). <span class="mono">test_vams_attention_feed.py</span> 33 passed, affected-path subset 67 passed, @cadre/core typecheck clean. Not yet built/shipped — the full backend suite re-runs at integration; batches into v0.1.32.
 </div>
-<div class="sub" style="padding:10px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+<div class="sub" style="padding:10px 0;border-top:1px solid var(--line)">
   <b style="color:var(--ok-ink)">Per-mailbox AI switch + Gmail \Noselect fix</b> — CERTIFIED on <span class="mono">lane/per-account-ai-switch</span> (worker a5f5dbee, HEAD <span class="mono">3a4f367</span>): backend 809 passed / 0 failed baseline + isolation-verified <span class="mono">\Noselect</span> delta; the <span class="mono">ai_enabled</span> OLD-schema upgrade test is GREEN (migration-trap guard: column def <span class="mono">Boolean, nullable=False, server_default="1", default=True</span> — existing accounts backfill AI-on, row survives, idempotent — parity with the v0.1.30 upgrade-crash lesson); Gmail IMAP <span class="mono">\Noselect</span> folder-skip test GREEN (3 passed); frontend typecheck + vitest (35) + build all green. Enforcement verified: understanding/organizer/knowledge-graph ingestion skip when AI is off; mailbox_sync + inbox read paths untouched (an AI-off account still syncs and stays fully readable). Not yet built/shipped — batches into v0.1.32.
+</div>
+<div class="sub" style="padding:10px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <b style="color:var(--ok-ink)">Projects/Gantt from VAMS Sales Orders</b> — CODE-COMPLETE + GREEN on <span class="mono">lane/gantt-vams-sales-orders</span> (worker ad602162, HEAD <span class="mono">0e6d924</span>): backend <span class="mono">/vams/sales-orders</span> (open only — completed stages 9/10/14 excluded) + deterministic <span class="mono">/analysis</span> (delivery status + downstream WO/PO bottlenecks, <b>no model call by default</b> — asserted by test) + an optional cached/pause-gated <span class="mono">/analysis/narrative</span>; frontend toggle in Projects/Gantt rendering open SOs on the existing GanttChart + a per-SO analysis drawer. Backend VAMS suite 309 passed / 8 skipped + 24 new; frontend typecheck + vitest 43 (8 new) + build all green. 9 micro-commits, tested against a mock — never the production VAMS DB. Not yet pushed/shipped — batches into v0.1.32.
 </div>
 
 <p class="eyebrow" style="margin:18px 0 6px">Queued — wave B, batches into v0.1.32</p>
-<div class="sub" style="margin:0 0 8px">Dispatches once both active lanes above and both ready lanes have landed, on a clean merged base.</div>
+<div class="sub" style="margin:0 0 8px">Dispatches once the active lane above and all three ready lanes have landed, on a clean merged base.</div>
 <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0">
   <li style="padding:7px 0;border-top:1px solid var(--line)"><span class="sub"><b style="color:var(--ink-2)">Sync Status &amp; Control tab (own lane)</b> — a new dedicated tab: overview + drill-down depth per source (email/Mattermost/VAMS), pause/resume/run-now controls per source, and a viewable error log. Mattermost shows "live (connected)" here, not "crawling X% of history."</span></li>
   <li style="padding:7px 0;border-top:1px solid var(--line)"><span class="sub"><b style="color:var(--ink-2)">Mattermost: live-browse + lazy AI index + sidebar reorg</b> — RESHAPED (Omar decision, replaces the old "faster full-history crawl" plan): browsing goes live like the native app (WebSocket + live REST, instant + always-current, lazy-load on scroll, cache-paint then live on top) — <b>drops the eager full-history crawl entirely</b>. AI-indexing becomes lazy/scoped (recent/active channels in the background + more on-demand when the AI is actually asked, replacing the old blanket full-crawl). Sidebar reorg kept: most-recent-first, Direct Messages split from Channels. Rationale: the local copy only ever existed to feed the cross-source AI — browsing never needed it, and the eager crawl was the real source of the slowness.</span></li>
