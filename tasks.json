@@ -33,7 +33,7 @@
     "title": "v0.1.32 release \u2014 VAMS attention-feed churn + per-mailbox AI switch + Gantt \u2014 SHIPPED",
     "status": "done",
     "track": "archive",
-    "note": "main 5e9c13d, Latest release, both installers (MSI + setup.exe). Ships: VAMS attention-feed AI-churn fix, per-mailbox AI switch + Gmail \\Noselect fix, and Projects/Gantt from VAMS Sales Orders (see the 3 individual entries below for per-feature detail). 845 backend + 225 model-manager + 45 frontend tests green; packaged-exe smoke verified the ai_enabled OLD-schema upgrade path AND the VAMS sales-order endpoints against the built exe, not just source. Still the latest installable release — v0.1.33 (Mattermost + Email + app-wide sweep + Sync Status/reaper) hasn't built yet, so this is the build Omar should install next."
+    "note": "main 5e9c13d, Latest release, both installers (MSI + setup.exe). Ships: VAMS attention-feed AI-churn fix, per-mailbox AI switch + Gmail \\Noselect fix, and Projects/Gantt from VAMS Sales Orders (see the 3 individual entries below for per-feature detail). 845 backend + 225 model-manager + 45 frontend tests green; packaged-exe smoke verified the ai_enabled OLD-schema upgrade path AND the VAMS sales-order endpoints against the built exe, not just source. Still the latest installable release \u2014 v0.1.33 (Mattermost + Email + app-wide sweep + Sync Status/reaper) hasn't built yet, so this is the build Omar should install next."
   },
   {
     "title": "VAMS attention-feed AI-churn fix \u2014 SHIPPED (v0.1.32)",
