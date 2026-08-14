@@ -249,35 +249,38 @@
     <div class="row" style="gap:8px;flex-wrap:wrap;margin:8px 0 6px">
   <span class="chip ok" style="border-color:var(--ok);background:var(--ok-ink);color:#fff"><b>WAVE 2 SHIPPED — through v0.1.32</b></span>
   <span class="chip ok"><span class="dp beat"></span>1 lane running now</span>
-  <span class="chip mute">3 ready — awaiting v0.1.33 batch (final wave-B release)</span>
+  <span class="chip mute">ALL wave-B lanes code-complete — v0.1.33 integrating + building + shipping</span>
   <span class="chip mute">25 releases shipped</span>
 </div>
 
 <p class="eyebrow" style="margin:16px 0 8px">Milestone</p>
 <div class="sub" style="padding:10px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-  <b style="color:var(--ok-ink)">Wave 2 is fully shipped, through v0.1.32.</b> Cadre reasons over the whole org — VAMS + email + Mattermost — grounded and cited, never fabricated. Since the last update: the app-wide "no screen reloads on open" sweep is <b>COMPLETE + VERIFIED</b> — all 12 remaining modules (calendar, integrations, contacts, vams, github, network, model-manager + 10 panels, presentations, agents, reports, projects, settings) migrated onto the shared <span class="mono">useCachedResource</span> instant-load primitive; @cadre/core typecheck + 66 vitest + vite build all green, and its own review pass caught and fixed a must-fix (swallowed create-project errors) plus banner polish. Fleet is down to a single active lane. <b>Release plan:</b> once Sync Status &amp; Control + the reaper land, v0.1.33 batch-integrates app-wide sweep + Sync Status + reaper onto main (Mattermost + Email are already merged) → build → verify → ship. That's the "finish everything" release — the whole wave-B backlog in one build.
+  <b style="color:var(--ok-ink)">Wave 2 is fully shipped, through v0.1.32.</b> Cadre reasons over the whole org — VAMS + email + Mattermost — grounded and cited, never fabricated. Since the last update: Sync Status &amp; Control + the stale-job reaper landed <b>DONE + GREEN</b> — a Sync-Status module (overview per source: state/progress/ETA/depth + drill-down per folder/channel + pause/resume/run-now + a global pause + a viewable error log) plus the reaper that unsticks jobs stuck in <span class="mono">status=running</span>, plus a SYNC-pause distinct from the existing AI-pause; 2 new tables only (zero migration risk); backend 876 passed + frontend 78 vitest + typecheck + build all green. <b>ALL wave-B lanes are now code-complete.</b> The FINAL release is dispatched: <b>v0.1.33 — integrate + build + ship</b>, merging the app-wide sweep + Sync Status/reaper onto main (which already has Mattermost live-browse + Email recent-first) → full-verify → build installers → isolated smoke test → publish v0.1.33 Latest. This is the "finish everything" release — the whole wave-B backlog (Mattermost live-browse + Email recent-first + app-wide no-reload sweep + Sync Status tab + reaper) in one build.
 </div>
 
 <p class="eyebrow" style="margin:16px 0 8px">Active lane — running now</p>
 <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0">
   <li style="padding:10px 0;border-top:1px solid var(--line)">
-    <span class="wname" style="font-weight:650">Sync Status &amp; Control tab + stale-running sync-job reaper</span>
-    <span class="chip ok" style="margin-left:8px">running · lane/sync-status-control, off main 7961363</span>
-    <div class="sub" style="margin-top:3px">Building a new dedicated tab — overview + drill-down depth + pause/resume/run-now controls per source + a timestamped error log, adapted to the new live-browse/recent-first sync model — together with the reaper that unsticks sync jobs stuck in <span class="mono">status=running</span> after a mid-run crash. The last piece before v0.1.33 batch-builds.</div>
+    <span class="wname" style="font-weight:650">v0.1.33 release — integrate + build + ship</span>
+    <span class="chip ok" style="margin-left:8px">running · release/v0.1.33, off main 7961363</span>
+    <div class="sub" style="margin-top:3px">The final wave-B release. Merges the app-wide no-reload sweep (<span class="mono">a07db4b</span>) + Sync Status &amp; Control tab/reaper (<span class="mono">6cbd54b</span>) onto main — which already carries Mattermost live-browse + Email recent-first — bumps the version to 0.1.33, runs the full verification suite, builds the installers, runs an isolated smoke test, then pushes main and publishes v0.1.33 as Latest.</div>
   </li>
 </ul>
-<p class="foot" style="margin:6px 0 0">Operational note: active build lanes are deliberately kept to ≤3 — the workers run on Omar's own machine, and too much parallelism worsens the very live-app slowness he's reported before. Worker fleet is settling (the sweep's sub-agents are all done). Once this lane lands, v0.1.33 dispatches.</p>
+<p class="foot" style="margin:6px 0 0">Operational note: active build lanes are deliberately kept to ≤3 — the workers run on Omar's own machine, and too much parallelism worsens the very live-app slowness he's reported before.</p>
 
-<p class="eyebrow" style="margin:18px 0 6px">Ready — awaiting the v0.1.33 batch build</p>
+<p class="eyebrow" style="margin:18px 0 6px">Integrating into v0.1.33</p>
 <div class="sub" style="padding:10px 0;border-top:1px solid var(--line)">
-  <b style="color:var(--ok-ink)">App-wide "no screen reloads on open" sweep</b> — COMPLETE + VERIFIED on <span class="mono">lane/app-wide-instant-load</span> @ <span class="mono">a07db4b</span> (worker ad12e40f), 10 commits. All 12 remaining modules migrated onto the shared cached-resource instant-load primitive: calendar, integrations, contacts, vams, github, network, model-manager (+10 panels), presentations, agents, reports, projects, settings. (mattermost/inbox/chat/dashboard were already done.) @cadre/core typecheck PASS + 66 vitest + vite build PASS. Not pushed, no installer yet.
+  <b style="color:var(--ok-ink)">Sync Status &amp; Control tab + stale-running sync-job reaper</b> — DONE + GREEN on <span class="mono">lane/sync-status-control</span> @ <span class="mono">6cbd54b</span> (worker a43513a): a Sync-Status module (overview per source: state/progress/ETA/depth + drill-down per folder/channel + pause/resume/run-now + a global pause + a viewable SyncErrorLog) + the reaper (unsticks jobs stuck in status=running, heartbeat-safe) + a SYNC-pause distinct from AI-pause. NEW tables only (SyncErrorLog, SyncPauseState) — zero migration risk. Backend 876 passed + frontend 78 vitest + typecheck + build green.
 </div>
 <div class="sub" style="padding:10px 0;border-top:1px solid var(--line)">
-  <b style="color:var(--ok-ink)">Mattermost: live-browse + lazy AI index + sidebar reorg</b> — CODE-COMPLETE + GREEN, MERGED onto main (<span class="mono">7961363</span>): cache-paint instant + WS live-on-top + lazy older-load; the eager full-history crawl is DROPPED entirely (bounded recent window + opt-in <span class="mono">deep_index_channel</span> on scroll-back replaces the old blanket full-crawl); AI indexing is recent/active-scoped and lazy; sidebar splits Channels (O/P) from DMs (D/G), each sorted recents-first. 2 new DB columns, both NULLABLE (reconciler-safe) + an extended old-schema upgrade regression test.
+  <b style="color:var(--ok-ink)">App-wide "no screen reloads on open" sweep</b> — COMPLETE + VERIFIED on <span class="mono">lane/app-wide-instant-load</span> @ <span class="mono">a07db4b</span> (worker ad12e40f), 10 commits. All 12 remaining modules migrated onto the shared cached-resource instant-load primitive: calendar, integrations, contacts, vams, github, network, model-manager (+10 panels), presentations, agents, reports, projects, settings. (mattermost/inbox/chat/dashboard were already done.) @cadre/core typecheck PASS + 66 vitest + vite build PASS.
+</div>
+<div class="sub" style="padding:10px 0;border-top:1px solid var(--line)">
+  <b style="color:var(--ok-ink)">Mattermost: live-browse + lazy AI index + sidebar reorg</b> — CODE-COMPLETE + GREEN, already MERGED onto main (<span class="mono">7961363</span>): cache-paint instant + WS live-on-top + lazy older-load; the eager full-history crawl is DROPPED entirely; AI indexing is recent/active-scoped and lazy; sidebar splits Channels (O/P) from DMs (D/G), each sorted recents-first.
 </div>
 <div class="sub" style="padding:10px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-  <b style="color:var(--ok-ink)">Email: recent-first + lazy AI index</b> — CODE-COMPLETE + GREEN, MERGED onto main (<span class="mono">7961363</span>): recent-first (newest 500/folder via <span class="mono">fetch_recent_window</span>) + fetch-on-demand (older-on-scroll, body-on-click) + cache-paint. Eager full-mailbox crawl DROPPED — only runs under the new opt-in backfill switch. Lazy AI index auto-scoped to recent (understanding stays ON, deeper on body-click). Per-account "Backfill &amp; index everything" switch implemented as a NEW table <span class="mono">EmailAccountSyncPref</span> (zero migration risk, additive) + an old-schema upgrade regression test.
-  <p class="foot" style="margin:6px 0 0">All 3 above batch into v0.1.33 together with the Sync Status tab + reaper, once that lane lands.</p>
+  <b style="color:var(--ok-ink)">Email: recent-first + lazy AI index</b> — CODE-COMPLETE + GREEN, already MERGED onto main (<span class="mono">7961363</span>): recent-first (newest 500/folder) + fetch-on-demand (older-on-scroll, body-on-click) + cache-paint. Eager full-mailbox crawl DROPPED — only runs under the new opt-in backfill switch. Lazy AI index auto-scoped to recent.
+  <p class="foot" style="margin:6px 0 0">All 4 above are being integrated, built, and shipped together as v0.1.33 by the release lane above.</p>
 </div>
 
 <p class="eyebrow" style="margin:18px 0 6px">Shipped</p>
@@ -286,7 +289,7 @@
 <p class="eyebrow" style="margin:18px 0 6px">Awaiting from Omar</p>
 <p class="sub" style="margin:0">Three items are outstanding (tracked here, not as an alert — nothing is currently blocking the fleet):</p>
 <ul style="list-style:none;margin:6px 0 0;padding:0;display:flex;flex-direction:column;gap:0">
-  <li style="padding:6px 0;border-top:1px solid var(--line)"><span class="sub">Install v0.1.32 — VAMS attention-feed churn fix + per-mailbox AI switch/\Noselect fix + Projects/Gantt from VAMS Sales Orders (v0.1.33 — the full wave-B backlog in one release — is next, once Sync Status/reaper lands).</span></li>
+  <li style="padding:6px 0;border-top:1px solid var(--line)"><span class="sub">Install v0.1.32 — v0.1.33 (Mattermost live-browse + Email recent-first + app-wide no-reload + Sync Status + reaper — the "finish everything" release) is building now, close behind.</span></li>
   <li style="padding:6px 0;border-top:1px solid var(--line)"><span class="sub">Rotate the personal VAMS web password shared in chat to a dedicated service account.</span></li>
   <li style="padding:6px 0;border-top:1px solid var(--line)"><span class="sub">Add a Claude API key whenever he wants cloud reasoning available alongside the local models.</span></li>
 </ul>
