@@ -24,34 +24,34 @@
     "note": "branch lane/gantt-vams-sales-orders (worker ad602162), HEAD 0e6d924. CODE-COMPLETE + GREEN: backend `/vams/sales-orders` (open only \u2014 completed stages 9/10/14 excluded) + deterministic `/analysis` (delivery status + downstream WO/PO bottlenecks, NO model call by default \u2014 asserted by test) + optional cached/pause-gated `/analysis/narrative`; frontend toggle in Projects/Gantt rendering open SOs on the existing GanttChart + a per-SO analysis drawer. Backend VAMS suite 309 passed / 8 skipped + 24 new; frontend typecheck + vitest 43 (8 new) + build all green. 9 micro-commits, tested against a mock \u2014 never the production VAMS DB. Merged into release/v0.1.32 \u2014 now integrating (see the v0.1.32 release task above), not yet shipped."
   },
   {
-    "title": "Mattermost: live-browse + lazy AI index + sidebar reorg (no eager full crawl)",
-    "status": "in_progress",
-    "track": "active",
-    "note": "branch lane/mattermost-live-browse (worker ac1f0206e64405af5). DISPATCHED \u2014 now one of 3 active build lanes. RESHAPED scope (Omar decision, \"Live browse + lazy AI index\" \u2014 replaces the old \"faster full-history crawl\" plan): (a) BROWSING goes LIVE like the native app \u2014 WebSocket + live REST fetch, channels/messages load instantly and stay current, lazy-load on scroll, paint last-seen cache instantly then live on top; DROPS the eager full-history crawl entirely. (b) AI-INDEXING becomes LAZY/SCOPED \u2014 index only recent/active channels in the background plus more on-demand when the AI is actually asked, not a blanket full-history sync (replaces the auto-sync Mattermost full-crawl). (c) Sidebar reorg kept \u2014 sort the channel/DM list most-recent-first (DESC) and split Direct Messages into their own section, separate from Channels. Rationale: the local copy only ever existed to feed the cross-source AI; browsing never needed it, and the eager crawl was the actual source of the slowness. Also updates the Sync Status tab (queued below) to show Mattermost as \"live (connected)\" rather than \"crawling X% of history.\""
+    "title": "Mattermost: live-browse + lazy AI index + sidebar reorg \u2014 CODE-COMPLETE, ready for v0.1.33",
+    "status": "done",
+    "track": "ready",
+    "note": "branch lane/mattermost-live-browse @ 0c55142 (worker ac1f0206e64405af5). CODE-COMPLETE + GREEN, LANDED: cache-paint instant + WS live-on-top + lazy older-load; eager full-history crawl DROPPED entirely (bounded recent window + opt-in deep_index_channel on scroll-back replaces the old blanket full-crawl); recent/active-scoped lazy AI index; sidebar splits Channels (O/P) from DMs (D/G), each sorted recents-first. 2 new DB columns, both NULLABLE (reconciler-safe, no migration-crash risk) + an extended old-schema upgrade regression test. Backend 807 passed / 0 failed + frontend typecheck + 49 vitest + build all green. 7 commits, NOT yet pushed. Moved to Ready \u2014 awaiting wave-B batch (v0.1.33), alongside Email recent-first + Sync Status tab + stale-job reaper + no-reload sweep (v0.1.32 ships standalone first, without this)."
   },
   {
     "title": "Email: recent-first + lazy AI index",
     "status": "in_progress",
     "track": "active",
-    "note": "branch lane/email-recent-first (worker a858acf218fac351c). DISPATCHED \u2014 now one of 3 active build lanes. Omar scope-add, sibling to the Mattermost lane above, same principle: DROP the eager full-mailbox-history crawl. Instead: fetch a folder's recent messages on open + message bodies on click + load older on scroll \u2014 email over IMAP is request/response, not a WebSocket, so this is \"recent-first + fetch-on-demand,\" not a live socket (contrast with Mattermost's live-browse). AI understanding stays ON (email is the core signal feeding calendar/projects/contacts/reports, so it isn't switched off) but goes LAZY: index recent + active mail in the background + deeper on-demand, rather than crawling years of history up front. Includes an optional \"backfill/index everything\" switch for full historical coverage when wanted. Ties into the Sync Status tab (queued below): email shows recent-first + indexing progress there."
+    "note": "branch lane/email-recent-first (worker a858acf218fac351c). BUILDING \u2014 one of 2 active build lanes (alongside the v0.1.32 release integration above; Mattermost live-browse landed code-complete and moved to Ready, see below). Omar scope-add, sibling to the Mattermost lane, same principle: DROP the eager full-mailbox-history crawl. Instead: fetch a folder's recent messages on open + message bodies on click + load older on scroll \u2014 email over IMAP is request/response, not a WebSocket, so this is \"recent-first + fetch-on-demand,\" not a live socket (contrast with Mattermost's live-browse). AI understanding stays ON (email is the core signal feeding calendar/projects/contacts/reports, so it isn't switched off) but goes LAZY: index recent + active mail in the background + deeper on-demand, rather than crawling years of history up front. Includes an optional \"backfill/index everything\" switch for full historical coverage when wanted. Once landed, batches into wave-B v0.1.33 with Mattermost live-browse + Sync Status tab + reaper + sweep."
   },
   {
     "title": "Sync Status & Control tab (own lane)",
     "status": "pending",
     "track": "queued",
-    "note": "Wave B. Dispatches right after Mattermost live-browse + Email recent-first land \u2014 this tab is built on the new sync model those two lanes introduce. NEW dedicated tab: overview + drill-down depth per source (email/Mattermost/VAMS), pause/resume/run-now controls per source, and a viewable error log. Mattermost's status here shows \"live (connected)\" (post live-browse reshape), not \"crawling X% of history.\""
+    "note": "Wave B (v0.1.33). Dispatches once Email recent-first lands (Mattermost live-browse already landed code-complete, Ready above). NEW dedicated tab: overview + drill-down depth per source (email/Mattermost/VAMS), pause/resume/run-now controls per source, and a viewable error log. Mattermost's status here shows \"live (connected)\" (post live-browse reshape), not \"crawling X% of history.\""
   },
   {
     "title": "Stale \"running\" sync-job reaper",
     "status": "pending",
     "track": "queued",
-    "note": "Wave B. Dispatches alongside the Sync Status tab above. A sync crashing mid-run leaves its job row status=running forever, silently blocking both the auto-sync scheduler and manual \"Sync Now\" from ever retrying that source \u2014 matters a lot more now that background auto-sync (v0.1.27) runs on a timer."
+    "note": "Wave B (v0.1.33). Dispatches once Email recent-first lands, alongside the Sync Status tab above. A sync crashing mid-run leaves its job row status=running forever, silently blocking both the auto-sync scheduler and manual \"Sync Now\" from ever retrying that source \u2014 matters a lot more now that background auto-sync (v0.1.27) runs on a timer."
   },
   {
     "title": "App-wide \"no screen reloads on open\" sweep",
     "status": "pending",
     "track": "queued",
-    "note": "Wave B. Dispatches once Mattermost live-browse + Email recent-first land. Omar's standing rule: no screen/tab/options page may reload-everything-live on open. Build the shared client-side cached-resource primitive (instant-from-cache + background revalidate, persisted) and migrate every remaining tab/options screen onto it \u2014 dashboard/inbox/mattermost are already done."
+    "note": "Wave B (v0.1.33). Sequenced LAST \u2014 dispatches after the Sync Status tab + stale-job reaper above land. Omar's standing rule: no screen/tab/options page may reload-everything-live on open. Build the shared client-side cached-resource primitive (instant-from-cache + background revalidate, persisted) and migrate every remaining tab/options screen onto it \u2014 dashboard/inbox/mattermost are already done."
   },
   {
     "title": "Chat reliability \u2014 streaming + capable-model routing + keep-warm \u2014 SHIPPED",
