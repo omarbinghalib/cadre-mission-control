@@ -1,22 +1,22 @@
 {
-  "updated": "2026-08-14T04:41:32Z",
-  "heartbeat_at": "2026-08-14T04:41:32Z",
-  "last_activity": "2026-08-14T04:41:32Z",
+  "updated": "2026-08-14T04:42:37Z",
+  "heartbeat_at": "2026-08-14T04:42:37Z",
+  "last_activity": "2026-08-14T04:42:37Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
-    "output_tokens": 5646066,
-    "cache_read_tokens": 695609097,
-    "cache_creation_tokens": 59352577,
-    "msgs": 1554,
-    "sessions": 1,
-    "live_sessions": 1,
+    "output_tokens": 5699577,
+    "cache_read_tokens": 697666580,
+    "cache_creation_tokens": 60805400,
+    "msgs": 1561,
+    "sessions": 4,
+    "live_sessions": 4,
     "transcript_sessions": 1,
-    "subagent_sessions": 0,
-    "workers": 1,
-    "live_workers": 1,
+    "subagent_sessions": 3,
+    "workers": 4,
+    "live_workers": 4,
     "stopped_workers": 0,
-    "current_workers": 1,
+    "current_workers": 4,
     "history_workers": 119,
     "recent_window_min": 120.0
   },
@@ -31,27 +31,144 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-14T04:41:32Z",
-      "out_age_min": 2.8,
+      "out_last_active": "2026-08-14T04:42:36Z",
+      "out_age_min": 0.0,
       "log_bytes": null,
       "status": "live",
       "live": true,
       "signal": "coordinating (orchestrator)",
       "recent": true
+    },
+    {
+      "name": "Email recent-first + lazy index",
+      "role": "email-recent-first-lazy-index",
+      "branch": null,
+      "focus": "Email recent-first + lazy index",
+      "agent_id": "a858acf218fac351c",
+      "short_id": "a858acf2",
+      "head_commit": null,
+      "head_commit_at": null,
+      "head_ago_min": null,
+      "out_last_active": "2026-08-14T04:42:36Z",
+      "out_age_min": 0.0,
+      "log_bytes": 19490,
+      "output_tokens": 291,
+      "cache_read_tokens": 70391,
+      "cache_creation_tokens": 22847,
+      "msgs": 4,
+      "status": "live",
+      "live": true,
+      "signal": "task-output mtime + git commit",
+      "recent": true
+    },
+    {
+      "name": "Ship v0.1.32 (3 ready branches)",
+      "role": "ship-v0-1-32-3-ready-branches",
+      "branch": null,
+      "focus": "Ship v0.1.32 (3 ready branches)",
+      "agent_id": "a9f3ad59108212caa",
+      "short_id": "a9f3ad59",
+      "head_commit": null,
+      "head_commit_at": null,
+      "head_ago_min": null,
+      "out_last_active": "2026-08-14T04:42:35Z",
+      "out_age_min": 0.0,
+      "log_bytes": 41484,
+      "output_tokens": 2025,
+      "cache_read_tokens": 242072,
+      "cache_creation_tokens": 45356,
+      "msgs": 14,
+      "status": "live",
+      "live": true,
+      "signal": "task-output mtime + git commit",
+      "recent": true
+    },
+    {
+      "name": "Mattermost live-browse + lazy index",
+      "role": "mattermost-live-browse-lazy-index",
+      "branch": null,
+      "focus": "Mattermost live-browse + lazy index",
+      "agent_id": "ac1f0206e64405af5",
+      "short_id": "ac1f0206",
+      "head_commit": null,
+      "head_commit_at": null,
+      "head_ago_min": null,
+      "out_last_active": "2026-08-14T04:42:37Z",
+      "out_age_min": 0.0,
+      "log_bytes": 27925,
+      "output_tokens": 541,
+      "cache_read_tokens": 119047,
+      "cache_creation_tokens": 78074,
+      "msgs": 8,
+      "status": "live",
+      "live": true,
+      "signal": "task-output mtime + git commit",
+      "recent": true
     }
   ],
   "sessions": [
+    {
+      "id": "a858acf2",
+      "full_id": "a858acf218fac351c",
+      "group": "email-recent-first-lazy-index",
+      "group_label": "Email recent-first + lazy index",
+      "last_active": "2026-08-14T04:42:36Z",
+      "log_bytes": 19490,
+      "live": true,
+      "status": "live",
+      "age_min": 0.0,
+      "subagent": true,
+      "recent": true,
+      "output_tokens": 291,
+      "cache_read_tokens": 70391,
+      "cache_creation_tokens": 22847,
+      "msgs": 4
+    },
+    {
+      "id": "a9f3ad59",
+      "full_id": "a9f3ad59108212caa",
+      "group": "ship-v0-1-32-3-ready-branches",
+      "group_label": "Ship v0.1.32 (3 ready branches)",
+      "last_active": "2026-08-14T04:42:35Z",
+      "log_bytes": 41484,
+      "live": true,
+      "status": "live",
+      "age_min": 0.0,
+      "subagent": true,
+      "recent": true,
+      "output_tokens": 2025,
+      "cache_read_tokens": 242072,
+      "cache_creation_tokens": 45356,
+      "msgs": 14
+    },
+    {
+      "id": "ac1f0206",
+      "full_id": "ac1f0206e64405af5",
+      "group": "mattermost-live-browse-lazy-index",
+      "group_label": "Mattermost live-browse + lazy index",
+      "last_active": "2026-08-14T04:42:37Z",
+      "log_bytes": 27925,
+      "live": true,
+      "status": "live",
+      "age_min": 0.0,
+      "subagent": true,
+      "recent": true,
+      "output_tokens": 541,
+      "cache_read_tokens": 119047,
+      "cache_creation_tokens": 78074,
+      "msgs": 8
+    },
     {
       "id": "0f7b13a0",
       "full_id": "0f7b13a0-2a85-49c0-96d5-e5a8832d8b85",
       "group": "commander",
       "group_label": "Session 0f7b13a0",
-      "last_active": "2026-08-14T04:38:41Z",
-      "output_tokens": 5646066,
-      "cache_read_tokens": 695609097,
-      "cache_creation_tokens": 59352577,
-      "msgs": 1554,
-      "age_min": 2.9,
+      "last_active": "2026-08-14T04:42:36Z",
+      "output_tokens": 5699577,
+      "cache_read_tokens": 697666580,
+      "cache_creation_tokens": 60805400,
+      "msgs": 1561,
+      "age_min": 0.0,
       "live": true,
       "status": "live",
       "subagent": false,
@@ -67,15 +184,15 @@
     "last_active": "2026-08-13T07:10:30Z",
     "note": "Prior-session workers \u2014 retired; not part of the current fleet."
   },
-  "total_tokens": 5646066,
+  "total_tokens": 5699577,
   "commits": {
     "tracks": [
       {
         "track": "w0",
         "branch": "main",
         "available": true,
-        "commits_24h": 0,
-        "commits_7d": 131
+        "commits_24h": 5,
+        "commits_7d": 136
       },
       {
         "track": "w0",
@@ -107,9 +224,27 @@
         "track": "w0"
       },
       {
+        "hash": "df603b6",
+        "at": "2026-08-13T10:27:30+04:00",
+        "subject": "Bump version to 0.1.31",
+        "track": "w0"
+      },
+      {
         "hash": "646b55b",
         "at": "2026-08-13T10:27:23+04:00",
         "subject": "feat(model-manager): keep the active chat brain warm (bounded pre-load)",
+        "track": "w0"
+      },
+      {
+        "hash": "646b55b",
+        "at": "2026-08-13T10:27:23+04:00",
+        "subject": "feat(model-manager): keep the active chat brain warm (bounded pre-load)",
+        "track": "w0"
+      },
+      {
+        "hash": "aa43cf9",
+        "at": "2026-08-13T10:27:13+04:00",
+        "subject": "fix(routing): chat auto-selects a capable tool-use brain over a weak 2B",
         "track": "w0"
       },
       {
@@ -125,27 +260,9 @@
         "track": "w0"
       },
       {
-        "hash": "5312f86",
-        "at": "2026-08-13T10:26:53+04:00",
-        "subject": "fix(chat): stream the tool-calling send over SSE (kill the 45s wall)",
-        "track": "w0"
-      },
-      {
-        "hash": "3a4f367",
-        "at": "2026-08-13T10:11:46+04:00",
-        "subject": "email(ui): \"Use AI on this account\" toggle in Settings \u2192 Email Accounts",
-        "track": "w0"
-      },
-      {
-        "hash": "b198443",
-        "at": "2026-08-13T10:06:29+04:00",
-        "subject": "email: filter \\Noselect/\\NonExistent folders in imap.list_folders",
-        "track": "w0"
-      },
-      {
-        "hash": "9f60d8e",
-        "at": "2026-08-13T10:06:18+04:00",
-        "subject": "email: tests for per-mailbox AI switch (incl. old-schema upgrade)",
+        "hash": "ba78511",
+        "at": "2026-08-13T10:27:02+04:00",
+        "subject": "fix(chat-ui): route the tools-ON send through the SSE stream end-to-end",
         "track": "w0"
       }
     ]
@@ -154,6 +271,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-08-14T04:41:33Z"
+    "checked_at": "2026-08-14T04:42:39Z"
   }
 }
