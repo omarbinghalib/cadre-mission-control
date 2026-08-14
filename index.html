@@ -245,46 +245,46 @@
   </header>
 
   <section class="panel">
-    <div class="split"><div><p class="eyebrow">Cadre program — 3 lanes running now</p><h2>Fleet status at a glance</h2></div></div>
+    <div class="split"><div><p class="eyebrow">Cadre program — 1 lane running now</p><h2>Fleet status at a glance</h2></div></div>
     <div class="row" style="gap:8px;flex-wrap:wrap;margin:8px 0 6px">
   <span class="chip ok" style="border-color:var(--ok);background:var(--ok-ink);color:#fff"><b>WAVE 2 SHIPPED — through v0.1.31</b></span>
-  <span class="chip ok"><span class="dp beat"></span>3 lanes running now</span>
-  <span class="chip mute">v0.1.32 integrating now — merges + version bump done, not yet pushed/tagged</span>
+  <span class="chip ok"><span class="dp beat"></span>1 lane running now</span>
+  <span class="chip mute">v0.1.32 integrating/publishing — merges + version bump done, not yet pushed/tagged</span>
+  <span class="chip mute">2 ready — awaiting wave-B batch (v0.1.33)</span>
   <span class="chip mute">24 releases shipped</span>
   <span class="chip mute">3 queued — wave B</span>
 </div>
 
 <p class="eyebrow" style="margin:16px 0 8px">Milestone</p>
 <div class="sub" style="padding:10px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-  <b style="color:var(--ok-ink)">Wave 2 is fully shipped, through v0.1.31.</b> Cadre reasons over the whole org — VAMS + email + Mattermost — grounded and cited, never fabricated. Since the last update: v0.1.31 shipped chat reliability — true end-to-end SSE streaming, the tool-calling path's 45s timeout eliminated (not just extended), capable-model routing off the small 2B default, and a kept-warm chat brain. Latest shipped commit on <span class="mono">main</span>: <span class="mono">df603b6</span>. Now 3 build lanes are running in parallel: the v0.1.32 release (integrating 3 already-certified branches), Mattermost live-browse, and Email recent-first.
+  <b style="color:var(--ok-ink)">Wave 2 is fully shipped, through v0.1.31.</b> Cadre reasons over the whole org — VAMS + email + Mattermost — grounded and cited, never fabricated. Since the last update: v0.1.31 shipped chat reliability — true end-to-end SSE streaming, the tool-calling path's 45s timeout eliminated (not just extended), capable-model routing off the small 2B default, and a kept-warm chat brain. Latest shipped commit on <span class="mono">main</span>: <span class="mono">df603b6</span>. Both wave-B build lanes have now landed CODE-COMPLETE + GREEN — Mattermost live-browse and Email recent-first — and moved to Ready (below); the fleet is down to a single active lane. <b>Release plan:</b> v0.1.32 ships standalone now with just its 3 certified fixes; v0.1.33 = Mattermost live-browse + Email recent-first + Sync Status tab + stale-job reaper + no-reload sweep, one batched build dispatched after v0.1.32 ships, to limit concurrent builds on Omar's own machine.
 </div>
 
-<p class="eyebrow" style="margin:16px 0 8px">Active lanes — running now</p>
+<p class="eyebrow" style="margin:16px 0 8px">Active lane — running now</p>
 <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0">
   <li style="padding:10px 0;border-top:1px solid var(--line)">
     <span class="wname" style="font-weight:650">v0.1.32 release — integrate + build + ship</span>
     <span class="chip ok" style="margin-left:8px">running · release/v0.1.32</span>
-    <div class="sub" style="margin-top:3px">Integrating, building, and shipping v0.1.32 from 3 already-certified branches: VAMS attention-feed AI-churn fix, per-mailbox AI switch + Gmail \Noselect fix, and Projects/Gantt from VAMS Sales Orders. In flight: all 3 merged into <span class="mono">release/v0.1.32</span> and the version bump to 0.1.32 is committed locally — full-suite verification + push/tag/GitHub-release still to come. Ships automatically once verified (standing "finish everything" authorization).</div>
-  </li>
-  <li style="padding:10px 0;border-top:1px solid var(--line)">
-    <span class="wname" style="font-weight:650">Mattermost: live-browse + lazy AI index + sidebar reorg</span>
-    <span class="chip ok" style="margin-left:8px">running · lane/mattermost-live-browse</span>
-    <div class="sub" style="margin-top:3px">Browsing goes live like the native app (WebSocket + live REST, instant + always-current, lazy-load on scroll, cache-paint then live on top) — <b>drops the eager full-history crawl entirely</b>. AI-indexing becomes lazy/scoped (recent/active channels in the background + more on-demand when the AI is actually asked). Sidebar reorg: most-recent-first, Direct Messages split from Channels. Batches into v0.1.32's follow-on (or its own point release) once landed.</div>
-  </li>
-  <li style="padding:10px 0;border-top:1px solid var(--line)">
-    <span class="wname" style="font-weight:650">Email: recent-first + lazy AI index</span>
-    <span class="chip ok" style="margin-left:8px">running · lane/email-recent-first</span>
-    <div class="sub" style="margin-top:3px">Sibling to the Mattermost lane above, same principle: <b>drops the eager full-mailbox-history crawl</b>. Fetches a folder's recent messages on open + bodies on click + older on scroll (IMAP is request/response, so "recent-first + fetch-on-demand" rather than a live socket). AI understanding stays ON but goes lazy — recent + active mail indexed in the background, deeper on-demand — plus an optional full-backfill switch.</div>
+    <div class="sub" style="margin-top:3px">Building/publishing v0.1.32 from 3 already-certified branches: VAMS attention-feed AI-churn fix, per-mailbox AI switch + Gmail \Noselect fix, and Projects/Gantt from VAMS Sales Orders. In flight: all 3 merged into <span class="mono">release/v0.1.32</span> and the version bump to 0.1.32 is committed locally — full-suite verification + push/tag/GitHub-release still to come. Ships automatically once verified (standing "finish everything" authorization). Ships standalone — Mattermost/Email/wave-B do NOT batch into this one.</div>
   </li>
 </ul>
 <p class="foot" style="margin:6px 0 0">Operational note: active build lanes are deliberately kept to ≤3 — the workers run on Omar's own machine, and too much parallelism worsens the very live-app slowness he's reported before.</p>
 
-<p class="eyebrow" style="margin:18px 0 6px">Queued — wave B, dispatch after Mattermost + Email land</p>
-<div class="sub" style="margin:0 0 8px">These build on the new sync model the two lanes above introduce, so they wait for a clean merged base.</div>
+<p class="eyebrow" style="margin:18px 0 6px">Ready — awaiting wave-B batch (v0.1.33)</p>
+<div class="sub" style="padding:10px 0;border-top:1px solid var(--line)">
+  <b style="color:var(--ok-ink)">Mattermost: live-browse + lazy AI index + sidebar reorg</b> — CODE-COMPLETE + GREEN on <span class="mono">lane/mattermost-live-browse</span> @ <span class="mono">0c55142</span> (worker ac1f0206): cache-paint instant + WS live-on-top + lazy older-load; the eager full-history crawl is DROPPED entirely (bounded recent window + opt-in <span class="mono">deep_index_channel</span> on scroll-back replaces the old blanket full-crawl); AI indexing is recent/active-scoped and lazy; sidebar splits Channels (O/P) from DMs (D/G), each sorted recents-first. 2 new DB columns, both NULLABLE (reconciler-safe) + an extended old-schema upgrade regression test. Backend 807 passed / 0 failed + frontend typecheck + 49 vitest + build all green. 7 commits, not yet pushed.
+</div>
+<div class="sub" style="padding:10px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <b style="color:var(--ok-ink)">Email: recent-first + lazy AI index</b> — CODE-COMPLETE + GREEN on <span class="mono">lane/email-recent-first</span> @ <span class="mono">4b2dcda</span> (worker a858acf2): recent-first (newest 500/folder via <span class="mono">fetch_recent_window</span>) + fetch-on-demand (older-on-scroll, body-on-click) + cache-paint. Eager full-mailbox crawl DROPPED — only runs under the new opt-in backfill switch. Lazy AI index auto-scoped to recent (understanding stays ON, deeper on body-click). Per-account "Backfill &amp; index everything" switch implemented as a NEW table <span class="mono">EmailAccountSyncPref</span> (zero migration risk, additive) + an old-schema upgrade regression test. Backend 815 passed / 0 failed + frontend typecheck + 43 vitest green. 6 commits, not yet pushed.
+  <p class="foot" style="margin:6px 0 0">Both lanes batch into wave-B v0.1.33 together with the Sync Status tab + reaper + sweep below — v0.1.32 ships first, standalone, without either of them.</p>
+</div>
+
+<p class="eyebrow" style="margin:18px 0 6px">Queued — wave B (v0.1.33), dispatch after v0.1.32 ships</p>
+<div class="sub" style="margin:0 0 8px">Gated on v0.1.32 shipping AND Mattermost live-browse + Email recent-first being merged to a base branch — Sync Status reads the new sync model those two lanes introduce. Sync Status tab + stale-job reaper dispatch together; the no-reload sweep is sequenced after those two.</div>
 <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0">
   <li style="padding:7px 0;border-top:1px solid var(--line)"><span class="sub"><b style="color:var(--ink-2)">Sync Status &amp; Control tab (own lane)</b> — a new dedicated tab: overview + drill-down depth per source (email/Mattermost/VAMS), pause/resume/run-now controls per source, and a viewable error log. Mattermost shows "live (connected)" here, not "crawling X% of history."</span></li>
   <li style="padding:7px 0;border-top:1px solid var(--line)"><span class="sub"><b style="color:var(--ink-2)">Stale "running" sync-job reaper</b> — a sync crashing mid-run leaves its job row status=running forever, silently blocking both the auto-sync scheduler and manual "Sync Now" from ever retrying that source. Matters more now that background auto-sync runs on a timer.</span></li>
-  <li style="padding:7px 0;border-top:1px solid var(--line)"><span class="sub"><b style="color:var(--ink-2)">App-wide "no screen reloads on open" sweep</b> — Omar's standing rule: no screen/tab/options page may reload-everything-live on open. Shared cached-resource primitive, migrated onto every remaining module (dashboard/inbox/mattermost already done).</span></li>
+  <li style="padding:7px 0;border-top:1px solid var(--line)"><span class="sub"><b style="color:var(--ink-2)">App-wide "no screen reloads on open" sweep</b> — sequenced last, after the two above land. Omar's standing rule: no screen/tab/options page may reload-everything-live on open. Shared cached-resource primitive, migrated onto every remaining module (dashboard/inbox/mattermost already done).</span></li>
 </ul>
 
 <p class="eyebrow" style="margin:18px 0 6px">Shipped</p>
