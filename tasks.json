@@ -1,27 +1,27 @@
 [
   {
-    "title": "App-wide \"no screen reloads on open\" sweep",
-    "status": "in_progress",
-    "track": "active",
-    "note": "branch lane/app-wide-instant-load (worker ad12e40f). Still building. Omar's standing rule: no screen/tab/options page may reload-everything-live on open. Building the shared cached-resource primitive + migrating remaining modules: calendar, projects, reports, contacts, agents, model-manager, network, vams, settings, presentations, integrations, github. (Mattermost/inbox/chat/dashboard are already done.) Once this AND Sync Status tab + reaper below land, v0.1.33 batch-builds (Mattermost + Email are already merged to main, see Ready below)."
-  },
-  {
     "title": "Sync Status & Control tab + stale-running sync-job reaper",
     "status": "in_progress",
     "track": "active",
-    "note": "branch lane/sync-status-control, off main 7961363 (worker just dispatched). NEW dedicated tab: overview + drill-down depth per source (email/Mattermost/VAMS), pause/resume/run-now controls per source, and a timestamped error log \u2014 adapted to the new live-browse/recent-first sync model. Plus the reaper: unsticks sync jobs stuck in status=running (a crash mid-run previously blocked both the auto-sync scheduler and manual \"Sync Now\" from ever retrying that source forever). Once this AND the app-wide sweep above land, v0.1.33 batch-builds (Mattermost + Email are already merged to main, see Ready below)."
+    "note": "branch lane/sync-status-control, off main 7961363 (worker a43513a). NEW dedicated tab: overview + drill-down depth per source (email/Mattermost/VAMS), pause/resume/run-now controls per source, and a timestamped error log \u2014 adapted to the new live-browse/recent-first sync model. Plus the reaper: unsticks sync jobs stuck in status=running (a crash mid-run previously blocked both the auto-sync scheduler and manual \"Sync Now\" from ever retrying that source forever). NOW THE ONLY ACTIVE LANE \u2014 app-wide sweep landed complete + verified (see Ready below). Once this lands, v0.1.33 batch-builds: integrate app-wide sweep + Sync Status + reaper onto main \u2192 build + verify + ship (the \"finish everything\" release)."
+  },
+  {
+    "title": "App-wide \"no screen reloads on open\" sweep \u2014 COMPLETE + VERIFIED, ready for v0.1.33",
+    "status": "done",
+    "track": "ready",
+    "note": "branch lane/app-wide-instant-load @ a07db4b (worker ad12e40f), 10 commits. COMPLETE: all 12 remaining modules migrated onto the shared useCachedResource instant-load primitive \u2014 calendar, integrations, contacts, vams, github, network, model-manager (+10 panels), presentations, agents, reports, projects, settings. (mattermost/inbox/chat/dashboard were already done, per Omar's standing rule that no screen/tab/options page may reload-everything-live on open.) VERIFIED: @cadre/core typecheck PASS + 66 vitest + vite build PASS. Its own review pass caught + fixed a must-fix (swallowed create-project errors) plus banner polish. Not pushed, no installer. Ready \u2014 awaiting the v0.1.33 batch alongside Mattermost + Email below."
   },
   {
     "title": "Mattermost: live-browse + lazy AI index + sidebar reorg \u2014 MERGED to main, awaiting v0.1.33 batch build",
     "status": "done",
     "track": "ready",
-    "note": "branch lane/mattermost-live-browse @ 0c55142 (worker ac1f0206e64405af5). CODE-COMPLETE + GREEN: cache-paint instant + WS live-on-top + lazy older-load; eager full-history crawl DROPPED entirely (bounded recent window + opt-in deep_index_channel on scroll-back replaces the old blanket full-crawl); recent/active-scoped lazy AI index; sidebar splits Channels (O/P) from DMs (D/G), each sorted recents-first. 2 new DB columns, both NULLABLE (reconciler-safe, no migration-crash risk) + an extended old-schema upgrade regression test. MERGED onto main (7961363, worker acbc1718) alongside Email recent-first \u2014 one expected test_schema_reconcile.py conflict, kept both upgrade tests; backend 859 passed / 0 failed + model-manager 225 + frontend 63 vitest green post-merge. No build/release yet \u2014 that's the v0.1.33 batch, once app-wide sweep + Sync Status tab/reaper land."
+    "note": "branch lane/mattermost-live-browse @ 0c55142 (worker ac1f0206e64405af5). CODE-COMPLETE + GREEN: cache-paint instant + WS live-on-top + lazy older-load; eager full-history crawl DROPPED entirely (bounded recent window + opt-in deep_index_channel on scroll-back replaces the old blanket full-crawl); recent/active-scoped lazy AI index; sidebar splits Channels (O/P) from DMs (D/G), each sorted recents-first. 2 new DB columns, both NULLABLE (reconciler-safe, no migration-crash risk) + an extended old-schema upgrade regression test. MERGED onto main (7961363, worker acbc1718) alongside Email recent-first \u2014 one expected test_schema_reconcile.py conflict, kept both upgrade tests; backend 859 passed / 0 failed + model-manager 225 + frontend 63 vitest green post-merge. No build/release yet \u2014 that's the v0.1.33 batch, once Sync Status tab/reaper lands."
   },
   {
     "title": "Email: recent-first + lazy AI index \u2014 MERGED to main, awaiting v0.1.33 batch build",
     "status": "done",
     "track": "ready",
-    "note": "branch lane/email-recent-first @ 4b2dcda (worker a858acf218fac351c). CODE-COMPLETE + GREEN: recent-first (newest 500/folder via fetch_recent_window) + fetch-on-demand (older-on-scroll, body-on-click) + cache-paint. Eager full-mailbox crawl DROPPED \u2014 only runs under the new opt-in backfill switch. Lazy AI index auto-scoped to recent (understanding stays ON, deeper on body-click). Per-account \"Backfill & index everything\" switch implemented as a NEW table EmailAccountSyncPref (zero migration risk, additive) + an old-schema upgrade regression test. MERGED onto main (7961363, worker acbc1718) alongside Mattermost live-browse \u2014 Gmail \\Noselect fix confirmed intact post-merge; backend 859 passed / 0 failed + model-manager 225 + frontend 63 vitest green. No build/release yet \u2014 that's the v0.1.33 batch, once app-wide sweep + Sync Status tab/reaper land."
+    "note": "branch lane/email-recent-first @ 4b2dcda (worker a858acf218fac351c). CODE-COMPLETE + GREEN: recent-first (newest 500/folder via fetch_recent_window) + fetch-on-demand (older-on-scroll, body-on-click) + cache-paint. Eager full-mailbox crawl DROPPED \u2014 only runs under the new opt-in backfill switch. Lazy AI index auto-scoped to recent (understanding stays ON, deeper on body-click). Per-account \"Backfill & index everything\" switch implemented as a NEW table EmailAccountSyncPref (zero migration risk, additive) + an old-schema upgrade regression test. MERGED onto main (7961363, worker acbc1718) alongside Mattermost live-browse \u2014 Gmail \\Noselect fix confirmed intact post-merge; backend 859 passed / 0 failed + model-manager 225 + frontend 63 vitest green. No build/release yet \u2014 that's the v0.1.33 batch, once Sync Status tab/reaper lands."
   },
   {
     "title": "integrate/wave-b-sync \u2014 Mattermost + Email MERGED to main (no build/release)",
