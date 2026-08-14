@@ -1,33 +1,33 @@
 [
   {
-    "title": "v0.1.33 release \u2014 integrate + build + ship (the \"finish everything\" release)",
-    "status": "in_progress",
-    "track": "active",
-    "note": "branch release/v0.1.33 off main 7961363 (worker a7c929e3). FINAL wave-B release \u2014 ALL wave-B lanes are now code-complete. Merges the app-wide sweep (a07db4b) + Sync Status/reaper (6cbd54b) onto main (which already has Mattermost live-browse + Email recent-first merged), bumps to 0.1.33, full-verify, builds installers, isolated smoke test, then pushes main + publishes v0.1.33 as Latest. This is the \"finish everything\" release: Mattermost live-browse + Email recent-first + app-wide no-reload sweep + Sync Status tab + stale-job reaper, all in one build."
+    "title": "v0.1.33 release \u2014 finish-everything backlog \u2014 SHIPPED",
+    "status": "done",
+    "track": "archive",
+    "note": "main 6d0002c, Latest release, both installers. MILESTONE \u2014 CLOSES OUT Omar's \"finish everything\" backlog. Merged the app-wide no-reload sweep + Sync-Status/reaper onto main (which already had Mattermost live-browse + Email recent-first) \u2014 clean merges, 0 conflicts. Backend 876 + model-manager 225 + frontend 99 vitest + typecheck + build all green; packaged-exe smoke verified /health=0.1.33 + /sync-status/overview=200 + reconciler/reaper clean on a scratch DB; real dev DB untouched; no classifier blocks. This is the build Omar should install next (see the 4 individual feature entries below for per-lane detail)."
   },
   {
-    "title": "Sync Status & Control tab + stale-running sync-job reaper \u2014 DONE + GREEN, integrating into v0.1.33",
+    "title": "Sync Status & Control tab + stale-running sync-job reaper \u2014 SHIPPED (v0.1.33)",
     "status": "done",
-    "track": "active",
-    "note": "branch lane/sync-status-control @ 6cbd54b (worker a43513a). DONE: Sync-Status module (overview per source: state/progress/ETA/depth + drill-down per folder/channel + pause/resume/run-now + a global pause + a viewable SyncErrorLog) + the reaper (unsticks jobs stuck in status=running, heartbeat-safe) + a SYNC-pause distinct from the existing AI-pause. NEW tables only (SyncErrorLog, SyncPauseState) \u2014 zero migration risk. Backend 876 passed + frontend 78 vitest + typecheck + build green. Now being merged into release/v0.1.33 (see the release task above)."
+    "track": "archive",
+    "note": "branch lane/sync-status-control @ 6cbd54b (worker a43513a). Sync-Status module (overview per source: state/progress/ETA/depth + drill-down per folder/channel + pause/resume/run-now + a global pause + a viewable SyncErrorLog) + the reaper (unsticks jobs stuck in status=running, heartbeat-safe) + a SYNC-pause distinct from the existing AI-pause. NEW tables only (SyncErrorLog, SyncPauseState) \u2014 zero migration risk. Backend 876 passed + frontend 78 vitest + typecheck + build green. Shipped in v0.1.33."
   },
   {
-    "title": "App-wide \"no screen reloads on open\" sweep \u2014 COMPLETE + VERIFIED, integrating into v0.1.33",
+    "title": "App-wide \"no screen reloads on open\" sweep \u2014 SHIPPED (v0.1.33)",
     "status": "done",
-    "track": "active",
-    "note": "branch lane/app-wide-instant-load @ a07db4b (worker ad12e40f), 10 commits. COMPLETE: all 12 remaining modules migrated onto the shared useCachedResource instant-load primitive \u2014 calendar, integrations, contacts, vams, github, network, model-manager (+10 panels), presentations, agents, reports, projects, settings. (mattermost/inbox/chat/dashboard were already done, per Omar's standing rule that no screen/tab/options page may reload-everything-live on open.) VERIFIED: @cadre/core typecheck PASS + 66 vitest + vite build PASS. Its own review pass caught + fixed a must-fix (swallowed create-project errors) plus banner polish. Now being merged into release/v0.1.33 (see the release task above)."
+    "track": "archive",
+    "note": "branch lane/app-wide-instant-load @ a07db4b (worker ad12e40f), 10 commits. All 12 remaining modules migrated onto the shared useCachedResource instant-load primitive \u2014 calendar, integrations, contacts, vams, github, network, model-manager (+10 panels), presentations, agents, reports, projects, settings. (mattermost/inbox/chat/dashboard were already done.) @cadre/core typecheck PASS + 66 vitest + vite build PASS. Its own review pass caught + fixed a must-fix (swallowed create-project errors) plus banner polish. Shipped in v0.1.33 \u2014 Omar's standing rule (no screen/tab/options page may reload-everything-live on open) is now enforced app-wide."
   },
   {
-    "title": "Mattermost: live-browse + lazy AI index + sidebar reorg \u2014 MERGED to main, integrating into v0.1.33",
+    "title": "Mattermost: live-browse + lazy AI index + sidebar reorg \u2014 SHIPPED (v0.1.33)",
     "status": "done",
-    "track": "active",
-    "note": "branch lane/mattermost-live-browse @ 0c55142 (worker ac1f0206e64405af5). CODE-COMPLETE + GREEN: cache-paint instant + WS live-on-top + lazy older-load; eager full-history crawl DROPPED entirely (bounded recent window + opt-in deep_index_channel on scroll-back replaces the old blanket full-crawl); recent/active-scoped lazy AI index; sidebar splits Channels (O/P) from DMs (D/G), each sorted recents-first. 2 new DB columns, both NULLABLE (reconciler-safe, no migration-crash risk) + an extended old-schema upgrade regression test. Already MERGED onto main (7961363) alongside Email recent-first; now part of release/v0.1.33 (see the release task above)."
+    "track": "archive",
+    "note": "branch lane/mattermost-live-browse @ 0c55142 (worker ac1f0206e64405af5). Cache-paint instant + WS live-on-top + lazy older-load; eager full-history crawl DROPPED entirely (bounded recent window + opt-in deep_index_channel on scroll-back replaces the old blanket full-crawl); recent/active-scoped lazy AI index; sidebar splits Channels (O/P) from DMs (D/G), each sorted recents-first. 2 new DB columns, both NULLABLE (reconciler-safe, no migration-crash risk) + an extended old-schema upgrade regression test. Shipped in v0.1.33."
   },
   {
-    "title": "Email: recent-first + lazy AI index \u2014 MERGED to main, integrating into v0.1.33",
+    "title": "Email: recent-first + lazy AI index \u2014 SHIPPED (v0.1.33)",
     "status": "done",
-    "track": "active",
-    "note": "branch lane/email-recent-first @ 4b2dcda (worker a858acf218fac351c). CODE-COMPLETE + GREEN: recent-first (newest 500/folder via fetch_recent_window) + fetch-on-demand (older-on-scroll, body-on-click) + cache-paint. Eager full-mailbox crawl DROPPED \u2014 only runs under the new opt-in backfill switch. Lazy AI index auto-scoped to recent (understanding stays ON, deeper on body-click). Per-account \"Backfill & index everything\" switch implemented as a NEW table EmailAccountSyncPref (zero migration risk, additive) + an old-schema upgrade regression test. Already MERGED onto main (7961363) alongside Mattermost live-browse \u2014 Gmail \\Noselect fix confirmed intact; now part of release/v0.1.33 (see the release task above)."
+    "track": "archive",
+    "note": "branch lane/email-recent-first @ 4b2dcda (worker a858acf218fac351c). Recent-first (newest 500/folder via fetch_recent_window) + fetch-on-demand (older-on-scroll, body-on-click) + cache-paint. Eager full-mailbox crawl DROPPED \u2014 only runs under the new opt-in backfill switch. Lazy AI index auto-scoped to recent (understanding stays ON, deeper on body-click). Per-account \"Backfill & index everything\" switch implemented as a NEW table EmailAccountSyncPref (zero migration risk, additive) + an old-schema upgrade regression test. Gmail \\Noselect fix confirmed intact. Shipped in v0.1.33."
   },
   {
     "title": "integrate/wave-b-sync \u2014 Mattermost + Email MERGED to main (no build/release)",
