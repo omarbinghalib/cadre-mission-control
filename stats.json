@@ -1,7 +1,7 @@
 {
-  "updated": "2026-08-14T09:04:28Z",
-  "heartbeat_at": "2026-08-14T09:04:28Z",
-  "last_activity": "2026-08-14T07:08:34Z",
+  "updated": "2026-08-14T09:19:28Z",
+  "heartbeat_at": "2026-08-14T09:19:28Z",
+  "last_activity": null,
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
@@ -9,15 +9,15 @@
     "cache_read_tokens": 752714557,
     "cache_creation_tokens": 61192374,
     "msgs": 1657,
-    "sessions": 2,
+    "sessions": 1,
     "live_sessions": 0,
     "transcript_sessions": 1,
-    "subagent_sessions": 1,
-    "workers": 2,
+    "subagent_sessions": 0,
+    "workers": 1,
     "live_workers": 0,
     "stopped_workers": 0,
-    "current_workers": 2,
-    "history_workers": 135,
+    "current_workers": 1,
+    "history_workers": 136,
     "recent_window_min": 120.0
   },
   "workers": [
@@ -32,54 +32,15 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": null,
-      "out_age_min": 115.7,
+      "out_age_min": 130.7,
       "log_bytes": null,
       "status": "idle",
       "live": false,
       "signal": "coordinating (orchestrator)",
       "recent": true
-    },
-    {
-      "name": "Revive mission-control board",
-      "role": "revive-mission-control-board",
-      "branch": null,
-      "focus": "Revive mission-control board",
-      "agent_id": "add113a4c06ed35de",
-      "short_id": "add113a4",
-      "head_commit": null,
-      "head_commit_at": null,
-      "head_ago_min": null,
-      "out_last_active": "2026-08-14T07:08:34Z",
-      "out_age_min": 115.9,
-      "log_bytes": 1077591,
-      "output_tokens": 132082,
-      "cache_read_tokens": 39513043,
-      "cache_creation_tokens": 2381715,
-      "msgs": 271,
-      "status": "idle",
-      "live": false,
-      "signal": "task-output mtime + git commit",
-      "recent": true
     }
   ],
   "sessions": [
-    {
-      "id": "add113a4",
-      "full_id": "add113a4c06ed35de",
-      "group": "revive-mission-control-board",
-      "group_label": "Revive mission-control board",
-      "last_active": "2026-08-14T07:08:34Z",
-      "log_bytes": 1077591,
-      "live": false,
-      "status": "idle",
-      "age_min": 115.9,
-      "subagent": true,
-      "recent": true,
-      "output_tokens": 132082,
-      "cache_read_tokens": 39513043,
-      "cache_creation_tokens": 2381715,
-      "msgs": 271
-    },
     {
       "id": "0f7b13a0",
       "full_id": "0f7b13a0-2a85-49c0-96d5-e5a8832d8b85",
@@ -90,7 +51,7 @@
       "cache_read_tokens": 752714557,
       "cache_creation_tokens": 61192374,
       "msgs": 1657,
-      "age_min": 115.7,
+      "age_min": 130.7,
       "live": false,
       "status": "idle",
       "subagent": false,
@@ -98,12 +59,12 @@
     }
   ],
   "history": {
-    "workers": 135,
+    "workers": 136,
     "by_status": {
-      "idle": 131,
+      "idle": 132,
       "stopped": 4
     },
-    "last_active": "2026-08-14T07:03:33Z",
+    "last_active": "2026-08-14T07:08:34Z",
     "note": "Prior-session workers \u2014 retired; not part of the current fleet."
   },
   "total_tokens": 5939976,
@@ -172,6 +133,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-08-14T09:04:28Z"
+    "checked_at": "2026-08-14T09:19:28Z"
   }
 }
