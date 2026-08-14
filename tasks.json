@@ -1,45 +1,39 @@
 [
   {
-    "title": "integrate/wave-b-sync \u2014 merge Mattermost + Email onto main (wave-B base)",
-    "status": "in_progress",
-    "track": "active",
-    "note": "worker acbc1718. Merging Mattermost live-browse + Email recent-first onto main (test + push, NO build) to form the wave-B base that Sync Status tab + stale-job reaper branch from (both read the new sync model). Not a release build itself \u2014 v0.1.33 batches once this base + the app-wide sweep below are ready."
-  },
-  {
     "title": "App-wide \"no screen reloads on open\" sweep",
     "status": "in_progress",
     "track": "active",
-    "note": "branch lane/app-wide-instant-load (worker ad12e40f). DISPATCHED \u2014 now active (was queued). Omar's standing rule: no screen/tab/options page may reload-everything-live on open. Building the shared cached-resource primitive + migrating remaining modules: calendar, projects, reports, contacts, agents, model-manager, network, vams, settings, presentations, integrations, github. (Mattermost/inbox/chat/dashboard are already done.) Batches into v0.1.33 alongside the wave-B sync integration below."
+    "note": "branch lane/app-wide-instant-load (worker ad12e40f). Still building. Omar's standing rule: no screen/tab/options page may reload-everything-live on open. Building the shared cached-resource primitive + migrating remaining modules: calendar, projects, reports, contacts, agents, model-manager, network, vams, settings, presentations, integrations, github. (Mattermost/inbox/chat/dashboard are already done.) Once this AND Sync Status tab + reaper below land, v0.1.33 batch-builds (Mattermost + Email are already merged to main, see Ready below)."
   },
   {
-    "title": "Mattermost: live-browse + lazy AI index + sidebar reorg \u2014 CODE-COMPLETE, integrating for v0.1.33",
-    "status": "done",
+    "title": "Sync Status & Control tab + stale-running sync-job reaper",
+    "status": "in_progress",
     "track": "active",
-    "note": "branch lane/mattermost-live-browse @ 0c55142 (worker ac1f0206e64405af5). CODE-COMPLETE + GREEN, LANDED: cache-paint instant + WS live-on-top + lazy older-load; eager full-history crawl DROPPED entirely (bounded recent window + opt-in deep_index_channel on scroll-back replaces the old blanket full-crawl); recent/active-scoped lazy AI index; sidebar splits Channels (O/P) from DMs (D/G), each sorted recents-first. 2 new DB columns, both NULLABLE (reconciler-safe, no migration-crash risk) + an extended old-schema upgrade regression test. Backend 807 passed / 0 failed + frontend typecheck + 49 vitest + build all green. Now being merged onto main by integrate/wave-b-sync (above) as part of the wave-B base for v0.1.33."
+    "note": "branch lane/sync-status-control, off main 7961363 (worker just dispatched). NEW dedicated tab: overview + drill-down depth per source (email/Mattermost/VAMS), pause/resume/run-now controls per source, and a timestamped error log \u2014 adapted to the new live-browse/recent-first sync model. Plus the reaper: unsticks sync jobs stuck in status=running (a crash mid-run previously blocked both the auto-sync scheduler and manual \"Sync Now\" from ever retrying that source forever). Once this AND the app-wide sweep above land, v0.1.33 batch-builds (Mattermost + Email are already merged to main, see Ready below)."
   },
   {
-    "title": "Email: recent-first + lazy AI index \u2014 CODE-COMPLETE, integrating for v0.1.33",
+    "title": "Mattermost: live-browse + lazy AI index + sidebar reorg \u2014 MERGED to main, awaiting v0.1.33 batch build",
     "status": "done",
-    "track": "active",
-    "note": "branch lane/email-recent-first @ 4b2dcda (worker a858acf218fac351c). CODE-COMPLETE + GREEN, LANDED: recent-first (newest 500/folder via fetch_recent_window) + fetch-on-demand (older-on-scroll, body-on-click) + cache-paint. Eager full-mailbox crawl DROPPED \u2014 only runs under the new opt-in backfill switch. Lazy AI index auto-scoped to recent (understanding stays ON, deeper on body-click). Per-account \"Backfill & index everything\" switch implemented as a NEW table EmailAccountSyncPref (zero migration risk, additive) + an old-schema upgrade regression test. Backend 815 passed / 0 failed + frontend typecheck + 43 vitest green. Now being merged onto main by integrate/wave-b-sync (above) as part of the wave-B base for v0.1.33."
+    "track": "ready",
+    "note": "branch lane/mattermost-live-browse @ 0c55142 (worker ac1f0206e64405af5). CODE-COMPLETE + GREEN: cache-paint instant + WS live-on-top + lazy older-load; eager full-history crawl DROPPED entirely (bounded recent window + opt-in deep_index_channel on scroll-back replaces the old blanket full-crawl); recent/active-scoped lazy AI index; sidebar splits Channels (O/P) from DMs (D/G), each sorted recents-first. 2 new DB columns, both NULLABLE (reconciler-safe, no migration-crash risk) + an extended old-schema upgrade regression test. MERGED onto main (7961363, worker acbc1718) alongside Email recent-first \u2014 one expected test_schema_reconcile.py conflict, kept both upgrade tests; backend 859 passed / 0 failed + model-manager 225 + frontend 63 vitest green post-merge. No build/release yet \u2014 that's the v0.1.33 batch, once app-wide sweep + Sync Status tab/reaper land."
   },
   {
-    "title": "Sync Status & Control tab (own lane)",
-    "status": "pending",
-    "track": "queued",
-    "note": "Wave B (v0.1.33). Dispatches once the integrate/wave-b-sync merge lands (Mattermost + Email on main) \u2014 branches from that integrated base since Sync Status reads the NEW sync model those two lanes introduce. NEW dedicated tab: overview + drill-down depth per source (email/Mattermost/VAMS), pause/resume/run-now controls per source, and a viewable error log. Mattermost's status here shows \"live (connected)\" (post live-browse reshape), not \"crawling X% of history.\""
+    "title": "Email: recent-first + lazy AI index \u2014 MERGED to main, awaiting v0.1.33 batch build",
+    "status": "done",
+    "track": "ready",
+    "note": "branch lane/email-recent-first @ 4b2dcda (worker a858acf218fac351c). CODE-COMPLETE + GREEN: recent-first (newest 500/folder via fetch_recent_window) + fetch-on-demand (older-on-scroll, body-on-click) + cache-paint. Eager full-mailbox crawl DROPPED \u2014 only runs under the new opt-in backfill switch. Lazy AI index auto-scoped to recent (understanding stays ON, deeper on body-click). Per-account \"Backfill & index everything\" switch implemented as a NEW table EmailAccountSyncPref (zero migration risk, additive) + an old-schema upgrade regression test. MERGED onto main (7961363, worker acbc1718) alongside Mattermost live-browse \u2014 Gmail \\Noselect fix confirmed intact post-merge; backend 859 passed / 0 failed + model-manager 225 + frontend 63 vitest green. No build/release yet \u2014 that's the v0.1.33 batch, once app-wide sweep + Sync Status tab/reaper land."
   },
   {
-    "title": "Stale \"running\" sync-job reaper",
-    "status": "pending",
-    "track": "queued",
-    "note": "Wave B (v0.1.33). Dispatches alongside the Sync Status tab above (same gating: once the integrate/wave-b-sync merge lands). A sync crashing mid-run leaves its job row status=running forever, silently blocking both the auto-sync scheduler and manual \"Sync Now\" from ever retrying that source \u2014 matters a lot more now that background auto-sync (v0.1.27) runs on a timer."
+    "title": "integrate/wave-b-sync \u2014 Mattermost + Email MERGED to main (no build/release)",
+    "status": "done",
+    "track": "archive",
+    "note": "worker acbc1718. Merged Mattermost live-browse + Email recent-first onto main: 5e9c13d (v0.1.32) \u2192 7961363. Clean merge \u2014 one expected conflict in test_schema_reconcile.py, resolved by keeping BOTH upgrade tests; Gmail \\Noselect fix confirmed intact post-merge. Backend 859 passed / 0 failed + model-manager 225 + frontend 63 vitest green. This is an integration merge only, not a release build \u2014 no installer was cut from this commit; the actual build/ship happens as the v0.1.33 batch once the app-wide sweep + Sync Status tab/reaper (active) land."
   },
   {
     "title": "v0.1.32 release \u2014 VAMS attention-feed churn + per-mailbox AI switch + Gantt \u2014 SHIPPED",
     "status": "done",
     "track": "archive",
-    "note": "main 5e9c13d, Latest release, both installers (MSI + setup.exe). Ships: VAMS attention-feed AI-churn fix, per-mailbox AI switch + Gmail \\Noselect fix, and Projects/Gantt from VAMS Sales Orders (see the 3 individual entries below for per-feature detail). 845 backend + 225 model-manager + 45 frontend tests green; packaged-exe smoke verified the ai_enabled OLD-schema upgrade path AND the VAMS sales-order endpoints against the built exe, not just source. This is the build Omar should install next."
+    "note": "main 5e9c13d, Latest release, both installers (MSI + setup.exe). Ships: VAMS attention-feed AI-churn fix, per-mailbox AI switch + Gmail \\Noselect fix, and Projects/Gantt from VAMS Sales Orders (see the 3 individual entries below for per-feature detail). 845 backend + 225 model-manager + 45 frontend tests green; packaged-exe smoke verified the ai_enabled OLD-schema upgrade path AND the VAMS sales-order endpoints against the built exe, not just source. Still the latest installable release — v0.1.33 (Mattermost + Email + app-wide sweep + Sync Status/reaper) hasn't built yet, so this is the build Omar should install next."
   },
   {
     "title": "VAMS attention-feed AI-churn fix \u2014 SHIPPED (v0.1.32)",
