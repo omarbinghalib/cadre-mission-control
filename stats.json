@@ -1,7 +1,7 @@
 {
-  "updated": "2026-08-17T02:26:45Z",
-  "heartbeat_at": "2026-08-17T02:26:45Z",
-  "last_activity": "2026-08-17T02:26:44Z",
+  "updated": "2026-08-17T02:28:14Z",
+  "heartbeat_at": "2026-08-17T02:28:14Z",
+  "last_activity": "2026-08-17T02:28:11Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
@@ -31,8 +31,8 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-17T02:26:44Z",
-      "out_age_min": 5.1,
+      "out_last_active": "2026-08-17T02:28:11Z",
+      "out_age_min": 6.6,
       "log_bytes": null,
       "status": "live",
       "live": true,
@@ -49,13 +49,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-17T02:26:42Z",
-      "out_age_min": 0.0,
-      "log_bytes": 460559,
-      "output_tokens": 34029,
-      "cache_read_tokens": 7327259,
-      "cache_creation_tokens": 591383,
-      "msgs": 78,
+      "out_last_active": "2026-08-17T02:28:04Z",
+      "out_age_min": 0.1,
+      "log_bytes": 486090,
+      "output_tokens": 38027,
+      "cache_read_tokens": 8574363,
+      "cache_creation_tokens": 597336,
+      "msgs": 86,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -72,7 +72,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-08-17T02:21:29Z",
-      "out_age_min": 5.2,
+      "out_age_min": 6.7,
       "log_bytes": 1157540,
       "output_tokens": 140497,
       "cache_read_tokens": 46082114,
@@ -90,17 +90,17 @@
       "full_id": "ab6ec4a2e194cf24c",
       "group": "sync-reliability-perf-fixes-ship-v0-1-34",
       "group_label": "Sync reliability + perf fixes, ship v0.1.34",
-      "last_active": "2026-08-17T02:26:42Z",
-      "log_bytes": 460559,
+      "last_active": "2026-08-17T02:28:04Z",
+      "log_bytes": 486090,
       "live": true,
       "status": "live",
-      "age_min": 0.0,
+      "age_min": 0.1,
       "subagent": true,
       "recent": true,
-      "output_tokens": 34029,
-      "cache_read_tokens": 7327259,
-      "cache_creation_tokens": 591383,
-      "msgs": 78
+      "output_tokens": 38027,
+      "cache_read_tokens": 8574363,
+      "cache_creation_tokens": 597336,
+      "msgs": 86
     },
     {
       "id": "add113a4",
@@ -111,7 +111,7 @@
       "log_bytes": 1157540,
       "live": true,
       "status": "live",
-      "age_min": 5.2,
+      "age_min": 6.7,
       "subagent": true,
       "recent": true,
       "output_tokens": 140497,
@@ -129,7 +129,7 @@
       "cache_read_tokens": 767217076,
       "cache_creation_tokens": 62536028,
       "msgs": 1681,
-      "age_min": 5.2,
+      "age_min": 6.6,
       "live": true,
       "status": "live",
       "subagent": false,
@@ -159,12 +159,18 @@
         "track": "w0",
         "branch": "lane/sync-reliability-perf",
         "available": true,
-        "commits_24h": 0,
-        "commits_7d": 194
+        "commits_24h": 1,
+        "commits_7d": 195
       }
     ],
     "recent": [
       {
+        "hash": "2a77c09",
+        "at": "2026-08-17T06:26:54+04:00",
+        "subject": "fix(db): add app-level sync write lock + verify WAL for sync contention (Fix #2)",
+        "track": "w0"
+      },
+      {
         "hash": "6d0002c",
         "at": "2026-08-14T10:35:56+04:00",
         "subject": "chore(release): bump version to 0.1.33",
@@ -198,12 +204,6 @@
         "hash": "a2805be",
         "at": "2026-08-14T10:34:42+04:00",
         "subject": "Merge lane/sync-status-control into release/v0.1.33",
-        "track": "w0"
-      },
-      {
-        "hash": "6cbd54b",
-        "at": "2026-08-14T10:26:44+04:00",
-        "subject": "sync(jobs): record() adds without flush/rollback + end-to-end error-log test",
         "track": "w0"
       },
       {
@@ -218,6 +218,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-08-17T02:26:47Z"
+    "checked_at": "2026-08-17T02:28:15Z"
   }
 }
