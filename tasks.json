@@ -1,5 +1,11 @@
 [
   {
+    "title": "Mattermost sync resilience \u2192 v0.1.35",
+    "status": "in_progress",
+    "track": "active",
+    "note": "branch lane/mattermost-sync-resilience off main 875409e (worker af89e8d6). Root-caused live on Omar's own running v0.1.34 app (curl'd his server + /sync-status): chat.vbgintech.com is UP (/api/v4/system/ping \u2192 200 via Cloudflare); v0.1.34's sync fix is WORKING (progressed 34\u219292/249 channels, 14,841 msgs, no longer stalled). BUT a transient per-channel connection hiccup (likely IPv6/Cloudflare under parallel fetches \u2014 DNS returns IPv6 first) gets mislabeled \"server unreachable\" and HALTS the whole workspace sync (stopped at 92, job status=error) instead of degrading just that one channel. Fixing: per-channel degrade-don't-halt (a transient channel failure marks that channel + backoff + CONTINUE; never flips the whole job to fatal error); retry-with-backoff on transient errors (timeout/reset/429/5xx); explicit connect+read timeouts; prefer IPv4; real outage classification (only DNS-fail/refused/all-fail count as a real outage); useful error messages instead of a blank \"unreachable: \". Tests via a fake server (transient-fail\u2192degrade+continue, retry-succeeds, real-outage). Per Omar's standing rule, any failing tests get fixed, not dismissed. Interim: sync already retries every ~5min and keeps advancing, so Omar isn't blocked while this ships. Will build + smoke + ship as v0.1.35."
+  },
+  {
     "title": "Sync reliability + perf \u2014 v0.1.34 \u2014 SHIPPED",
     "status": "done",
     "track": "archive",
