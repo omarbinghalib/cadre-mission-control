@@ -1,7 +1,7 @@
 {
-  "updated": "2026-08-17T07:40:29Z",
-  "heartbeat_at": "2026-08-17T07:40:29Z",
-  "last_activity": "2026-08-17T05:44:53Z",
+  "updated": "2026-08-17T07:55:29Z",
+  "heartbeat_at": "2026-08-17T07:55:29Z",
+  "last_activity": null,
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
@@ -9,15 +9,15 @@
     "cache_read_tokens": 814775970,
     "cache_creation_tokens": 62689543,
     "msgs": 1748,
-    "sessions": 3,
+    "sessions": 1,
     "live_sessions": 0,
     "transcript_sessions": 1,
-    "subagent_sessions": 2,
-    "workers": 3,
+    "subagent_sessions": 0,
+    "workers": 1,
     "live_workers": 0,
     "stopped_workers": 0,
-    "current_workers": 3,
-    "history_workers": 136,
+    "current_workers": 1,
+    "history_workers": 138,
     "recent_window_min": 120.0
   },
   "workers": [
@@ -32,93 +32,15 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": null,
-      "out_age_min": 115.4,
+      "out_age_min": 130.4,
       "log_bytes": null,
       "status": "idle",
       "live": false,
       "signal": "coordinating (orchestrator)",
       "recent": true
-    },
-    {
-      "name": "Revive mission-control board",
-      "role": "revive-mission-control-board",
-      "branch": null,
-      "focus": "Revive mission-control board",
-      "agent_id": "add113a4c06ed35de",
-      "short_id": "add113a4",
-      "head_commit": null,
-      "head_commit_at": null,
-      "head_ago_min": null,
-      "out_last_active": "2026-08-17T05:44:53Z",
-      "out_age_min": 115.6,
-      "log_bytes": 1446080,
-      "output_tokens": 170345,
-      "cache_read_tokens": 73328745,
-      "cache_creation_tokens": 4745041,
-      "msgs": 396,
-      "status": "idle",
-      "live": false,
-      "signal": "task-output mtime + git commit",
-      "recent": true
-    },
-    {
-      "name": "Mattermost sync resilience, ship v0.1.35",
-      "role": "mattermost-sync-resilience-ship-v0-1-35",
-      "branch": null,
-      "focus": "Mattermost sync resilience, ship v0.1.35",
-      "agent_id": "af89e8d69cbe7d303",
-      "short_id": "af89e8d6",
-      "head_commit": null,
-      "head_commit_at": null,
-      "head_ago_min": null,
-      "out_last_active": "2026-08-17T05:40:44Z",
-      "out_age_min": 119.7,
-      "log_bytes": 1457837,
-      "output_tokens": 135901,
-      "cache_read_tokens": 82061110,
-      "cache_creation_tokens": 3623134,
-      "msgs": 347,
-      "status": "idle",
-      "live": false,
-      "signal": "task-output mtime + git commit",
-      "recent": true
     }
   ],
   "sessions": [
-    {
-      "id": "add113a4",
-      "full_id": "add113a4c06ed35de",
-      "group": "revive-mission-control-board",
-      "group_label": "Revive mission-control board",
-      "last_active": "2026-08-17T05:44:53Z",
-      "log_bytes": 1446080,
-      "live": false,
-      "status": "idle",
-      "age_min": 115.6,
-      "subagent": true,
-      "recent": true,
-      "output_tokens": 170345,
-      "cache_read_tokens": 73328745,
-      "cache_creation_tokens": 4745041,
-      "msgs": 396
-    },
-    {
-      "id": "af89e8d6",
-      "full_id": "af89e8d69cbe7d303",
-      "group": "mattermost-sync-resilience-ship-v0-1-35",
-      "group_label": "Mattermost sync resilience, ship v0.1.35",
-      "last_active": "2026-08-17T05:40:44Z",
-      "log_bytes": 1457837,
-      "live": false,
-      "status": "idle",
-      "age_min": 119.7,
-      "subagent": true,
-      "recent": true,
-      "output_tokens": 135901,
-      "cache_read_tokens": 82061110,
-      "cache_creation_tokens": 3623134,
-      "msgs": 347
-    },
     {
       "id": "0f7b13a0",
       "full_id": "0f7b13a0-2a85-49c0-96d5-e5a8832d8b85",
@@ -129,7 +51,7 @@
       "cache_read_tokens": 814775970,
       "cache_creation_tokens": 62689543,
       "msgs": 1748,
-      "age_min": 115.4,
+      "age_min": 130.4,
       "live": false,
       "status": "idle",
       "subagent": false,
@@ -137,12 +59,12 @@
     }
   ],
   "history": {
-    "workers": 136,
+    "workers": 138,
     "by_status": {
-      "idle": 132,
+      "idle": 134,
       "stopped": 4
     },
-    "last_active": "2026-08-17T04:01:07Z",
+    "last_active": "2026-08-17T05:44:53Z",
     "note": "Prior-session workers \u2014 retired; not part of the current fleet."
   },
   "total_tokens": 6156310,
@@ -153,7 +75,7 @@
         "branch": "main",
         "available": true,
         "commits_24h": 0,
-        "commits_7d": 175
+        "commits_7d": 172
       }
     ],
     "recent": [
@@ -211,6 +133,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-08-17T07:40:29Z"
+    "checked_at": "2026-08-17T07:55:29Z"
   }
 }
