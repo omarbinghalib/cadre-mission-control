@@ -1,5 +1,11 @@
 [
   {
+    "title": "Sync reliability + perf \u2192 v0.1.34",
+    "status": "in_progress",
+    "track": "active",
+    "note": "branch lane/sync-reliability-perf off main 6d0002c (worker ab6ec4a2). Root-caused live on Omar's own running v0.1.33 app (curl'd /sync-status + /mattermost/sync/status, not a guess): Mattermost sync stalled at 34/249 channels because a still-running email sync (account 1, \"paused\" but in-flight from the reaper's 01:56 re-enqueue) was starving the shared single-writer SQLite DB. 4 root issues found + being fixed: (1) SYNC-pause only blocked NEW syncs, not in-flight ones \u2014 building cooperative pause-cancel so pause stops in-flight work at the next boundary; (2) SQLite single-writer contention between email and Mattermost \u2014 adding WAL mode + busy_timeout to kill the write contention; (3) Mattermost ground through 249 channels sequentially including quiet DMs \u2014 parallelizing channels + skipping inactive DMs + prioritizing the open channel; (4) a stale [Gmail] \\Noselect folder row still errored (the v0.1.32 fix only stopped NEW ones) \u2014 cleaning up the stale folder row + anything past next_retry_at. Verifying against fakes + an isolated smoke test (asserts WAL) before push + publish v0.1.34. Omar told to restart the app now as an immediate unblock (the email pause is persisted, so a restart lets Mattermost get the DB) while this ships properly."
+  },
+  {
     "title": "v0.1.33 release \u2014 finish-everything backlog \u2014 SHIPPED",
     "status": "done",
     "track": "archive",
