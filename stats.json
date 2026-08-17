@@ -1,7 +1,7 @@
 {
-  "updated": "2026-08-17T05:42:30Z",
-  "heartbeat_at": "2026-08-17T05:42:30Z",
-  "last_activity": "2026-08-17T05:42:29Z",
+  "updated": "2026-08-17T05:43:29Z",
+  "heartbeat_at": "2026-08-17T05:43:29Z",
+  "last_activity": "2026-08-17T05:43:29Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
@@ -31,8 +31,8 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-17T05:42:29Z",
-      "out_age_min": 0.9,
+      "out_last_active": "2026-08-17T05:43:29Z",
+      "out_age_min": 1.9,
       "log_bytes": null,
       "status": "live",
       "live": true,
@@ -50,7 +50,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-08-17T04:01:07Z",
-      "out_age_min": 101.4,
+      "out_age_min": 102.4,
       "log_bytes": 1950150,
       "output_tokens": 228365,
       "cache_read_tokens": 138426537,
@@ -71,13 +71,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-17T05:42:28Z",
+      "out_last_active": "2026-08-17T05:43:27Z",
       "out_age_min": 0.0,
-      "log_bytes": 1379051,
-      "output_tokens": 163240,
-      "cache_read_tokens": 66059481,
-      "cache_creation_tokens": 4712653,
-      "msgs": 373,
+      "log_bytes": 1420293,
+      "output_tokens": 167698,
+      "cache_read_tokens": 69801549,
+      "cache_creation_tokens": 4729760,
+      "msgs": 385,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -94,7 +94,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-08-17T05:40:44Z",
-      "out_age_min": 1.8,
+      "out_age_min": 2.8,
       "log_bytes": 1457837,
       "output_tokens": 135901,
       "cache_read_tokens": 82061110,
@@ -116,7 +116,7 @@
       "log_bytes": 1950150,
       "live": false,
       "status": "idle",
-      "age_min": 101.4,
+      "age_min": 102.4,
       "subagent": true,
       "recent": true,
       "output_tokens": 228365,
@@ -129,17 +129,17 @@
       "full_id": "add113a4c06ed35de",
       "group": "revive-mission-control-board",
       "group_label": "Revive mission-control board",
-      "last_active": "2026-08-17T05:42:28Z",
-      "log_bytes": 1379051,
+      "last_active": "2026-08-17T05:43:27Z",
+      "log_bytes": 1420293,
       "live": true,
       "status": "live",
       "age_min": 0.0,
       "subagent": true,
       "recent": true,
-      "output_tokens": 163240,
-      "cache_read_tokens": 66059481,
-      "cache_creation_tokens": 4712653,
-      "msgs": 373
+      "output_tokens": 167698,
+      "cache_read_tokens": 69801549,
+      "cache_creation_tokens": 4729760,
+      "msgs": 385
     },
     {
       "id": "af89e8d6",
@@ -150,7 +150,7 @@
       "log_bytes": 1457837,
       "live": true,
       "status": "live",
-      "age_min": 1.8,
+      "age_min": 2.8,
       "subagent": true,
       "recent": true,
       "output_tokens": 135901,
@@ -168,7 +168,7 @@
       "cache_read_tokens": 813298964,
       "cache_creation_tokens": 62686169,
       "msgs": 1746,
-      "age_min": 0.9,
+      "age_min": 1.9,
       "live": true,
       "status": "live",
       "subagent": false,
@@ -193,62 +193,55 @@
         "available": true,
         "commits_24h": 0,
         "commits_7d": 186
-      },
-      {
-        "track": "w0",
-        "branch": "lane/mattermost-sync-resilience",
-        "available": true,
-        "commits_24h": 10,
-        "commits_7d": 196
       }
     ],
     "recent": [
       {
-        "hash": "0f668ea",
-        "at": "2026-08-17T08:57:32+04:00",
-        "subject": "chore(release): bump version to 0.1.35",
+        "hash": "6d0002c",
+        "at": "2026-08-14T10:35:56+04:00",
+        "subject": "chore(release): bump version to 0.1.33",
         "track": "w0"
       },
       {
-        "hash": "c7dbb05",
-        "at": "2026-08-17T08:48:04+04:00",
-        "subject": "test(mattermost): cover retry, per-channel degrade, and real-outage handling",
+        "hash": "e3ed4dd",
+        "at": "2026-08-14T10:34:47+04:00",
+        "subject": "Merge lane/app-wide-instant-load into release/v0.1.33",
         "track": "w0"
       },
       {
-        "hash": "429a819",
-        "at": "2026-08-17T08:39:34+04:00",
-        "subject": "fix(mattermost): degrade per channel, never halt workspace on a blip (Fix #1/#5)",
+        "hash": "a2805be",
+        "at": "2026-08-14T10:34:42+04:00",
+        "subject": "Merge lane/sync-status-control into release/v0.1.33",
         "track": "w0"
       },
       {
-        "hash": "95526cb",
-        "at": "2026-08-17T08:33:46+04:00",
-        "subject": "fix(mattermost): retry+IPv4+bounded timeouts+clear errors in REST client",
+        "hash": "6cbd54b",
+        "at": "2026-08-14T10:26:44+04:00",
+        "subject": "sync(jobs): record() adds without flush/rollback + end-to-end error-log test",
         "track": "w0"
       },
       {
-        "hash": "875409e",
-        "at": "2026-08-17T07:35:15+04:00",
-        "subject": "test: harden load-fragile drain waits so the suite is green under CPU contention",
+        "hash": "8af3eca",
+        "at": "2026-08-14T10:17:48+04:00",
+        "subject": "sync-status(ui): register the Sync Status nav tab",
         "track": "w0"
       },
       {
-        "hash": "9bea367",
-        "at": "2026-08-17T06:53:28+04:00",
-        "subject": "chore(release): bump version to 0.1.34",
+        "hash": "674c920",
+        "at": "2026-08-14T10:17:48+04:00",
+        "subject": "sync-status(ui): Sync Status & Control module",
         "track": "w0"
       },
       {
-        "hash": "16d8122",
-        "at": "2026-08-17T06:43:55+04:00",
-        "subject": "fix(sync): clean stale [Gmail] folder rows + normalize past next_retry_at (Fix #4)",
+        "hash": "a07db4b",
+        "at": "2026-08-14T10:13:04+04:00",
+        "subject": "feat(settings): cache-first connector/model-source/auto-sync/email sections",
         "track": "w0"
       },
       {
-        "hash": "67ea040",
-        "at": "2026-08-17T06:39:08+04:00",
-        "subject": "perf(mattermost-sync): bounded-concurrency + priority + pause-cancel (Fix #3, #1)",
+        "hash": "7dfd4c7",
+        "at": "2026-08-14T10:13:02+04:00",
+        "subject": "feat(projects): cache-first list + selection-keyed Gantt (instant load)",
         "track": "w0"
       }
     ]
@@ -257,6 +250,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-08-17T05:42:30Z"
+    "checked_at": "2026-08-17T05:43:29Z"
   }
 }
