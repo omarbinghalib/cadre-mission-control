@@ -1,7 +1,7 @@
 {
-  "updated": "2026-08-17T04:35:29Z",
-  "heartbeat_at": "2026-08-17T04:35:29Z",
-  "last_activity": "2026-08-17T04:35:03Z",
+  "updated": "2026-08-17T04:36:29Z",
+  "heartbeat_at": "2026-08-17T04:36:29Z",
+  "last_activity": "2026-08-17T04:36:11Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
@@ -32,7 +32,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": null,
-      "out_age_min": 12.6,
+      "out_age_min": 13.6,
       "log_bytes": null,
       "status": "idle",
       "live": false,
@@ -50,7 +50,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-08-17T04:01:07Z",
-      "out_age_min": 34.4,
+      "out_age_min": 35.4,
       "log_bytes": 1950150,
       "output_tokens": 228365,
       "cache_read_tokens": 138426537,
@@ -72,7 +72,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-08-17T04:22:43Z",
-      "out_age_min": 12.8,
+      "out_age_min": 13.8,
       "log_bytes": 1333883,
       "output_tokens": 159213,
       "cache_read_tokens": 61779298,
@@ -93,13 +93,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-17T04:35:03Z",
-      "out_age_min": 0.4,
-      "log_bytes": 645611,
-      "output_tokens": 31997,
-      "cache_read_tokens": 13674423,
-      "cache_creation_tokens": 660613,
-      "msgs": 101,
+      "out_last_active": "2026-08-17T04:36:11Z",
+      "out_age_min": 0.3,
+      "log_bytes": 673547,
+      "output_tokens": 35019,
+      "cache_read_tokens": 15113883,
+      "cache_creation_tokens": 677491,
+      "msgs": 108,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -116,7 +116,7 @@
       "log_bytes": 1950150,
       "live": false,
       "status": "idle",
-      "age_min": 34.4,
+      "age_min": 35.4,
       "subagent": true,
       "recent": true,
       "output_tokens": 228365,
@@ -133,7 +133,7 @@
       "log_bytes": 1333883,
       "live": false,
       "status": "idle",
-      "age_min": 12.8,
+      "age_min": 13.8,
       "subagent": true,
       "recent": true,
       "output_tokens": 159213,
@@ -146,17 +146,17 @@
       "full_id": "af89e8d69cbe7d303",
       "group": "mattermost-sync-resilience-ship-v0-1-35",
       "group_label": "Mattermost sync resilience, ship v0.1.35",
-      "last_active": "2026-08-17T04:35:03Z",
-      "log_bytes": 645611,
+      "last_active": "2026-08-17T04:36:11Z",
+      "log_bytes": 673547,
       "live": true,
       "status": "live",
-      "age_min": 0.4,
+      "age_min": 0.3,
       "subagent": true,
       "recent": true,
-      "output_tokens": 31997,
-      "cache_read_tokens": 13674423,
-      "cache_creation_tokens": 660613,
-      "msgs": 101
+      "output_tokens": 35019,
+      "cache_read_tokens": 15113883,
+      "cache_creation_tokens": 677491,
+      "msgs": 108
     },
     {
       "id": "0f7b13a0",
@@ -168,7 +168,7 @@
       "cache_read_tokens": 800847087,
       "cache_creation_tokens": 62662533,
       "msgs": 1729,
-      "age_min": 12.7,
+      "age_min": 13.7,
       "live": false,
       "status": "idle",
       "subagent": false,
@@ -192,14 +192,14 @@
         "branch": "main",
         "available": true,
         "commits_24h": 0,
-        "commits_7d": 193
+        "commits_7d": 191
       },
       {
         "track": "w0",
         "branch": "lane/mattermost-sync-resilience",
         "available": true,
         "commits_24h": 7,
-        "commits_7d": 200
+        "commits_7d": 198
       }
     ],
     "recent": [
@@ -257,6 +257,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-08-17T04:35:30Z"
+    "checked_at": "2026-08-17T04:36:29Z"
   }
 }
