@@ -1,7 +1,7 @@
 {
-  "updated": "2026-08-17T02:29:34Z",
-  "heartbeat_at": "2026-08-17T02:29:34Z",
-  "last_activity": "2026-08-17T02:29:33Z",
+  "updated": "2026-08-17T02:30:33Z",
+  "heartbeat_at": "2026-08-17T02:30:33Z",
+  "last_activity": "2026-08-17T02:30:32Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
@@ -31,8 +31,8 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-17T02:29:33Z",
-      "out_age_min": 8.0,
+      "out_last_active": "2026-08-17T02:30:32Z",
+      "out_age_min": 8.9,
       "log_bytes": null,
       "status": "live",
       "live": true,
@@ -49,13 +49,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-17T02:29:31Z",
-      "out_age_min": 0.0,
-      "log_bytes": 513482,
-      "output_tokens": 43139,
-      "cache_read_tokens": 9700348,
-      "cache_creation_tokens": 605904,
-      "msgs": 93,
+      "out_last_active": "2026-08-17T02:29:48Z",
+      "out_age_min": 0.7,
+      "log_bytes": 522190,
+      "output_tokens": 43502,
+      "cache_read_tokens": 10358907,
+      "cache_creation_tokens": 607919,
+      "msgs": 97,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -72,7 +72,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-08-17T02:21:29Z",
-      "out_age_min": 8.1,
+      "out_age_min": 9.0,
       "log_bytes": 1157540,
       "output_tokens": 140497,
       "cache_read_tokens": 46082114,
@@ -90,17 +90,17 @@
       "full_id": "ab6ec4a2e194cf24c",
       "group": "sync-reliability-perf-fixes-ship-v0-1-34",
       "group_label": "Sync reliability + perf fixes, ship v0.1.34",
-      "last_active": "2026-08-17T02:29:31Z",
-      "log_bytes": 513482,
+      "last_active": "2026-08-17T02:29:48Z",
+      "log_bytes": 522190,
       "live": true,
       "status": "live",
-      "age_min": 0.0,
+      "age_min": 0.7,
       "subagent": true,
       "recent": true,
-      "output_tokens": 43139,
-      "cache_read_tokens": 9700348,
-      "cache_creation_tokens": 605904,
-      "msgs": 93
+      "output_tokens": 43502,
+      "cache_read_tokens": 10358907,
+      "cache_creation_tokens": 607919,
+      "msgs": 97
     },
     {
       "id": "add113a4",
@@ -111,7 +111,7 @@
       "log_bytes": 1157540,
       "live": true,
       "status": "live",
-      "age_min": 8.1,
+      "age_min": 9.0,
       "subagent": true,
       "recent": true,
       "output_tokens": 140497,
@@ -129,7 +129,7 @@
       "cache_read_tokens": 767217076,
       "cache_creation_tokens": 62536028,
       "msgs": 1681,
-      "age_min": 8.0,
+      "age_min": 8.9,
       "live": true,
       "status": "live",
       "subagent": false,
@@ -159,11 +159,17 @@
         "track": "w0",
         "branch": "lane/sync-reliability-perf",
         "available": true,
-        "commits_24h": 1,
-        "commits_7d": 195
+        "commits_24h": 2,
+        "commits_7d": 196
       }
     ],
     "recent": [
+      {
+        "hash": "99ac1b6",
+        "at": "2026-08-17T06:29:48+04:00",
+        "subject": "fix(mailbox-sync): cooperative pause-cancel + small write turns (Fix #1)",
+        "track": "w0"
+      },
       {
         "hash": "2a77c09",
         "at": "2026-08-17T06:26:54+04:00",
@@ -205,12 +211,6 @@
         "at": "2026-08-14T10:34:42+04:00",
         "subject": "Merge lane/sync-status-control into release/v0.1.33",
         "track": "w0"
-      },
-      {
-        "hash": "6cbd54b",
-        "at": "2026-08-14T10:26:44+04:00",
-        "subject": "sync(jobs): record() adds without flush/rollback + end-to-end error-log test",
-        "track": "w0"
       }
     ]
   },
@@ -218,6 +218,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-08-17T02:29:36Z"
+    "checked_at": "2026-08-17T02:30:34Z"
   }
 }
