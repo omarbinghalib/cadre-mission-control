@@ -1,7 +1,7 @@
 {
-  "updated": "2026-08-17T04:39:28Z",
-  "heartbeat_at": "2026-08-17T04:39:28Z",
-  "last_activity": "2026-08-17T04:39:23Z",
+  "updated": "2026-08-17T04:40:28Z",
+  "heartbeat_at": "2026-08-17T04:40:28Z",
+  "last_activity": "2026-08-17T04:40:28Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
@@ -32,7 +32,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": null,
-      "out_age_min": 16.6,
+      "out_age_min": 17.6,
       "log_bytes": null,
       "status": "idle",
       "live": false,
@@ -50,7 +50,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-08-17T04:01:07Z",
-      "out_age_min": 38.4,
+      "out_age_min": 39.4,
       "log_bytes": 1950150,
       "output_tokens": 228365,
       "cache_read_tokens": 138426537,
@@ -72,7 +72,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-08-17T04:22:43Z",
-      "out_age_min": 16.7,
+      "out_age_min": 17.7,
       "log_bytes": 1333883,
       "output_tokens": 159213,
       "cache_read_tokens": 61779298,
@@ -93,13 +93,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-17T04:39:23Z",
-      "out_age_min": 0.1,
-      "log_bytes": 714540,
-      "output_tokens": 35035,
-      "cache_read_tokens": 15533351,
-      "cache_creation_tokens": 680037,
-      "msgs": 110,
+      "out_last_active": "2026-08-17T04:40:28Z",
+      "out_age_min": 0.0,
+      "log_bytes": 740372,
+      "output_tokens": 47761,
+      "cache_read_tokens": 16832873,
+      "cache_creation_tokens": 705232,
+      "msgs": 116,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -116,7 +116,7 @@
       "log_bytes": 1950150,
       "live": false,
       "status": "idle",
-      "age_min": 38.4,
+      "age_min": 39.4,
       "subagent": true,
       "recent": true,
       "output_tokens": 228365,
@@ -133,7 +133,7 @@
       "log_bytes": 1333883,
       "live": false,
       "status": "idle",
-      "age_min": 16.7,
+      "age_min": 17.7,
       "subagent": true,
       "recent": true,
       "output_tokens": 159213,
@@ -146,17 +146,17 @@
       "full_id": "af89e8d69cbe7d303",
       "group": "mattermost-sync-resilience-ship-v0-1-35",
       "group_label": "Mattermost sync resilience, ship v0.1.35",
-      "last_active": "2026-08-17T04:39:23Z",
-      "log_bytes": 714540,
+      "last_active": "2026-08-17T04:40:28Z",
+      "log_bytes": 740372,
       "live": true,
       "status": "live",
-      "age_min": 0.1,
+      "age_min": 0.0,
       "subagent": true,
       "recent": true,
-      "output_tokens": 35035,
-      "cache_read_tokens": 15533351,
-      "cache_creation_tokens": 680037,
-      "msgs": 110
+      "output_tokens": 47761,
+      "cache_read_tokens": 16832873,
+      "cache_creation_tokens": 705232,
+      "msgs": 116
     },
     {
       "id": "0f7b13a0",
@@ -168,7 +168,7 @@
       "cache_read_tokens": 800847087,
       "cache_creation_tokens": 62662533,
       "msgs": 1729,
-      "age_min": 16.6,
+      "age_min": 17.6,
       "live": false,
       "status": "idle",
       "subagent": false,
@@ -198,11 +198,17 @@
         "track": "w0",
         "branch": "lane/mattermost-sync-resilience",
         "available": true,
-        "commits_24h": 7,
-        "commits_7d": 198
+        "commits_24h": 8,
+        "commits_7d": 199
       }
     ],
     "recent": [
+      {
+        "hash": "429a819",
+        "at": "2026-08-17T08:39:34+04:00",
+        "subject": "fix(mattermost): degrade per channel, never halt workspace on a blip (Fix #1/#5)",
+        "track": "w0"
+      },
       {
         "hash": "95526cb",
         "at": "2026-08-17T08:33:46+04:00",
@@ -244,12 +250,6 @@
         "at": "2026-08-17T06:26:54+04:00",
         "subject": "fix(db): add app-level sync write lock + verify WAL for sync contention (Fix #2)",
         "track": "w0"
-      },
-      {
-        "hash": "6d0002c",
-        "at": "2026-08-14T10:35:56+04:00",
-        "subject": "chore(release): bump version to 0.1.33",
-        "track": "w0"
       }
     ]
   },
@@ -257,6 +257,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-08-17T04:39:29Z"
+    "checked_at": "2026-08-17T04:40:28Z"
   }
 }
