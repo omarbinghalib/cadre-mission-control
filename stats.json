@@ -1,7 +1,7 @@
 {
-  "updated": "2026-08-18T10:39:29Z",
-  "heartbeat_at": "2026-08-18T10:39:29Z",
-  "last_activity": "2026-08-18T08:43:34Z",
+  "updated": "2026-08-18T10:54:29Z",
+  "heartbeat_at": "2026-08-18T10:54:29Z",
+  "last_activity": null,
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
@@ -9,15 +9,15 @@
     "cache_read_tokens": 890296340,
     "cache_creation_tokens": 69966311,
     "msgs": 1851,
-    "sessions": 2,
+    "sessions": 1,
     "live_sessions": 0,
     "transcript_sessions": 1,
-    "subagent_sessions": 1,
-    "workers": 2,
+    "subagent_sessions": 0,
+    "workers": 1,
     "live_workers": 0,
     "stopped_workers": 0,
-    "current_workers": 2,
-    "history_workers": 142,
+    "current_workers": 1,
+    "history_workers": 143,
     "recent_window_min": 120.0
   },
   "workers": [
@@ -32,54 +32,15 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": null,
-      "out_age_min": 115.8,
+      "out_age_min": 130.8,
       "log_bytes": null,
       "status": "idle",
       "live": false,
       "signal": "coordinating (orchestrator)",
       "recent": true
-    },
-    {
-      "name": "Surface Sync-everything toggles, ship v0.1.39",
-      "role": "surface-sync-everything-toggles-ship-v0-1-39",
-      "branch": null,
-      "focus": "Surface Sync-everything toggles, ship v0.1.39",
-      "agent_id": "afcc80750315c02b0",
-      "short_id": "afcc8075",
-      "head_commit": null,
-      "head_commit_at": null,
-      "head_ago_min": null,
-      "out_last_active": "2026-08-18T08:43:34Z",
-      "out_age_min": 115.9,
-      "log_bytes": 612070,
-      "output_tokens": 56225,
-      "cache_read_tokens": 18558643,
-      "cache_creation_tokens": 920655,
-      "msgs": 172,
-      "status": "idle",
-      "live": false,
-      "signal": "task-output mtime + git commit",
-      "recent": true
     }
   ],
   "sessions": [
-    {
-      "id": "afcc8075",
-      "full_id": "afcc80750315c02b0",
-      "group": "surface-sync-everything-toggles-ship-v0-1-39",
-      "group_label": "Surface Sync-everything toggles, ship v0.1.39",
-      "last_active": "2026-08-18T08:43:34Z",
-      "log_bytes": 612070,
-      "live": false,
-      "status": "idle",
-      "age_min": 115.9,
-      "subagent": true,
-      "recent": true,
-      "output_tokens": 56225,
-      "cache_read_tokens": 18558643,
-      "cache_creation_tokens": 920655,
-      "msgs": 172
-    },
     {
       "id": "0f7b13a0",
       "full_id": "0f7b13a0-2a85-49c0-96d5-e5a8832d8b85",
@@ -90,7 +51,7 @@
       "cache_read_tokens": 890296340,
       "cache_creation_tokens": 69966311,
       "msgs": 1851,
-      "age_min": 115.8,
+      "age_min": 130.8,
       "live": false,
       "status": "idle",
       "subagent": false,
@@ -98,12 +59,12 @@
     }
   ],
   "history": {
-    "workers": 142,
+    "workers": 143,
     "by_status": {
-      "idle": 138,
+      "idle": 139,
       "stopped": 4
     },
-    "last_active": "2026-08-18T08:19:08Z",
+    "last_active": "2026-08-18T08:43:34Z",
     "note": "Prior-session workers \u2014 retired; not part of the current fleet."
   },
   "total_tokens": 6450438,
@@ -179,6 +140,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-08-18T10:39:29Z"
+    "checked_at": "2026-08-18T10:54:30Z"
   }
 }
