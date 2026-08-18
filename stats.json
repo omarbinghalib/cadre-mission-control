@@ -1,7 +1,7 @@
 {
-  "updated": "2026-08-18T08:25:59Z",
-  "heartbeat_at": "2026-08-18T08:25:59Z",
-  "last_activity": "2026-08-18T08:25:46Z",
+  "updated": "2026-08-18T08:26:40Z",
+  "heartbeat_at": "2026-08-18T08:26:40Z",
+  "last_activity": "2026-08-18T08:26:39Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
@@ -31,8 +31,8 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-18T08:25:46Z",
-      "out_age_min": 4.3,
+      "out_last_active": "2026-08-18T08:26:39Z",
+      "out_age_min": 5.2,
       "log_bytes": null,
       "status": "live",
       "live": true,
@@ -50,7 +50,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-08-18T08:12:01Z",
-      "out_age_min": 13.8,
+      "out_age_min": 14.6,
       "log_bytes": 2313186,
       "output_tokens": 322398,
       "cache_read_tokens": 173383140,
@@ -72,7 +72,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-08-18T08:19:08Z",
-      "out_age_min": 6.7,
+      "out_age_min": 7.5,
       "log_bytes": 1973801,
       "output_tokens": 226041,
       "cache_read_tokens": 132842599,
@@ -93,13 +93,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-18T08:25:40Z",
+      "out_last_active": "2026-08-18T08:26:29Z",
       "out_age_min": 0.2,
-      "log_bytes": 439568,
-      "output_tokens": 40769,
-      "cache_read_tokens": 10640717,
-      "cache_creation_tokens": 383781,
-      "msgs": 115,
+      "log_bytes": 471136,
+      "output_tokens": 42113,
+      "cache_read_tokens": 11973241,
+      "cache_creation_tokens": 389575,
+      "msgs": 125,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -116,7 +116,7 @@
       "log_bytes": 2313186,
       "live": false,
       "status": "idle",
-      "age_min": 13.8,
+      "age_min": 14.6,
       "subagent": true,
       "recent": true,
       "output_tokens": 322398,
@@ -133,7 +133,7 @@
       "log_bytes": 1973801,
       "live": true,
       "status": "live",
-      "age_min": 6.7,
+      "age_min": 7.5,
       "subagent": true,
       "recent": true,
       "output_tokens": 226041,
@@ -146,17 +146,17 @@
       "full_id": "afcc80750315c02b0",
       "group": "surface-sync-everything-toggles-ship-v0-1-39",
       "group_label": "Surface Sync-everything toggles, ship v0.1.39",
-      "last_active": "2026-08-18T08:25:40Z",
-      "log_bytes": 439568,
+      "last_active": "2026-08-18T08:26:29Z",
+      "log_bytes": 471136,
       "live": true,
       "status": "live",
       "age_min": 0.2,
       "subagent": true,
       "recent": true,
-      "output_tokens": 40769,
-      "cache_read_tokens": 10640717,
-      "cache_creation_tokens": 383781,
-      "msgs": 115
+      "output_tokens": 42113,
+      "cache_read_tokens": 11973241,
+      "cache_creation_tokens": 389575,
+      "msgs": 125
     },
     {
       "id": "0f7b13a0",
@@ -168,7 +168,7 @@
       "cache_read_tokens": 886852696,
       "cache_creation_tokens": 69962693,
       "msgs": 1847,
-      "age_min": 4.6,
+      "age_min": 5.2,
       "live": true,
       "status": "live",
       "subagent": false,
@@ -198,11 +198,17 @@
         "track": "w0",
         "branch": "lane/sync-everything-toggle-discoverability",
         "available": true,
-        "commits_24h": 21,
-        "commits_7d": 131
+        "commits_24h": 22,
+        "commits_7d": 132
       }
     ],
     "recent": [
+      {
+        "hash": "3f6941b",
+        "at": "2026-08-18T12:26:06+04:00",
+        "subject": "chore(release): bump version to 0.1.39",
+        "track": "w0"
+      },
       {
         "hash": "fe80345",
         "at": "2026-08-18T12:25:04+04:00",
@@ -244,12 +250,6 @@
         "at": "2026-08-18T11:42:24+04:00",
         "subject": "test(oauth): generous poll ceiling so the async flow survives full CPU saturation",
         "track": "w0"
-      },
-      {
-        "hash": "1beb662",
-        "at": "2026-08-18T11:25:28+04:00",
-        "subject": "fix(sync): avoid write-lock deadlock from a dangling write txn crossing lock acquisition",
-        "track": "w0"
       }
     ]
   },
@@ -257,6 +257,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-08-18T08:26:04Z"
+    "checked_at": "2026-08-18T08:26:42Z"
   }
 }
