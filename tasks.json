@@ -1,9 +1,16 @@
 [
   {
-    "title": "Understanding-worker DB contention fix \u2192 v0.1.38",
+    "title": "DB write-lock comprehensive fix (was: understanding-worker DB contention) \u2192 v0.1.38",
     "status": "in_progress",
     "track": "active",
-    "note": "branch lane/understanding-db-contention off main 77e1956 (worker ad1e1c43). Per Omar's \"fix all failures\" standard \u2014 fixes the pre-existing load-only flaky cluster (test_email_ai_switch / test_email_organizations / test_email_organizer / test_understanding_pipeline) at its ROOT: the understanding/AI worker starving on the single SQLite writer under heavy sync (also a real reliability win \u2014 AI processing won't stall during big syncs). Shortens DB write/session scope + extends the fair write-lock (from v0.1.34's email/Mattermost sync_write_lock) to the understanding path + hardens the flaky tests. Target: full backend suite green at FULL parallelism TWICE (proves the contention is actually fixed, not just hidden by single-threading). Building + will ship as v0.1.38."
+    "note": "branch lane/understanding-db-contention off main 77e1956 (worker ad1e1c43). SCOPE EXPANDED after live-diagnosing Omar's app + backend logs on v0.1.37: he turned on the new Mattermost full-history toggle, and the deep-index write flood caused \"database is locked\" crashes ACROSS THE APP despite WAL+busy_timeout \u2014 mattermost_sync: full sync crashed (unhandled at _run_full_sync_async, surfaced to Omar as \"internal error during full sync\"), INSERT knowledge_entities locked, INSERT mattermost_channel_sync_states locked, understanding leader-lease heartbeat failed locked. The crash is ALSO why channel retries didn't fire \u2014 the run died before v0.1.36's retry sweep could run. So Omar's two new complaints (\"internal error during full sync\" + \"missing retry\") are BOTH this one root cause, on top of the original pre-existing flaky-test cluster (test_email_ai_switch / test_email_organizations / test_email_organizer / test_understanding_pipeline) this lane started out fixing. NOW COMPREHENSIVE: route ALL heavy write paths through the shared serialized write-lock \u2014 knowledge ingestion + channel_sync_states + understanding (incl. leader-lease heartbeat) + email sync, not just sync workers \u2014 AND make \"database is locked\" RECOVERABLE (retry-on-locked, never crash a run). Verify under a full-history-like write flood + full backend suite green at FULL parallelism TWICE. IMMEDIATE MITIGATION already applied: the Mattermost full-history toggle was turned back OFF via the app API (it was crash-looping Omar's sync) \u2014 re-enable it for him after v0.1.38 lands. Building + will ship as v0.1.38."
+  },
+  {
+    "title": "Surface both \"Sync everything\" toggles on the Sync Status tab (discoverability)",
+    "status": "pending",
+    "track": "queued",
+    "note": "Small UI follow-up. Both full-history toggles exist and work (email's per-account backfill switch from v0.1.33/34, Mattermost's full_history_enabled from v0.1.37) but Omar couldn't find the Mattermost one \u2014 it's buried in a channel-rail sync panel. Surface both toggles prominently on the Sync Status tab itself (the dedicated overview/control surface shipped in v0.1.33) instead of leaving them tucked away per-source. Queued behind v0.1.38.",
+    "track": "queued"
   },
   {
     "title": "Mattermost Sync-everything toggle \u2014 v0.1.37 \u2014 SHIPPED",
