@@ -1,7 +1,7 @@
 {
-  "updated": "2026-08-18T07:54:30Z",
-  "heartbeat_at": "2026-08-18T07:54:30Z",
-  "last_activity": "2026-08-18T07:54:30Z",
+  "updated": "2026-08-18T07:55:30Z",
+  "heartbeat_at": "2026-08-18T07:55:30Z",
+  "last_activity": "2026-08-18T07:55:29Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
@@ -31,8 +31,8 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-18T07:54:30Z",
-      "out_age_min": 4.2,
+      "out_last_active": "2026-08-18T07:55:29Z",
+      "out_age_min": 5.2,
       "log_bytes": null,
       "status": "live",
       "live": true,
@@ -49,13 +49,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-18T07:54:28Z",
-      "out_age_min": 0.0,
-      "log_bytes": 2070079,
-      "output_tokens": 294694,
-      "cache_read_tokens": 128728505,
-      "cache_creation_tokens": 2404860,
-      "msgs": 486,
+      "out_last_active": "2026-08-18T07:55:25Z",
+      "out_age_min": 0.1,
+      "log_bytes": 2097503,
+      "output_tokens": 298153,
+      "cache_read_tokens": 132995273,
+      "cache_creation_tokens": 2415396,
+      "msgs": 495,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -72,7 +72,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-08-18T06:28:08Z",
-      "out_age_min": 86.4,
+      "out_age_min": 87.4,
       "log_bytes": 1864456,
       "output_tokens": 214120,
       "cache_read_tokens": 119706333,
@@ -90,17 +90,17 @@
       "full_id": "ad1e1c437389af132",
       "group": "fix-understanding-worker-db-contention-ship-v0-1-38",
       "group_label": "Fix understanding-worker DB contention, ship v0.1.38",
-      "last_active": "2026-08-18T07:54:28Z",
-      "log_bytes": 2070079,
+      "last_active": "2026-08-18T07:55:25Z",
+      "log_bytes": 2097503,
       "live": true,
       "status": "live",
-      "age_min": 0.0,
+      "age_min": 0.1,
       "subagent": true,
       "recent": true,
-      "output_tokens": 294694,
-      "cache_read_tokens": 128728505,
-      "cache_creation_tokens": 2404860,
-      "msgs": 486
+      "output_tokens": 298153,
+      "cache_read_tokens": 132995273,
+      "cache_creation_tokens": 2415396,
+      "msgs": 495
     },
     {
       "id": "add113a4",
@@ -111,7 +111,7 @@
       "log_bytes": 1864456,
       "live": false,
       "status": "idle",
-      "age_min": 86.4,
+      "age_min": 87.4,
       "subagent": true,
       "recent": true,
       "output_tokens": 214120,
@@ -129,7 +129,7 @@
       "cache_read_tokens": 879918098,
       "cache_creation_tokens": 66639399,
       "msgs": 1835,
-      "age_min": 4.2,
+      "age_min": 5.2,
       "live": true,
       "status": "live",
       "subagent": false,
@@ -152,8 +152,8 @@
         "track": "w0",
         "branch": "main",
         "available": true,
-        "commits_24h": 8,
-        "commits_7d": 119
+        "commits_24h": 18,
+        "commits_7d": 129
       },
       {
         "track": "w0",
@@ -171,9 +171,27 @@
         "track": "w0"
       },
       {
+        "hash": "05cdd13",
+        "at": "2026-08-18T11:50:40+04:00",
+        "subject": "chore(release): bump version to 0.1.38",
+        "track": "w0"
+      },
+      {
         "hash": "4530ba2",
         "at": "2026-08-18T11:42:24+04:00",
         "subject": "test(oauth): generous poll ceiling so the async flow survives full CPU saturation",
+        "track": "w0"
+      },
+      {
+        "hash": "4530ba2",
+        "at": "2026-08-18T11:42:24+04:00",
+        "subject": "test(oauth): generous poll ceiling so the async flow survives full CPU saturation",
+        "track": "w0"
+      },
+      {
+        "hash": "1beb662",
+        "at": "2026-08-18T11:25:28+04:00",
+        "subject": "fix(sync): avoid write-lock deadlock from a dangling write txn crossing lock acquisition",
         "track": "w0"
       },
       {
@@ -189,27 +207,9 @@
         "track": "w0"
       },
       {
-        "hash": "37607e3",
-        "at": "2026-08-18T10:49:49+04:00",
-        "subject": "test(flood): concurrent heavy writes never propagate \"database is locked\"",
-        "track": "w0"
-      },
-      {
-        "hash": "b7ced24",
-        "at": "2026-08-18T10:49:48+04:00",
-        "subject": "fix(sync): route email sync + understanding lease heartbeat through lock+retry",
-        "track": "w0"
-      },
-      {
-        "hash": "349cbe1",
-        "at": "2026-08-18T10:49:48+04:00",
-        "subject": "fix(mattermost-sync): route every write + knowledge ingestion through the lock+retry",
-        "track": "w0"
-      },
-      {
-        "hash": "ec595c1",
-        "at": "2026-08-18T10:49:48+04:00",
-        "subject": "feat(database): reentrant write-lock + guarded_write retry-on-locked primitive",
+        "hash": "40c2562",
+        "at": "2026-08-18T11:05:33+04:00",
+        "subject": "test(isolation): pin CADRE_MODEL_MANAGER_URL to a dead port + reset background-ai cache",
         "track": "w0"
       }
     ]
@@ -218,6 +218,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-08-18T07:54:31Z"
+    "checked_at": "2026-08-18T07:55:30Z"
   }
 }
