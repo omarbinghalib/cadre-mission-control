@@ -1,7 +1,7 @@
 {
-  "updated": "2026-08-18T02:28:30Z",
-  "heartbeat_at": "2026-08-18T02:28:30Z",
-  "last_activity": "2026-08-18T02:28:26Z",
+  "updated": "2026-08-18T02:29:31Z",
+  "heartbeat_at": "2026-08-18T02:29:31Z",
+  "last_activity": "2026-08-18T02:29:31Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
@@ -32,7 +32,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": null,
-      "out_age_min": 13.6,
+      "out_age_min": 14.6,
       "log_bytes": null,
       "status": "idle",
       "live": false,
@@ -49,13 +49,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-18T02:28:26Z",
-      "out_age_min": 0.1,
-      "log_bytes": 851026,
-      "output_tokens": 81715,
-      "cache_read_tokens": 18783482,
-      "cache_creation_tokens": 1007054,
-      "msgs": 110,
+      "out_last_active": "2026-08-18T02:29:31Z",
+      "out_age_min": 0.2,
+      "log_bytes": 876203,
+      "output_tokens": 84790,
+      "cache_read_tokens": 21789185,
+      "cache_creation_tokens": 1014975,
+      "msgs": 121,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -72,7 +72,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-08-18T02:14:47Z",
-      "out_age_min": 13.7,
+      "out_age_min": 14.7,
       "log_bytes": 1531575,
       "output_tokens": 179230,
       "cache_read_tokens": 81914851,
@@ -90,17 +90,17 @@
       "full_id": "a53c5fd9145b70902",
       "group": "mm-sync-completeness-retry-logs-ship-v0-1-36",
       "group_label": "MM sync completeness + retry + logs, ship v0.1.36",
-      "last_active": "2026-08-18T02:28:26Z",
-      "log_bytes": 851026,
+      "last_active": "2026-08-18T02:29:31Z",
+      "log_bytes": 876203,
       "live": true,
       "status": "live",
-      "age_min": 0.1,
+      "age_min": 0.2,
       "subagent": true,
       "recent": true,
-      "output_tokens": 81715,
-      "cache_read_tokens": 18783482,
-      "cache_creation_tokens": 1007054,
-      "msgs": 110
+      "output_tokens": 84790,
+      "cache_read_tokens": 21789185,
+      "cache_creation_tokens": 1014975,
+      "msgs": 121
     },
     {
       "id": "add113a4",
@@ -111,7 +111,7 @@
       "log_bytes": 1531575,
       "live": false,
       "status": "idle",
-      "age_min": 13.7,
+      "age_min": 14.7,
       "subagent": true,
       "recent": true,
       "output_tokens": 179230,
@@ -129,7 +129,7 @@
       "cache_read_tokens": 826885839,
       "cache_creation_tokens": 64911863,
       "msgs": 1767,
-      "age_min": 13.6,
+      "age_min": 14.6,
       "live": false,
       "status": "idle",
       "subagent": false,
@@ -153,17 +153,23 @@
         "branch": "main",
         "available": true,
         "commits_24h": 0,
-        "commits_7d": 164
+        "commits_7d": 163
       },
       {
         "track": "w0",
         "branch": "lane/mattermost-sync-completeness",
         "available": true,
-        "commits_24h": 9,
+        "commits_24h": 10,
         "commits_7d": 174
       }
     ],
     "recent": [
+      {
+        "hash": "a77a513",
+        "at": "2026-08-18T06:28:55+04:00",
+        "subject": "feat(mattermost-sync): completeness backfill, real retry+backoff, deep-index resume, per-channel timeout; add file logging + reaper tighten",
+        "track": "w0"
+      },
       {
         "hash": "0f668ea",
         "at": "2026-08-17T08:57:32+04:00",
@@ -205,12 +211,6 @@
         "at": "2026-08-17T06:43:55+04:00",
         "subject": "fix(sync): clean stale [Gmail] folder rows + normalize past next_retry_at (Fix #4)",
         "track": "w0"
-      },
-      {
-        "hash": "67ea040",
-        "at": "2026-08-17T06:39:08+04:00",
-        "subject": "perf(mattermost-sync): bounded-concurrency + priority + pause-cancel (Fix #3, #1)",
-        "track": "w0"
       }
     ]
   },
@@ -218,6 +218,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-08-18T02:28:31Z"
+    "checked_at": "2026-08-18T02:29:32Z"
   }
 }
