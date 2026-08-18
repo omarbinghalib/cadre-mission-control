@@ -1,5 +1,11 @@
 [
   {
+    "title": "MM sync completeness + retry + logging \u2192 v0.1.36",
+    "status": "in_progress",
+    "track": "active",
+    "note": "branch lane/mattermost-sync-completeness off main 0f668ea (worker a53c5fd9). Root-caused live on Omar's own running v0.1.35 app (curl'd /mattermost/sync/status + /sync-status/errors + checked the app data dir): sync ends status=done but leaves 93 done / 1 error / 156 PENDING of 250; the 1 errored channel (Sameera Rafi DM, 921 msgs, failed mid-fetch at msg 400) has a STALE CONSTANT next_retry_at (2026-08-13) so failed channels never actually retry; a sync also hung ~21h before the reaper caught it; and there are NO persisted backend logs (stdout only, nothing to inspect after the fact). Omar's asks: \"add a retry for the failed channels,\" \"it stops before finishing everything,\" \"look at the running application logs.\" Fixing: (1) fix the broken backoff/next_retry_at + retry failed channels in-run AND next-pass until success (bounded); (2) finish everything \u2014 active-first then BACKFILL the ~156 pending/inactive channels in the background so channels_done converges to channels_total (revisits the v0.1.34 skip-inactive-DMs optimization per Omar's completeness ask); (3) resume partial channel progress on retry (e.g. 400/921 \u2192 resume from 400, not from scratch); (4) persistent rotating file logging in the app data dir + an optional /sync-status/logs tail endpoint (there are none today); (5) tighten the reaper threshold (~15-30min, not 21h) + audit every fetch path honors the bounded timeout. Fake-server tests; per Omar's standing rule, any failing tests get fixed, not dismissed. Will build + smoke + ship as v0.1.36."
+  },
+  {
     "title": "Mattermost sync resilience \u2014 v0.1.35 \u2014 SHIPPED",
     "status": "done",
     "track": "archive",
