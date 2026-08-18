@@ -1,22 +1,22 @@
 {
-  "updated": "2026-08-18T04:54:29Z",
-  "heartbeat_at": "2026-08-18T04:54:29Z",
-  "last_activity": "2026-08-18T04:54:29Z",
+  "updated": "2026-08-18T04:55:31Z",
+  "heartbeat_at": "2026-08-18T04:55:31Z",
+  "last_activity": "2026-08-18T04:55:31Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
-    "output_tokens": 6268363,
-    "cache_read_tokens": 839345827,
-    "cache_creation_tokens": 66442712,
-    "msgs": 1785,
-    "sessions": 2,
-    "live_sessions": 2,
+    "output_tokens": 6292587,
+    "cache_read_tokens": 842489479,
+    "cache_creation_tokens": 66454424,
+    "msgs": 1789,
+    "sessions": 3,
+    "live_sessions": 3,
     "transcript_sessions": 1,
-    "subagent_sessions": 1,
-    "workers": 2,
-    "live_workers": 2,
+    "subagent_sessions": 2,
+    "workers": 3,
+    "live_workers": 3,
     "stopped_workers": 0,
-    "current_workers": 2,
+    "current_workers": 3,
     "history_workers": 138,
     "recent_window_min": 120.0
   },
@@ -31,12 +31,34 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-18T04:54:29Z",
-      "out_age_min": 0.5,
+      "out_last_active": "2026-08-18T04:55:31Z",
+      "out_age_min": 0.2,
       "log_bytes": null,
       "status": "live",
       "live": true,
       "signal": "coordinating (orchestrator)",
+      "recent": true
+    },
+    {
+      "name": "Mattermost sync-everything toggle, ship v0.1.37",
+      "role": "mattermost-sync-everything-toggle-ship-v0-1-37",
+      "branch": null,
+      "focus": "Mattermost sync-everything toggle, ship v0.1.37",
+      "agent_id": "a1e933389aa658f74",
+      "short_id": "a1e93338",
+      "head_commit": null,
+      "head_commit_at": null,
+      "head_ago_min": null,
+      "out_last_active": "2026-08-18T04:55:26Z",
+      "out_age_min": 0.1,
+      "log_bytes": 18662,
+      "output_tokens": 270,
+      "cache_read_tokens": 43689,
+      "cache_creation_tokens": 25641,
+      "msgs": 3,
+      "status": "live",
+      "live": true,
+      "signal": "task-output mtime + git commit",
       "recent": true
     },
     {
@@ -50,7 +72,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-08-18T04:53:35Z",
-      "out_age_min": 0.9,
+      "out_age_min": 1.9,
       "log_bytes": 2607462,
       "output_tokens": 316887,
       "cache_read_tokens": 259627287,
@@ -64,6 +86,23 @@
   ],
   "sessions": [
     {
+      "id": "a1e93338",
+      "full_id": "a1e933389aa658f74",
+      "group": "mattermost-sync-everything-toggle-ship-v0-1-37",
+      "group_label": "Mattermost sync-everything toggle, ship v0.1.37",
+      "last_active": "2026-08-18T04:55:26Z",
+      "log_bytes": 18662,
+      "live": true,
+      "status": "live",
+      "age_min": 0.1,
+      "subagent": true,
+      "recent": true,
+      "output_tokens": 270,
+      "cache_read_tokens": 43689,
+      "cache_creation_tokens": 25641,
+      "msgs": 3
+    },
+    {
       "id": "a53c5fd9",
       "full_id": "a53c5fd9145b70902",
       "group": "mm-sync-completeness-retry-logs-ship-v0-1-36",
@@ -72,7 +111,7 @@
       "log_bytes": 2607462,
       "live": true,
       "status": "live",
-      "age_min": 0.9,
+      "age_min": 1.9,
       "subagent": true,
       "recent": true,
       "output_tokens": 316887,
@@ -85,12 +124,12 @@
       "full_id": "0f7b13a0-2a85-49c0-96d5-e5a8832d8b85",
       "group": "commander",
       "group_label": "Session 0f7b13a0",
-      "last_active": "2026-08-18T04:53:57Z",
-      "output_tokens": 6268363,
-      "cache_read_tokens": 839345827,
-      "cache_creation_tokens": 66442712,
-      "msgs": 1785,
-      "age_min": 0.5,
+      "last_active": "2026-08-18T04:55:22Z",
+      "output_tokens": 6292587,
+      "cache_read_tokens": 842489479,
+      "cache_creation_tokens": 66454424,
+      "msgs": 1789,
+      "age_min": 0.2,
       "live": true,
       "status": "live",
       "subagent": false,
@@ -106,7 +145,7 @@
     "last_active": "2026-08-18T02:14:47Z",
     "note": "Prior-session workers \u2014 retired; not part of the current fleet."
   },
-  "total_tokens": 6268363,
+  "total_tokens": 6292587,
   "commits": {
     "tracks": [
       {
@@ -114,14 +153,14 @@
         "branch": "main",
         "available": true,
         "commits_24h": 0,
-        "commits_7d": 155
+        "commits_7d": 150
       },
       {
         "track": "w0",
         "branch": "lane/mattermost-sync-completeness",
         "available": true,
         "commits_24h": 3,
-        "commits_7d": 167
+        "commits_7d": 162
       }
     ],
     "recent": [
@@ -179,6 +218,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-08-18T04:54:29Z"
+    "checked_at": "2026-08-18T04:55:32Z"
   }
 }
