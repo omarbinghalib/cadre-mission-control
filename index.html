@@ -245,21 +245,31 @@
   </header>
 
   <section class="panel">
-    <div class="split"><div><p class="eyebrow">Cadre program — v0.1.35 shipped, fleet idle</p><h2>Fleet status at a glance</h2></div></div>
+    <div class="split"><div><p class="eyebrow">Cadre program — 1 lane running now (real-data follow-up)</p><h2>Fleet status at a glance</h2></div></div>
     <div class="row" style="gap:8px;flex-wrap:wrap;margin:8px 0 6px">
-  <span class="chip ok" style="border-color:var(--ok);background:var(--ok-ink);color:#fff"><b>v0.1.35 SHIPPED — Mattermost sync resilience</b></span>
-  <span class="chip mute">Fleet idle — 0 active build lanes</span>
+  <span class="chip ok"><span class="dp beat"></span>1 lane running now — real-data follow-up from Omar</span>
+  <span class="chip mute">v0.1.35 SHIPPED — Mattermost sync resilience</span>
   <span class="chip mute">28 releases shipped</span>
 </div>
 
 <p class="eyebrow" style="margin:16px 0 8px">Milestone</p>
 <div class="sub" style="padding:10px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-  <b style="color:var(--ok-ink)">v0.1.35 SHIPPED + VERIFIED</b> (main <span class="mono">0f668ea</span>, Latest, both installers). Fixes the follow-on real-data issue: a transient per-channel Mattermost connection hiccup (IPv6/Cloudflare-related — DNS returns IPv6 first) was mislabeled "server unreachable" and halted the WHOLE workspace sync (Omar's real run had stalled at 92/249 on this bug). The core fix: a transient per-channel failure now DEGRADES that channel (mark + backoff + retry next pass) and the run CONTINUES / ends non-fatal "done", instead of flipping the whole job to "error". Plus: retry-with-backoff 3x on transient errors (ConnectError/timeouts/429/5xx), prefer IPv4 (dodges the flaky-first IPv6 AAAA), bounded timeouts (connect 8s / read 20s), real-outage classification (5 consecutive connection failures → stop early, else continue), and clear error messages (fixed the blank "unreachable: "). Backend 896 + model-manager 225 + frontend 99 all green (single-threaded); +9 new tests including fake-server transient-failure injection; fixed an old buggy assertion (job.status error→done). Packaged-exe smoke verified <span class="mono">/health</span>=0.1.35 + <span class="mono">/sync-status</span>=200. No classifier blocks. <b>The fleet is idle — no active build lanes.</b> Standing by for the next scope from Omar.
+  Live-diagnosed Omar's running v0.1.35 app again (curl'd <span class="mono">/mattermost/sync/status</span> + <span class="mono">/sync-status/errors</span> + checked the app data dir): sync ends <span class="mono">status=done</span> but leaves 93 done / 1 error / 156 PENDING of 250 channels; the 1 errored channel (Sameera Rafi DM, 921 msgs, failed mid-fetch at message 400) has a STALE CONSTANT <span class="mono">next_retry_at</span> (2026-08-13) so failed channels never actually retry; a sync also hung ~21h before the reaper caught it; and there are NO persisted backend logs (stdout only — nothing to inspect after the fact). Omar's asks, direct from him: "add a retry for the failed channels," "it stops before finishing everything," "look at the running application logs." No red alert — this is normal post-ship real-data feedback.
 </div>
+
+<p class="eyebrow" style="margin:16px 0 8px">Active lane — running now</p>
+<ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0">
+  <li style="padding:10px 0;border-top:1px solid var(--line)">
+    <span class="wname" style="font-weight:650">MM sync completeness + retry + logging → v0.1.36</span>
+    <span class="chip ok" style="margin-left:8px">running · lane/mattermost-sync-completeness, off main 0f668ea</span>
+    <div class="sub" style="margin-top:3px">Building: (1) fix the broken backoff/<span class="mono">next_retry_at</span> + retry failed channels in-run AND next-pass until success (bounded); (2) finish everything — active-first then BACKFILL the ~156 pending/inactive channels in the background so channels_done converges to channels_total (revisits the v0.1.34 skip-inactive-DMs optimization per Omar's completeness ask); (3) resume partial channel progress on retry (400/921 → resume from 400, not from scratch); (4) persistent rotating file logging in the app data dir + an optional <span class="mono">/sync-status/logs</span> tail endpoint (there are none today); (5) tighten the reaper threshold (~15-30min, not 21h) + audit every fetch path honors the bounded timeout. Fake-server tests; per Omar's standing rule, any failing tests get fixed, not dismissed. Will build + smoke + ship as v0.1.36.</div>
+  </li>
+</ul>
+<p class="foot" style="margin:6px 0 0">Operational note: active build lanes are deliberately kept to ≤3 — the workers run on Omar's own machine, and too much parallelism worsens the very live-app slowness he's reported before.</p>
 
 <p class="eyebrow" style="margin:18px 0 6px">Just shipped in v0.1.35</p>
 <div class="sub" style="padding:10px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-  <b style="color:var(--ok-ink)">Mattermost sync resilience</b> — per-channel degrade-don't-halt, retry-with-backoff on transient errors, IPv4 preference, bounded connect/read timeouts, real-outage-only classification, and clear error messages. Directly fixes the whole-workspace-halt Omar hit on real data (stopped at 92/249 channels).
+  <b style="color:var(--ok-ink)">Mattermost sync resilience</b> — per-channel degrade-don't-halt, retry-with-backoff on transient errors, IPv4 preference, bounded connect/read timeouts, real-outage-only classification, and clear error messages. Fixed the whole-workspace-halt Omar hit on real data (stopped at 92/249 channels) — the sync now reliably reaches "done", though (per the milestone above) "done" still isn't the same as "complete."
 </div>
 
 <p class="eyebrow" style="margin:18px 0 6px">Shipped in v0.1.34</p>
@@ -285,9 +295,9 @@
 <p class="sub" style="margin:0">28 releases, <span class="mono">v0.1.6 → v0.1.35</span> (current) — clean full-bleed layouts, full mailbox sync, Mattermost fixes, DPAPI credential persistence, LM Studio + Ollama runtimes, the Command Dashboard, Google sign-in, VAMS auth/crash fixes, the read-only VAMS Postgres connector + knowledge-graph foundation (v0.1.19), chat-on-any-brain + full local model management + email auto-organization + Mattermost full sync + 35 VAMS query tools (v0.1.20), the ask-anything tool-calling loop + interactive LLM mind map (v0.1.21), a safe-upgrade schema reconciler verified live against a real old-schema DB with data preserved (v0.1.22), the COO insight engine + dashboard drill-down capstone (v0.1.23), the VAMS projects query tools that closed the real gap behind Omar's first "provide me the data" answer (v0.1.24), chat streaming with no more 45s timeout (v0.1.25), background auto-sync for email + Mattermost + Mattermost error hardening + instant-load (v0.1.27), the organizer-churn root-cause fix + dashboard /summary unblock + AI-activity/Pause header (v0.1.29), the Mattermost upgrade-500 hotfix that self-heals on restart (v0.1.30), chat reliability — true end-to-end streaming, no more 45s timeout anywhere in tool-calling, capable-model routing, kept-warm brain (v0.1.31), VAMS attention-feed AI-churn fix + per-mailbox AI switch + Gmail \Noselect fix + Projects/Gantt from VAMS Sales Orders (v0.1.32), the "finish everything" release — Mattermost live-browse + Email recent-first + app-wide no-reload sweep + Sync Status tab + stale-job reaper (v0.1.33), the real-data sync-reliability + perf fix — cooperative pause-cancel, WAL-mode SQLite contention fix, faster bounded-concurrency Mattermost sync, stale-folder cleanup (v0.1.34), and Mattermost sync resilience — per-channel degrade-don't-halt, retry-with-backoff, IPv4 preference, real-outage classification (v0.1.35). Full per-release notes on <a href="https://github.com/omarbinghalib/cadre/releases" target="_blank" rel="noopener">GitHub Releases</a>; expand "Previously shipped" in Tasks &amp; progress below for the compact log.</p>
 
 <p class="eyebrow" style="margin:18px 0 6px">Awaiting from Omar</p>
-<p class="sub" style="margin:0">Outstanding items (tracked here, not as an alert — nothing is currently blocking the fleet, which is idle between deltas):</p>
+<p class="sub" style="margin:0">Outstanding items (tracked here, not as an alert — nothing is currently blocking the fleet):</p>
 <ul style="list-style:none;margin:6px 0 0;padding:0;display:flex;flex-direction:column;gap:0">
-  <li style="padding:6px 0;border-top:1px solid var(--line)"><span class="sub">Install v0.1.35 and restart — Mattermost sync no longer halts the whole workspace on a transient hiccup — report how it feels.</span></li>
+  <li style="padding:6px 0;border-top:1px solid var(--line)"><span class="sub">v0.1.36 (Mattermost sync completeness + retry + logging — his direct asks: retry failed channels, finish everything, add logs) is building now; no action needed while it ships.</span></li>
   <li style="padding:6px 0;border-top:1px solid var(--line)"><span class="sub">Rotate the personal VAMS web password shared in chat to a dedicated service account.</span></li>
   <li style="padding:6px 0;border-top:1px solid var(--line)"><span class="sub">Add a Claude API key whenever he wants cloud reasoning available alongside the local models.</span></li>
 </ul>
