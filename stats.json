@@ -1,7 +1,7 @@
 {
-  "updated": "2026-08-18T03:04:37Z",
-  "heartbeat_at": "2026-08-18T03:04:37Z",
-  "last_activity": "2026-08-18T03:04:36Z",
+  "updated": "2026-08-18T03:05:38Z",
+  "heartbeat_at": "2026-08-18T03:05:38Z",
+  "last_activity": "2026-08-18T03:05:36Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
@@ -31,8 +31,8 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-18T03:04:36Z",
-      "out_age_min": 1.2,
+      "out_last_active": "2026-08-18T03:05:36Z",
+      "out_age_min": 0.8,
       "log_bytes": null,
       "status": "live",
       "live": true,
@@ -49,13 +49,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-18T03:04:33Z",
-      "out_age_min": 0.0,
-      "log_bytes": 1466982,
-      "output_tokens": 169400,
-      "cache_read_tokens": 81780903,
-      "cache_creation_tokens": 2220296,
-      "msgs": 301,
+      "out_last_active": "2026-08-18T03:05:24Z",
+      "out_age_min": 0.2,
+      "log_bytes": 1487282,
+      "output_tokens": 171455,
+      "cache_read_tokens": 84897407,
+      "cache_creation_tokens": 2225575,
+      "msgs": 309,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -72,7 +72,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-08-18T02:14:47Z",
-      "out_age_min": 49.8,
+      "out_age_min": 50.8,
       "log_bytes": 1531575,
       "output_tokens": 179230,
       "cache_read_tokens": 81914851,
@@ -90,17 +90,17 @@
       "full_id": "a53c5fd9145b70902",
       "group": "mm-sync-completeness-retry-logs-ship-v0-1-36",
       "group_label": "MM sync completeness + retry + logs, ship v0.1.36",
-      "last_active": "2026-08-18T03:04:33Z",
-      "log_bytes": 1466982,
+      "last_active": "2026-08-18T03:05:24Z",
+      "log_bytes": 1487282,
       "live": true,
       "status": "live",
-      "age_min": 0.0,
+      "age_min": 0.2,
       "subagent": true,
       "recent": true,
-      "output_tokens": 169400,
-      "cache_read_tokens": 81780903,
-      "cache_creation_tokens": 2220296,
-      "msgs": 301
+      "output_tokens": 171455,
+      "cache_read_tokens": 84897407,
+      "cache_creation_tokens": 2225575,
+      "msgs": 309
     },
     {
       "id": "add113a4",
@@ -111,7 +111,7 @@
       "log_bytes": 1531575,
       "live": false,
       "status": "idle",
-      "age_min": 49.8,
+      "age_min": 50.8,
       "subagent": true,
       "recent": true,
       "output_tokens": 179230,
@@ -124,12 +124,12 @@
       "full_id": "0f7b13a0-2a85-49c0-96d5-e5a8832d8b85",
       "group": "commander",
       "group_label": "Session 0f7b13a0",
-      "last_active": "2026-08-18T03:03:23Z",
+      "last_active": "2026-08-18T03:04:49Z",
       "output_tokens": 6224135,
       "cache_read_tokens": 826885839,
       "cache_creation_tokens": 64911863,
       "msgs": 1767,
-      "age_min": 1.2,
+      "age_min": 0.8,
       "live": true,
       "status": "live",
       "subagent": false,
@@ -159,11 +159,17 @@
         "track": "w0",
         "branch": "lane/mattermost-sync-completeness",
         "available": true,
-        "commits_24h": 6,
-        "commits_7d": 174
+        "commits_24h": 7,
+        "commits_7d": 175
       }
     ],
     "recent": [
+      {
+        "hash": "cb0697a",
+        "at": "2026-08-18T07:05:03+04:00",
+        "subject": "test(mattermost-sync): v0.1.36 completeness/retry/resume/max-retries/logfile coverage; bump 0.1.36",
+        "track": "w0"
+      },
       {
         "hash": "a77a513",
         "at": "2026-08-18T06:28:55+04:00",
@@ -205,12 +211,6 @@
         "at": "2026-08-17T06:53:28+04:00",
         "subject": "chore(release): bump version to 0.1.34",
         "track": "w0"
-      },
-      {
-        "hash": "16d8122",
-        "at": "2026-08-17T06:43:55+04:00",
-        "subject": "fix(sync): clean stale [Gmail] folder rows + normalize past next_retry_at (Fix #4)",
-        "track": "w0"
       }
     ]
   },
@@ -218,6 +218,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-08-18T03:04:40Z"
+    "checked_at": "2026-08-18T03:05:39Z"
   }
 }
