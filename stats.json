@@ -1,7 +1,7 @@
 {
-  "updated": "2026-08-18T03:01:30Z",
-  "heartbeat_at": "2026-08-18T03:01:30Z",
-  "last_activity": "2026-08-18T03:01:30Z",
+  "updated": "2026-08-18T03:02:30Z",
+  "heartbeat_at": "2026-08-18T03:02:30Z",
+  "last_activity": "2026-08-18T03:02:30Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
@@ -31,7 +31,7 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-18T03:01:30Z",
+      "out_last_active": "2026-08-18T03:02:30Z",
       "out_age_min": 0.2,
       "log_bytes": null,
       "status": "live",
@@ -50,7 +50,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-08-18T03:01:09Z",
-      "out_age_min": 0.3,
+      "out_age_min": 1.4,
       "log_bytes": 1384667,
       "output_tokens": 155248,
       "cache_read_tokens": 73399243,
@@ -72,7 +72,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-08-18T02:14:47Z",
-      "out_age_min": 46.7,
+      "out_age_min": 47.7,
       "log_bytes": 1531575,
       "output_tokens": 179230,
       "cache_read_tokens": 81914851,
@@ -94,7 +94,7 @@
       "log_bytes": 1384667,
       "live": true,
       "status": "live",
-      "age_min": 0.3,
+      "age_min": 1.4,
       "subagent": true,
       "recent": true,
       "output_tokens": 155248,
@@ -111,7 +111,7 @@
       "log_bytes": 1531575,
       "live": false,
       "status": "idle",
-      "age_min": 46.7,
+      "age_min": 47.7,
       "subagent": true,
       "recent": true,
       "output_tokens": 179230,
@@ -124,7 +124,7 @@
       "full_id": "0f7b13a0-2a85-49c0-96d5-e5a8832d8b85",
       "group": "commander",
       "group_label": "Session 0f7b13a0",
-      "last_active": "2026-08-18T03:01:16Z",
+      "last_active": "2026-08-18T03:02:16Z",
       "output_tokens": 6224135,
       "cache_read_tokens": 826885839,
       "cache_creation_tokens": 64911863,
@@ -218,6 +218,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-08-18T03:01:31Z"
+    "checked_at": "2026-08-18T03:02:31Z"
   }
 }
