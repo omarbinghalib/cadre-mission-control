@@ -1,7 +1,7 @@
 {
-  "updated": "2026-08-18T07:41:30Z",
-  "heartbeat_at": "2026-08-18T07:41:30Z",
-  "last_activity": "2026-08-18T07:41:30Z",
+  "updated": "2026-08-18T07:42:31Z",
+  "heartbeat_at": "2026-08-18T07:42:31Z",
+  "last_activity": "2026-08-18T07:42:30Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
@@ -31,8 +31,8 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-18T07:41:30Z",
-      "out_age_min": 1.4,
+      "out_last_active": "2026-08-18T07:42:30Z",
+      "out_age_min": 2.4,
       "log_bytes": null,
       "status": "live",
       "live": true,
@@ -49,13 +49,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-18T07:41:14Z",
-      "out_age_min": 0.3,
-      "log_bytes": 1930127,
-      "output_tokens": 278178,
-      "cache_read_tokens": 104777295,
-      "cache_creation_tokens": 2340934,
-      "msgs": 434,
+      "out_last_active": "2026-08-18T07:42:23Z",
+      "out_age_min": 0.1,
+      "log_bytes": 1961783,
+      "output_tokens": 282274,
+      "cache_read_tokens": 109286127,
+      "cache_creation_tokens": 2360572,
+      "msgs": 444,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -72,7 +72,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-08-18T06:28:08Z",
-      "out_age_min": 73.4,
+      "out_age_min": 74.4,
       "log_bytes": 1864456,
       "output_tokens": 214120,
       "cache_read_tokens": 119706333,
@@ -90,17 +90,17 @@
       "full_id": "ad1e1c437389af132",
       "group": "fix-understanding-worker-db-contention-ship-v0-1-38",
       "group_label": "Fix understanding-worker DB contention, ship v0.1.38",
-      "last_active": "2026-08-18T07:41:14Z",
-      "log_bytes": 1930127,
+      "last_active": "2026-08-18T07:42:23Z",
+      "log_bytes": 1961783,
       "live": true,
       "status": "live",
-      "age_min": 0.3,
+      "age_min": 0.1,
       "subagent": true,
       "recent": true,
-      "output_tokens": 278178,
-      "cache_read_tokens": 104777295,
-      "cache_creation_tokens": 2340934,
-      "msgs": 434
+      "output_tokens": 282274,
+      "cache_read_tokens": 109286127,
+      "cache_creation_tokens": 2360572,
+      "msgs": 444
     },
     {
       "id": "add113a4",
@@ -111,7 +111,7 @@
       "log_bytes": 1864456,
       "live": false,
       "status": "idle",
-      "age_min": 73.4,
+      "age_min": 74.4,
       "subagent": true,
       "recent": true,
       "output_tokens": 214120,
@@ -129,7 +129,7 @@
       "cache_read_tokens": 879918098,
       "cache_creation_tokens": 66639399,
       "msgs": 1835,
-      "age_min": 1.4,
+      "age_min": 2.4,
       "live": true,
       "status": "live",
       "subagent": false,
@@ -159,11 +159,17 @@
         "track": "w0",
         "branch": "lane/understanding-db-contention",
         "available": true,
-        "commits_24h": 16,
-        "commits_7d": 128
+        "commits_24h": 17,
+        "commits_7d": 129
       }
     ],
     "recent": [
+      {
+        "hash": "4530ba2",
+        "at": "2026-08-18T11:42:24+04:00",
+        "subject": "test(oauth): generous poll ceiling so the async flow survives full CPU saturation",
+        "track": "w0"
+      },
       {
         "hash": "1beb662",
         "at": "2026-08-18T11:25:28+04:00",
@@ -205,12 +211,6 @@
         "at": "2026-08-18T10:15:25+04:00",
         "subject": "test(understanding): reset the shared worker's in-flight state between tests",
         "track": "w0"
-      },
-      {
-        "hash": "ea93573",
-        "at": "2026-08-18T10:15:15+04:00",
-        "subject": "fix(understanding): take the shared sync_write_lock so the worker isn't starved by heavy sync writes",
-        "track": "w0"
       }
     ]
   },
@@ -218,6 +218,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-08-18T07:41:31Z"
+    "checked_at": "2026-08-18T07:42:32Z"
   }
 }
