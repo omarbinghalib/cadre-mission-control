@@ -6,6 +6,12 @@
     "note": "branch lane/mattermost-full-history-toggle off main cb0697a (worker a1e93338). Omar's depth choice: a per-workspace \"Sync everything (full history)\" toggle (email already has its per-account backfill switch, per v0.1.33/34 \u2014 this is the Mattermost equivalent). OFF = recent-first default (current behavior); ON = full-history depth via v0.1.36's deep-index + resume machinery. New pref table (migration-safe, nullable/additive) + endpoint + UI toggle. Building + will ship as v0.1.37."
   },
   {
+    "title": "Fix pre-existing understanding-worker flaky-test cluster",
+    "status": "pending",
+    "track": "queued",
+    "note": "Dispatches after v0.1.37 lands, per Omar's \"fix all failures\" standard. ~2-6 flaky tests under full-suite load: test_email_ai_switch / test_email_organizations / test_email_organizer / test_understanding_pipeline. Root cause is SQLite writer-contention + the understanding worker's leader-election/queue-drain under full-suite load (wait_until_idle TimeoutError) \u2014 NOT caused by the sync lanes, already documented in database.py. Ties into the \"app/database.py per-request session scope\" perf item and the multi-device path."
+  },
+  {
     "title": "MM sync completeness + retry + logging \u2014 v0.1.36 \u2014 SHIPPED",
     "status": "done",
     "track": "archive",
