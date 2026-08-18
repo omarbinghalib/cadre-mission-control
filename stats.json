@@ -1,7 +1,7 @@
 {
-  "updated": "2026-08-18T07:23:30Z",
-  "heartbeat_at": "2026-08-18T07:23:30Z",
-  "last_activity": "2026-08-18T07:23:10Z",
+  "updated": "2026-08-18T07:25:30Z",
+  "heartbeat_at": "2026-08-18T07:25:30Z",
+  "last_activity": "2026-08-18T07:25:29Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
@@ -32,7 +32,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": null,
-      "out_age_min": 14.9,
+      "out_age_min": 16.9,
       "log_bytes": null,
       "status": "idle",
       "live": false,
@@ -50,7 +50,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-08-18T05:38:41Z",
-      "out_age_min": 104.8,
+      "out_age_min": 106.8,
       "log_bytes": 1175102,
       "output_tokens": 106511,
       "cache_read_tokens": 63202031,
@@ -71,13 +71,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-18T07:23:10Z",
-      "out_age_min": 0.3,
-      "log_bytes": 1831112,
-      "output_tokens": 265353,
-      "cache_read_tokens": 87609722,
-      "cache_creation_tokens": 2302295,
-      "msgs": 395,
+      "out_last_active": "2026-08-18T07:25:29Z",
+      "out_age_min": 0.0,
+      "log_bytes": 1838966,
+      "output_tokens": 266233,
+      "cache_read_tokens": 88909178,
+      "cache_creation_tokens": 2305184,
+      "msgs": 398,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -94,7 +94,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-08-18T06:28:08Z",
-      "out_age_min": 55.4,
+      "out_age_min": 57.4,
       "log_bytes": 1864456,
       "output_tokens": 214120,
       "cache_read_tokens": 119706333,
@@ -116,7 +116,7 @@
       "log_bytes": 1175102,
       "live": false,
       "status": "idle",
-      "age_min": 104.8,
+      "age_min": 106.8,
       "subagent": true,
       "recent": true,
       "output_tokens": 106511,
@@ -129,17 +129,17 @@
       "full_id": "ad1e1c437389af132",
       "group": "fix-understanding-worker-db-contention-ship-v0-1-38",
       "group_label": "Fix understanding-worker DB contention, ship v0.1.38",
-      "last_active": "2026-08-18T07:23:10Z",
-      "log_bytes": 1831112,
+      "last_active": "2026-08-18T07:25:29Z",
+      "log_bytes": 1838966,
       "live": true,
       "status": "live",
-      "age_min": 0.3,
+      "age_min": 0.0,
       "subagent": true,
       "recent": true,
-      "output_tokens": 265353,
-      "cache_read_tokens": 87609722,
-      "cache_creation_tokens": 2302295,
-      "msgs": 395
+      "output_tokens": 266233,
+      "cache_read_tokens": 88909178,
+      "cache_creation_tokens": 2305184,
+      "msgs": 398
     },
     {
       "id": "add113a4",
@@ -150,7 +150,7 @@
       "log_bytes": 1864456,
       "live": false,
       "status": "idle",
-      "age_min": 55.4,
+      "age_min": 57.4,
       "subagent": true,
       "recent": true,
       "output_tokens": 214120,
@@ -168,7 +168,7 @@
       "cache_read_tokens": 879918098,
       "cache_creation_tokens": 66639399,
       "msgs": 1835,
-      "age_min": 14.9,
+      "age_min": 16.9,
       "live": false,
       "status": "idle",
       "subagent": false,
@@ -192,17 +192,23 @@
         "branch": "main",
         "available": true,
         "commits_24h": 8,
-        "commits_7d": 122
+        "commits_7d": 120
       },
       {
         "track": "w0",
         "branch": "lane/understanding-db-contention",
         "available": true,
-        "commits_24h": 15,
-        "commits_7d": 129
+        "commits_24h": 16,
+        "commits_7d": 128
       }
     ],
     "recent": [
+      {
+        "hash": "1beb662",
+        "at": "2026-08-18T11:25:28+04:00",
+        "subject": "fix(sync): avoid write-lock deadlock from a dangling write txn crossing lock acquisition",
+        "track": "w0"
+      },
       {
         "hash": "40c2562",
         "at": "2026-08-18T11:05:33+04:00",
@@ -244,12 +250,6 @@
         "at": "2026-08-18T10:15:15+04:00",
         "subject": "fix(understanding): take the shared sync_write_lock so the worker isn't starved by heavy sync writes",
         "track": "w0"
-      },
-      {
-        "hash": "77e1956",
-        "at": "2026-08-18T09:18:58+04:00",
-        "subject": "chore(release): bump version to 0.1.37",
-        "track": "w0"
       }
     ]
   },
@@ -257,6 +257,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-08-18T07:23:31Z"
+    "checked_at": "2026-08-18T07:25:31Z"
   }
 }
