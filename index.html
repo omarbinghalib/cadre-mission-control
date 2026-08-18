@@ -245,27 +245,38 @@
   </header>
 
   <section class="panel">
-    <div class="split"><div><p class="eyebrow">Cadre program — 1 lane running now (understanding-worker DB contention fix)</p><h2>Fleet status at a glance</h2></div></div>
+    <div class="split"><div><p class="eyebrow">Cadre program — 1 lane running now (comprehensive DB write-lock fix)</p><h2>Fleet status at a glance</h2></div></div>
     <div class="row" style="gap:8px;flex-wrap:wrap;margin:8px 0 6px">
-  <span class="chip ok"><span class="dp beat"></span>1 lane running now — understanding-worker DB contention fix</span>
+  <span class="chip ok"><span class="dp beat"></span>1 lane running now — comprehensive DB write-lock fix</span>
   <span class="chip mute">v0.1.37 SHIPPED — Mattermost full-history sync toggle</span>
   <span class="chip mute">30 releases shipped</span>
+  <span class="chip mute">1 queued — after v0.1.38</span>
 </div>
 
 <p class="eyebrow" style="margin:16px 0 8px">Milestone</p>
 <div class="sub" style="padding:10px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-  <b style="color:var(--ok-ink)">v0.1.37 SHIPPED + VERIFIED</b> (main <span class="mono">77e1956</span>, Latest, both installers). Mattermost "Sync everything (full history)" toggle — new singleton table <span class="mono">mattermost_sync_prefs</span> (<span class="mono">full_history_enabled</span>, migration-safe + upgrade test). OFF = recent-first (byte-identical to prior behavior); ON = deep-index every channel to complete history, reusing v0.1.36's resume/retry/timeout/concurrency machinery. UI toggle added to the Mattermost Sync Status panel (channel rail), mirroring email's backfill switch. <span class="mono">GET</span>/<span class="mono">PUT /mattermost/sync/preferences</span>. Tests fully green (+4 new including the upgrade test), NO residual flakes. Packaged-exe smoke verified <span class="mono">/health</span>=0.1.37 + prefs endpoint 200. With this, the pre-existing understanding-worker flaky-test cluster (previously queued) is now dispatched as v0.1.38, fixing that contention at its root.
+  Live-diagnosed Omar's app + backend logs after he turned on the new Mattermost full-history toggle (v0.1.37): the deep-index write flood caused "database is locked" crashes ACROSS THE APP, despite WAL + busy_timeout — <span class="mono">mattermost_sync: full sync crashed</span> (unhandled, surfaced to Omar as "internal error during full sync"), <span class="mono">INSERT knowledge_entities</span> locked, <span class="mono">INSERT mattermost_channel_sync_states</span> locked, <span class="mono">understanding leader-lease heartbeat failed</span> locked. The crash is ALSO why channel retries didn't fire — the run died before v0.1.36's retry sweep could run. So Omar's two new complaints ("internal error during full sync" + "missing retry") are BOTH this one root cause. <b>IMMEDIATE MITIGATION already applied:</b> the Mattermost full-history toggle was turned back OFF via the app API (it was crash-looping his sync) — will re-enable it for him once v0.1.38 lands. No red alert — being actively fixed.
 </div>
 
 <p class="eyebrow" style="margin:16px 0 8px">Active lane — running now</p>
 <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0">
   <li style="padding:10px 0;border-top:1px solid var(--line)">
-    <span class="wname" style="font-weight:650">Understanding-worker DB contention fix → v0.1.38</span>
+    <span class="wname" style="font-weight:650">DB write-lock comprehensive fix → v0.1.38</span>
     <span class="chip ok" style="margin-left:8px">running · lane/understanding-db-contention, off main 77e1956</span>
-    <div class="sub" style="margin-top:3px">Per Omar's "fix all failures" standard — fixes the pre-existing load-only flaky cluster (<span class="mono">test_email_ai_switch</span> / <span class="mono">test_email_organizations</span> / <span class="mono">test_email_organizer</span> / <span class="mono">test_understanding_pipeline</span>) at its ROOT: the understanding/AI worker starving on the single SQLite writer under heavy sync — also a real reliability win, since AI processing won't stall during big syncs. Shortens DB write/session scope + extends the fair write-lock (from v0.1.34's email/Mattermost lock) to the understanding path + hardens the flaky tests. Target: full backend suite green at FULL parallelism TWICE, proving the contention is actually fixed, not just hidden by single-threading.</div>
+    <div class="sub" style="margin-top:3px">SCOPE EXPANDED from its original understanding-worker flaky-test-cluster fix (<span class="mono">test_email_ai_switch</span> / <span class="mono">test_email_organizations</span> / <span class="mono">test_email_organizer</span> / <span class="mono">test_understanding_pipeline</span>) to the comprehensive fix above. Now: route ALL heavy write paths through the shared serialized write-lock — knowledge ingestion + channel_sync_states + understanding (incl. leader-lease heartbeat) + email sync, not just sync workers — AND make "database is locked" RECOVERABLE (retry-on-locked, never crash a run). Verify under a full-history-like write flood + full backend suite green at FULL parallelism TWICE (proves the contention is actually fixed, not just hidden by single-threading). Building + will ship as v0.1.38.</div>
   </li>
 </ul>
 <p class="foot" style="margin:6px 0 0">Operational note: active build lanes are deliberately kept to ≤3 — the workers run on Omar's own machine, and too much parallelism worsens the very live-app slowness he's reported before.</p>
+
+<p class="eyebrow" style="margin:18px 0 6px">Queued — dispatches after v0.1.38</p>
+<div class="sub" style="padding:10px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <b style="color:var(--ink-2)">Surface both "Sync everything" toggles on the Sync Status tab (discoverability)</b> — small UI follow-up. Both full-history toggles exist and work (email's per-account backfill switch from v0.1.33/34, Mattermost's <span class="mono">full_history_enabled</span> from v0.1.37) but Omar couldn't find the Mattermost one — it's buried in a channel-rail sync panel. Surface both toggles prominently on the Sync Status tab itself (the dedicated overview/control surface shipped in v0.1.33) instead of leaving them tucked away per-source.
+</div>
+
+<p class="eyebrow" style="margin:18px 0 6px">Shipped in v0.1.37</p>
+<div class="sub" style="padding:10px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <b style="color:var(--ok-ink)">Mattermost "Sync everything (full history)" toggle</b> — OFF = recent-first (byte-identical to prior behavior); ON = deep-index every channel to complete history. Currently held OFF (see milestone above) while v0.1.38 fixes the write-contention crash it triggered under real load.
+</div>
 
 <p class="eyebrow" style="margin:18px 0 6px">Shipped in v0.1.36</p>
 <div class="sub" style="padding:10px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
@@ -274,17 +285,17 @@
 
 <p class="eyebrow" style="margin:18px 0 6px">Shipped in v0.1.35</p>
 <div class="sub" style="padding:10px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-  <b style="color:var(--ok-ink)">Mattermost sync resilience</b> — per-channel degrade-don't-halt, retry-with-backoff on transient errors, IPv4 preference, bounded connect/read timeouts, real-outage-only classification, and clear error messages. Fixed the whole-workspace-halt Omar hit on real data (stopped at 92/249 channels).
+  <b style="color:var(--ok-ink)">Mattermost sync resilience</b> — per-channel degrade-don't-halt, retry-with-backoff on transient errors, IPv4 preference, bounded connect/read timeouts, real-outage-only classification, and clear error messages.
 </div>
 
 <p class="eyebrow" style="margin:18px 0 6px">Shipped in v0.1.34</p>
 <div class="sub" style="padding:10px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-  <b style="color:var(--ok-ink)">Sync reliability + perf</b> — cooperative pause-cancel, WAL-mode SQLite with a fair-turns write lock between email and Mattermost, bounded-concurrency Mattermost sync (5 channels, most-recently-active first, inactive DMs skipped), and stale-folder-row cleanup.
+  <b style="color:var(--ok-ink)">Sync reliability + perf</b> — cooperative pause-cancel, WAL-mode SQLite with a fair-turns write lock between email and Mattermost, bounded-concurrency Mattermost sync, and stale-folder-row cleanup.
 </div>
 
 <p class="eyebrow" style="margin:18px 0 6px">Shipped in v0.1.33 (finish-everything backlog)</p>
 <div class="sub" style="padding:10px 0;border-top:1px solid var(--line)">
-  <b style="color:var(--ok-ink)">Sync Status &amp; Control tab + stale-running sync-job reaper</b> — a Sync-Status module (overview per source: state/progress/ETA/depth + drill-down per folder/channel + pause/resume/run-now + a global pause + a viewable SyncErrorLog) + the reaper + a SYNC-pause distinct from the existing AI-pause.
+  <b style="color:var(--ok-ink)">Sync Status &amp; Control tab + stale-running sync-job reaper</b> — overview per source + drill-down + pause/resume/run-now + a global pause + a viewable SyncErrorLog + the reaper + a SYNC-pause distinct from the existing AI-pause.
 </div>
 <div class="sub" style="padding:10px 0;border-top:1px solid var(--line)">
   <b style="color:var(--ok-ink)">App-wide "no screen reloads on open" sweep</b> — all 12 remaining modules migrated onto the shared cached-resource instant-load primitive.
@@ -302,7 +313,7 @@
 <p class="eyebrow" style="margin:18px 0 6px">Awaiting from Omar</p>
 <p class="sub" style="margin:0">Outstanding items (tracked here, not as an alert — nothing is currently blocking the fleet):</p>
 <ul style="list-style:none;margin:6px 0 0;padding:0;display:flex;flex-direction:column;gap:0">
-  <li style="padding:6px 0;border-top:1px solid var(--line)"><span class="sub">Install v0.1.37 — a new "Sync everything (full history)" toggle is in the Mattermost Sync Status panel if he wants complete channel history instead of recent-first. v0.1.38 (an understanding-worker reliability fix) is building now.</span></li>
+  <li style="padding:6px 0;border-top:1px solid var(--line)"><span class="sub">No action needed right now — the Mattermost full-history toggle he ran into trouble with has been turned back off remotely, and v0.1.38 (a comprehensive database write-contention fix) is building to resolve the "internal error during full sync" + missing-retry issue properly before it's re-enabled.</span></li>
   <li style="padding:6px 0;border-top:1px solid var(--line)"><span class="sub">Rotate the personal VAMS web password shared in chat to a dedicated service account.</span></li>
   <li style="padding:6px 0;border-top:1px solid var(--line)"><span class="sub">Add a Claude API key whenever he wants cloud reasoning available alongside the local models.</span></li>
 </ul>
