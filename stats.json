@@ -1,7 +1,7 @@
 {
-  "updated": "2026-08-19T05:30:31Z",
-  "heartbeat_at": "2026-08-19T05:30:31Z",
-  "last_activity": "2026-08-19T05:30:30Z",
+  "updated": "2026-08-19T05:31:30Z",
+  "heartbeat_at": "2026-08-19T05:31:30Z",
+  "last_activity": "2026-08-19T05:31:29Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
@@ -31,8 +31,8 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-19T05:30:30Z",
-      "out_age_min": 1.5,
+      "out_last_active": "2026-08-19T05:31:29Z",
+      "out_age_min": 2.4,
       "log_bytes": null,
       "status": "live",
       "live": true,
@@ -50,7 +50,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-08-19T05:27:37Z",
-      "out_age_min": 2.9,
+      "out_age_min": 3.9,
       "log_bytes": 1326503,
       "output_tokens": 153762,
       "cache_read_tokens": 77724031,
@@ -71,13 +71,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-19T05:30:29Z",
-      "out_age_min": 0.0,
-      "log_bytes": 2222448,
-      "output_tokens": 250005,
-      "cache_read_tokens": 166018961,
-      "cache_creation_tokens": 11241584,
-      "msgs": 648,
+      "out_last_active": "2026-08-19T05:31:17Z",
+      "out_age_min": 0.2,
+      "log_bytes": 2246311,
+      "output_tokens": 251199,
+      "cache_read_tokens": 170712698,
+      "cache_creation_tokens": 11251840,
+      "msgs": 658,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -94,7 +94,7 @@
       "log_bytes": 1326503,
       "live": true,
       "status": "live",
-      "age_min": 2.9,
+      "age_min": 3.9,
       "subagent": true,
       "recent": true,
       "output_tokens": 153762,
@@ -107,17 +107,17 @@
       "full_id": "add113a4c06ed35de",
       "group": "revive-mission-control-board",
       "group_label": "Revive mission-control board",
-      "last_active": "2026-08-19T05:30:29Z",
-      "log_bytes": 2222448,
+      "last_active": "2026-08-19T05:31:17Z",
+      "log_bytes": 2246311,
       "live": true,
       "status": "live",
-      "age_min": 0.0,
+      "age_min": 0.2,
       "subagent": true,
       "recent": true,
-      "output_tokens": 250005,
-      "cache_read_tokens": 166018961,
-      "cache_creation_tokens": 11241584,
-      "msgs": 648
+      "output_tokens": 251199,
+      "cache_read_tokens": 170712698,
+      "cache_creation_tokens": 11251840,
+      "msgs": 658
     },
     {
       "id": "0f7b13a0",
@@ -129,7 +129,7 @@
       "cache_read_tokens": 942636260,
       "cache_creation_tokens": 72613659,
       "msgs": 1913,
-      "age_min": 1.5,
+      "age_min": 2.4,
       "live": true,
       "status": "live",
       "subagent": false,
@@ -154,13 +154,6 @@
         "available": true,
         "commits_24h": 19,
         "commits_7d": 109
-      },
-      {
-        "track": "w0",
-        "branch": "lane/idempotent-knowledge-ingestion",
-        "available": true,
-        "commits_24h": 19,
-        "commits_7d": 109
       }
     ],
     "recent": [
@@ -171,27 +164,9 @@
         "track": "w0"
       },
       {
-        "hash": "1b9fb7c",
-        "at": "2026-08-19T08:39:29+04:00",
-        "subject": "chore(release): bump version to 0.1.40",
-        "track": "w0"
-      },
-      {
         "hash": "8bff7b1",
         "at": "2026-08-19T08:37:05+04:00",
         "subject": "test: cover v0.1.40 idempotent ingestion + session hygiene + degrade-not-crash",
-        "track": "w0"
-      },
-      {
-        "hash": "8bff7b1",
-        "at": "2026-08-19T08:37:05+04:00",
-        "subject": "test: cover v0.1.40 idempotent ingestion + session hygiene + degrade-not-crash",
-        "track": "w0"
-      },
-      {
-        "hash": "d0903f7",
-        "at": "2026-08-19T08:29:12+04:00",
-        "subject": "fix(mattermost-sync): harden the channel-failure recording path",
         "track": "w0"
       },
       {
@@ -207,9 +182,27 @@
         "track": "w0"
       },
       {
-        "hash": "137d967",
-        "at": "2026-08-19T08:29:03+04:00",
-        "subject": "fix(database): roll back the session on ANY guarded_write failure",
+        "hash": "74ffa71",
+        "at": "2026-08-19T08:28:54+04:00",
+        "subject": "fix(knowledge): idempotent Mattermost checkpoint write + degrade-per-thread",
+        "track": "w0"
+      },
+      {
+        "hash": "3f6941b",
+        "at": "2026-08-18T12:26:06+04:00",
+        "subject": "chore(release): bump version to 0.1.39",
+        "track": "w0"
+      },
+      {
+        "hash": "fe80345",
+        "at": "2026-08-18T12:25:04+04:00",
+        "subject": "test(sync-status): tab renders both switches + PUTs the right endpoint",
+        "track": "w0"
+      },
+      {
+        "hash": "d4728ec",
+        "at": "2026-08-18T12:24:56+04:00",
+        "subject": "feat(sync-status): surface per-source \"Sync everything (full history)\" switch",
         "track": "w0"
       }
     ]
@@ -218,6 +211,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-08-19T05:30:31Z"
+    "checked_at": "2026-08-19T05:31:30Z"
   }
 }
