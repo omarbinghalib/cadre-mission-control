@@ -1,7 +1,7 @@
 {
-  "updated": "2026-08-19T07:28:30Z",
-  "heartbeat_at": "2026-08-19T07:28:30Z",
-  "last_activity": "2026-08-19T07:28:29Z",
+  "updated": "2026-08-19T07:29:29Z",
+  "heartbeat_at": "2026-08-19T07:29:29Z",
+  "last_activity": "2026-08-19T07:29:29Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
@@ -31,8 +31,8 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-19T07:28:29Z",
-      "out_age_min": 6.9,
+      "out_last_active": "2026-08-19T07:29:29Z",
+      "out_age_min": 7.9,
       "log_bytes": null,
       "status": "live",
       "live": true,
@@ -49,13 +49,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-19T07:28:29Z",
-      "out_age_min": 0.0,
-      "log_bytes": 629934,
-      "output_tokens": 42731,
-      "cache_read_tokens": 13547694,
-      "cache_creation_tokens": 854429,
-      "msgs": 92,
+      "out_last_active": "2026-08-19T07:29:09Z",
+      "out_age_min": 0.3,
+      "log_bytes": 650702,
+      "output_tokens": 45521,
+      "cache_read_tokens": 15330204,
+      "cache_creation_tokens": 859927,
+      "msgs": 100,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -72,7 +72,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-08-19T06:57:39Z",
-      "out_age_min": 30.8,
+      "out_age_min": 31.8,
       "log_bytes": 251244,
       "output_tokens": 16916,
       "cache_read_tokens": 2712972,
@@ -94,7 +94,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-08-19T07:21:22Z",
-      "out_age_min": 7.1,
+      "out_age_min": 8.1,
       "log_bytes": 260541,
       "output_tokens": 15321,
       "cache_read_tokens": 3058483,
@@ -116,7 +116,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-08-19T06:56:42Z",
-      "out_age_min": 31.8,
+      "out_age_min": 32.8,
       "log_bytes": 2325038,
       "output_tokens": 259973,
       "cache_read_tokens": 181736648,
@@ -134,17 +134,17 @@
       "full_id": "a0e818fe4c7ccda40",
       "group": "rebuild-vams-only-execution-gantt-ship-v0-1-41",
       "group_label": "Rebuild VAMS-only execution Gantt, ship v0.1.41",
-      "last_active": "2026-08-19T07:28:29Z",
-      "log_bytes": 629934,
+      "last_active": "2026-08-19T07:29:09Z",
+      "log_bytes": 650702,
       "live": true,
       "status": "live",
-      "age_min": 0.0,
+      "age_min": 0.3,
       "subagent": true,
       "recent": true,
-      "output_tokens": 42731,
-      "cache_read_tokens": 13547694,
-      "cache_creation_tokens": 854429,
-      "msgs": 92
+      "output_tokens": 45521,
+      "cache_read_tokens": 15330204,
+      "cache_creation_tokens": 859927,
+      "msgs": 100
     },
     {
       "id": "a55eff09",
@@ -155,7 +155,7 @@
       "log_bytes": 251244,
       "live": false,
       "status": "idle",
-      "age_min": 30.8,
+      "age_min": 31.8,
       "subagent": true,
       "recent": true,
       "output_tokens": 16916,
@@ -172,7 +172,7 @@
       "log_bytes": 260541,
       "live": true,
       "status": "live",
-      "age_min": 7.1,
+      "age_min": 8.1,
       "subagent": true,
       "recent": true,
       "output_tokens": 15321,
@@ -189,7 +189,7 @@
       "log_bytes": 2325038,
       "live": false,
       "status": "idle",
-      "age_min": 31.8,
+      "age_min": 32.8,
       "subagent": true,
       "recent": true,
       "output_tokens": 259973,
@@ -207,7 +207,7 @@
       "cache_read_tokens": 964038644,
       "cache_creation_tokens": 78058377,
       "msgs": 1942,
-      "age_min": 6.9,
+      "age_min": 7.9,
       "live": true,
       "status": "live",
       "subagent": false,
@@ -237,12 +237,18 @@
         "track": "w0",
         "branch": "lane/vams-execution-gantt",
         "available": true,
-        "commits_24h": 11,
-        "commits_7d": 106
+        "commits_24h": 12,
+        "commits_7d": 107
       }
     ],
     "recent": [
       {
+        "hash": "afa3e84",
+        "at": "2026-08-19T11:28:39+04:00",
+        "subject": "feat(vams): deterministic percent_complete for the sales-order execution board",
+        "track": "w0"
+      },
+      {
         "hash": "1b9fb7c",
         "at": "2026-08-19T08:39:29+04:00",
         "subject": "chore(release): bump version to 0.1.40",
@@ -276,12 +282,6 @@
         "hash": "d0903f7",
         "at": "2026-08-19T08:29:12+04:00",
         "subject": "fix(mattermost-sync): harden the channel-failure recording path",
-        "track": "w0"
-      },
-      {
-        "hash": "137d967",
-        "at": "2026-08-19T08:29:03+04:00",
-        "subject": "fix(database): roll back the session on ANY guarded_write failure",
         "track": "w0"
       },
       {
@@ -296,6 +296,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-08-19T07:28:30Z"
+    "checked_at": "2026-08-19T07:29:29Z"
   }
 }
