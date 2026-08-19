@@ -254,15 +254,15 @@
 
 <p class="eyebrow" style="margin:16px 0 8px">Milestone</p>
 <div class="sub" style="padding:10px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-  Omar clarified what he actually wants from Projects/Gantt: his LIVE EXECUTION BOARD — all active VBG sales orders currently being executed in VAMS, on the Gantt, to track what's being worked on and its progress. Verified live on his running v0.1.40 app: the VAMS DB IS connected (192.168.58.223), <span class="mono">/vams/sales-orders</span> returns 200 with real active SOs (SO0000751 New Order delayed 9d, SO0000749 Under Review on-track, etc.) — the data and feature (shipped back in v0.1.32) already work. But the Projects/Gantt defaults to the EMAIL-projects view — he couldn't find the VAMS toggle (the same discoverability pattern that hit the sync-everything toggle) — and progress isn't shown on the bars. Told Omar it works NOW via the "VAMS sales orders" toggle, as an immediate unblock while the real fix ships. No red alert.
+  A Claude Code restart killed two agents mid-flight — the mission-control board updater and the v0.1.41 Gantt lane — before the Gantt lane had committed anything. <b>No shipped work was lost</b>: v0.1.40 stays intact on main/GitHub either way. Omar asked to "check everything" after the restart; the check confirmed releases + main are clean. Both lanes have been re-dispatched fresh: this board is now current, and the v0.1.41 Gantt rebuild is running again from the same starting point (main 1b9fb7c). Omar also sharpened the Gantt scope while re-briefing: the email-projects view is now being <b>removed</b> from Projects/Gantt (reversibly), not just defaulted away — VAMS active sales orders become the ONLY view. No red alert.
 </div>
 
 <p class="eyebrow" style="margin:16px 0 6px">Active lane — running now</p>
 <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0">
   <li style="padding:10px 0;border-top:1px solid var(--line)">
     <span class="wname" style="font-weight:650">VAMS execution Gantt → v0.1.41</span>
-    <span class="chip ok" style="margin-left:8px">running · lane/vams-execution-gantt, off main 1b9fb7c</span>
-    <div class="sub" style="margin-top:3px">Building: (1) DEFAULT the Projects/Gantt to the VAMS sales-orders view when VAMS is connected (no more hunting for a buried toggle); (2) show a real % complete ON each Gantt bar (completed-vs-total downstream WOs, or stage-based fallback — deterministic, no fabrication) + stage label + on-track/delayed coloring, so progress is visible at a glance; (3) render ALL active SOs (no silent cap); keep the per-SO drawer. Tested against a mock — never the production VAMS DB. Building + will ship as v0.1.41.</div>
+    <span class="chip ok" style="margin-left:8px">running · lane/vams-execution-gantt, off main 1b9fb7c (rebuilt fresh after restart)</span>
+    <div class="sub" style="margin-top:3px">Building: (1) Projects/Gantt becomes ONLY the VBG active sales-order execution board — the email-projects view is REMOVED (reversibly); (2) a real % complete ON each Gantt bar (completed-vs-total downstream WOs, or stage-based fallback — deterministic, no fabrication) + stage label + on-track/delayed coloring, so progress is visible at a glance; (3) render ALL active SOs (no silent cap); keep the per-SO drawer. Tested against a mock — never the production VAMS DB. Told Omar the VAMS view already works today via the existing toggle, as an immediate unblock while this ships. Building + will ship as v0.1.41.</div>
   </li>
 </ul>
 <p class="foot" style="margin:6px 0 0">Operational note: active build lanes are deliberately kept to ≤3 — the workers run on Omar's own machine, and too much parallelism worsens the very live-app slowness he's reported before.</p>
@@ -303,7 +303,9 @@
 <p class="eyebrow" style="margin:18px 0 6px">Awaiting from Omar</p>
 <p class="sub" style="margin:0">Outstanding items (tracked here, not as an alert — nothing is currently blocking the fleet):</p>
 <ul style="list-style:none;margin:6px 0 0;padding:0;display:flex;flex-direction:column;gap:0">
-  <li style="padding:6px 0;border-top:1px solid var(--line)"><span class="sub">The VAMS sales-orders Gantt view works right now via the "VAMS sales orders" toggle on the Projects page (no need to wait) — v0.1.41 is building to make it the default + show progress on the bars.</span></li>
+  <li style="padding:6px 0;border-top:1px solid var(--line)"><span class="sub">Reopen the Cadre app — its backend went down when Claude Code restarted.</span></li>
+  <li style="padding:6px 0;border-top:1px solid var(--line)"><span class="sub">Install v0.1.41 when it lands (Projects/Gantt becomes VAMS-only + real progress on the bars).</span></li>
+  <li style="padding:6px 0;border-top:1px solid var(--line)"><span class="sub">Re-enable Mattermost full-history on v0.1.40+ and confirm it completes clean to 250/250 (was 242/250 pre-fix).</span></li>
   <li style="padding:6px 0;border-top:1px solid var(--line)"><span class="sub">Rotate the personal VAMS web password shared in chat to a dedicated service account.</span></li>
   <li style="padding:6px 0;border-top:1px solid var(--line)"><span class="sub">Add a Claude API key whenever he wants cloud reasoning available alongside the local models.</span></li>
 </ul>
