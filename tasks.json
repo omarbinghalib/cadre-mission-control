@@ -1,5 +1,11 @@
 [
   {
+    "title": "Idempotent knowledge ingestion \u2192 v0.1.40",
+    "status": "in_progress",
+    "track": "active",
+    "note": "branch lane/idempotent-knowledge-ingestion off main 3f6941b (worker a5198a3d). Root-caused live on Omar's own v0.1.39 backend logs: he's now installed and the v0.1.37 DB-lock crash is GONE, and he found + used the new full-history toggle (sync reached 242/250) \u2014 but full-history exposed a NEW, different crash. The full-history re-walk re-visits already-ingested messages, and the knowledge-graph ingestion does a plain INSERT into knowledge_ingestion_checkpoints (source, external_id, ...) \u2192 UNIQUE constraint failed (IntegrityError) on the already-seen message \u2192 PendingRollbackError \u2192 crashes the whole full sync (\"internal error during full sync\" again, different cause than v0.1.38's). Compounded: the error-handler (_record_channel_failure \u2192 _channel_label) then lazy-loads on the now-poisoned session \u2192 another PendingRollbackError. v0.1.38's guarded_write holds for locks but doesn't catch IntegrityError. Fixing: idempotent checkpoint write (SQLite UPSERT on source+external_id \u2014 re-ingest = no-op/update; audit other natural-key inserts for the same class of bug), session-rollback-on-flush-error, degrade-per-item instead of crashing the run, harden the failure-recording path so it never lazy-loads on a poisoned session. Fake-server tests + full-parallelism-green-twice. IMMEDIATE MITIGATION already applied: Mattermost full-history was turned back OFF via the app API (it was crash-looping, 21 consecutive backoffs) \u2014 re-enable after v0.1.40 lands. Building + will ship as v0.1.40 (briefed on the pnpm --filter @cadre/desktop exec tauri build --target gotcha from v0.1.39)."
+  },
+  {
     "title": "Surface Sync-everything toggles on Sync Status tab \u2014 v0.1.39 \u2014 SHIPPED",
     "status": "done",
     "track": "archive",
