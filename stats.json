@@ -1,7 +1,7 @@
 {
-  "updated": "2026-08-19T08:07:28Z",
-  "heartbeat_at": "2026-08-19T08:07:28Z",
-  "last_activity": "2026-08-19T08:07:28Z",
+  "updated": "2026-08-19T08:08:28Z",
+  "heartbeat_at": "2026-08-19T08:08:28Z",
+  "last_activity": "2026-08-19T08:08:28Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
@@ -31,8 +31,8 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-19T08:07:28Z",
-      "out_age_min": 1.9,
+      "out_last_active": "2026-08-19T08:08:28Z",
+      "out_age_min": 2.9,
       "log_bytes": null,
       "status": "live",
       "live": true,
@@ -50,7 +50,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-08-19T08:03:33Z",
-      "out_age_min": 3.9,
+      "out_age_min": 4.9,
       "log_bytes": 1139928,
       "output_tokens": 97220,
       "cache_read_tokens": 60332431,
@@ -72,7 +72,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-08-19T06:57:39Z",
-      "out_age_min": 69.8,
+      "out_age_min": 70.8,
       "log_bytes": 251244,
       "output_tokens": 16916,
       "cache_read_tokens": 2712972,
@@ -93,13 +93,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-19T08:07:27Z",
-      "out_age_min": 0.0,
-      "log_bytes": 349746,
-      "output_tokens": 25343,
-      "cache_read_tokens": 5016453,
-      "cache_creation_tokens": 421554,
-      "msgs": 82,
+      "out_last_active": "2026-08-19T08:08:24Z",
+      "out_age_min": 0.1,
+      "log_bytes": 369157,
+      "output_tokens": 27098,
+      "cache_read_tokens": 5833608,
+      "cache_creation_tokens": 424475,
+      "msgs": 90,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -116,7 +116,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-08-19T06:56:42Z",
-      "out_age_min": 70.8,
+      "out_age_min": 71.8,
       "log_bytes": 2325038,
       "output_tokens": 259973,
       "cache_read_tokens": 181736648,
@@ -138,7 +138,7 @@
       "log_bytes": 1139928,
       "live": true,
       "status": "live",
-      "age_min": 3.9,
+      "age_min": 4.9,
       "subagent": true,
       "recent": true,
       "output_tokens": 97220,
@@ -155,7 +155,7 @@
       "log_bytes": 251244,
       "live": false,
       "status": "idle",
-      "age_min": 69.8,
+      "age_min": 70.8,
       "subagent": true,
       "recent": true,
       "output_tokens": 16916,
@@ -168,17 +168,17 @@
       "full_id": "a7d9806d7c3381d75",
       "group": "revive-mission-control-board-after-restart",
       "group_label": "Revive mission-control board after restart",
-      "last_active": "2026-08-19T08:07:27Z",
-      "log_bytes": 349746,
+      "last_active": "2026-08-19T08:08:24Z",
+      "log_bytes": 369157,
       "live": true,
       "status": "live",
-      "age_min": 0.0,
+      "age_min": 0.1,
       "subagent": true,
       "recent": true,
-      "output_tokens": 25343,
-      "cache_read_tokens": 5016453,
-      "cache_creation_tokens": 421554,
-      "msgs": 82
+      "output_tokens": 27098,
+      "cache_read_tokens": 5833608,
+      "cache_creation_tokens": 424475,
+      "msgs": 90
     },
     {
       "id": "add113a4",
@@ -189,7 +189,7 @@
       "log_bytes": 2325038,
       "live": false,
       "status": "idle",
-      "age_min": 70.8,
+      "age_min": 71.8,
       "subagent": true,
       "recent": true,
       "output_tokens": 259973,
@@ -207,7 +207,7 @@
       "cache_read_tokens": 979134502,
       "cache_creation_tokens": 78085303,
       "msgs": 1958,
-      "age_min": 1.9,
+      "age_min": 2.9,
       "live": true,
       "status": "live",
       "subagent": false,
@@ -232,50 +232,13 @@
         "available": true,
         "commits_24h": 9,
         "commits_7d": 106
-      },
-      {
-        "track": "w0",
-        "branch": "lane/vams-execution-gantt",
-        "available": true,
-        "commits_24h": 12,
-        "commits_7d": 109
       }
     ],
     "recent": [
       {
-        "hash": "f7b35ec",
-        "at": "2026-08-19T11:35:14+04:00",
-        "subject": "chore(release): bump version to 0.1.41",
-        "track": "w0"
-      },
-      {
-        "hash": "b601a77",
-        "at": "2026-08-19T11:34:32+04:00",
-        "subject": "feat(projects): make Projects/Gantt Omar's VAMS execution board + progress on bars",
-        "track": "w0"
-      },
-      {
-        "hash": "afa3e84",
-        "at": "2026-08-19T11:28:39+04:00",
-        "subject": "feat(vams): deterministic percent_complete for the sales-order execution board",
-        "track": "w0"
-      },
-      {
         "hash": "1b9fb7c",
         "at": "2026-08-19T08:39:29+04:00",
         "subject": "chore(release): bump version to 0.1.40",
-        "track": "w0"
-      },
-      {
-        "hash": "1b9fb7c",
-        "at": "2026-08-19T08:39:29+04:00",
-        "subject": "chore(release): bump version to 0.1.40",
-        "track": "w0"
-      },
-      {
-        "hash": "8bff7b1",
-        "at": "2026-08-19T08:37:05+04:00",
-        "subject": "test: cover v0.1.40 idempotent ingestion + session hygiene + degrade-not-crash",
         "track": "w0"
       },
       {
@@ -289,6 +252,36 @@
         "at": "2026-08-19T08:29:12+04:00",
         "subject": "fix(mattermost-sync): harden the channel-failure recording path",
         "track": "w0"
+      },
+      {
+        "hash": "137d967",
+        "at": "2026-08-19T08:29:03+04:00",
+        "subject": "fix(database): roll back the session on ANY guarded_write failure",
+        "track": "w0"
+      },
+      {
+        "hash": "74ffa71",
+        "at": "2026-08-19T08:28:54+04:00",
+        "subject": "fix(knowledge): idempotent Mattermost checkpoint write + degrade-per-thread",
+        "track": "w0"
+      },
+      {
+        "hash": "3f6941b",
+        "at": "2026-08-18T12:26:06+04:00",
+        "subject": "chore(release): bump version to 0.1.39",
+        "track": "w0"
+      },
+      {
+        "hash": "fe80345",
+        "at": "2026-08-18T12:25:04+04:00",
+        "subject": "test(sync-status): tab renders both switches + PUTs the right endpoint",
+        "track": "w0"
+      },
+      {
+        "hash": "d4728ec",
+        "at": "2026-08-18T12:24:56+04:00",
+        "subject": "feat(sync-status): surface per-source \"Sync everything (full history)\" switch",
+        "track": "w0"
       }
     ]
   },
@@ -296,6 +289,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-08-19T08:07:29Z"
+    "checked_at": "2026-08-19T08:08:29Z"
   }
 }
