@@ -1,23 +1,23 @@
 {
-  "updated": "2026-08-19T02:47:37Z",
-  "heartbeat_at": "2026-08-19T02:47:37Z",
-  "last_activity": "2026-08-19T02:47:36Z",
+  "updated": "2026-08-19T02:48:48Z",
+  "heartbeat_at": "2026-08-19T02:48:48Z",
+  "last_activity": "2026-08-19T02:48:42Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
-    "output_tokens": 6455277,
-    "cache_read_tokens": 890377463,
-    "cache_creation_tokens": 72472688,
-    "msgs": 1854,
-    "sessions": 1,
-    "live_sessions": 1,
+    "output_tokens": 6469292,
+    "cache_read_tokens": 896430551,
+    "cache_creation_tokens": 72488903,
+    "msgs": 1861,
+    "sessions": 2,
+    "live_sessions": 2,
     "transcript_sessions": 1,
-    "subagent_sessions": 0,
-    "workers": 1,
-    "live_workers": 1,
+    "subagent_sessions": 1,
+    "workers": 2,
+    "live_workers": 2,
     "stopped_workers": 0,
-    "current_workers": 1,
-    "history_workers": 143,
+    "current_workers": 2,
+    "history_workers": 142,
     "recent_window_min": 120.0
   },
   "workers": [
@@ -31,27 +31,66 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-19T02:47:36Z",
-      "out_age_min": 0.3,
+      "out_last_active": "2026-08-19T02:48:42Z",
+      "out_age_min": 0.1,
       "log_bytes": null,
       "status": "live",
       "live": true,
       "signal": "coordinating (orchestrator)",
       "recent": true
+    },
+    {
+      "name": "Surface Sync-everything toggles, ship v0.1.39",
+      "role": "surface-sync-everything-toggles-ship-v0-1-39",
+      "branch": null,
+      "focus": "Surface Sync-everything toggles, ship v0.1.39",
+      "agent_id": "afcc80750315c02b0",
+      "short_id": "afcc8075",
+      "head_commit": null,
+      "head_commit_at": null,
+      "head_ago_min": null,
+      "out_last_active": "2026-08-19T02:48:38Z",
+      "out_age_min": 0.1,
+      "log_bytes": 621853,
+      "output_tokens": 57100,
+      "cache_read_tokens": 18558643,
+      "cache_creation_tokens": 1371198,
+      "msgs": 175,
+      "status": "live",
+      "live": true,
+      "signal": "task-output mtime + git commit",
+      "recent": true
     }
   ],
   "sessions": [
+    {
+      "id": "afcc8075",
+      "full_id": "afcc80750315c02b0",
+      "group": "surface-sync-everything-toggles-ship-v0-1-39",
+      "group_label": "Surface Sync-everything toggles, ship v0.1.39",
+      "last_active": "2026-08-19T02:48:38Z",
+      "log_bytes": 621853,
+      "live": true,
+      "status": "live",
+      "age_min": 0.1,
+      "subagent": true,
+      "recent": true,
+      "output_tokens": 57100,
+      "cache_read_tokens": 18558643,
+      "cache_creation_tokens": 1371198,
+      "msgs": 175
+    },
     {
       "id": "0f7b13a0",
       "full_id": "0f7b13a0-2a85-49c0-96d5-e5a8832d8b85",
       "group": "commander",
       "group_label": "Session 0f7b13a0",
-      "last_active": "2026-08-19T02:47:20Z",
-      "output_tokens": 6455277,
-      "cache_read_tokens": 890377463,
-      "cache_creation_tokens": 72472688,
-      "msgs": 1854,
-      "age_min": 0.3,
+      "last_active": "2026-08-19T02:48:34Z",
+      "output_tokens": 6469292,
+      "cache_read_tokens": 896430551,
+      "cache_creation_tokens": 72488903,
+      "msgs": 1861,
+      "age_min": 0.2,
       "live": true,
       "status": "live",
       "subagent": false,
@@ -59,15 +98,15 @@
     }
   ],
   "history": {
-    "workers": 143,
+    "workers": 142,
     "by_status": {
-      "idle": 139,
+      "idle": 138,
       "stopped": 4
     },
-    "last_active": "2026-08-18T08:43:34Z",
+    "last_active": "2026-08-18T08:19:08Z",
     "note": "Prior-session workers \u2014 retired; not part of the current fleet."
   },
-  "total_tokens": 6455277,
+  "total_tokens": 6469292,
   "commits": {
     "tracks": [
       {
@@ -140,6 +179,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-08-19T02:47:38Z"
+    "checked_at": "2026-08-19T02:49:05Z"
   }
 }
