@@ -1,6 +1,6 @@
 {
-  "updated": "2026-08-19T09:53:28Z",
-  "heartbeat_at": "2026-08-19T09:53:28Z",
+  "updated": "2026-08-19T10:08:28Z",
+  "heartbeat_at": "2026-08-19T10:08:28Z",
   "last_activity": "2026-08-19T08:12:25Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
@@ -9,15 +9,15 @@
     "cache_read_tokens": 981035308,
     "cache_creation_tokens": 78089767,
     "msgs": 1960,
-    "sessions": 3,
+    "sessions": 2,
     "live_sessions": 0,
     "transcript_sessions": 1,
-    "subagent_sessions": 2,
-    "workers": 3,
+    "subagent_sessions": 1,
+    "workers": 2,
     "live_workers": 0,
     "stopped_workers": 0,
-    "current_workers": 3,
-    "history_workers": 145,
+    "current_workers": 2,
+    "history_workers": 146,
     "recent_window_min": 120.0
   },
   "workers": [
@@ -32,33 +32,11 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": null,
-      "out_age_min": 100.8,
+      "out_age_min": 115.9,
       "log_bytes": null,
       "status": "idle",
       "live": false,
       "signal": "coordinating (orchestrator)",
-      "recent": true
-    },
-    {
-      "name": "Rebuild VAMS-only execution Gantt, ship v0.1.41",
-      "role": "rebuild-vams-only-execution-gantt-ship-v0-1-41",
-      "branch": null,
-      "focus": "Rebuild VAMS-only execution Gantt, ship v0.1.41",
-      "agent_id": "a0e818fe4c7ccda40",
-      "short_id": "a0e818fe",
-      "head_commit": null,
-      "head_commit_at": null,
-      "head_ago_min": null,
-      "out_last_active": "2026-08-19T08:03:33Z",
-      "out_age_min": 109.9,
-      "log_bytes": 1139928,
-      "output_tokens": 97220,
-      "cache_read_tokens": 60332431,
-      "cache_creation_tokens": 2414456,
-      "msgs": 277,
-      "status": "idle",
-      "live": false,
-      "signal": "task-output mtime + git commit",
       "recent": true
     },
     {
@@ -72,7 +50,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-08-19T08:12:25Z",
-      "out_age_min": 101.0,
+      "out_age_min": 116.0,
       "log_bytes": 479558,
       "output_tokens": 39005,
       "cache_read_tokens": 9455014,
@@ -86,23 +64,6 @@
   ],
   "sessions": [
     {
-      "id": "a0e818fe",
-      "full_id": "a0e818fe4c7ccda40",
-      "group": "rebuild-vams-only-execution-gantt-ship-v0-1-41",
-      "group_label": "Rebuild VAMS-only execution Gantt, ship v0.1.41",
-      "last_active": "2026-08-19T08:03:33Z",
-      "log_bytes": 1139928,
-      "live": false,
-      "status": "idle",
-      "age_min": 109.9,
-      "subagent": true,
-      "recent": true,
-      "output_tokens": 97220,
-      "cache_read_tokens": 60332431,
-      "cache_creation_tokens": 2414456,
-      "msgs": 277
-    },
-    {
       "id": "a7d9806d",
       "full_id": "a7d9806d7c3381d75",
       "group": "revive-mission-control-board-after-restart",
@@ -111,7 +72,7 @@
       "log_bytes": 479558,
       "live": false,
       "status": "idle",
-      "age_min": 101.0,
+      "age_min": 116.0,
       "subagent": true,
       "recent": true,
       "output_tokens": 39005,
@@ -129,7 +90,7 @@
       "cache_read_tokens": 981035308,
       "cache_creation_tokens": 78089767,
       "msgs": 1960,
-      "age_min": 100.9,
+      "age_min": 115.9,
       "live": false,
       "status": "idle",
       "subagent": false,
@@ -137,12 +98,12 @@
     }
   ],
   "history": {
-    "workers": 145,
+    "workers": 146,
     "by_status": {
-      "idle": 141,
+      "idle": 142,
       "stopped": 4
     },
-    "last_active": "2026-08-19T06:57:39Z",
+    "last_active": "2026-08-19T08:03:33Z",
     "note": "Prior-session workers \u2014 retired; not part of the current fleet."
   },
   "total_tokens": 6662115,
@@ -211,6 +172,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-08-19T09:53:28Z"
+    "checked_at": "2026-08-19T10:08:28Z"
   }
 }
