@@ -1,9 +1,9 @@
 [
   {
-    "title": "Surface Sync-everything toggles on Sync Status tab \u2192 v0.1.39",
-    "status": "in_progress",
-    "track": "active",
-    "note": "branch lane/sync-everything-toggle-discoverability off main 05cdd13 (worker afcc8075). Puts both toggles (email backfill + Mattermost full_history) prominently on the Sync Status tab (Omar couldn't find them \u2014 the Mattermost one was buried in a channel-rail panel). Building + will ship as v0.1.39. TODO after Omar installs v0.1.38: re-enable Mattermost full-history via the app API (or he uses the now-discoverable toggle once v0.1.39 lands) + confirm a full sync completes without crashing and retries fire."
+    "title": "Surface Sync-everything toggles on Sync Status tab \u2014 v0.1.39 \u2014 SHIPPED",
+    "status": "done",
+    "track": "archive",
+    "note": "main 3f6941b, both installers. The \"Sync everything (full history)\" toggles are now surfaced prominently on the Sync Status tab per source \u2014 Mattermost row \u2192 PUT /mattermost/sync/preferences (full_history_enabled); each email account row \u2192 PUT /email/accounts/{id}/sync/preferences (backfill_enabled); new SyncEverythingToggle.tsx component; helper copy \"Off=recent (fast) / On=full history (heavier)\". Pre-existing channel-rail + Settings toggles left untouched (both paths still work). Core tests 102/102 green (+3). Packaged smoke verified /health=0.1.39. Note: the earlier build death mid-lane was the machine sleeping mid-compile (not a code bug) \u2014 re-ran clean; also root-caused a real build gotcha along the way: `pnpm build -- --target` forwards a literal `--` to cargo, so the tauri bundler looks in the wrong dir \u2014 fixed by using `pnpm --filter @cadre/desktop exec tauri build --target ...` instead. IMPORTANT: Omar is still on v0.1.37 \u2014 his sync errors are the v0.1.37 DB-lock bug from before v0.1.38 fixed it. v0.1.39 is cumulative (includes the v0.1.38 write-lock fix) AND surfaces these toggles \u2014 this is the build Omar should install next."
   },
   {
     "title": "DB write-lock comprehensive fix \u2014 v0.1.38 \u2014 SHIPPED",

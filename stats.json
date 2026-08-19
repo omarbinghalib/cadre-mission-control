@@ -1,23 +1,23 @@
 {
-  "updated": "2026-08-19T03:21:29Z",
-  "heartbeat_at": "2026-08-19T03:21:29Z",
-  "last_activity": "2026-08-19T03:21:29Z",
+  "updated": "2026-08-19T03:22:29Z",
+  "heartbeat_at": "2026-08-19T03:22:29Z",
+  "last_activity": "2026-08-19T03:22:29Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
-    "output_tokens": 6478024,
-    "cache_read_tokens": 904269207,
-    "cache_creation_tokens": 72499872,
-    "msgs": 1870,
-    "sessions": 2,
-    "live_sessions": 2,
+    "output_tokens": 6489038,
+    "cache_read_tokens": 909519033,
+    "cache_creation_tokens": 72516454,
+    "msgs": 1876,
+    "sessions": 3,
+    "live_sessions": 3,
     "transcript_sessions": 1,
-    "subagent_sessions": 1,
-    "workers": 2,
-    "live_workers": 2,
+    "subagent_sessions": 2,
+    "workers": 3,
+    "live_workers": 3,
     "stopped_workers": 0,
-    "current_workers": 2,
-    "history_workers": 142,
+    "current_workers": 3,
+    "history_workers": 141,
     "recent_window_min": 120.0
   },
   "workers": [
@@ -31,12 +31,34 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-19T03:21:29Z",
-      "out_age_min": 0.1,
+      "out_last_active": "2026-08-19T03:22:29Z",
+      "out_age_min": 0.4,
       "log_bytes": null,
       "status": "live",
       "live": true,
       "signal": "coordinating (orchestrator)",
+      "recent": true
+    },
+    {
+      "name": "Revive mission-control board",
+      "role": "revive-mission-control-board",
+      "branch": null,
+      "focus": "Revive mission-control board",
+      "agent_id": "add113a4c06ed35de",
+      "short_id": "add113a4",
+      "head_commit": null,
+      "head_commit_at": null,
+      "head_ago_min": null,
+      "out_last_active": "2026-08-19T03:22:28Z",
+      "out_age_min": 0.0,
+      "log_bytes": 2003522,
+      "output_tokens": 228032,
+      "cache_read_tokens": 136652206,
+      "cache_creation_tokens": 9371234,
+      "msgs": 578,
+      "status": "live",
+      "live": true,
+      "signal": "task-output mtime + git commit",
       "recent": true
     },
     {
@@ -50,7 +72,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-08-19T03:20:29Z",
-      "out_age_min": 1.0,
+      "out_age_min": 2.0,
       "log_bytes": 873822,
       "output_tokens": 89157,
       "cache_read_tokens": 33785556,
@@ -64,6 +86,23 @@
   ],
   "sessions": [
     {
+      "id": "add113a4",
+      "full_id": "add113a4c06ed35de",
+      "group": "revive-mission-control-board",
+      "group_label": "Revive mission-control board",
+      "last_active": "2026-08-19T03:22:28Z",
+      "log_bytes": 2003522,
+      "live": true,
+      "status": "live",
+      "age_min": 0.0,
+      "subagent": true,
+      "recent": true,
+      "output_tokens": 228032,
+      "cache_read_tokens": 136652206,
+      "cache_creation_tokens": 9371234,
+      "msgs": 578
+    },
+    {
       "id": "afcc8075",
       "full_id": "afcc80750315c02b0",
       "group": "surface-sync-everything-toggles-ship-v0-1-39",
@@ -72,7 +111,7 @@
       "log_bytes": 873822,
       "live": true,
       "status": "live",
-      "age_min": 1.0,
+      "age_min": 2.0,
       "subagent": true,
       "recent": true,
       "output_tokens": 89157,
@@ -85,12 +124,12 @@
       "full_id": "0f7b13a0-2a85-49c0-96d5-e5a8832d8b85",
       "group": "commander",
       "group_label": "Session 0f7b13a0",
-      "last_active": "2026-08-19T03:21:25Z",
-      "output_tokens": 6478024,
-      "cache_read_tokens": 904269207,
-      "cache_creation_tokens": 72499872,
-      "msgs": 1870,
-      "age_min": 0.1,
+      "last_active": "2026-08-19T03:22:04Z",
+      "output_tokens": 6489038,
+      "cache_read_tokens": 909519033,
+      "cache_creation_tokens": 72516454,
+      "msgs": 1876,
+      "age_min": 0.4,
       "live": true,
       "status": "live",
       "subagent": false,
@@ -98,15 +137,15 @@
     }
   ],
   "history": {
-    "workers": 142,
+    "workers": 141,
     "by_status": {
-      "idle": 138,
+      "idle": 137,
       "stopped": 4
     },
-    "last_active": "2026-08-18T08:19:08Z",
+    "last_active": "2026-08-18T08:12:01Z",
     "note": "Prior-session workers \u2014 retired; not part of the current fleet."
   },
-  "total_tokens": 6478024,
+  "total_tokens": 6489038,
   "commits": {
     "tracks": [
       {
@@ -179,6 +218,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-08-19T03:21:30Z"
+    "checked_at": "2026-08-19T03:22:30Z"
   }
 }
