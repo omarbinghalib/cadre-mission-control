@@ -245,31 +245,42 @@
   </header>
 
   <section class="panel">
-    <div class="split"><div><p class="eyebrow">Cadre program — v0.1.40 shipped, fleet idle</p><h2>Fleet status at a glance</h2></div></div>
+    <div class="split"><div><p class="eyebrow">Cadre program — 1 lane running now (VAMS execution Gantt)</p><h2>Fleet status at a glance</h2></div></div>
     <div class="row" style="gap:8px;flex-wrap:wrap;margin:8px 0 6px">
-  <span class="chip ok" style="border-color:var(--ok);background:var(--ok-ink);color:#fff"><b>v0.1.40 SHIPPED — Mattermost full-history ingestion crash fixed</b></span>
-  <span class="chip mute">Fleet idle — 0 active build lanes</span>
+  <span class="chip ok"><span class="dp beat"></span>1 lane running now — VAMS execution Gantt</span>
+  <span class="chip mute">v0.1.40 SHIPPED — Mattermost full-history ingestion crash fixed</span>
   <span class="chip mute">33 releases shipped</span>
 </div>
 
 <p class="eyebrow" style="margin:16px 0 8px">Milestone</p>
 <div class="sub" style="padding:10px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-  <b style="color:var(--ok-ink)">v0.1.40 SHIPPED + VERIFIED</b> (main <span class="mono">1b9fb7c</span>, Latest, both installers, 72/74.5MB). Fixes the Mattermost full-history ingestion crash Omar hit on v0.1.39 (sync had reached 242/250 before failing). Root cause (nice find): the knowledge-ingestion checkpoint used <span class="mono">db.merge(KnowledgeIngestionCheckpoint(...))</span>, which reconciles by the surrogate id PK (never set) → always scheduled a plain INSERT → <span class="mono">UNIQUE(source, external_id)</span> violation on a re-walked/edited message → PendingRollbackError crashed the full sync and broke the failure-recording path too. Fixed: (1) idempotent <span class="mono">_upsert_ingestion_checkpoint</span> (find-by-natural-key + update, else insert); (2) <span class="mono">guarded_write</span> rolls back on ANY failure before re-raising; (3) per-thread atomic ingest — a failing thread rolls back + skips + continues (transient locks still re-raised for retry); (4) hardened <span class="mono">_record_channel_failure</span>/<span class="mono">_channel_label</span> (rollback + re-fetch on a clean session, label never raises). 7 new regression tests; full suite 919 passed / 0 fail at low parallelism (authoritative). Packaged smoke verified <span class="mono">/health</span>=0.1.40. <b>Honest residual (named, not hidden):</b> both full-parallelism test runs showed a single DIFFERENT unrelated timing-flake each (VAMS-auth, dashboard-cache) that passes in isolation — NOT caused by this fix, minor/environmental, not blocking. <b>The fleet is idle — no active build lanes.</b> Standing by for the next scope from Omar.
+  Omar clarified what he actually wants from Projects/Gantt: his LIVE EXECUTION BOARD — all active VBG sales orders currently being executed in VAMS, on the Gantt, to track what's being worked on and its progress. Verified live on his running v0.1.40 app: the VAMS DB IS connected (192.168.58.223), <span class="mono">/vams/sales-orders</span> returns 200 with real active SOs (SO0000751 New Order delayed 9d, SO0000749 Under Review on-track, etc.) — the data and feature (shipped back in v0.1.32) already work. But the Projects/Gantt defaults to the EMAIL-projects view — he couldn't find the VAMS toggle (the same discoverability pattern that hit the sync-everything toggle) — and progress isn't shown on the bars. Told Omar it works NOW via the "VAMS sales orders" toggle, as an immediate unblock while the real fix ships. No red alert.
 </div>
 
-<p class="eyebrow" style="margin:18px 0 6px">Shipped in v0.1.39</p>
+<p class="eyebrow" style="margin:16px 0 6px">Active lane — running now</p>
+<ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0">
+  <li style="padding:10px 0;border-top:1px solid var(--line)">
+    <span class="wname" style="font-weight:650">VAMS execution Gantt → v0.1.41</span>
+    <span class="chip ok" style="margin-left:8px">running · lane/vams-execution-gantt, off main 1b9fb7c</span>
+    <div class="sub" style="margin-top:3px">Building: (1) DEFAULT the Projects/Gantt to the VAMS sales-orders view when VAMS is connected (no more hunting for a buried toggle); (2) show a real % complete ON each Gantt bar (completed-vs-total downstream WOs, or stage-based fallback — deterministic, no fabrication) + stage label + on-track/delayed coloring, so progress is visible at a glance; (3) render ALL active SOs (no silent cap); keep the per-SO drawer. Tested against a mock — never the production VAMS DB. Building + will ship as v0.1.41.</div>
+  </li>
+</ul>
+<p class="foot" style="margin:6px 0 0">Operational note: active build lanes are deliberately kept to ≤3 — the workers run on Omar's own machine, and too much parallelism worsens the very live-app slowness he's reported before.</p>
+
+<p class="eyebrow" style="margin:18px 0 6px">Shipped in v0.1.40</p>
 <div class="sub" style="padding:10px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-  <b style="color:var(--ok-ink)">Sync-everything toggles surfaced</b> — both full-history toggles (email + Mattermost) now prominent on the Sync Status tab. Confirmed working: Omar found and used the Mattermost one himself.
+  <b style="color:var(--ok-ink)">Idempotent knowledge ingestion</b> — fixed the checkpoint UNIQUE-constraint crash that Mattermost full-history sync exposed (a re-walked/edited message could crash the whole sync). 7 new regression tests, 919/0 at low parallelism.
 </div>
 
-<p class="eyebrow" style="margin:18px 0 6px">Shipped in v0.1.38</p>
-<div class="sub" style="padding:10px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-  <b style="color:var(--ok-ink)">Comprehensive DB write-lock fix</b> — a re-entrant write-lock + retry-on-locked routed through every heavy write path. Confirmed working on v0.1.39: the earlier "internal error during full sync" + missing-retry crash was gone.
+<p class="eyebrow" style="margin:18px 0 6px">Shipped in v0.1.37–39</p>
+<div class="sub" style="padding:10px 0;border-top:1px solid var(--line)">
+  <b style="color:var(--ok-ink)">Sync-everything toggles surfaced</b> (v0.1.39) — both full-history toggles (email + Mattermost) now prominent on the Sync Status tab.
 </div>
-
-<p class="eyebrow" style="margin:18px 0 6px">Shipped in v0.1.37</p>
+<div class="sub" style="padding:10px 0;border-top:1px solid var(--line)">
+  <b style="color:var(--ok-ink)">Comprehensive DB write-lock fix</b> (v0.1.38) — a re-entrant write-lock + retry-on-locked routed through every heavy write path; killed the "internal error during full sync" crash.
+</div>
 <div class="sub" style="padding:10px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-  <b style="color:var(--ok-ink)">Mattermost "Sync everything (full history)" toggle</b> — OFF = recent-first (byte-identical to prior behavior); ON = deep-index every channel to complete history. Now stable through 3 real-data-driven fixes (v0.1.38, v0.1.39, v0.1.40) — expected to complete clean to 250/250 once re-enabled.
+  <b style="color:var(--ok-ink)">Mattermost "Sync everything (full history)" toggle</b> (v0.1.37) — OFF = recent-first; ON = deep-index every channel to complete history. Now stable through 3 real-data-driven fixes.
 </div>
 
 <p class="eyebrow" style="margin:18px 0 6px">Shipped in v0.1.33–36</p>
@@ -287,12 +298,12 @@
 </div>
 
 <p class="eyebrow" style="margin:18px 0 6px">Shipped</p>
-<p class="sub" style="margin:0">33 releases, <span class="mono">v0.1.6 → v0.1.40</span> (current) — clean full-bleed layouts, full mailbox sync, Mattermost fixes, DPAPI credential persistence, LM Studio + Ollama runtimes, the Command Dashboard, Google sign-in, VAMS auth/crash fixes, the read-only VAMS Postgres connector + knowledge-graph foundation (v0.1.19), chat-on-any-brain + full local model management + email auto-organization + Mattermost full sync + 35 VAMS query tools (v0.1.20), the ask-anything tool-calling loop + interactive LLM mind map (v0.1.21), a safe-upgrade schema reconciler verified live against a real old-schema DB with data preserved (v0.1.22), the COO insight engine + dashboard drill-down capstone (v0.1.23), the VAMS projects query tools that closed the real gap behind Omar's first "provide me the data" answer (v0.1.24), chat streaming with no more 45s timeout (v0.1.25), background auto-sync for email + Mattermost + Mattermost error hardening + instant-load (v0.1.27), the organizer-churn root-cause fix + dashboard /summary unblock + AI-activity/Pause header (v0.1.29), the Mattermost upgrade-500 hotfix that self-heals on restart (v0.1.30), chat reliability — true end-to-end streaming, no more 45s timeout anywhere in tool-calling, capable-model routing, kept-warm brain (v0.1.31), VAMS attention-feed AI-churn fix + per-mailbox AI switch + Gmail \Noselect fix + Projects/Gantt from VAMS Sales Orders (v0.1.32), the "finish everything" release (v0.1.33), the real-data sync-reliability + perf fix (v0.1.34), Mattermost sync resilience (v0.1.35), Mattermost sync completeness + real retry + persistent logging (v0.1.36), the Mattermost full-history depth toggle (v0.1.37), the comprehensive DB write-lock fix (v0.1.38), both Sync-everything toggles surfaced prominently on the Sync Status tab (v0.1.39), and idempotent knowledge ingestion — fixed the checkpoint UNIQUE-constraint crash that full-history sync exposed (v0.1.40). Full per-release notes on <a href="https://github.com/omarbinghalib/cadre/releases" target="_blank" rel="noopener">GitHub Releases</a>; expand "Previously shipped" in Tasks &amp; progress below for the compact log.</p>
+<p class="sub" style="margin:0">33 releases, <span class="mono">v0.1.6 → v0.1.40</span> (current) — clean full-bleed layouts, full mailbox sync, Mattermost fixes, DPAPI credential persistence, LM Studio + Ollama runtimes, the Command Dashboard, Google sign-in, VAMS auth/crash fixes, the read-only VAMS Postgres connector + knowledge-graph foundation (v0.1.19), chat-on-any-brain + full local model management + email auto-organization + Mattermost full sync + 35 VAMS query tools (v0.1.20), the ask-anything tool-calling loop + interactive LLM mind map (v0.1.21), a safe-upgrade schema reconciler verified live against a real old-schema DB with data preserved (v0.1.22), the COO insight engine + dashboard drill-down capstone (v0.1.23), the VAMS projects query tools that closed the real gap behind Omar's first "provide me the data" answer (v0.1.24), chat streaming with no more 45s timeout (v0.1.25), background auto-sync for email + Mattermost + Mattermost error hardening + instant-load (v0.1.27), the organizer-churn root-cause fix + dashboard /summary unblock + AI-activity/Pause header (v0.1.29), the Mattermost upgrade-500 hotfix that self-heals on restart (v0.1.30), chat reliability — true end-to-end streaming, no more 45s timeout anywhere in tool-calling, capable-model routing, kept-warm brain (v0.1.31), VAMS attention-feed AI-churn fix + per-mailbox AI switch + Gmail \Noselect fix + Projects/Gantt from VAMS Sales Orders (v0.1.32), the "finish everything" release (v0.1.33), the real-data sync-reliability + perf fix (v0.1.34), Mattermost sync resilience (v0.1.35), Mattermost sync completeness + real retry + persistent logging (v0.1.36), the Mattermost full-history depth toggle (v0.1.37), the comprehensive DB write-lock fix (v0.1.38), both Sync-everything toggles surfaced prominently on the Sync Status tab (v0.1.39), and idempotent knowledge ingestion (v0.1.40). Full per-release notes on <a href="https://github.com/omarbinghalib/cadre/releases" target="_blank" rel="noopener">GitHub Releases</a>; expand "Previously shipped" in Tasks &amp; progress below for the compact log.</p>
 
 <p class="eyebrow" style="margin:18px 0 6px">Awaiting from Omar</p>
-<p class="sub" style="margin:0">Outstanding items (tracked here, not as an alert — nothing is currently blocking the fleet, which is idle between deltas):</p>
+<p class="sub" style="margin:0">Outstanding items (tracked here, not as an alert — nothing is currently blocking the fleet):</p>
 <ul style="list-style:none;margin:6px 0 0;padding:0;display:flex;flex-direction:column;gap:0">
-  <li style="padding:6px 0;border-top:1px solid var(--line)"><span class="sub">Install v0.1.40 and restart — then re-enable Mattermost full-history (toggle or API) and confirm it completes clean to 250/250 (was 242/250 before this fix).</span></li>
+  <li style="padding:6px 0;border-top:1px solid var(--line)"><span class="sub">The VAMS sales-orders Gantt view works right now via the "VAMS sales orders" toggle on the Projects page (no need to wait) — v0.1.41 is building to make it the default + show progress on the bars.</span></li>
   <li style="padding:6px 0;border-top:1px solid var(--line)"><span class="sub">Rotate the personal VAMS web password shared in chat to a dedicated service account.</span></li>
   <li style="padding:6px 0;border-top:1px solid var(--line)"><span class="sub">Add a Claude API key whenever he wants cloud reasoning available alongside the local models.</span></li>
 </ul>
