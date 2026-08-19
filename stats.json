@@ -1,14 +1,14 @@
 {
-  "updated": "2026-08-19T02:46:54Z",
-  "heartbeat_at": "2026-08-19T02:46:54Z",
-  "last_activity": "2026-08-19T02:46:52Z",
+  "updated": "2026-08-19T02:47:37Z",
+  "heartbeat_at": "2026-08-19T02:47:37Z",
+  "last_activity": "2026-08-19T02:47:36Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
-    "output_tokens": 6450438,
-    "cache_read_tokens": 890296340,
-    "cache_creation_tokens": 69966311,
-    "msgs": 1851,
+    "output_tokens": 6455277,
+    "cache_read_tokens": 890377463,
+    "cache_creation_tokens": 72472688,
+    "msgs": 1854,
     "sessions": 1,
     "live_sessions": 1,
     "transcript_sessions": 1,
@@ -31,8 +31,8 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-19T02:46:52Z",
-      "out_age_min": 0.5,
+      "out_last_active": "2026-08-19T02:47:36Z",
+      "out_age_min": 0.3,
       "log_bytes": null,
       "status": "live",
       "live": true,
@@ -46,12 +46,12 @@
       "full_id": "0f7b13a0-2a85-49c0-96d5-e5a8832d8b85",
       "group": "commander",
       "group_label": "Session 0f7b13a0",
-      "last_active": "2026-08-19T02:46:23Z",
-      "output_tokens": 6450438,
-      "cache_read_tokens": 890296340,
-      "cache_creation_tokens": 69966311,
-      "msgs": 1851,
-      "age_min": 0.5,
+      "last_active": "2026-08-19T02:47:20Z",
+      "output_tokens": 6455277,
+      "cache_read_tokens": 890377463,
+      "cache_creation_tokens": 72472688,
+      "msgs": 1854,
+      "age_min": 0.3,
       "live": true,
       "status": "live",
       "subagent": false,
@@ -67,7 +67,7 @@
     "last_active": "2026-08-18T08:43:34Z",
     "note": "Prior-session workers \u2014 retired; not part of the current fleet."
   },
-  "total_tokens": 6450438,
+  "total_tokens": 6455277,
   "commits": {
     "tracks": [
       {
@@ -140,6 +140,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-08-19T02:46:56Z"
+    "checked_at": "2026-08-19T02:47:38Z"
   }
 }
