@@ -1,7 +1,7 @@
 {
-  "updated": "2026-08-19T03:23:30Z",
-  "heartbeat_at": "2026-08-19T03:23:30Z",
-  "last_activity": "2026-08-19T03:23:30Z",
+  "updated": "2026-08-19T03:24:29Z",
+  "heartbeat_at": "2026-08-19T03:24:29Z",
+  "last_activity": "2026-08-19T03:24:29Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
@@ -31,8 +31,8 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-19T03:23:30Z",
-      "out_age_min": 1.4,
+      "out_last_active": "2026-08-19T03:24:29Z",
+      "out_age_min": 2.4,
       "log_bytes": null,
       "status": "live",
       "live": true,
@@ -49,13 +49,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-19T03:23:28Z",
-      "out_age_min": 0.0,
-      "log_bytes": 2044311,
-      "output_tokens": 233194,
-      "cache_read_tokens": 141344268,
-      "cache_creation_tokens": 9383203,
-      "msgs": 589,
+      "out_last_active": "2026-08-19T03:24:15Z",
+      "out_age_min": 0.2,
+      "log_bytes": 2070841,
+      "output_tokens": 234492,
+      "cache_read_tokens": 146578416,
+      "cache_creation_tokens": 9403268,
+      "msgs": 601,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -72,7 +72,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-08-19T03:20:29Z",
-      "out_age_min": 3.0,
+      "out_age_min": 4.0,
       "log_bytes": 873822,
       "output_tokens": 89157,
       "cache_read_tokens": 33785556,
@@ -90,17 +90,17 @@
       "full_id": "add113a4c06ed35de",
       "group": "revive-mission-control-board",
       "group_label": "Revive mission-control board",
-      "last_active": "2026-08-19T03:23:28Z",
-      "log_bytes": 2044311,
+      "last_active": "2026-08-19T03:24:15Z",
+      "log_bytes": 2070841,
       "live": true,
       "status": "live",
-      "age_min": 0.0,
+      "age_min": 0.2,
       "subagent": true,
       "recent": true,
-      "output_tokens": 233194,
-      "cache_read_tokens": 141344268,
-      "cache_creation_tokens": 9383203,
-      "msgs": 589
+      "output_tokens": 234492,
+      "cache_read_tokens": 146578416,
+      "cache_creation_tokens": 9403268,
+      "msgs": 601
     },
     {
       "id": "afcc8075",
@@ -111,7 +111,7 @@
       "log_bytes": 873822,
       "live": true,
       "status": "live",
-      "age_min": 3.0,
+      "age_min": 4.0,
       "subagent": true,
       "recent": true,
       "output_tokens": 89157,
@@ -129,7 +129,7 @@
       "cache_read_tokens": 909519033,
       "cache_creation_tokens": 72516454,
       "msgs": 1876,
-      "age_min": 1.4,
+      "age_min": 2.4,
       "live": true,
       "status": "live",
       "subagent": false,
@@ -154,47 +154,10 @@
         "available": true,
         "commits_24h": 16,
         "commits_7d": 120
-      },
-      {
-        "track": "w0",
-        "branch": "lane/sync-everything-toggle-discoverability",
-        "available": true,
-        "commits_24h": 20,
-        "commits_7d": 124
       }
     ],
     "recent": [
       {
-        "hash": "3f6941b",
-        "at": "2026-08-18T12:26:06+04:00",
-        "subject": "chore(release): bump version to 0.1.39",
-        "track": "w0"
-      },
-      {
-        "hash": "fe80345",
-        "at": "2026-08-18T12:25:04+04:00",
-        "subject": "test(sync-status): tab renders both switches + PUTs the right endpoint",
-        "track": "w0"
-      },
-      {
-        "hash": "d4728ec",
-        "at": "2026-08-18T12:24:56+04:00",
-        "subject": "feat(sync-status): surface per-source \"Sync everything (full history)\" switch",
-        "track": "w0"
-      },
-      {
-        "hash": "4259b7b",
-        "at": "2026-08-18T12:24:45+04:00",
-        "subject": "feat(sync-status): add SyncEverythingToggle switch component + styles",
-        "track": "w0"
-      },
-      {
-        "hash": "05cdd13",
-        "at": "2026-08-18T11:50:40+04:00",
-        "subject": "chore(release): bump version to 0.1.38",
-        "track": "w0"
-      },
-      {
         "hash": "05cdd13",
         "at": "2026-08-18T11:50:40+04:00",
         "subject": "chore(release): bump version to 0.1.38",
@@ -207,9 +170,39 @@
         "track": "w0"
       },
       {
-        "hash": "4530ba2",
-        "at": "2026-08-18T11:42:24+04:00",
-        "subject": "test(oauth): generous poll ceiling so the async flow survives full CPU saturation",
+        "hash": "1beb662",
+        "at": "2026-08-18T11:25:28+04:00",
+        "subject": "fix(sync): avoid write-lock deadlock from a dangling write txn crossing lock acquisition",
+        "track": "w0"
+      },
+      {
+        "hash": "40c2562",
+        "at": "2026-08-18T11:05:33+04:00",
+        "subject": "test(isolation): pin CADRE_MODEL_MANAGER_URL to a dead port + reset background-ai cache",
+        "track": "w0"
+      },
+      {
+        "hash": "37607e3",
+        "at": "2026-08-18T10:49:49+04:00",
+        "subject": "test(flood): concurrent heavy writes never propagate \"database is locked\"",
+        "track": "w0"
+      },
+      {
+        "hash": "b7ced24",
+        "at": "2026-08-18T10:49:48+04:00",
+        "subject": "fix(sync): route email sync + understanding lease heartbeat through lock+retry",
+        "track": "w0"
+      },
+      {
+        "hash": "349cbe1",
+        "at": "2026-08-18T10:49:48+04:00",
+        "subject": "fix(mattermost-sync): route every write + knowledge ingestion through the lock+retry",
+        "track": "w0"
+      },
+      {
+        "hash": "ec595c1",
+        "at": "2026-08-18T10:49:48+04:00",
+        "subject": "feat(database): reentrant write-lock + guarded_write retry-on-locked primitive",
         "track": "w0"
       }
     ]
@@ -218,6 +211,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-08-19T03:23:31Z"
+    "checked_at": "2026-08-19T03:24:29Z"
   }
 }
