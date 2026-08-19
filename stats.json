@@ -1,7 +1,7 @@
 {
-  "updated": "2026-08-19T10:08:28Z",
-  "heartbeat_at": "2026-08-19T10:08:28Z",
-  "last_activity": "2026-08-19T08:12:25Z",
+  "updated": "2026-08-19T10:23:28Z",
+  "heartbeat_at": "2026-08-19T10:23:28Z",
+  "last_activity": null,
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
@@ -9,15 +9,15 @@
     "cache_read_tokens": 981035308,
     "cache_creation_tokens": 78089767,
     "msgs": 1960,
-    "sessions": 2,
+    "sessions": 1,
     "live_sessions": 0,
     "transcript_sessions": 1,
-    "subagent_sessions": 1,
-    "workers": 2,
+    "subagent_sessions": 0,
+    "workers": 1,
     "live_workers": 0,
     "stopped_workers": 0,
-    "current_workers": 2,
-    "history_workers": 146,
+    "current_workers": 1,
+    "history_workers": 147,
     "recent_window_min": 120.0
   },
   "workers": [
@@ -32,54 +32,15 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": null,
-      "out_age_min": 115.9,
+      "out_age_min": 130.9,
       "log_bytes": null,
       "status": "idle",
       "live": false,
       "signal": "coordinating (orchestrator)",
       "recent": true
-    },
-    {
-      "name": "Revive mission-control board after restart",
-      "role": "revive-mission-control-board-after-restart",
-      "branch": null,
-      "focus": "Revive mission-control board after restart",
-      "agent_id": "a7d9806d7c3381d75",
-      "short_id": "a7d9806d",
-      "head_commit": null,
-      "head_commit_at": null,
-      "head_ago_min": null,
-      "out_last_active": "2026-08-19T08:12:25Z",
-      "out_age_min": 116.0,
-      "log_bytes": 479558,
-      "output_tokens": 39005,
-      "cache_read_tokens": 9455014,
-      "cache_creation_tokens": 465082,
-      "msgs": 122,
-      "status": "idle",
-      "live": false,
-      "signal": "task-output mtime + git commit",
-      "recent": true
     }
   ],
   "sessions": [
-    {
-      "id": "a7d9806d",
-      "full_id": "a7d9806d7c3381d75",
-      "group": "revive-mission-control-board-after-restart",
-      "group_label": "Revive mission-control board after restart",
-      "last_active": "2026-08-19T08:12:25Z",
-      "log_bytes": 479558,
-      "live": false,
-      "status": "idle",
-      "age_min": 116.0,
-      "subagent": true,
-      "recent": true,
-      "output_tokens": 39005,
-      "cache_read_tokens": 9455014,
-      "cache_creation_tokens": 465082,
-      "msgs": 122
-    },
     {
       "id": "0f7b13a0",
       "full_id": "0f7b13a0-2a85-49c0-96d5-e5a8832d8b85",
@@ -90,7 +51,7 @@
       "cache_read_tokens": 981035308,
       "cache_creation_tokens": 78089767,
       "msgs": 1960,
-      "age_min": 115.9,
+      "age_min": 130.9,
       "live": false,
       "status": "idle",
       "subagent": false,
@@ -98,12 +59,12 @@
     }
   ],
   "history": {
-    "workers": 146,
+    "workers": 147,
     "by_status": {
-      "idle": 142,
+      "idle": 143,
       "stopped": 4
     },
-    "last_active": "2026-08-19T08:03:33Z",
+    "last_active": "2026-08-19T08:12:25Z",
     "note": "Prior-session workers \u2014 retired; not part of the current fleet."
   },
   "total_tokens": 6662115,
@@ -172,6 +133,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-08-19T10:08:28Z"
+    "checked_at": "2026-08-19T10:23:28Z"
   }
 }
