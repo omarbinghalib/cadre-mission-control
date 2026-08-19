@@ -245,31 +245,31 @@
   </header>
 
   <section class="panel">
-    <div class="split"><div><p class="eyebrow">Cadre program — 1 lane running now (Sync-everything toggle discoverability)</p><h2>Fleet status at a glance</h2></div></div>
+    <div class="split"><div><p class="eyebrow">Cadre program — v0.1.39 shipped, fleet idle</p><h2>Fleet status at a glance</h2></div></div>
     <div class="row" style="gap:8px;flex-wrap:wrap;margin:8px 0 6px">
-  <span class="chip ok"><span class="dp beat"></span>1 lane running now — Sync-everything toggle discoverability</span>
-  <span class="chip mute">v0.1.38 SHIPPED — comprehensive DB write-lock fix</span>
-  <span class="chip mute">31 releases shipped</span>
+  <span class="chip ok" style="border-color:var(--ok);background:var(--ok-ink);color:#fff"><b>v0.1.39 SHIPPED — Sync-everything toggles surfaced</b></span>
+  <span class="chip mute">Fleet idle — 0 active build lanes</span>
+  <span class="chip mute">32 releases shipped</span>
 </div>
 
 <p class="eyebrow" style="margin:16px 0 8px">Milestone</p>
 <div class="sub" style="padding:10px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-  <b style="color:var(--ok-ink)">v0.1.38 SHIPPED + VERIFIED</b> (main <span class="mono">05cdd13</span>, Latest, both installers) — the comprehensive DB write-lock fix. Root cause was TWO things: (1) only sync workers took the write-lock, so Mattermost sync + knowledge ingestion + the understanding worker + its lease heartbeat all collided at the SQLite driver level → exhausted <span class="mono">busy_timeout</span> → an unhandled "database is locked" crashed the full sync — this was Omar's "internal error" AND why retries never fired (the run died before the retry sweep could run); (2) the pre-existing flaky test cluster was ALSO a test-isolation bug — tests never overrode <span class="mono">CADRE_MODEL_MANAGER_URL</span>, so they read Omar's REAL paused model-manager, the understanding worker deferred every job, and <span class="mono">wait_until_idle</span> timed out. Fixed: a re-entrant <span class="mono">sync_write_lock</span> + <span class="mono">guarded_write()</span> that RETRIES the whole write unit on database-locked (backoff, rollback-between, sleep outside the lock); routed Mattermost sync + knowledge_entities ingestion + understanding + lease-heartbeat + email writes through it; fixed a deadlock (a write transaction crossing a lock window); database-locked now degrades-per-item, never crashes a run. New flood test passes. Backend 912/0 SERIAL + 912/0 at <span class="mono">-n auto</span> (8 workers, all cores) TWICE — baseline was 22 failed — + model-manager 225 + frontend 99. Packaged smoke verified <span class="mono">/health</span>=0.1.38 + WAL. <b>The Mattermost full-history toggle is now safe to re-enable</b>. TODO after Omar installs: re-enable it (via the app API, or the now-discoverable toggle once v0.1.39 lands) + confirm a full sync completes without crashing and retries fire.
+  <b style="color:var(--ok-ink)">v0.1.39 SHIPPED + VERIFIED</b> (main <span class="mono">3f6941b</span>, Latest, both installers). The "Sync everything (full history)" toggles are now surfaced prominently on the Sync Status tab per source — Mattermost row → <span class="mono">PUT /mattermost/sync/preferences</span> (<span class="mono">full_history_enabled</span>); each email account row → <span class="mono">PUT /email/accounts/{id}/sync/preferences</span> (<span class="mono">backfill_enabled</span>); a new <span class="mono">SyncEverythingToggle.tsx</span> component with helper copy "Off=recent (fast) / On=full history (heavier)"; the pre-existing channel-rail + Settings toggles were left untouched. Core tests 102/102 green (+3). Packaged smoke verified <span class="mono">/health</span>=0.1.39. Along the way: the earlier build death was just the machine sleeping mid-compile (not a code bug), and a real build gotcha got root-caused (<span class="mono">pnpm build -- --target</span> forwards a literal <span class="mono">--</span> to cargo, pointing the tauri bundler at the wrong dir — fixed with <span class="mono">pnpm --filter @cadre/desktop exec tauri build --target ...</span>). <b>The fleet is idle — no active build lanes.</b> Standing by for the next scope from Omar.
 </div>
 
-<p class="eyebrow" style="margin:16px 0 6px">Active lane — running now</p>
-<ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0">
-  <li style="padding:10px 0;border-top:1px solid var(--line)">
-    <span class="wname" style="font-weight:650">Surface Sync-everything toggles on Sync Status tab → v0.1.39</span>
-    <span class="chip ok" style="margin-left:8px">running · lane/sync-everything-toggle-discoverability, off main 05cdd13</span>
-    <div class="sub" style="margin-top:3px">Puts both toggles (email backfill + Mattermost full_history) prominently on the Sync Status tab — Omar couldn't find them, the Mattermost one was buried in a channel-rail panel. Building + will ship as v0.1.39.</div>
-  </li>
-</ul>
-<p class="foot" style="margin:6px 0 0">Operational note: active build lanes are deliberately kept to ≤3 — the workers run on Omar's own machine, and too much parallelism worsens the very live-app slowness he's reported before.</p>
+<p class="eyebrow" style="margin:18px 0 6px">Important — Omar is still on v0.1.37</p>
+<div class="sub" style="padding:10px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  Omar hasn't installed v0.1.38 or v0.1.39 yet — the sync errors he's still seeing are the v0.1.37 database-lock bug that v0.1.38 fixed. v0.1.39 is <b>cumulative</b> (includes the v0.1.38 write-lock fix) and also surfaces the toggles, so installing v0.1.39 gets him both fixes in one step.
+</div>
+
+<p class="eyebrow" style="margin:18px 0 6px">Shipped in v0.1.38</p>
+<div class="sub" style="padding:10px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <b style="color:var(--ok-ink)">Comprehensive DB write-lock fix</b> — a re-entrant write-lock + retry-on-locked routed through every heavy write path (Mattermost sync, knowledge ingestion, understanding worker + lease heartbeat, email sync); database-locked now degrades-per-item instead of crashing the whole run. This is the fix for the "internal error during full sync" + missing-retry issue. Backend 912/0 at full parallelism, twice (baseline was 22 failed).
+</div>
 
 <p class="eyebrow" style="margin:18px 0 6px">Shipped in v0.1.37</p>
 <div class="sub" style="padding:10px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-  <b style="color:var(--ok-ink)">Mattermost "Sync everything (full history)" toggle</b> — OFF = recent-first (byte-identical to prior behavior); ON = deep-index every channel to complete history. Now safe to use (v0.1.38 fixed the write-contention crash it triggered under real load), and v0.1.39 is making it easier to find.
+  <b style="color:var(--ok-ink)">Mattermost "Sync everything (full history)" toggle</b> — OFF = recent-first (byte-identical to prior behavior); ON = deep-index every channel to complete history. This is the toggle that triggered the v0.1.37 write-contention bug — safe now, and easy to find as of v0.1.39.
 </div>
 
 <p class="eyebrow" style="margin:18px 0 6px">Shipped in v0.1.36</p>
@@ -277,37 +277,24 @@
   <b style="color:var(--ok-ink)">Mattermost sync completeness + real retry + persistent logging</b> — answered Omar's "retry the failed channels / finish everything / show me the logs" asks directly: fixed frozen retry timer, backfill-to-completeness, deep-index partial-resume, rotating file logging + <span class="mono">/sync-status/logs</span>, tightened 15min reaper.
 </div>
 
-<p class="eyebrow" style="margin:18px 0 6px">Shipped in v0.1.35</p>
-<div class="sub" style="padding:10px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-  <b style="color:var(--ok-ink)">Mattermost sync resilience</b> — per-channel degrade-don't-halt, retry-with-backoff on transient errors, IPv4 preference, bounded connect/read timeouts, real-outage-only classification, and clear error messages.
-</div>
-
-<p class="eyebrow" style="margin:18px 0 6px">Shipped in v0.1.34</p>
-<div class="sub" style="padding:10px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-  <b style="color:var(--ok-ink)">Sync reliability + perf</b> — cooperative pause-cancel, WAL-mode SQLite with a fair-turns write lock between email and Mattermost, bounded-concurrency Mattermost sync, and stale-folder-row cleanup.
-</div>
-
-<p class="eyebrow" style="margin:18px 0 6px">Shipped in v0.1.33 (finish-everything backlog)</p>
+<p class="eyebrow" style="margin:18px 0 6px">Shipped in v0.1.33–35</p>
 <div class="sub" style="padding:10px 0;border-top:1px solid var(--line)">
-  <b style="color:var(--ok-ink)">Sync Status &amp; Control tab + stale-running sync-job reaper</b> — overview per source + drill-down + pause/resume/run-now + a global pause + a viewable SyncErrorLog + the reaper + a SYNC-pause distinct from the existing AI-pause.
+  <b style="color:var(--ok-ink)">Mattermost sync resilience</b> (v0.1.35) — per-channel degrade-don't-halt, retry-with-backoff, IPv4 preference, real-outage classification.
 </div>
 <div class="sub" style="padding:10px 0;border-top:1px solid var(--line)">
-  <b style="color:var(--ok-ink)">App-wide "no screen reloads on open" sweep</b> — all 12 remaining modules migrated onto the shared cached-resource instant-load primitive.
-</div>
-<div class="sub" style="padding:10px 0;border-top:1px solid var(--line)">
-  <b style="color:var(--ok-ink)">Mattermost: live-browse + lazy AI index + sidebar reorg</b> — browsing goes live like the native app; the eager full-history crawl is DROPPED entirely; sidebar splits Channels from DMs, each sorted recents-first.
+  <b style="color:var(--ok-ink)">Sync reliability + perf</b> (v0.1.34) — cooperative pause-cancel, WAL-mode SQLite with a fair-turns write lock, bounded-concurrency Mattermost sync.
 </div>
 <div class="sub" style="padding:10px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-  <b style="color:var(--ok-ink)">Email: recent-first + lazy AI index</b> — fetch a folder's recent messages on open + bodies on click + older on scroll, instead of an eager full-mailbox crawl.
+  <b style="color:var(--ok-ink)">The "finish everything" release</b> (v0.1.33) — Mattermost live-browse + Email recent-first + app-wide no-reload sweep + Sync Status tab + stale-job reaper, all in one build.
 </div>
 
 <p class="eyebrow" style="margin:18px 0 6px">Shipped</p>
-<p class="sub" style="margin:0">31 releases, <span class="mono">v0.1.6 → v0.1.38</span> (current) — clean full-bleed layouts, full mailbox sync, Mattermost fixes, DPAPI credential persistence, LM Studio + Ollama runtimes, the Command Dashboard, Google sign-in, VAMS auth/crash fixes, the read-only VAMS Postgres connector + knowledge-graph foundation (v0.1.19), chat-on-any-brain + full local model management + email auto-organization + Mattermost full sync + 35 VAMS query tools (v0.1.20), the ask-anything tool-calling loop + interactive LLM mind map (v0.1.21), a safe-upgrade schema reconciler verified live against a real old-schema DB with data preserved (v0.1.22), the COO insight engine + dashboard drill-down capstone (v0.1.23), the VAMS projects query tools that closed the real gap behind Omar's first "provide me the data" answer (v0.1.24), chat streaming with no more 45s timeout (v0.1.25), background auto-sync for email + Mattermost + Mattermost error hardening + instant-load (v0.1.27), the organizer-churn root-cause fix + dashboard /summary unblock + AI-activity/Pause header (v0.1.29), the Mattermost upgrade-500 hotfix that self-heals on restart (v0.1.30), chat reliability — true end-to-end streaming, no more 45s timeout anywhere in tool-calling, capable-model routing, kept-warm brain (v0.1.31), VAMS attention-feed AI-churn fix + per-mailbox AI switch + Gmail \Noselect fix + Projects/Gantt from VAMS Sales Orders (v0.1.32), the "finish everything" release — Mattermost live-browse + Email recent-first + app-wide no-reload sweep + Sync Status tab + stale-job reaper (v0.1.33), the real-data sync-reliability + perf fix (v0.1.34), Mattermost sync resilience (v0.1.35), Mattermost sync completeness + real retry + persistent logging (v0.1.36), the Mattermost "Sync everything (full history)" depth toggle (v0.1.37), and the comprehensive DB write-lock fix — no more "database is locked" crashes under real load, 912/0 tests at full parallelism twice (v0.1.38). Full per-release notes on <a href="https://github.com/omarbinghalib/cadre/releases" target="_blank" rel="noopener">GitHub Releases</a>; expand "Previously shipped" in Tasks &amp; progress below for the compact log.</p>
+<p class="sub" style="margin:0">32 releases, <span class="mono">v0.1.6 → v0.1.39</span> (current) — clean full-bleed layouts, full mailbox sync, Mattermost fixes, DPAPI credential persistence, LM Studio + Ollama runtimes, the Command Dashboard, Google sign-in, VAMS auth/crash fixes, the read-only VAMS Postgres connector + knowledge-graph foundation (v0.1.19), chat-on-any-brain + full local model management + email auto-organization + Mattermost full sync + 35 VAMS query tools (v0.1.20), the ask-anything tool-calling loop + interactive LLM mind map (v0.1.21), a safe-upgrade schema reconciler verified live against a real old-schema DB with data preserved (v0.1.22), the COO insight engine + dashboard drill-down capstone (v0.1.23), the VAMS projects query tools that closed the real gap behind Omar's first "provide me the data" answer (v0.1.24), chat streaming with no more 45s timeout (v0.1.25), background auto-sync for email + Mattermost + Mattermost error hardening + instant-load (v0.1.27), the organizer-churn root-cause fix + dashboard /summary unblock + AI-activity/Pause header (v0.1.29), the Mattermost upgrade-500 hotfix that self-heals on restart (v0.1.30), chat reliability — true end-to-end streaming, no more 45s timeout anywhere in tool-calling, capable-model routing, kept-warm brain (v0.1.31), VAMS attention-feed AI-churn fix + per-mailbox AI switch + Gmail \Noselect fix + Projects/Gantt from VAMS Sales Orders (v0.1.32), the "finish everything" release (v0.1.33), the real-data sync-reliability + perf fix (v0.1.34), Mattermost sync resilience (v0.1.35), Mattermost sync completeness + real retry + persistent logging (v0.1.36), the Mattermost full-history depth toggle (v0.1.37), the comprehensive DB write-lock fix — no more "database is locked" crashes under real load (v0.1.38), and both Sync-everything toggles surfaced prominently on the Sync Status tab, cumulative with the write-lock fix (v0.1.39). Full per-release notes on <a href="https://github.com/omarbinghalib/cadre/releases" target="_blank" rel="noopener">GitHub Releases</a>; expand "Previously shipped" in Tasks &amp; progress below for the compact log.</p>
 
 <p class="eyebrow" style="margin:18px 0 6px">Awaiting from Omar</p>
-<p class="sub" style="margin:0">Outstanding items (tracked here, not as an alert — nothing is currently blocking the fleet):</p>
+<p class="sub" style="margin:0">Outstanding items (tracked here, not as an alert — nothing is currently blocking the fleet, which is idle between deltas):</p>
 <ul style="list-style:none;margin:6px 0 0;padding:0;display:flex;flex-direction:column;gap:0">
-  <li style="padding:6px 0;border-top:1px solid var(--line)"><span class="sub">Install v0.1.38 — the "internal error during full sync" + missing-retry issue is fixed at the root (database write-lock contention). Once installed, the Mattermost full-history toggle will be re-enabled and confirmed working. v0.1.39 (making that toggle easier to find) is building now.</span></li>
+  <li style="padding:6px 0;border-top:1px solid var(--line)"><span class="sub">Install v0.1.39 and restart — he's still on v0.1.37, so this brings both the database write-lock fix (v0.1.38) and the now-visible sync toggles (v0.1.39) in one step. Then re-enable Mattermost full-history (via the app API or the now-visible toggle) and confirm a full sync completes clean.</span></li>
   <li style="padding:6px 0;border-top:1px solid var(--line)"><span class="sub">Rotate the personal VAMS web password shared in chat to a dedicated service account.</span></li>
   <li style="padding:6px 0;border-top:1px solid var(--line)"><span class="sub">Add a Claude API key whenever he wants cloud reasoning available alongside the local models.</span></li>
 </ul>
