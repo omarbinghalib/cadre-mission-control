@@ -1,7 +1,7 @@
 {
-  "updated": "2026-08-20T04:24:28Z",
-  "heartbeat_at": "2026-08-20T04:24:28Z",
-  "last_activity": "2026-08-20T04:24:28Z",
+  "updated": "2026-08-20T04:25:28Z",
+  "heartbeat_at": "2026-08-20T04:25:28Z",
+  "last_activity": "2026-08-20T04:25:28Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
@@ -31,8 +31,8 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-20T04:24:28Z",
-      "out_age_min": 3.8,
+      "out_last_active": "2026-08-20T04:25:28Z",
+      "out_age_min": 4.8,
       "log_bytes": null,
       "status": "live",
       "live": true,
@@ -51,7 +51,7 @@
       "cache_read_tokens": 981035308,
       "cache_creation_tokens": 78089767,
       "msgs": 1960,
-      "age_min": 3.8,
+      "age_min": 4.8,
       "live": true,
       "status": "live",
       "subagent": false,
@@ -133,6 +133,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-08-20T04:24:29Z"
+    "checked_at": "2026-08-20T04:25:29Z"
   }
 }
