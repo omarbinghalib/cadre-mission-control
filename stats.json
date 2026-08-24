@@ -1,7 +1,7 @@
 {
-  "updated": "2026-08-24T03:16:40Z",
-  "heartbeat_at": "2026-08-24T03:16:40Z",
-  "last_activity": "2026-08-24T03:16:36Z",
+  "updated": "2026-08-24T03:17:30Z",
+  "heartbeat_at": "2026-08-24T03:17:30Z",
+  "last_activity": "2026-08-24T03:17:30Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
@@ -31,8 +31,8 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-24T03:16:36Z",
-      "out_age_min": 6.6,
+      "out_last_active": "2026-08-24T03:17:30Z",
+      "out_age_min": 7.5,
       "log_bytes": null,
       "status": "live",
       "live": true,
@@ -49,13 +49,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-24T03:16:20Z",
-      "out_age_min": 0.3,
-      "log_bytes": 1128023,
-      "output_tokens": 80435,
-      "cache_read_tokens": 61866089,
-      "cache_creation_tokens": 1076182,
-      "msgs": 280,
+      "out_last_active": "2026-08-24T03:17:28Z",
+      "out_age_min": 0.0,
+      "log_bytes": 1143015,
+      "output_tokens": 81230,
+      "cache_read_tokens": 63984203,
+      "cache_creation_tokens": 1079860,
+      "msgs": 287,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -72,7 +72,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-08-24T02:54:00Z",
-      "out_age_min": 22.6,
+      "out_age_min": 23.5,
       "log_bytes": 577468,
       "output_tokens": 48197,
       "cache_read_tokens": 13589540,
@@ -90,17 +90,17 @@
       "full_id": "a5f0334abbd27d438",
       "group": "claude-as-brain-one-click-gantt-model-free-ship-v0-1-42",
       "group_label": "Claude-as-brain one-click + Gantt model-free, ship v0.1.42",
-      "last_active": "2026-08-24T03:16:20Z",
-      "log_bytes": 1128023,
+      "last_active": "2026-08-24T03:17:28Z",
+      "log_bytes": 1143015,
       "live": true,
       "status": "live",
-      "age_min": 0.3,
+      "age_min": 0.0,
       "subagent": true,
       "recent": true,
-      "output_tokens": 80435,
-      "cache_read_tokens": 61866089,
-      "cache_creation_tokens": 1076182,
-      "msgs": 280
+      "output_tokens": 81230,
+      "cache_read_tokens": 63984203,
+      "cache_creation_tokens": 1079860,
+      "msgs": 287
     },
     {
       "id": "a7d9806d",
@@ -111,7 +111,7 @@
       "log_bytes": 577468,
       "live": false,
       "status": "idle",
-      "age_min": 22.6,
+      "age_min": 23.5,
       "subagent": true,
       "recent": true,
       "output_tokens": 48197,
@@ -129,7 +129,7 @@
       "cache_read_tokens": 995564002,
       "cache_creation_tokens": 80931343,
       "msgs": 1978,
-      "age_min": 6.7,
+      "age_min": 7.5,
       "live": true,
       "status": "live",
       "subagent": false,
@@ -159,11 +159,17 @@
         "track": "w0",
         "branch": "lane/claude-brain-and-gantt-modelfree",
         "available": true,
-        "commits_24h": 4,
-        "commits_7d": 39
+        "commits_24h": 5,
+        "commits_7d": 40
       }
     ],
     "recent": [
+      {
+        "hash": "f834d52",
+        "at": "2026-08-24T07:17:07+04:00",
+        "subject": "feat(settings): surface \"Use Claude as my brain\" on External Connectors too",
+        "track": "w0"
+      },
       {
         "hash": "72b4c57",
         "at": "2026-08-24T07:11:19+04:00",
@@ -205,12 +211,6 @@
         "at": "2026-08-19T11:34:32+04:00",
         "subject": "feat(projects): make Projects/Gantt Omar's VAMS execution board + progress on bars",
         "track": "w0"
-      },
-      {
-        "hash": "b601a77",
-        "at": "2026-08-19T11:34:32+04:00",
-        "subject": "feat(projects): make Projects/Gantt Omar's VAMS execution board + progress on bars",
-        "track": "w0"
       }
     ]
   },
@@ -218,6 +218,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-08-24T03:16:49Z"
+    "checked_at": "2026-08-24T03:17:30Z"
   }
 }
