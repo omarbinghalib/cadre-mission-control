@@ -1,6 +1,6 @@
 {
-  "updated": "2026-08-24T04:57:30Z",
-  "heartbeat_at": "2026-08-24T04:57:30Z",
+  "updated": "2026-08-24T05:12:29Z",
+  "heartbeat_at": "2026-08-24T05:12:29Z",
   "last_activity": "2026-08-24T04:01:56Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
@@ -32,7 +32,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": null,
-      "out_age_min": 55.1,
+      "out_age_min": 70.1,
       "log_bytes": null,
       "status": "idle",
       "live": false,
@@ -50,7 +50,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-08-24T03:54:12Z",
-      "out_age_min": 63.3,
+      "out_age_min": 78.3,
       "log_bytes": 1382201,
       "output_tokens": 108901,
       "cache_read_tokens": 91345176,
@@ -72,7 +72,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-08-24T04:01:56Z",
-      "out_age_min": 55.5,
+      "out_age_min": 70.5,
       "log_bytes": 782613,
       "output_tokens": 68230,
       "cache_read_tokens": 24339458,
@@ -94,7 +94,7 @@
       "log_bytes": 1382201,
       "live": false,
       "status": "idle",
-      "age_min": 63.3,
+      "age_min": 78.3,
       "subagent": true,
       "recent": true,
       "output_tokens": 108901,
@@ -111,7 +111,7 @@
       "log_bytes": 782613,
       "live": false,
       "status": "idle",
-      "age_min": 55.5,
+      "age_min": 70.5,
       "subagent": true,
       "recent": true,
       "output_tokens": 68230,
@@ -129,7 +129,7 @@
       "cache_read_tokens": 1002603165,
       "cache_creation_tokens": 83826230,
       "msgs": 1988,
-      "age_min": 55.1,
+      "age_min": 70.1,
       "live": false,
       "status": "idle",
       "subagent": false,
@@ -153,7 +153,7 @@
         "branch": "origin/main",
         "available": true,
         "commits_24h": 5,
-        "commits_7d": 36
+        "commits_7d": 35
       }
     ],
     "recent": [
@@ -211,6 +211,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-08-24T04:57:30Z"
+    "checked_at": "2026-08-24T05:12:29Z"
   }
 }
