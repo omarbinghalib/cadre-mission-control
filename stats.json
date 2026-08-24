@@ -1,7 +1,7 @@
 {
-  "updated": "2026-08-24T03:05:29Z",
-  "heartbeat_at": "2026-08-24T03:05:29Z",
-  "last_activity": "2026-08-24T03:05:28Z",
+  "updated": "2026-08-24T03:06:29Z",
+  "heartbeat_at": "2026-08-24T03:06:29Z",
+  "last_activity": "2026-08-24T03:06:29Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
@@ -31,8 +31,8 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-24T03:05:28Z",
-      "out_age_min": 2.0,
+      "out_last_active": "2026-08-24T03:06:29Z",
+      "out_age_min": 3.0,
       "log_bytes": null,
       "status": "live",
       "live": true,
@@ -49,13 +49,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-24T03:04:46Z",
-      "out_age_min": 0.7,
-      "log_bytes": 835457,
-      "output_tokens": 53908,
-      "cache_read_tokens": 28475425,
-      "cache_creation_tokens": 946180,
-      "msgs": 160,
+      "out_last_active": "2026-08-24T03:06:27Z",
+      "out_age_min": 0.0,
+      "log_bytes": 853561,
+      "output_tokens": 55340,
+      "cache_read_tokens": 30018088,
+      "cache_creation_tokens": 951445,
+      "msgs": 166,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -72,7 +72,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-08-24T02:54:00Z",
-      "out_age_min": 11.5,
+      "out_age_min": 12.5,
       "log_bytes": 577468,
       "output_tokens": 48197,
       "cache_read_tokens": 13589540,
@@ -90,17 +90,17 @@
       "full_id": "a5f0334abbd27d438",
       "group": "claude-as-brain-one-click-gantt-model-free-ship-v0-1-42",
       "group_label": "Claude-as-brain one-click + Gantt model-free, ship v0.1.42",
-      "last_active": "2026-08-24T03:04:46Z",
-      "log_bytes": 835457,
+      "last_active": "2026-08-24T03:06:27Z",
+      "log_bytes": 853561,
       "live": true,
       "status": "live",
-      "age_min": 0.7,
+      "age_min": 0.0,
       "subagent": true,
       "recent": true,
-      "output_tokens": 53908,
-      "cache_read_tokens": 28475425,
-      "cache_creation_tokens": 946180,
-      "msgs": 160
+      "output_tokens": 55340,
+      "cache_read_tokens": 30018088,
+      "cache_creation_tokens": 951445,
+      "msgs": 166
     },
     {
       "id": "a7d9806d",
@@ -111,7 +111,7 @@
       "log_bytes": 577468,
       "live": false,
       "status": "idle",
-      "age_min": 11.5,
+      "age_min": 12.5,
       "subagent": true,
       "recent": true,
       "output_tokens": 48197,
@@ -129,7 +129,7 @@
       "cache_read_tokens": 995564002,
       "cache_creation_tokens": 80931343,
       "msgs": 1978,
-      "age_min": 2.0,
+      "age_min": 3.0,
       "live": true,
       "status": "live",
       "subagent": false,
@@ -159,11 +159,17 @@
         "track": "w0",
         "branch": "lane/claude-brain-and-gantt-modelfree",
         "available": true,
-        "commits_24h": 1,
-        "commits_7d": 36
+        "commits_24h": 2,
+        "commits_7d": 37
       }
     ],
     "recent": [
+      {
+        "hash": "73ea46f",
+        "at": "2026-08-24T07:06:16+04:00",
+        "subject": "feat(model-manager): keep-warm strict cloud no-op + one-click e2e tests",
+        "track": "w0"
+      },
       {
         "hash": "208196a",
         "at": "2026-08-24T06:59:10+04:00",
@@ -205,12 +211,6 @@
         "at": "2026-08-19T11:28:39+04:00",
         "subject": "feat(vams): deterministic percent_complete for the sales-order execution board",
         "track": "w0"
-      },
-      {
-        "hash": "1b9fb7c",
-        "at": "2026-08-19T08:39:29+04:00",
-        "subject": "chore(release): bump version to 0.1.40",
-        "track": "w0"
       }
     ]
   },
@@ -218,6 +218,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-08-24T03:05:29Z"
+    "checked_at": "2026-08-24T03:06:29Z"
   }
 }
