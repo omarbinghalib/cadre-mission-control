@@ -1,14 +1,14 @@
 {
-  "updated": "2026-08-24T02:48:29Z",
-  "heartbeat_at": "2026-08-24T02:48:29Z",
-  "last_activity": "2026-08-24T02:48:29Z",
+  "updated": "2026-08-24T02:49:29Z",
+  "heartbeat_at": "2026-08-24T02:49:29Z",
+  "last_activity": "2026-08-24T02:49:29Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
-    "output_tokens": 6669360,
-    "cache_read_tokens": 981127252,
-    "cache_creation_tokens": 80861638,
-    "msgs": 1963,
+    "output_tokens": 6691535,
+    "cache_read_tokens": 985900277,
+    "cache_creation_tokens": 80874778,
+    "msgs": 1968,
     "sessions": 1,
     "live_sessions": 1,
     "transcript_sessions": 1,
@@ -31,7 +31,7 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-24T02:48:29Z",
+      "out_last_active": "2026-08-24T02:49:29Z",
       "out_age_min": 0.9,
       "log_bytes": null,
       "status": "live",
@@ -46,11 +46,11 @@
       "full_id": "0f7b13a0-2a85-49c0-96d5-e5a8832d8b85",
       "group": "commander",
       "group_label": "Session 0f7b13a0",
-      "last_active": "2026-08-24T02:47:34Z",
-      "output_tokens": 6669360,
-      "cache_read_tokens": 981127252,
-      "cache_creation_tokens": 80861638,
-      "msgs": 1963,
+      "last_active": "2026-08-24T02:48:37Z",
+      "output_tokens": 6691535,
+      "cache_read_tokens": 985900277,
+      "cache_creation_tokens": 80874778,
+      "msgs": 1968,
       "age_min": 0.9,
       "live": true,
       "status": "live",
@@ -67,7 +67,7 @@
     "last_active": "2026-08-19T08:12:25Z",
     "note": "Prior-session workers \u2014 retired; not part of the current fleet."
   },
-  "total_tokens": 6669360,
+  "total_tokens": 6691535,
   "commits": {
     "tracks": [
       {
@@ -133,6 +133,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-08-24T02:48:29Z"
+    "checked_at": "2026-08-24T02:49:29Z"
   }
 }
