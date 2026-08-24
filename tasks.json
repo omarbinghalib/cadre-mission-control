@@ -1,5 +1,11 @@
 [
   {
+    "title": "Claude-as-brain + Gantt model-free \u2192 v0.1.42",
+    "status": "in_progress",
+    "track": "active",
+    "note": "branch lane/claude-brain-and-gantt-modelfree off main f7b35eca (worker a5f0334a). Omar on v0.1.41: \"why is the AI loading an llm if i click gantt?\" + \"i need to connect to my claude account... using a local llm sucks.\" Two parts: (A) a PROMINENT one-click \"Use Claude as my brain\" \u2014 paste an Anthropic API key \u2192 sets Claude (claude-sonnet-5 default) as the brain for ALL workloads (chat/email_understanding/vams_analysis/reports_insights) in one action; reuses the existing ProviderRegistry + anthropic_client (/v1/messages pass-through) + routing default_provider/model + workload matrix \u2014 no new plumbing needed, just surfaced + wired as one action. NOT \"sign in with Claude\"/OAuth \u2014 that impersonates Anthropic's own apps (ToS/account-ban risk), declined as before; the supported path is a console.anthropic.com API key, pay-as-you-go. (B) Make Projects/Gantt MODEL-FREE \u2014 the deterministic SO data (percent_complete etc., shipped in v0.1.41) must never fire a model; kill whatever loads a local LLM on a Gantt click (prime suspect: SalesOrderDrawer's narrative auto-firing instead of staying on-demand/click-to-generate; also fix keep-warm so it doesn't preload a local model when the active brain is cloud). Fake-Anthropic + mock-VAMS tests. Building + will ship as v0.1.42."
+  },
+  {
     "title": "VAMS execution Gantt \u2192 v0.1.41 \u2014 SHIPPED",
     "status": "done",
     "track": "archive",
