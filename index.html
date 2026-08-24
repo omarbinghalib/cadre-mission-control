@@ -245,39 +245,36 @@
   </header>
 
   <section class="panel">
-    <div class="split"><div><p class="eyebrow">Cadre program — 1 lane running now (Claude-as-brain + Gantt model-free)</p><h2>Fleet status at a glance</h2></div></div>
+    <div class="split"><div><p class="eyebrow">Cadre program — fleet idle, v0.1.42 shipped (Claude-as-brain + Gantt model-free)</p><h2>Fleet status at a glance</h2></div></div>
     <div class="row" style="gap:8px;flex-wrap:wrap;margin:8px 0 6px">
-  <span class="chip ok"><span class="dp beat"></span>1 lane running now — Claude-as-brain + Gantt model-free</span>
-  <span class="chip mute">v0.1.41 SHIPPED — VBG execution Gantt (Latest)</span>
-  <span class="chip mute">34 releases shipped</span>
+  <span class="chip mute"><span class="dp"></span>Fleet idle — 0 active lanes</span>
+  <span class="chip ok">v0.1.42 SHIPPED — Claude-as-brain + Gantt model-free (Latest)</span>
+  <span class="chip mute">35 releases shipped</span>
 </div>
 
 <p class="eyebrow" style="margin:16px 0 8px">Milestone</p>
 <div class="sub" style="padding:10px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-  Omar, using v0.1.41 live: <i>"why is the AI loading an llm if i click gantt?"</i> and <i>"i need to connect to my claude account... using a local llm sucks."</i> His app backend was down when checked — told him to reopen Cadre. Two real asks, one new lane: (A) a prominent one-click "Use Claude as my brain" — paste an Anthropic API key and it becomes the brain for every workload (chat, email, VAMS analysis, reports) in one action; NOT "Sign in with Claude"/OAuth, which would impersonate Anthropic's own apps and risk his account (declined, as before) — the supported path is a console.anthropic.com API key. (B) Projects/Gantt made fully model-free — the deterministic SO/percent_complete data (shipped in v0.1.41) must never trigger a local model load; prime suspect is the SO drawer's narrative auto-firing instead of staying on-demand. No red alert.
+  <b style="color:var(--ok-ink)">v0.1.42 SHIPPED</b> — main <span class="mono">f834d52</span>, Latest on GitHub, both installers (72.1/74.7MB). Two deliverables for Omar's two live asks: (A) one-click <b>"Use Claude as my brain"</b> — a card at the TOP of Model Manager + on Settings › External Connectors; paste an Anthropic API key (masked, encrypted at rest) and one action sets Claude (claude-sonnet-5) as the brain for all 4 workloads — chat, email understanding, VAMS analysis, reports — reversible, pay-as-you-go, API-key-only (still NOT "sign in with Claude"/OAuth — that would impersonate Anthropic's own apps and risk his account, declined as before). (B) The real root cause of "why is the AI loading an llm if i click gantt?" — root-caused live: it was <b>never the Gantt</b> (already deterministic, no model call; the SO drawer narrative was already on-demand). It was chat <b>keep-warm</b> silently reloading the local chat brain every 240 seconds in the background, regardless of what page Omar was on. Fixed <span class="mono">keep_warm.py</span> to a strict cloud no-op — when the active chat brain is a cloud provider it skips before ever resolving a local runtime — so switching to Claude also stops the background local-model loading he was seeing. Tests: model-manager 236 + backend 934/8 skipped + frontend 110 green; packaged-exe smoke verified /health=0.1.42. The fleet is now idle — no lane currently running. No red alert.
 </div>
 
-<p class="eyebrow" style="margin:16px 0 6px">Active lane — running now</p>
-<ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0">
-  <li style="padding:10px 0;border-top:1px solid var(--line)">
-    <span class="wname" style="font-weight:650">Claude-as-brain + Gantt model-free → v0.1.42</span>
-    <span class="chip ok" style="margin-left:8px">running · lane/claude-brain-and-gantt-modelfree, off main f7b35eca</span>
-    <div class="sub" style="margin-top:3px">Building: (1) a prominent one-click "Use Claude as my brain" switch — paste an Anthropic API key, sets Claude (claude-sonnet-5 default) as the brain for chat/email_understanding/vams_analysis/reports_insights in one action, reusing the existing provider registry + Anthropic client + routing matrix (no new plumbing, just surfaced + wired); (2) kill whatever fires a local LLM on a Gantt click (the SO drawer narrative should stay on-demand, not auto-fire) and stop keep-warm from preloading a local model when the active brain is cloud. Fake-Anthropic + mock-VAMS tests. Building + will ship as v0.1.42.</div>
-  </li>
-</ul>
+<p class="eyebrow" style="margin:16px 0 6px">Active lanes</p>
+<div class="sub" style="padding:10px 0;border-top:1px solid var(--line)">None running right now — the fleet is idle after shipping v0.1.42. Standing by for the next Omar delta.</div>
 <p class="foot" style="margin:6px 0 0">Operational note: active build lanes are deliberately kept to ≤3 — the workers run on Omar's own machine, and too much parallelism worsens the very live-app slowness he's reported before.</p>
+
+<p class="eyebrow" style="margin:18px 0 6px">Shipped in v0.1.42</p>
+<div class="sub" style="padding:10px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <b style="color:var(--ok-ink)">Claude-as-brain + Gantt model-free</b> — one-click "Use Claude as my brain" (Anthropic API key → all 4 workloads, reversible, API-key-only) + the real fix for the local-LLM-loading complaint: keep-warm now strict-no-ops on a cloud brain instead of reloading a local model every 240s. Model-manager 236 + backend 934 + frontend 110 tests, packaged smoke verified /health=0.1.42.
+</div>
 
 <p class="eyebrow" style="margin:18px 0 6px">Shipped in v0.1.41</p>
 <div class="sub" style="padding:10px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <b style="color:var(--ok-ink)">VAMS execution Gantt</b> — Projects/Gantt rebuilt as the VBG execution board: VAMS active sales orders only (email view removed, reversibly), a real deterministic percent_complete + stage/on-track/delayed on every bar, full per-SO WO/PO drawer. 934 backend + 108 frontend tests, packaged smoke verified /health=0.1.41.
 </div>
 
-<p class="eyebrow" style="margin:18px 0 6px">Shipped in v0.1.40</p>
-<div class="sub" style="padding:10px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-  <b style="color:var(--ok-ink)">Idempotent knowledge ingestion</b> — fixed the checkpoint UNIQUE-constraint crash that Mattermost full-history sync exposed (a re-walked/edited message could crash the whole sync). 7 new regression tests, 919/0 at low parallelism.
+<p class="eyebrow" style="margin:18px 0 6px">Shipped in v0.1.37–40</p>
+<div class="sub" style="padding:10px 0;border-top:1px solid var(--line)">
+  <b style="color:var(--ok-ink)">Idempotent knowledge ingestion</b> (v0.1.40) — fixed the checkpoint UNIQUE-constraint crash that Mattermost full-history sync exposed.
 </div>
-
-<p class="eyebrow" style="margin:18px 0 6px">Shipped in v0.1.37–39</p>
 <div class="sub" style="padding:10px 0;border-top:1px solid var(--line)">
   <b style="color:var(--ok-ink)">Sync-everything toggles surfaced</b> (v0.1.39) — both full-history toggles (email + Mattermost) now prominent on the Sync Status tab.
 </div>
@@ -285,7 +282,7 @@
   <b style="color:var(--ok-ink)">Comprehensive DB write-lock fix</b> (v0.1.38) — a re-entrant write-lock + retry-on-locked routed through every heavy write path; killed the "internal error during full sync" crash.
 </div>
 <div class="sub" style="padding:10px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-  <b style="color:var(--ok-ink)">Mattermost "Sync everything (full history)" toggle</b> (v0.1.37) — OFF = recent-first; ON = deep-index every channel to complete history. Now stable through 3 real-data-driven fixes.
+  <b style="color:var(--ok-ink)">Mattermost "Sync everything (full history)" toggle</b> (v0.1.37) — OFF = recent-first; ON = deep-index every channel to complete history.
 </div>
 
 <p class="eyebrow" style="margin:18px 0 6px">Shipped in v0.1.33–36</p>
@@ -303,14 +300,13 @@
 </div>
 
 <p class="eyebrow" style="margin:18px 0 6px">Shipped</p>
-<p class="sub" style="margin:0">34 releases, <span class="mono">v0.1.6 → v0.1.41</span> (current) — clean full-bleed layouts, full mailbox sync, Mattermost fixes, DPAPI credential persistence, LM Studio + Ollama runtimes, the Command Dashboard, Google sign-in, VAMS auth/crash fixes, the read-only VAMS Postgres connector + knowledge-graph foundation (v0.1.19), chat-on-any-brain + full local model management + email auto-organization + Mattermost full sync + 35 VAMS query tools (v0.1.20), the ask-anything tool-calling loop + interactive LLM mind map (v0.1.21), a safe-upgrade schema reconciler verified live against a real old-schema DB with data preserved (v0.1.22), the COO insight engine + dashboard drill-down capstone (v0.1.23), the VAMS projects query tools that closed the real gap behind Omar's first "provide me the data" answer (v0.1.24), chat streaming with no more 45s timeout (v0.1.25), background auto-sync for email + Mattermost + Mattermost error hardening + instant-load (v0.1.27), the organizer-churn root-cause fix + dashboard /summary unblock + AI-activity/Pause header (v0.1.29), the Mattermost upgrade-500 hotfix that self-heals on restart (v0.1.30), chat reliability — true end-to-end streaming, no more 45s timeout anywhere in tool-calling, capable-model routing, kept-warm brain (v0.1.31), VAMS attention-feed AI-churn fix + per-mailbox AI switch + Gmail \Noselect fix + Projects/Gantt from VAMS Sales Orders (v0.1.32), the "finish everything" release (v0.1.33), the real-data sync-reliability + perf fix (v0.1.34), Mattermost sync resilience (v0.1.35), Mattermost sync completeness + real retry + persistent logging (v0.1.36), the Mattermost full-history depth toggle (v0.1.37), the comprehensive DB write-lock fix (v0.1.38), both Sync-everything toggles surfaced prominently on the Sync Status tab (v0.1.39), idempotent knowledge ingestion (v0.1.40), and the VAMS execution Gantt — Projects/Gantt rebuilt as the VBG execution board with real deterministic progress on every bar (v0.1.41). Full per-release notes on <a href="https://github.com/omarbinghalib/cadre/releases" target="_blank" rel="noopener">GitHub Releases</a>; expand "Previously shipped" in Tasks &amp; progress below for the compact log.</p>
+<p class="sub" style="margin:0">35 releases, <span class="mono">v0.1.6 → v0.1.42</span> (current) — clean full-bleed layouts, full mailbox sync, Mattermost fixes, DPAPI credential persistence, LM Studio + Ollama runtimes, the Command Dashboard, Google sign-in, VAMS auth/crash fixes, the read-only VAMS Postgres connector + knowledge-graph foundation (v0.1.19), chat-on-any-brain + full local model management + email auto-organization + Mattermost full sync + 35 VAMS query tools (v0.1.20), the ask-anything tool-calling loop + interactive LLM mind map (v0.1.21), a safe-upgrade schema reconciler verified live against a real old-schema DB with data preserved (v0.1.22), the COO insight engine + dashboard drill-down capstone (v0.1.23), the VAMS projects query tools that closed the real gap behind Omar's first "provide me the data" answer (v0.1.24), chat streaming with no more 45s timeout (v0.1.25), background auto-sync for email + Mattermost + Mattermost error hardening + instant-load (v0.1.27), the organizer-churn root-cause fix + dashboard /summary unblock + AI-activity/Pause header (v0.1.29), the Mattermost upgrade-500 hotfix that self-heals on restart (v0.1.30), chat reliability — true end-to-end streaming, no more 45s timeout anywhere in tool-calling, capable-model routing, kept-warm brain (v0.1.31), VAMS attention-feed AI-churn fix + per-mailbox AI switch + Gmail \Noselect fix + Projects/Gantt from VAMS Sales Orders (v0.1.32), the "finish everything" release (v0.1.33), the real-data sync-reliability + perf fix (v0.1.34), Mattermost sync resilience (v0.1.35), Mattermost sync completeness + real retry + persistent logging (v0.1.36), the Mattermost full-history depth toggle (v0.1.37), the comprehensive DB write-lock fix (v0.1.38), both Sync-everything toggles surfaced prominently on the Sync Status tab (v0.1.39), idempotent knowledge ingestion (v0.1.40), the VAMS execution Gantt with real deterministic progress on every bar (v0.1.41), and one-click Claude-as-brain + the keep-warm root-cause fix for the local-LLM-loading complaint (v0.1.42). Full per-release notes on <a href="https://github.com/omarbinghalib/cadre/releases" target="_blank" rel="noopener">GitHub Releases</a>; expand "Previously shipped" in Tasks &amp; progress below for the compact log.</p>
 
 <p class="eyebrow" style="margin:18px 0 6px">Awaiting from Omar</p>
 <p class="sub" style="margin:0">Outstanding items (tracked here, not as an alert — nothing is currently blocking the fleet):</p>
 <ul style="list-style:none;margin:6px 0 0;padding:0;display:flex;flex-direction:column;gap:0">
+  <li style="padding:6px 0;border-top:1px solid var(--line)"><span class="sub">Install v0.1.42 (Latest on GitHub) and paste his Anthropic API key into the new "Use Claude as my brain" card — one action switches every workload off the local models.</span></li>
   <li style="padding:6px 0;border-top:1px solid var(--line)"><span class="sub">Reopen the Cadre app — its backend was found down again on the latest check-in.</span></li>
-  <li style="padding:6px 0;border-top:1px solid var(--line)"><span class="sub">Have an Anthropic API key ready (console.anthropic.com) for when v0.1.42 lands — one paste sets Claude as the brain for every workload.</span></li>
-  <li style="padding:6px 0;border-top:1px solid var(--line)"><span class="sub">Re-enable Mattermost full-history on v0.1.40+ and confirm it completes clean to 250/250 (was 242/250 pre-fix).</span></li>
   <li style="padding:6px 0;border-top:1px solid var(--line)"><span class="sub">Rotate the personal VAMS web password shared in chat to a dedicated service account.</span></li>
 </ul>
 
