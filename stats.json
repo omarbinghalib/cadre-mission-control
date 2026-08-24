@@ -1,7 +1,7 @@
 {
-  "updated": "2026-08-24T03:09:30Z",
-  "heartbeat_at": "2026-08-24T03:09:30Z",
-  "last_activity": "2026-08-24T03:09:29Z",
+  "updated": "2026-08-24T03:10:30Z",
+  "heartbeat_at": "2026-08-24T03:10:30Z",
+  "last_activity": "2026-08-24T03:10:29Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
@@ -31,8 +31,8 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-24T03:09:29Z",
-      "out_age_min": 1.9,
+      "out_last_active": "2026-08-24T03:10:29Z",
+      "out_age_min": 0.5,
       "log_bytes": null,
       "status": "live",
       "live": true,
@@ -49,13 +49,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-24T03:09:24Z",
+      "out_last_active": "2026-08-24T03:10:24Z",
       "out_age_min": 0.1,
-      "log_bytes": 900361,
-      "output_tokens": 60702,
-      "cache_read_tokens": 35282882,
-      "cache_creation_tokens": 977169,
-      "msgs": 186,
+      "log_bytes": 948134,
+      "output_tokens": 64170,
+      "cache_read_tokens": 41756798,
+      "cache_creation_tokens": 995466,
+      "msgs": 210,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -72,7 +72,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-08-24T02:54:00Z",
-      "out_age_min": 15.5,
+      "out_age_min": 16.5,
       "log_bytes": 577468,
       "output_tokens": 48197,
       "cache_read_tokens": 13589540,
@@ -90,17 +90,17 @@
       "full_id": "a5f0334abbd27d438",
       "group": "claude-as-brain-one-click-gantt-model-free-ship-v0-1-42",
       "group_label": "Claude-as-brain one-click + Gantt model-free, ship v0.1.42",
-      "last_active": "2026-08-24T03:09:24Z",
-      "log_bytes": 900361,
+      "last_active": "2026-08-24T03:10:24Z",
+      "log_bytes": 948134,
       "live": true,
       "status": "live",
       "age_min": 0.1,
       "subagent": true,
       "recent": true,
-      "output_tokens": 60702,
-      "cache_read_tokens": 35282882,
-      "cache_creation_tokens": 977169,
-      "msgs": 186
+      "output_tokens": 64170,
+      "cache_read_tokens": 41756798,
+      "cache_creation_tokens": 995466,
+      "msgs": 210
     },
     {
       "id": "a7d9806d",
@@ -111,7 +111,7 @@
       "log_bytes": 577468,
       "live": false,
       "status": "idle",
-      "age_min": 15.5,
+      "age_min": 16.5,
       "subagent": true,
       "recent": true,
       "output_tokens": 48197,
@@ -124,12 +124,12 @@
       "full_id": "0f7b13a0-2a85-49c0-96d5-e5a8832d8b85",
       "group": "commander",
       "group_label": "Session 0f7b13a0",
-      "last_active": "2026-08-24T03:07:33Z",
+      "last_active": "2026-08-24T03:10:01Z",
       "output_tokens": 6724067,
       "cache_read_tokens": 995564002,
       "cache_creation_tokens": 80931343,
       "msgs": 1978,
-      "age_min": 2.0,
+      "age_min": 0.5,
       "live": true,
       "status": "live",
       "subagent": false,
@@ -159,11 +159,17 @@
         "track": "w0",
         "branch": "lane/claude-brain-and-gantt-modelfree",
         "available": true,
-        "commits_24h": 2,
-        "commits_7d": 37
+        "commits_24h": 3,
+        "commits_7d": 38
       }
     ],
     "recent": [
+      {
+        "hash": "d2df074",
+        "at": "2026-08-24T07:09:46+04:00",
+        "subject": "feat(model-manager): prominent one-click \"Use Claude as my brain\" UI",
+        "track": "w0"
+      },
       {
         "hash": "73ea46f",
         "at": "2026-08-24T07:06:16+04:00",
@@ -205,12 +211,6 @@
         "at": "2026-08-19T11:28:39+04:00",
         "subject": "feat(vams): deterministic percent_complete for the sales-order execution board",
         "track": "w0"
-      },
-      {
-        "hash": "afa3e84",
-        "at": "2026-08-19T11:28:39+04:00",
-        "subject": "feat(vams): deterministic percent_complete for the sales-order execution board",
-        "track": "w0"
       }
     ]
   },
@@ -218,6 +218,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-08-24T03:09:31Z"
+    "checked_at": "2026-08-24T03:10:30Z"
   }
 }
