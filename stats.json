@@ -1,6 +1,6 @@
 {
-  "updated": "2026-08-24T05:42:29Z",
-  "heartbeat_at": "2026-08-24T05:42:29Z",
+  "updated": "2026-08-24T05:57:29Z",
+  "heartbeat_at": "2026-08-24T05:57:29Z",
   "last_activity": "2026-08-24T04:01:56Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
@@ -9,15 +9,15 @@
     "cache_read_tokens": 1002603165,
     "cache_creation_tokens": 83826230,
     "msgs": 1988,
-    "sessions": 3,
+    "sessions": 2,
     "live_sessions": 0,
     "transcript_sessions": 1,
-    "subagent_sessions": 2,
-    "workers": 3,
+    "subagent_sessions": 1,
+    "workers": 2,
     "live_workers": 0,
     "stopped_workers": 0,
-    "current_workers": 3,
-    "history_workers": 146,
+    "current_workers": 2,
+    "history_workers": 147,
     "recent_window_min": 120.0
   },
   "workers": [
@@ -32,33 +32,11 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": null,
-      "out_age_min": 100.1,
+      "out_age_min": 115.1,
       "log_bytes": null,
       "status": "idle",
       "live": false,
       "signal": "coordinating (orchestrator)",
-      "recent": true
-    },
-    {
-      "name": "Claude-as-brain one-click + Gantt model-free, ship v0.1.42",
-      "role": "claude-as-brain-one-click-gantt-model-free-ship-v0-1-42",
-      "branch": null,
-      "focus": "Claude-as-brain one-click + Gantt model-free, ship v0.1.42",
-      "agent_id": "a5f0334abbd27d438",
-      "short_id": "a5f0334a",
-      "head_commit": null,
-      "head_commit_at": null,
-      "head_ago_min": null,
-      "out_last_active": "2026-08-24T03:54:12Z",
-      "out_age_min": 108.3,
-      "log_bytes": 1382201,
-      "output_tokens": 108901,
-      "cache_read_tokens": 91345176,
-      "cache_creation_tokens": 4348796,
-      "msgs": 382,
-      "status": "idle",
-      "live": false,
-      "signal": "task-output mtime + git commit",
       "recent": true
     },
     {
@@ -72,7 +50,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-08-24T04:01:56Z",
-      "out_age_min": 100.5,
+      "out_age_min": 115.5,
       "log_bytes": 782613,
       "output_tokens": 68230,
       "cache_read_tokens": 24339458,
@@ -86,23 +64,6 @@
   ],
   "sessions": [
     {
-      "id": "a5f0334a",
-      "full_id": "a5f0334abbd27d438",
-      "group": "claude-as-brain-one-click-gantt-model-free-ship-v0-1-42",
-      "group_label": "Claude-as-brain one-click + Gantt model-free, ship v0.1.42",
-      "last_active": "2026-08-24T03:54:12Z",
-      "log_bytes": 1382201,
-      "live": false,
-      "status": "idle",
-      "age_min": 108.3,
-      "subagent": true,
-      "recent": true,
-      "output_tokens": 108901,
-      "cache_read_tokens": 91345176,
-      "cache_creation_tokens": 4348796,
-      "msgs": 382
-    },
-    {
       "id": "a7d9806d",
       "full_id": "a7d9806d7c3381d75",
       "group": "revive-mission-control-board-after-restart",
@@ -111,7 +72,7 @@
       "log_bytes": 782613,
       "live": false,
       "status": "idle",
-      "age_min": 100.5,
+      "age_min": 115.5,
       "subagent": true,
       "recent": true,
       "output_tokens": 68230,
@@ -129,7 +90,7 @@
       "cache_read_tokens": 1002603165,
       "cache_creation_tokens": 83826230,
       "msgs": 1988,
-      "age_min": 100.1,
+      "age_min": 115.1,
       "live": false,
       "status": "idle",
       "subagent": false,
@@ -137,12 +98,12 @@
     }
   ],
   "history": {
-    "workers": 146,
+    "workers": 147,
     "by_status": {
-      "idle": 142,
+      "idle": 143,
       "stopped": 4
     },
-    "last_active": "2026-08-19T08:03:33Z",
+    "last_active": "2026-08-24T03:54:12Z",
     "note": "Prior-session workers \u2014 retired; not part of the current fleet."
   },
   "total_tokens": 6740711,
@@ -211,6 +172,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-08-24T05:42:29Z"
+    "checked_at": "2026-08-24T05:57:29Z"
   }
 }
