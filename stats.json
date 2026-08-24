@@ -1,7 +1,7 @@
 {
-  "updated": "2026-08-24T03:50:32Z",
-  "heartbeat_at": "2026-08-24T03:50:32Z",
-  "last_activity": "2026-08-24T03:50:31Z",
+  "updated": "2026-08-24T03:51:30Z",
+  "heartbeat_at": "2026-08-24T03:51:30Z",
+  "last_activity": "2026-08-24T03:51:29Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
@@ -31,8 +31,8 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-24T03:50:31Z",
-      "out_age_min": 8.6,
+      "out_last_active": "2026-08-24T03:51:29Z",
+      "out_age_min": 0.7,
       "log_bytes": null,
       "status": "live",
       "live": true,
@@ -49,13 +49,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-24T03:49:02Z",
-      "out_age_min": 1.5,
-      "log_bytes": 1309219,
-      "output_tokens": 98921,
-      "cache_read_tokens": 82281540,
-      "cache_creation_tokens": 4321146,
-      "msgs": 355,
+      "out_last_active": "2026-08-24T03:51:28Z",
+      "out_age_min": 0.0,
+      "log_bytes": 1329619,
+      "output_tokens": 100836,
+      "cache_read_tokens": 84942001,
+      "cache_creation_tokens": 4330220,
+      "msgs": 363,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -72,7 +72,7 @@
       "head_commit_at": null,
       "head_ago_min": null,
       "out_last_active": "2026-08-24T02:54:00Z",
-      "out_age_min": 56.5,
+      "out_age_min": 57.5,
       "log_bytes": 577468,
       "output_tokens": 48197,
       "cache_read_tokens": 13589540,
@@ -90,17 +90,17 @@
       "full_id": "a5f0334abbd27d438",
       "group": "claude-as-brain-one-click-gantt-model-free-ship-v0-1-42",
       "group_label": "Claude-as-brain one-click + Gantt model-free, ship v0.1.42",
-      "last_active": "2026-08-24T03:49:02Z",
-      "log_bytes": 1309219,
+      "last_active": "2026-08-24T03:51:28Z",
+      "log_bytes": 1329619,
       "live": true,
       "status": "live",
-      "age_min": 1.5,
+      "age_min": 0.0,
       "subagent": true,
       "recent": true,
-      "output_tokens": 98921,
-      "cache_read_tokens": 82281540,
-      "cache_creation_tokens": 4321146,
-      "msgs": 355
+      "output_tokens": 100836,
+      "cache_read_tokens": 84942001,
+      "cache_creation_tokens": 4330220,
+      "msgs": 363
     },
     {
       "id": "a7d9806d",
@@ -111,7 +111,7 @@
       "log_bytes": 577468,
       "live": false,
       "status": "idle",
-      "age_min": 56.5,
+      "age_min": 57.5,
       "subagent": true,
       "recent": true,
       "output_tokens": 48197,
@@ -124,12 +124,12 @@
       "full_id": "0f7b13a0-2a85-49c0-96d5-e5a8832d8b85",
       "group": "commander",
       "group_label": "Session 0f7b13a0",
-      "last_active": "2026-08-24T03:41:56Z",
+      "last_active": "2026-08-24T03:50:48Z",
       "output_tokens": 6724067,
       "cache_read_tokens": 995564002,
       "cache_creation_tokens": 80931343,
       "msgs": 1978,
-      "age_min": 8.6,
+      "age_min": 0.7,
       "live": true,
       "status": "live",
       "subagent": false,
@@ -152,8 +152,8 @@
         "track": "w0",
         "branch": "origin/main",
         "available": true,
-        "commits_24h": 0,
-        "commits_7d": 34
+        "commits_24h": 5,
+        "commits_7d": 39
       },
       {
         "track": "w0",
@@ -171,9 +171,27 @@
         "track": "w0"
       },
       {
+        "hash": "f834d52",
+        "at": "2026-08-24T07:17:07+04:00",
+        "subject": "feat(settings): surface \"Use Claude as my brain\" on External Connectors too",
+        "track": "w0"
+      },
+      {
         "hash": "72b4c57",
         "at": "2026-08-24T07:11:19+04:00",
         "subject": "chore(release): bump version to 0.1.42",
+        "track": "w0"
+      },
+      {
+        "hash": "72b4c57",
+        "at": "2026-08-24T07:11:19+04:00",
+        "subject": "chore(release): bump version to 0.1.42",
+        "track": "w0"
+      },
+      {
+        "hash": "d2df074",
+        "at": "2026-08-24T07:09:46+04:00",
+        "subject": "feat(model-manager): prominent one-click \"Use Claude as my brain\" UI",
         "track": "w0"
       },
       {
@@ -189,27 +207,9 @@
         "track": "w0"
       },
       {
-        "hash": "208196a",
-        "at": "2026-08-24T06:59:10+04:00",
-        "subject": "feat(model-manager): one-click \"Use Claude as my brain\" backend",
-        "track": "w0"
-      },
-      {
-        "hash": "f7b35ec",
-        "at": "2026-08-19T11:35:14+04:00",
-        "subject": "chore(release): bump version to 0.1.41",
-        "track": "w0"
-      },
-      {
-        "hash": "f7b35ec",
-        "at": "2026-08-19T11:35:14+04:00",
-        "subject": "chore(release): bump version to 0.1.41",
-        "track": "w0"
-      },
-      {
-        "hash": "b601a77",
-        "at": "2026-08-19T11:34:32+04:00",
-        "subject": "feat(projects): make Projects/Gantt Omar's VAMS execution board + progress on bars",
+        "hash": "73ea46f",
+        "at": "2026-08-24T07:06:16+04:00",
+        "subject": "feat(model-manager): keep-warm strict cloud no-op + one-click e2e tests",
         "track": "w0"
       }
     ]
@@ -218,6 +218,6 @@
     "task": "cadre-mission-control",
     "state": "Running",
     "paused": false,
-    "checked_at": "2026-08-24T03:50:33Z"
+    "checked_at": "2026-08-24T03:51:30Z"
   }
 }
