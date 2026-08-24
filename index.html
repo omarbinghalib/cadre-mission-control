@@ -245,20 +245,26 @@
   </header>
 
   <section class="panel">
-    <div class="split"><div><p class="eyebrow">Cadre program — fleet idle, v0.1.41 shipped (VAMS execution Gantt)</p><h2>Fleet status at a glance</h2></div></div>
+    <div class="split"><div><p class="eyebrow">Cadre program — 1 lane running now (Claude-as-brain + Gantt model-free)</p><h2>Fleet status at a glance</h2></div></div>
     <div class="row" style="gap:8px;flex-wrap:wrap;margin:8px 0 6px">
-  <span class="chip mute"><span class="dp"></span>Fleet idle — 0 active lanes</span>
-  <span class="chip ok">v0.1.41 SHIPPED — VBG execution Gantt (Latest)</span>
+  <span class="chip ok"><span class="dp beat"></span>1 lane running now — Claude-as-brain + Gantt model-free</span>
+  <span class="chip mute">v0.1.41 SHIPPED — VBG execution Gantt (Latest)</span>
   <span class="chip mute">34 releases shipped</span>
 </div>
 
 <p class="eyebrow" style="margin:16px 0 8px">Milestone</p>
 <div class="sub" style="padding:10px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-  <b style="color:var(--ok-ink)">v0.1.41 SHIPPED</b> — main <span class="mono">f7b35eca</span>, Latest on GitHub, both installers (72/74.6MB). Rebuilt cleanly after the earlier Code restart that killed the first attempt mid-flight (no shipped work was ever lost). Projects/Gantt is now Omar's VBG execution board: it renders ONLY the VAMS active sales orders — the email-projects view and its toggle are REMOVED (reversibly — the components stay in-tree, just unwired). Each Gantt bar now shows a real, deterministic <span class="mono">percent_complete</span> (completed ÷ total non-cancelled downstream engineering+production work orders, computed in one batched read-only pass; a stage-ordinal fallback when a sales order has no WOs yet; an honest <span class="mono">None</span> for terminal/unknown states — never fabricated) plus a stage label and on-track/delayed coloring, and the per-SO drawer carries the full WO/PO chain. If VAMS isn't connected, the page shows the VAMS connect state — it never silently falls back to the email view. Backend 934 passed / 8 skipped (+15 new percent_complete tests) + frontend 108 + typecheck all clean; packaged-exe smoke verified /health=0.1.41 + /vams/sales-orders 409-clean. The fleet is now idle — no lane currently running. No red alert.
+  Omar, using v0.1.41 live: <i>"why is the AI loading an llm if i click gantt?"</i> and <i>"i need to connect to my claude account... using a local llm sucks."</i> His app backend was down when checked — told him to reopen Cadre. Two real asks, one new lane: (A) a prominent one-click "Use Claude as my brain" — paste an Anthropic API key and it becomes the brain for every workload (chat, email, VAMS analysis, reports) in one action; NOT "Sign in with Claude"/OAuth, which would impersonate Anthropic's own apps and risk his account (declined, as before) — the supported path is a console.anthropic.com API key. (B) Projects/Gantt made fully model-free — the deterministic SO/percent_complete data (shipped in v0.1.41) must never trigger a local model load; prime suspect is the SO drawer's narrative auto-firing instead of staying on-demand. No red alert.
 </div>
 
-<p class="eyebrow" style="margin:16px 0 6px">Active lanes</p>
-<div class="sub" style="padding:10px 0;border-top:1px solid var(--line)">None running right now — the fleet is idle after shipping v0.1.41. Standing by for the next Omar delta.</div>
+<p class="eyebrow" style="margin:16px 0 6px">Active lane — running now</p>
+<ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0">
+  <li style="padding:10px 0;border-top:1px solid var(--line)">
+    <span class="wname" style="font-weight:650">Claude-as-brain + Gantt model-free → v0.1.42</span>
+    <span class="chip ok" style="margin-left:8px">running · lane/claude-brain-and-gantt-modelfree, off main f7b35eca</span>
+    <div class="sub" style="margin-top:3px">Building: (1) a prominent one-click "Use Claude as my brain" switch — paste an Anthropic API key, sets Claude (claude-sonnet-5 default) as the brain for chat/email_understanding/vams_analysis/reports_insights in one action, reusing the existing provider registry + Anthropic client + routing matrix (no new plumbing, just surfaced + wired); (2) kill whatever fires a local LLM on a Gantt click (the SO drawer narrative should stay on-demand, not auto-fire) and stop keep-warm from preloading a local model when the active brain is cloud. Fake-Anthropic + mock-VAMS tests. Building + will ship as v0.1.42.</div>
+  </li>
+</ul>
 <p class="foot" style="margin:6px 0 0">Operational note: active build lanes are deliberately kept to ≤3 — the workers run on Omar's own machine, and too much parallelism worsens the very live-app slowness he's reported before.</p>
 
 <p class="eyebrow" style="margin:18px 0 6px">Shipped in v0.1.41</p>
@@ -302,11 +308,10 @@
 <p class="eyebrow" style="margin:18px 0 6px">Awaiting from Omar</p>
 <p class="sub" style="margin:0">Outstanding items (tracked here, not as an alert — nothing is currently blocking the fleet):</p>
 <ul style="list-style:none;margin:6px 0 0;padding:0;display:flex;flex-direction:column;gap:0">
-  <li style="padding:6px 0;border-top:1px solid var(--line)"><span class="sub">Reopen the Cadre app — its backend went down when Claude Code restarted.</span></li>
-  <li style="padding:6px 0;border-top:1px solid var(--line)"><span class="sub">Install v0.1.41 (Latest on GitHub) and open Projects/Gantt — it's now the VBG execution board with a real progress % on every bar.</span></li>
+  <li style="padding:6px 0;border-top:1px solid var(--line)"><span class="sub">Reopen the Cadre app — its backend was found down again on the latest check-in.</span></li>
+  <li style="padding:6px 0;border-top:1px solid var(--line)"><span class="sub">Have an Anthropic API key ready (console.anthropic.com) for when v0.1.42 lands — one paste sets Claude as the brain for every workload.</span></li>
   <li style="padding:6px 0;border-top:1px solid var(--line)"><span class="sub">Re-enable Mattermost full-history on v0.1.40+ and confirm it completes clean to 250/250 (was 242/250 pre-fix).</span></li>
   <li style="padding:6px 0;border-top:1px solid var(--line)"><span class="sub">Rotate the personal VAMS web password shared in chat to a dedicated service account.</span></li>
-  <li style="padding:6px 0;border-top:1px solid var(--line)"><span class="sub">Add a Claude API key whenever he wants cloud reasoning available alongside the local models.</span></li>
 </ul>
 
   </section>

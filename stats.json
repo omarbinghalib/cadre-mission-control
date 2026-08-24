@@ -1,7 +1,7 @@
 {
-  "updated": "2026-08-24T02:52:38Z",
-  "heartbeat_at": "2026-08-24T02:52:38Z",
-  "last_activity": "2026-08-24T02:52:37Z",
+  "updated": "2026-08-24T02:52:59Z",
+  "heartbeat_at": "2026-08-24T02:52:59Z",
+  "last_activity": "2026-08-24T02:52:58Z",
   "generated_by": "mission-control-kit (0f7b13a0)",
   "schema": 5,
   "totals": {
@@ -31,8 +31,8 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-24T02:52:37Z",
-      "out_age_min": 1.4,
+      "out_last_active": "2026-08-24T02:52:58Z",
+      "out_age_min": 1.7,
       "log_bytes": null,
       "status": "live",
       "live": true,
@@ -49,13 +49,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-24T02:52:34Z",
+      "out_last_active": "2026-08-24T02:52:58Z",
       "out_age_min": 0.0,
-      "log_bytes": 225576,
-      "output_tokens": 6622,
-      "cache_read_tokens": 1221354,
-      "cache_creation_tokens": 377817,
-      "msgs": 24,
+      "log_bytes": 257895,
+      "output_tokens": 8188,
+      "cache_read_tokens": 2110290,
+      "cache_creation_tokens": 445019,
+      "msgs": 33,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -71,13 +71,13 @@
       "head_commit": null,
       "head_commit_at": null,
       "head_ago_min": null,
-      "out_last_active": "2026-08-24T02:52:36Z",
-      "out_age_min": 0.0,
-      "log_bytes": 535619,
-      "output_tokens": 44631,
-      "cache_read_tokens": 11266536,
-      "cache_creation_tokens": 731017,
-      "msgs": 138,
+      "out_last_active": "2026-08-24T02:52:55Z",
+      "out_age_min": 0.1,
+      "log_bytes": 547707,
+      "output_tokens": 45606,
+      "cache_read_tokens": 12076530,
+      "cache_creation_tokens": 733769,
+      "msgs": 144,
       "status": "live",
       "live": true,
       "signal": "task-output mtime + git commit",
@@ -90,34 +90,34 @@
       "full_id": "a5f0334abbd27d438",
       "group": "claude-as-brain-one-click-gantt-model-free-ship-v0-1-42",
       "group_label": "Claude-as-brain one-click + Gantt model-free, ship v0.1.42",
-      "last_active": "2026-08-24T02:52:34Z",
-      "log_bytes": 225576,
+      "last_active": "2026-08-24T02:52:58Z",
+      "log_bytes": 257895,
       "live": true,
       "status": "live",
       "age_min": 0.0,
       "subagent": true,
       "recent": true,
-      "output_tokens": 6622,
-      "cache_read_tokens": 1221354,
-      "cache_creation_tokens": 377817,
-      "msgs": 24
+      "output_tokens": 8188,
+      "cache_read_tokens": 2110290,
+      "cache_creation_tokens": 445019,
+      "msgs": 33
     },
     {
       "id": "a7d9806d",
       "full_id": "a7d9806d7c3381d75",
       "group": "revive-mission-control-board-after-restart",
       "group_label": "Revive mission-control board after restart",
-      "last_active": "2026-08-24T02:52:36Z",
-      "log_bytes": 535619,
+      "last_active": "2026-08-24T02:52:55Z",
+      "log_bytes": 547707,
       "live": true,
       "status": "live",
-      "age_min": 0.0,
+      "age_min": 0.1,
       "subagent": true,
       "recent": true,
-      "output_tokens": 44631,
-      "cache_read_tokens": 11266536,
-      "cache_creation_tokens": 731017,
-      "msgs": 138
+      "output_tokens": 45606,
+      "cache_read_tokens": 12076530,
+      "cache_creation_tokens": 733769,
+      "msgs": 144
     },
     {
       "id": "0f7b13a0",
@@ -129,7 +129,7 @@
       "cache_read_tokens": 993613236,
       "cache_creation_tokens": 80927953,
       "msgs": 1976,
-      "age_min": 1.4,
+      "age_min": 1.7,
       "live": true,
       "status": "live",
       "subagent": false,
@@ -154,6 +154,13 @@
         "available": true,
         "commits_24h": 0,
         "commits_7d": 36
+      },
+      {
+        "track": "w0",
+        "branch": "lane/claude-brain-and-gantt-modelfree",
+        "available": true,
+        "commits_24h": 0,
+        "commits_7d": 36
       }
     ],
     "recent": [
@@ -161,6 +168,18 @@
         "hash": "f7b35ec",
         "at": "2026-08-19T11:35:14+04:00",
         "subject": "chore(release): bump version to 0.1.41",
+        "track": "w0"
+      },
+      {
+        "hash": "f7b35ec",
+        "at": "2026-08-19T11:35:14+04:00",
+        "subject": "chore(release): bump version to 0.1.41",
+        "track": "w0"
+      },
+      {
+        "hash": "b601a77",
+        "at": "2026-08-19T11:34:32+04:00",
+        "subject": "feat(projects): make Projects/Gantt Omar's VAMS execution board + progress on bars",
         "track": "w0"
       },
       {
@@ -176,41 +195,29 @@
         "track": "w0"
       },
       {
+        "hash": "afa3e84",
+        "at": "2026-08-19T11:28:39+04:00",
+        "subject": "feat(vams): deterministic percent_complete for the sales-order execution board",
+        "track": "w0"
+      },
+      {
         "hash": "1b9fb7c",
         "at": "2026-08-19T08:39:29+04:00",
         "subject": "chore(release): bump version to 0.1.40",
         "track": "w0"
       },
       {
-        "hash": "8bff7b1",
-        "at": "2026-08-19T08:37:05+04:00",
-        "subject": "test: cover v0.1.40 idempotent ingestion + session hygiene + degrade-not-crash",
-        "track": "w0"
-      },
-      {
-        "hash": "d0903f7",
-        "at": "2026-08-19T08:29:12+04:00",
-        "subject": "fix(mattermost-sync): harden the channel-failure recording path",
-        "track": "w0"
-      },
-      {
-        "hash": "137d967",
-        "at": "2026-08-19T08:29:03+04:00",
-        "subject": "fix(database): roll back the session on ANY guarded_write failure",
-        "track": "w0"
-      },
-      {
-        "hash": "74ffa71",
-        "at": "2026-08-19T08:28:54+04:00",
-        "subject": "fix(knowledge): idempotent Mattermost checkpoint write + degrade-per-thread",
+        "hash": "1b9fb7c",
+        "at": "2026-08-19T08:39:29+04:00",
+        "subject": "chore(release): bump version to 0.1.40",
         "track": "w0"
       }
     ]
   },
   "publisher": {
     "task": "cadre-mission-control",
-    "state": "Running",
+    "state": "Ready",
     "paused": false,
-    "checked_at": "2026-08-24T02:52:39Z"
+    "checked_at": "2026-08-24T02:53:00Z"
   }
 }
