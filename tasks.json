@@ -1,230 +1,26 @@
-[
-  {
-    "title": "Claude-as-brain + Gantt model-free \u2192 v0.1.42 \u2014 SHIPPED",
-    "status": "done",
-    "track": "archive",
-    "note": "main f834d52, Latest, both installers (72.1/74.7MB). Two deliverables: (A) one-click \"Use Claude as my brain\" \u2014 a UseClaudeBrainCard at the TOP of Model Manager + on Settings \u203a External Connectors; paste an Anthropic API key (masked, encrypted at rest) \u2192 POST /model-manager/policy/use-claude-brain sets default_provider=anthropic + default_model=claude-sonnet-5 + prefer_local=false + all 4 workloads (chat/email_understanding/vams_analysis/reports_insights)\u2192anthropic in one action; reversible, pay-as-you-go note, API-key-only \u2014 NOT OAuth/sign-in-with-Claude (declined for ToS/account-ban risk). (B) Gantt/model-free \u2014 root-caused live: the actual cause of \"AI loads an llm on Gantt click\" was NOT the Gantt (already deterministic, no model; the SO drawer narrative was already on-demand) \u2014 it was chat KEEP-WARM continuously reloading the LOCAL chat brain every 240s in the background, regardless of what page Omar was on. Fixed keep_warm.py to a STRICT CLOUD NO-OP: when the active chat brain is a cloud provider, it skips before ever resolving a runtime \u2014 so switching to Claude also stops the background local-model loading Omar was seeing. Tests: model-manager 236 + backend 934/8 skipped + frontend 110 green. Packaged-exe smoke verified /health=0.1.42. Fleet now idle \u2014 no active lane."
-  },
-  {
-    "title": "VAMS execution Gantt \u2192 v0.1.41 \u2014 SHIPPED",
-    "status": "done",
-    "track": "archive",
-    "note": "main f7b35eca, Latest, both installers (72/74.6MB) \u2014 rebuilt cleanly after the Code restart (worker a0e818fe, off the same 1b9fb7c starting point as the killed first attempt). Projects/Gantt is now Omar's VBG execution board: renders ONLY the VAMS active sales orders \u2014 the email-projects view + toggle is REMOVED (reversibly \u2014 components kept in-tree, unwired). Each Gantt bar shows a real deterministic percent_complete (completed \u00f7 total non-cancelled downstream engineering+production WOs, computed in ONE batched read-only pass; stage-ordinal fallback when a SO has no WOs; honest None for terminal/unknown \u2014 never fabricated) + stage_label + on-track/delayed coloring; per-SO drawer has the full WO/PO chain + progress. New fields percent_complete/basis/wo_completed/wo_total on the SO list. VAMS-not-connected shows the VAMS connect state, never silently falls back to the email view. Backend 934 passed / 8 skipped (+15 new percent_complete tests) + frontend 108 + typecheck all clean. Packaged-exe smoke verified /health=0.1.41 + /vams/sales-orders 409-clean. Fleet now idle \u2014 no active lane."
-  },
-  {
-    "title": "Idempotent knowledge ingestion \u2014 v0.1.40 \u2014 SHIPPED",
-    "status": "done",
-    "track": "archive",
-    "note": "main 1b9fb7c, both installers (72/74.5MB). Fixes the Mattermost full-history ingestion crash. Root cause (nice find): the knowledge-ingestion checkpoint used db.merge(KnowledgeIngestionCheckpoint(...)) which reconciles by the surrogate id PK (never set) \u2192 always scheduled a plain INSERT \u2192 UNIQUE(source, external_id) violation on a re-walked/edited message \u2192 PendingRollbackError crashed the full sync + broke the failure-recording path. Fixed: (1) idempotent _upsert_ingestion_checkpoint (find-by-natural-key + update, else insert); (2) guarded_write rolls back on ANY failure before re-raising; (3) per-thread atomic ingest \u2014 a failing thread rolls back + skips + continues (transient locks still re-raised for guarded_write retry); (4) hardened _record_channel_failure/_channel_label (rollback + re-fetch on clean session, label never raises). 7 new regression tests; full suite 919 passed / 0 fail at low parallelism (authoritative). Packaged-exe smoke verified /health=0.1.40. HONEST RESIDUAL: both full-parallelism test runs showed a single DIFFERENT unrelated timing-flake each (VAMS-auth, dashboard-cache) that passes in isolation \u2014 NOT caused by this fix, minor/environmental, not blocking. This is the build Omar should install next \u2014 restart, then re-enable Mattermost full-history (toggle or API) and confirm it completes clean to 250/250 (was 242/250 before this fix)."
-  },
-  {
-    "title": "Surface Sync-everything toggles on Sync Status tab \u2014 v0.1.39 \u2014 SHIPPED",
-    "status": "done",
-    "track": "archive",
-    "note": "main 3f6941b, both installers. The \"Sync everything (full history)\" toggles are now surfaced prominently on the Sync Status tab per source \u2014 Mattermost row \u2192 PUT /mattermost/sync/preferences (full_history_enabled); each email account row \u2192 PUT /email/accounts/{id}/sync/preferences (backfill_enabled); new SyncEverythingToggle.tsx component; helper copy \"Off=recent (fast) / On=full history (heavier)\". Pre-existing channel-rail + Settings toggles left untouched (both paths still work). Core tests 102/102 green (+3). Packaged smoke verified /health=0.1.39. Note: the earlier build death mid-lane was the machine sleeping mid-compile (not a code bug) \u2014 re-ran clean; also root-caused a real build gotcha along the way: `pnpm build -- --target` forwards a literal `--` to cargo, so the tauri bundler looks in the wrong dir \u2014 fixed by using `pnpm --filter @cadre/desktop exec tauri build --target ...` instead. Confirmed working live: Omar installed v0.1.39, found and used the Mattermost toggle himself, sync reached 242/250 before hitting the next bug (fixed in v0.1.40, superseding this as Latest above)."
-  },
-  {
-    "title": "DB write-lock comprehensive fix \u2014 v0.1.38 \u2014 SHIPPED",
-    "status": "done",
-    "track": "archive",
-    "note": "main 05cdd13, both installers. Root cause was TWO things: (1) only sync workers took the write-lock, so Mattermost sync + knowledge ingestion + the understanding worker + its lease heartbeat all collided at the SQLite driver level \u2192 exhausted busy_timeout \u2192 an unhandled \"database is locked\" crashed the full sync (this was Omar's \"internal error\" AND why retries never fired \u2014 the run died before the retry sweep could run); (2) the pre-existing flaky test cluster was ALSO a test-isolation bug \u2014 tests never overrode CADRE_MODEL_MANAGER_URL, so they read Omar's REAL paused model-manager, the understanding worker deferred every job, and wait_until_idle timed out. Fixed: a re-entrant sync_write_lock + guarded_write() that RETRIES the whole write unit on database-locked (backoff, rollback-between, sleep outside the lock); routed Mattermost sync + knowledge_entities ingestion + understanding + lease-heartbeat + email writes through it; fixed a deadlock (a write transaction crossing a lock window); database-locked now degrades-per-item, never crashes a run. New flood test passes. Backend 912/0 SERIAL + 912/0 at -n auto (8 workers, all cores) TWICE \u2014 baseline was 22 failed \u2014 + model-manager 225 + frontend 99. Packaged-exe smoke verified /health=0.1.38 + WAL. Mattermost full-history toggle is now safe to re-enable on this build. Superseded by v0.1.39 (Latest) above, which is cumulative (includes this fix) and also surfaces the toggle prominently."
-  },
-  {
-    "title": "Mattermost Sync-everything toggle \u2014 v0.1.37 \u2014 SHIPPED",
-    "status": "done",
-    "track": "archive",
-    "note": "main 77e1956, both installers. Mattermost \"Sync everything (full history)\" toggle \u2014 new singleton table mattermost_sync_prefs (full_history_enabled, migration-safe + upgrade test); OFF = recent-first (byte-identical to pre-v0.1.37 behavior); ON = deep-index every channel to complete history (reuses v0.1.36's resume/retry/timeout/concurrency machinery). UI toggle added to the Mattermost Sync Status panel (channel rail), mirroring email's backfill switch. GET/PUT /mattermost/sync/preferences. Tests fully green (+4 new including the upgrade test), NO residual flakes. Packaged-exe smoke verified /health=0.1.37 + prefs endpoint 200. This toggle triggered the write-lock contention crash under real load, which was held OFF and then fixed comprehensively in v0.1.38 (Latest, above) \u2014 safe to re-enable now."
-  },
-  {
-    "title": "MM sync completeness + retry + logging \u2014 v0.1.36 \u2014 SHIPPED",
-    "status": "done",
-    "track": "archive",
-    "note": "main cb0697a, both installers. Root-caused live on Omar's running v0.1.35 app (curl'd /mattermost/sync/status + /sync-status/errors + checked the app data dir): sync ended status=done but left 93 done / 1 error / 156 PENDING of 250 channels; a stale constant next_retry_at meant failed channels never retried; a sync had hung ~21h before the reaper caught it; and there were no persisted backend logs. Fixed: real retry \u2014 root cause was deep_index_channel's error path freezing next_retry_at; added in-run retry sweep + next-pass retry + CHANNEL_MAX_RETRIES=8; backfill-to-completeness \u2014 active-first then inactive backfill so channels_done converges to channels_total; deep-index partial-resume (new nullable history_index_page column, migration-safe); persistent rotating FILE logging (%APPDATA%/com.cadre.desktop/backend/logs/cadre.log) + GET /sync-status/logs; 120s per-channel timeout; reaper threshold tightened 20min\u219215min. Feature tests 40/40 + model-manager 225 + frontend 99 green. Packaged-exe smoke verified /health=0.1.36 + log-file-written + /sync-status/logs ok. Directly answers Omar's 3 asks: retry failed channels, finish everything, application logs. Superseded by v0.1.37 (Latest) above \u2014 v0.1.37 adds the full-history depth toggle on top of this."
-  },
-  {
-    "title": "Mattermost sync resilience \u2014 v0.1.35 \u2014 SHIPPED",
-    "status": "done",
-    "track": "archive",
-    "note": "main 0f668ea, both installers. Core fix: a transient per-channel failure now DEGRADES that channel (mark + backoff + retry next pass) and the run CONTINUES / ends non-fatal \"done\", instead of flipping the whole workspace job to \"error\" and stopping (Omar's real run had stalled at 92/249 on this bug). Plus: retry-with-backoff 3x on transient errors (ConnectError/timeouts/429/5xx), prefer IPv4 (dodges the flaky-first IPv6 AAAA that caused the false \"unreachable\" reads), bounded timeouts (connect 8s / read 20s), real-outage classification (5 consecutive connection failures \u2192 stop early, else continue), and clear error messages (fixed the blank \"unreachable: \"). Tests: backend 896 + model-manager 225 + frontend 99 all green (single-threaded); +9 new tests including fake-server transient-failure injection; fixed an old buggy assertion (job.status error\u2192done). Packaged-exe smoke verified /health=0.1.35 + /sync-status=200. No classifier blocks. Superseded by v0.1.36 above \u2014 the sync reached \"done\" reliably after this, but Omar found \"done\" still wasn't \"complete\" (many channels left pending, no real retry, no logs) \u2014 v0.1.36 fixes that."
-  },
-  {
-    "title": "Sync reliability + perf \u2014 v0.1.34 \u2014 SHIPPED",
-    "status": "done",
-    "track": "archive",
-    "note": "main 875409e, both installers. Fixes for the stall Omar hit on real data (root-caused live via /sync-status + /mattermost/sync/status): (1) cooperative pause-cancel \u2014 pause now stops an in-flight sync at the next folder/channel boundary, persists progress, returns idle (previously only blocked NEW syncs); (2) SQLite write contention killed \u2014 WAL + busy_timeout=10000 + synchronous=NORMAL (verified by test) + an app-level sync_write_lock so email and Mattermost take fair turns at the single writer; (3) Mattermost faster \u2014 bounded concurrency (5 channels), most-recently-active first, inactive DMs skipped entirely (zero round-trips), per-channel degrade behavior intact; (4) cleanup \u2014 stale [Gmail]/[Gmail]Trash folder rows removed safely + anything past next_retry_at cleared. Per Omar's \"fix all failures\" directive: the ~22 failing files were confirmed CPU/DB-starvation flakes (identical failures reproduced on unmodified origin/main; 52/52 green once quiet) \u2014 HARDENED the fragile drain-timeout tests rather than dismissed. Backend 887 passed / 0 failed TWICE + model-manager 225 + frontend 99 vitest + typecheck + build all green. Packaged-exe smoke verified: /health=0.1.34, /sync-status/overview=200, journal_mode=wal. No classifier blocks. Superseded by v0.1.35 (Latest) above \u2014 the fix here (bounded concurrency etc.) unstalled Mattermost sync in real use, but a transient per-channel hiccup still incorrectly halted the whole job; v0.1.35 fixes that."
-  },
-  {
-    "title": "v0.1.33 release \u2014 finish-everything backlog \u2014 SHIPPED",
-    "status": "done",
-    "track": "archive",
-    "note": "main 6d0002c, both installers. MILESTONE \u2014 CLOSES OUT Omar's \"finish everything\" backlog. Merged the app-wide no-reload sweep + Sync-Status/reaper onto main (which already had Mattermost live-browse + Email recent-first) \u2014 clean merges, 0 conflicts. Backend 876 + model-manager 225 + frontend 99 vitest + typecheck + build all green; packaged-exe smoke verified /health=0.1.33 + /sync-status/overview=200 + reconciler/reaper clean on a scratch DB; real dev DB untouched; no classifier blocks. Superseded by v0.1.34 (Latest) above \u2014 Omar ran this on real data and hit a sync-contention stall that v0.1.34 fixes (see the 4 individual feature entries below for v0.1.33's per-lane detail)."
-  },
-  {
-    "title": "Sync Status & Control tab + stale-running sync-job reaper \u2014 SHIPPED (v0.1.33)",
-    "status": "done",
-    "track": "archive",
-    "note": "branch lane/sync-status-control @ 6cbd54b (worker a43513a). Sync-Status module (overview per source: state/progress/ETA/depth + drill-down per folder/channel + pause/resume/run-now + a global pause + a viewable SyncErrorLog) + the reaper (unsticks jobs stuck in status=running, heartbeat-safe) + a SYNC-pause distinct from the existing AI-pause. NEW tables only (SyncErrorLog, SyncPauseState) \u2014 zero migration risk. Backend 876 passed + frontend 78 vitest + typecheck + build green. Shipped in v0.1.33."
-  },
-  {
-    "title": "App-wide \"no screen reloads on open\" sweep \u2014 SHIPPED (v0.1.33)",
-    "status": "done",
-    "track": "archive",
-    "note": "branch lane/app-wide-instant-load @ a07db4b (worker ad12e40f), 10 commits. All 12 remaining modules migrated onto the shared useCachedResource instant-load primitive \u2014 calendar, integrations, contacts, vams, github, network, model-manager (+10 panels), presentations, agents, reports, projects, settings. (mattermost/inbox/chat/dashboard were already done.) @cadre/core typecheck PASS + 66 vitest + vite build PASS. Its own review pass caught + fixed a must-fix (swallowed create-project errors) plus banner polish. Shipped in v0.1.33 \u2014 Omar's standing rule (no screen/tab/options page may reload-everything-live on open) is now enforced app-wide."
-  },
-  {
-    "title": "Mattermost: live-browse + lazy AI index + sidebar reorg \u2014 SHIPPED (v0.1.33)",
-    "status": "done",
-    "track": "archive",
-    "note": "branch lane/mattermost-live-browse @ 0c55142 (worker ac1f0206e64405af5). Cache-paint instant + WS live-on-top + lazy older-load; eager full-history crawl DROPPED entirely (bounded recent window + opt-in deep_index_channel on scroll-back replaces the old blanket full-crawl); recent/active-scoped lazy AI index; sidebar splits Channels (O/P) from DMs (D/G), each sorted recents-first. 2 new DB columns, both NULLABLE (reconciler-safe, no migration-crash risk) + an extended old-schema upgrade regression test. Shipped in v0.1.33."
-  },
-  {
-    "title": "Email: recent-first + lazy AI index \u2014 SHIPPED (v0.1.33)",
-    "status": "done",
-    "track": "archive",
-    "note": "branch lane/email-recent-first @ 4b2dcda (worker a858acf218fac351c). Recent-first (newest 500/folder via fetch_recent_window) + fetch-on-demand (older-on-scroll, body-on-click) + cache-paint. Eager full-mailbox crawl DROPPED \u2014 only runs under the new opt-in backfill switch. Lazy AI index auto-scoped to recent (understanding stays ON, deeper on body-click). Per-account \"Backfill & index everything\" switch implemented as a NEW table EmailAccountSyncPref (zero migration risk, additive) + an old-schema upgrade regression test. Gmail \\Noselect fix confirmed intact. Shipped in v0.1.33."
-  },
-  {
-    "title": "integrate/wave-b-sync \u2014 Mattermost + Email MERGED to main (no build/release)",
-    "status": "done",
-    "track": "archive",
-    "note": "worker acbc1718. Merged Mattermost live-browse + Email recent-first onto main: 5e9c13d (v0.1.32) \u2192 7961363. Clean merge \u2014 one expected conflict in test_schema_reconcile.py, resolved by keeping BOTH upgrade tests; Gmail \\Noselect fix confirmed intact post-merge. Backend 859 passed / 0 failed + model-manager 225 + frontend 63 vitest green. This is an integration merge only, not a release build \u2014 no installer was cut from this commit; the actual build/ship happens as the v0.1.33 batch once the app-wide sweep + Sync Status tab/reaper (active) land."
-  },
-  {
-    "title": "v0.1.32 release \u2014 VAMS attention-feed churn + per-mailbox AI switch + Gantt \u2014 SHIPPED",
-    "status": "done",
-    "track": "archive",
-    "note": "main 5e9c13d, both installers (MSI + setup.exe). Ships: VAMS attention-feed AI-churn fix, per-mailbox AI switch + Gmail \\Noselect fix, and Projects/Gantt from VAMS Sales Orders (see the 3 individual entries below for per-feature detail). 845 backend + 225 model-manager + 45 frontend tests green; packaged-exe smoke verified the ai_enabled OLD-schema upgrade path AND the VAMS sales-order endpoints against the built exe, not just source. Superseded by v0.1.33 (Latest) above."
-  },
-  {
-    "title": "VAMS attention-feed AI-churn fix \u2014 SHIPPED (v0.1.32)",
-    "status": "done",
-    "track": "archive",
-    "note": "branch lane/vams-attentionfeed-churn (worker a8f3d336271857a6c). Backend cache + pause-gate for `_executive_summary` so it stops re-narrating the model on every load/poll and honors the \"Pause background AI\" switch. test_vams_attention_feed.py 33 passed, affected-path subset 67 passed, @cadre/core typecheck clean. Shipped in v0.1.32."
-  },
-  {
-    "title": "Per-mailbox AI switch + Gmail \\Noselect fix \u2014 SHIPPED (v0.1.32)",
-    "status": "done",
-    "track": "archive",
-    "note": "branch lane/per-account-ai-switch (worker a5f5dbeee2b56cf85), HEAD 3a4f367. Per-mailbox ai_enabled toggle (OLD-schema upgrade test green: Boolean, nullable=False, server_default=\"1\", default=True \u2014 existing accounts backfill AI-on, idempotent) + Gmail IMAP \\Noselect folder-skip fix. Backend 809 passed / 0 failed + isolation-verified delta; frontend typecheck + vitest (35) + build green. Understanding/organizer/knowledge-graph ingestion skip when AI is off; mailbox_sync + inbox read paths stay untouched. Shipped in v0.1.32."
-  },
-  {
-    "title": "Projects/Gantt from VAMS Sales Orders \u2014 SHIPPED (v0.1.32)",
-    "status": "done",
-    "track": "archive",
-    "note": "branch lane/gantt-vams-sales-orders (worker ad602162), HEAD 0e6d924. Backend `/vams/sales-orders` (open only) + deterministic `/analysis` (delivery status + downstream WO/PO bottlenecks, NO model call by default) + optional cached/pause-gated `/analysis/narrative`; frontend Projects/Gantt toggle rendering open SOs + a per-SO analysis drawer. Backend VAMS suite 309 passed / 8 skipped + 24 new; frontend typecheck + vitest 43 (8 new) + build green. Shipped in v0.1.32."
-  },
-  {
-    "title": "Chat reliability \u2014 streaming + capable-model routing + keep-warm \u2014 SHIPPED",
-    "status": "done",
-    "track": "archive",
-    "note": "branch lane/chat-reliability (worker abb225d55a25f30d5), merged to main (df603b6), released v0.1.31. P1 fix: tool-calling chat now streams end-to-end \u2014 the user's own question renders instantly (optimistic), the model's answer streams live token-by-token, and the fixed 45s timeout is gone everywhere in the tool-calling path (not just extended \u2014 eliminated; liveness comes from the stream itself). Also routes chat OFF the small 2B model (google/gemma-4-e2b) onto a capable tool-calling model (user-overridable in settings) and keeps the chat brain warm so it doesn't cold-load per request."
-  },
-  {
-    "title": "AI activity header + tame model churn \u2014 SHIPPED",
-    "status": "done",
-    "track": "archive",
-    "note": "branch lane/ai-activity-header (worker acdd2f1f), merged into release/v0.1.29. Unblocked /dashboard/summary, which was timing out at 45s (Omar saw \"too much AI usage\") \u2014 root cause was the summary synchronously fanning out to ~8 live connector/runtime probes on every load (Mattermost status alone a live 15s round-trip); fixed by serving the last-known summary from cache instantly + background refresh + cached/bounded connector health probes. Delivered a persistent header on all pages showing which service/workload is using which model live (email/Mattermost/VAMS sync status folded in) plus a \"Pause background AI\" switch, and real sync progress/ETA fields. Shipped in v0.1.29."
-  },
-  {
-    "title": "Organizer efficiency hotfix \u2014 SHIPPED",
-    "status": "done",
-    "track": "archive",
-    "note": "branch lane/organizer-efficiency (worker abdf524b), merged into release/v0.1.29 (this is the root-cause fix for the classifier churn, not a separate v0.1.28 \u2014 that intermediate version number was never released; organizer-efficiency + ai-activity-header shipped together as v0.1.29). Fixes: skip the model entirely when no folders, record a terminal \"skipped\" marker so each email is processed once (not re-classified every sync forever), cap the classifier's max tokens. 38 organizer tests green."
-  },
-  {
-    "title": "Mattermost upgrade-500 hotfix \u2014 SHIPPED",
-    "status": "done",
-    "track": "archive",
-    "note": "worker a7de5acd7539bc932, hotfix/v0.1.30. An upgrading install crashed the Mattermost integration with a 500 because the new consecutive_failures column had no server_default for existing rows; fixed with the server_default, audited sibling columns for the same class of bug, and added an old-schema upgrade regression test so this can't silently recur. Self-heals Mattermost on restart. Shipped in v0.1.30 (origin/main 544f5d4)."
-  },
-  {
-    "title": "Background auto-sync \u2014 SHIPPED",
-    "status": "done",
-    "track": "archive",
-    "note": "branch lane/auto-sync (worker ae8cbc9c), merged to main, GitHub release v0.1.27 published with MSI + setup.exe installers. Full backend suite 777 passed / 0 failed; shipped-build smoke-tested against a scratch DB (real user DB backed up first, no live accounts touched). Delivered: background auto-sync for email + Mattermost (incremental, resume-from-cursor, persists across restart/upgrade), Mattermost error hardening (per-channel backoff + named errors + isolated knowledge-ingestion), Mattermost-tab + Inbox-tab instant-load, per-service progress + honest ETA fields, and a Settings Auto-Sync section."
-  },
-  {
-    "title": "Chat streaming + timeout fix \u2014 built & tested",
-    "status": "done",
-    "track": "archive",
-    "note": "branch lane/chat-tool-streaming. The chat tool loop now streams end-to-end over SSE (live tool_call/tool_result progress + token-by-token text), the user's own message renders instantly (optimistic), and the fixed 45s abort is gone (liveness comes from the stream itself). Verified against a real running LM Studio: gemma-4-e2b completed a tool turn in ~45s, qwen3-coder-30b in ~7 minutes (cold load included) \u2014 both finished cleanly, neither ever hit a client-side abort. Also: Model Manager stops hammering an absent Ollama (cached probe). Shipped in v0.1.25."
-  },
-  {
-    "title": "VAMS projects query tools \u2014 built & tested",
-    "status": "done",
-    "track": "archive",
-    "note": "branch lane/vams-projects-tools, 756 backend tests green, real-Postgres-verified stale detection. Audit confirmed the projects query functions already existed but were NEVER registered as tools \u2014 that's why chat said \"provide me the data.\" Added vams.projects.list/get/closed/stale/stage_counts (5 tools); 40 VAMS tools total now. Throwaway test container removed. Shipped in v0.1.24."
-  },
-  {
-    "title": "COO insight engine + dashboard drill-down \u2014 built & tested (wave-2 capstone)",
-    "status": "done",
-    "track": "archive",
-    "note": "branch lane/coo-insights, 726 backend tests green, real-LM-Studio verified on a seeded cross-source scenario. Deterministic cross-source exception detection (VAMS + email + Mattermost) + model narration with fabrication REJECTED (proven: a fake $999,999.99 figure never reaches output) + a drill-down evidence trail on any dashboard field. THIS COMPLETES THE WAVE-2 VISION \u2014 Cadre reasons over the whole org. Shipped in v0.1.23."
-  },
-  {
-    "title": "Tool-calling + chat tool-loop \u2014 built & tested",
-    "status": "done",
-    "track": "archive",
-    "note": "branch lane/tool-calling, 487 backend + 209 model-manager tests green, real-LM-Studio smoke (model called KG tools \u2192 grounded cited answer). The AI answering engine: canonical tool registry, knowledge-graph tools with provenance, native+ReAct capability detection, HARD-FAIL guardrail (no fabrication), bounded cited loop with citation cross-validation. Shipped in v0.1.21."
-  },
-  {
-    "title": "LLM mind-map visualization \u2014 built & tested",
-    "status": "done",
-    "track": "archive",
-    "note": "branch lane/llm-mind-map, 21 tests, live-verified against real LM Studio + Ollama-absent. Interactive SVG node graph (runtimes/models/workloads/agents, local vs cloud bands, pan/zoom, hover-highlight, click-inspect) \u2014 hand-rolled, no new dependency, theme-aware. Found + fixed 2 render bugs along the way. Shipped in v0.1.21."
-  },
-  {
-    "title": "VAMS query-tool catalog \u2014 built & tested",
-    "status": "done",
-    "track": "archive",
-    "note": "branch lane/vams-query-tools, 562 backend tests green. Shipped in v0.1.20 as 35 read-only query tools across sales/production/procurement/engineering plus job-chain traversal (opportunities\u2192sales orders\u2192work orders\u2192BOM\u2192material reqs\u2192POs), GET /vams/tools. The invoke bridge (POST /vams/tools/{name}/invoke) that makes these actually callable by the AI shipped in v0.1.21."
-  },
-  {
-    "title": "Mattermost persistence + sync \u2014 built & tested",
-    "status": "done",
-    "track": "archive",
-    "note": "branch lane/mattermost-persistence, 451 backend tests green, sync-status UI, fake-server verified. Shipped in v0.1.20: syncs + persists Mattermost threads (like the email full-sync) into an offline-searchable store, feeding the knowledge graph \u2014 closes the third data source: email + VAMS + Mattermost all now flow into the graph."
-  },
-  {
-    "title": "Model layer \u2014 built & tested",
-    "status": "done",
-    "track": "archive",
-    "note": "branch lane/model-layer, 189 model-manager + 441 backend tests green, real-LM-Studio verified. Shipped in v0.1.20: chat on the selected brain with real token-by-token streaming; LM Studio full lifecycle via the lms CLI + download; Ollama full REST lifecycle; per-workload brain assignment; graph-shaped /map. Unblocked the Tool-calling and LLM mind-map lanes."
-  },
-  {
-    "title": "Email auto-organization \u2014 built & tested",
-    "status": "done",
-    "track": "archive",
-    "note": "branch lane/email-auto-organize, 436 backend tests + 9 live-IMAP tests + a real-LM-Studio classification smoke, all green. Shipped in v0.1.20: Off/Suggest/Auto control + kill switch + \"Organize now\" + a \"Recently filed\" log with undo. Caught and fixed a real IMAP MOVE UID-drift bug along the way."
-  },
-  {
-    "title": "VAMS read-only Postgres connector \u2014 shipped in v0.1.19",
-    "status": "done",
-    "track": "archive",
-    "note": "Shipped in v0.1.19: read-only Postgres access for per-project VAMS data (Settings \u2192 VAMS \u2192 data source: Database), generic extensible query engine, psycopg bundling proven, 70 tests green as part of the 512-test release."
-  },
-  {
-    "title": "Knowledge graph + Mattermost ingestion \u2014 shipped in v0.1.19",
-    "status": "done",
-    "track": "archive",
-    "note": "Shipped in v0.1.19: unified cross-source entity graph (email + Mattermost + VAMS) with record-code linking + ingestion processors, 442 tests green as part of the 512-test release. Internal foundation for cross-source intelligence \u2014 unblocked the Mattermost persistence + sync and VAMS query-tool catalog lanes above."
-  },
-  {
-    "title": "Wave-2 COO intelligence architecture \u2014 spec delivered",
-    "status": "done",
-    "track": "archive",
-    "note": "Design/spec lane complete (scratchpad/wave2-coo-intelligence-spec.md): designed the VAMS knowledge/query-tool layer, the cross-source (VAMS+email+Mattermost) COO insight engine, and dashboard drill-down. Unblocked the Email auto-organization and Knowledge graph build lanes."
-  },
-  {
-    "title": "Release v0.1.22 HOTFIX \u2014 verified: safe upgrades",
-    "status": "done",
-    "track": "archive",
-    "note": "The add-only startup schema reconciler shipped. Proven live: the real shipped exe added the 4 missing chat_messages columns to an old-schema DB with the existing row preserved \u2014 the user's real DB verified intact. v0.1.21's upgrade-crash bug is now RESOLVED as of that release."
-  },
-  {
-    "title": "WAVE 2 SHIPPED \u2014 35 releases, v0.1.6 \u2192 v0.1.42 (current) \u2014 Claude-as-brain + Gantt model-free",
-    "status": "done",
-    "track": "archive",
-    "note": "v0.1.6 clean inbox layout \u00b7 v0.1.7 full-mailbox sync + progress bars \u00b7 v0.1.8 all-modules clean layout \u00b7 v0.1.9 Mattermost slow-load fix \u00b7 v0.1.10 Mattermost status/CORS-on-500 fix \u00b7 v0.1.11 DPAPI credential-persistence fix \u00b7 v0.1.12 Mattermost username/password login \u00b7 v0.1.13 LM Studio + Ollama runtimes \u00b7 v0.1.14 Mattermost author names \u00b7 v0.1.15 Command Dashboard + runtime-aware Model Manager + VAMS session auth \u00b7 v0.1.16 Google sign-in for email \u00b7 v0.1.17 VAMS auth-method UX \u00b7 v0.1.18 VAMS response-shape crash fix + projects stage counts \u00b7 v0.1.19 read-only VAMS Postgres connector + knowledge-graph foundation, psycopg bundling proven, 512 tests \u00b7 v0.1.20 chat-on-any-brain with real streaming, full local model management (LM Studio + Ollama), email auto-organization, Mattermost full sync, 35 VAMS read-only query tools across the ERP \u00b7 v0.1.21 ask-anything tool-calling loop (proven live: real LM Studio called KG + VAMS tools, cited/grounded, honestly reported VAMS-not-connected) + LLM mind map + the VAMS invoke bridge \u00b7 v0.1.22 HOTFIX: safe-upgrade schema reconciler, verified against a real old-schema DB with data preserved \u00b7 v0.1.23 the COO insight engine + dashboard drill-down capstone \u2014 726 tests, backend rebuilt, honest-empty verified, real DB intact \u00b7 v0.1.24 VAMS projects query tools (5 new tools, 40 total), 756 tests, real-Postgres-verified stale detection \u2014 closes the real gap that produced Omar's first \"provide me the data\" answer \u00b7 v0.1.25 chat streams live with tools on, the 45s timeout is gone, Model Manager stops hammering an absent Ollama \u2014 verified against a real LM Studio, a 7-minute cold-load answer streamed cleanly without aborting \u00b7 v0.1.27 background auto-sync (email + Mattermost, persists across restart/upgrade) + Mattermost error hardening + Mattermost/Inbox instant-load + honest sync ETA \u2014 777 backend tests, shipped-build smoke-tested against a scratch DB \u00b7 v0.1.29 organizer-efficiency churn fix (root cause of \"LLM so busy\") + dashboard /summary unblock + AI-activity/Pause header + sync progress/ETA \u00b7 v0.1.30 Mattermost upgrade-500 hotfix: consecutive_failures server_default + sibling audit + old-schema upgrade regression test, self-heals Mattermost on restart \u00b7 v0.1.31 chat reliability: true end-to-end SSE streaming, no more 45s timeout anywhere in the tool-calling path, capable-model routing off the small 2B default, kept-warm chat brain \u00b7 v0.1.32 VAMS attention-feed AI-churn fix + per-mailbox AI switch + Gmail \\Noselect fix + Projects/Gantt from VAMS Sales Orders \u2014 845 backend + 225 model-manager + 45 frontend tests, packaged-exe smoke verified \u00b7 v0.1.33 THE \"FINISH EVERYTHING\" RELEASE: Mattermost live-browse + Email recent-first + app-wide no-reload sweep + Sync Status/Control tab + stale-job reaper, all in one build \u2014 876 backend + 225 model-manager + 99 frontend vitest + typecheck + build green, packaged-exe smoke verified /health=0.1.33 + /sync-status/overview=200 + reconciler/reaper clean on a scratch DB, real dev DB untouched, no classifier blocks; CLOSES OUT Omar's \"finish everything\" backlog \u00b7 v0.1.34 fixes the sync-reliability + perf stall Omar hit running v0.1.33 on real data (root-caused live via /sync-status + /mattermost/sync/status): cooperative pause-cancel (stops in-flight syncs at the next boundary, not just new ones), SQLite WAL + busy_timeout=10000 + synchronous=NORMAL + an app-level write lock so email/Mattermost take fair turns at the single writer, Mattermost bounded-concurrency (5 channels) + most-recently-active-first + inactive-DM skip, stale [Gmail] folder-row cleanup \u2014 backend 887 passed/0 failed TWICE (the ~22 flaky failures were confirmed CPU/DB-starvation flakes on unmodified origin/main and hardened, not dismissed) + model-manager 225 + frontend 99 vitest + typecheck + build green, packaged smoke verified journal_mode=wal \u00b7 v0.1.35 fixes the follow-on real-data issue: a transient per-channel Mattermost connection hiccup (IPv6/Cloudflare-related) was mislabeled \"server unreachable\" and halted the WHOLE workspace sync; now it degrades just that channel (mark + backoff + retry) and the job continues/ends non-fatal \u2014 plus retry-with-backoff on transient errors, IPv4 preference, bounded timeouts, real-outage-only classification (5 consecutive failures), and clear error messages \u2014 backend 896 + model-manager 225 + frontend 99 green, +9 new tests, packaged smoke verified \u00b7 v0.1.36 fixes Omar's next real-data finding: sync reached \"done\" but left 156/250 channels pending with no working retry and no logs \u2014 fixed the frozen next_retry_at (root cause in deep_index_channel's error path), added in-run + next-pass retry (CHANNEL_MAX_RETRIES=8), active-first-then-backfill so channels_done converges to total, deep-index partial-resume, persistent rotating file logging + /sync-status/logs, and a tightened 15min reaper \u2014 feature tests 40/40 + model-manager 225 + frontend 99 green, packaged smoke verified log-file-written + /sync-status/logs ok \u00b7 v0.1.37 adds the Mattermost \"Sync everything (full history)\" toggle \u2014 OFF=recent-first (byte-identical), ON=deep-index every channel to complete history, mirroring email's backfill switch \u2014 new singleton mattermost_sync_prefs table, migration-safe, +4 new tests, no residual flakes, packaged smoke verified \u00b7 v0.1.38 fixes the comprehensive DB write-lock contention the full-history toggle exposed under real load: a re-entrant sync_write_lock + guarded_write() that retries the whole write unit on database-locked instead of crashing, routed through Mattermost sync + knowledge ingestion + understanding + lease-heartbeat + email writes, plus a test-isolation fix (tests were reading Omar's real paused model-manager) \u2014 backend 912/0 SERIAL + 912/0 at full parallelism (8 workers) TWICE, baseline was 22 failed, packaged smoke verified /health=0.1.38 + WAL \u00b7 v0.1.39 surfaces both \"Sync everything (full history)\" toggles prominently on the Sync Status tab per source (Mattermost + each email account), a new SyncEverythingToggle.tsx component, core tests 102/102 green, packaged smoke verified \u2014 cumulative with v0.1.38's write-lock fix \u00b7 v0.1.40 fixes the Mattermost full-history ingestion crash that toggle exposed: a db.merge() checkpoint bug always scheduled a plain INSERT instead of an update, so a re-walked/edited message hit a UNIQUE-constraint violation and crashed the sync \u2014 fixed with an idempotent upsert + rollback-before-re-raise + per-thread atomic ingest + a hardened failure-recording path; 7 new regression tests, full suite 919/0 at low parallelism (authoritative), packaged smoke verified /health=0.1.40 · v0.1.41 rebuilds Projects/Gantt as Omar's VBG execution board: renders ONLY the VAMS active sales orders (email-projects view + toggle REMOVED, reversibly), a real deterministic percent_complete on every Gantt bar (completed ÷ total non-cancelled downstream engineering+production WOs, one batched read-only pass, stage-ordinal fallback, honest None for terminal/unknown — never fabricated) + stage_label + on-track/delayed coloring, and a per-SO drawer with the full WO/PO chain; VAMS-not-connected shows the connect state, never falls back to the email view — backend 934/8 skipped (+15 new percent_complete tests) + frontend 108 + typecheck clean, packaged smoke verified /health=0.1.41 + /vams/sales-orders 409-clean · v0.1.42 ships one-click \"Use Claude as my brain\" — a UseClaudeBrainCard (Model Manager top + Settings › External Connectors) that pastes an Anthropic API key (masked, encrypted at rest) and sets Claude as the brain for all 4 workloads (chat/email/VAMS analysis/reports) in one reversible action, API-key-only (no OAuth/sign-in-with-Claude, declined for ToS/account-ban risk) — plus the real root-cause fix for \"AI loads an llm on Gantt click\": it was chat KEEP-WARM silently reloading the local model every 240s regardless of page, not the Gantt; keep_warm.py now strict-no-ops when the active chat brain is a cloud provider, so switching to Claude also kills the background local-model loading — model-manager 236 + backend 934/8 skipped + frontend 110 green, packaged smoke verified /health=0.1.42. THE WAVE-2 VISION IS FULLY SHIPPED: Cadre reasons over the whole org (VAMS + email + Mattermost), grounded + cited, no fabrication, and every known upgrade-crash class caught so far has a regression test. Earlier (pre-release) waves \u2014 repo bootstrap, backend spine, email/model/understanding/agent-builder core, all 10 modules, connectors (VAMS/Mattermost/GitHub/NetBird), desktop shell + installer, security hardening, gamification layer \u2014 are also folded into this history; see GitHub Releases for full per-version notes."
-  }
-]
+{
+  "tasks": [
+    { "title": "Email core: IMAP/SMTP sync engine", "status": "in_progress", "track": "email", "note": "Unified inbox, folder sync, delta sync" },
+    { "title": "Email core: Triage UI + AI replies", "status": "pending", "track": "email", "note": "Swipe actions, quick classify, draft generation" },
+    { "title": "Email core: Contacts extraction + dedup", "status": "pending", "track": "email", "note": "From email headers + understanding layer" },
+    { "title": "Agent runtime: Tool calling + permissions", "status": "in_progress", "track": "agents", "note": "Native (OpenAI/Anthropic) + ReAct fallback + unsupported gate" },
+    { "title": "Agent runtime: Orders (scheduled/event triggers)", "status": "pending", "track": "agents", "note": "Draft/send/log/notify/call-API with approval modes" },
+    { "title": "Agent runtime: Kill switch + hard approval gate", "status": "completed", "track": "agents", "note": "No outbound action without explicit review" },
+    { "title": "Model Manager: OpenRouter provider + routing", "status": "completed", "track": "model-manager", "note": "Default provider, openrouter/auto model, cloud-first policy" },
+    { "title": "Model Manager: Anthropic OAuth flow", "status": "completed", "track": "model-manager", "note": "Login with Anthropic, token stored as api_key" },
+    { "title": "Model Manager: Workload assignments (chat/email/vams/reports)", "status": "in_progress", "track": "model-manager", "note": "Per-workload brain pins, fallback chains" },
+    { "title": "Model Manager: Local models opt-in (Ollama/LM Studio/bundled)", "status": "completed", "track": "model-manager", "note": "No longer default, available via provider registry" },
+    { "title": "Backend: VAMS read-only Postgres connector", "status": "completed", "track": "integrations", "note": "Projects/Opportunities via pg_source, ~1,184 projects" },
+    { "title": "Backend: VAMS COO attention feed integration", "status": "in_progress", "track": "integrations", "note": "generate_attention_feed → Dashboard section 2" },
+    { "title": "Backend: Mattermost REST + WebSocket client", "status": "completed", "track": "integrations", "note": "Channels, DMs, threads as signal for understanding" },
+    { "title": "Backend: GitHub connector (PRs, issues, repo status)", "status": "pending", "track": "integrations", "note": "PAT auth, repo watchlist, webhook receiver" },
+    { "title": "Frontend: Dashboard COO command view", "status": "completed", "track": "frontend", "note": "5 sections: needs-attention, delays, health, activity, mailbox-sync" },
+    { "title": "Frontend: Inbox module (list, thread, compose)", "status": "in_progress", "track": "frontend", "note": "Virtualized list, triage actions, AI reply composer" },
+    { "title": "Frontend: Chat module (contextual + general)", "status": "completed", "track": "frontend", "note": "Tool calls visible, streaming, agent attribution" },
+    { "title": "Frontend: Settings › External Connectors (all types)", "status": "completed", "track": "frontend", "note": "VAMS old/new, Mattermost, GitHub, NetBird, OpenRouter, Anthropic OAuth" },
+    { "title": "Frontend: Model Manager UI (catalog, providers, routing policy)", "status": "in_progress", "track": "frontend", "note": "Workload->brain matrix, live telemetry, LLM map" },
+    { "title": "Frontend: Tauri shell + sidecar lifecycle", "status": "pending", "track": "deploy", "note": "Startup/shutdown splash, tray, clean teardown" },
+    { "title": "Deploy: NSIS installer + auto-update", "status": "pending", "track": "deploy", "note": "Code signing, delta updates, startup registry" },
+    { "title": "Deploy: Mission Control dashboard for Cadre", "status": "completed", "track": "mission-control", "note": "cadre-mission-control repo, narrative panel, progress tracks" }
+  ]
+}
